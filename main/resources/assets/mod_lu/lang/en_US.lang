@@ -1,0 +1,27 @@
+## English Language File
+# By MCE626
+# Created 1/11/2018
+
+itemGroup.LU=§aLittleUtilities
+
+container.condenser=Condenser
+nei.lu.con=Condenser
+
+tile.condenser.name=Condenser
+tile.ghastTearBlock.name=Ghast Tear Block
+tile.blazeRodBlock.name=Blaze Rod Block
+tile.pork.raw.name=Raw Pork Block
+tile.pork.cooked.name=Cooked Pork Block
+tile.beef.raw.name=Raw Beef Block
+tile.beef.cooked.name=Cooked Beef Block
+tile.chicken.raw.name=Raw Chicken Block
+tile.chicken.cooked.name=Cooked Chicken Block
+tile.fish.fish.name=Fish Block
+tile.fish.salmon.name=Salmon Block
+tile.fish.clown.name=Cownfish Block
+tile.fish.puff.name=Pufferfish Block
+tile.fish.fish.cooked.name=Cooked Fish Block
+tile.fish.salmon.cooked.name=Cooked Salmon Block
+tile.rottenFleshBlock.name=Rotten Flesh Block
+tile.appleBlock.name=Apple Block
+tile.breadBlock.name=Bread Block

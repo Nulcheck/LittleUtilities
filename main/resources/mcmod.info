@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mod_lu",
+  "name": "\u00A7aLittleUtilities\u00A7r",
+  "description": "Just small little things.",
+  "version": "1.4",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["\u00A7bMCE626\u00A7r"],
+  "credits": "",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
