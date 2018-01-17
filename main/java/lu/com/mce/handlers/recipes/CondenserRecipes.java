@@ -25,38 +25,46 @@ public class CondenserRecipes {
 		// Condensed Blocks
 		this.addRecipe(new ItemStack(Items.ghast_tear, 9), new ItemStack(mod_lu.ghastTearBlock), 5f);
 		this.addRecipe(new ItemStack(Items.blaze_rod, 9), new ItemStack(mod_lu.blazeRodBlock), 5f);
-		this.addRecipe(new ItemStack(Items.porkchop, 9), new ItemStack(mod_lu.porkBlock, 1, 0), 0.5f);
-		this.addRecipe(new ItemStack(Items.cooked_porkchop, 9), new ItemStack(mod_lu.porkBlock, 1, 1), 0.5f);
-		this.addRecipe(new ItemStack(Items.beef, 9), new ItemStack(mod_lu.beefBlock, 1, 0), 0.5f);
-		this.addRecipe(new ItemStack(Items.cooked_beef, 9), new ItemStack(mod_lu.beefBlock, 1, 1), 0.5f);
-		this.addRecipe(new ItemStack(Items.chicken, 9), new ItemStack(mod_lu.chickenBlock, 1, 0), 0.5f);
-		this.addRecipe(new ItemStack(Items.cooked_chicken, 9), new ItemStack(mod_lu.chickenBlock, 1, 1), 0.5f);
-		this.addRecipe(new ItemStack(Items.fish, 9, 0), new ItemStack(mod_lu.fishBlock, 1, 0), 0.5f);
-		this.addRecipe(new ItemStack(Items.fish, 9, 1), new ItemStack(mod_lu.fishBlock, 1, 1), 0.5f);
-		this.addRecipe(new ItemStack(Items.fish, 9, 2), new ItemStack(mod_lu.fishBlock, 1, 2), 0.5f);
-		this.addRecipe(new ItemStack(Items.fish, 9, 3), new ItemStack(mod_lu.fishBlock, 1, 3), 0.5f);
-		this.addRecipe(new ItemStack(Items.cooked_fished, 9, 0), new ItemStack(mod_lu.fishBlock, 1, 4), 0.5f);
-		this.addRecipe(new ItemStack(Items.cooked_fished, 9, 1), new ItemStack(mod_lu.fishBlock, 1, 5), 0.5f);
+		this.addRecipe(new ItemStack(Items.porkchop, 9), new ItemStack(mod_lu.porkBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.cooked_porkchop, 9), new ItemStack(mod_lu.cookedPorkBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.beef, 9), new ItemStack(mod_lu.beefBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.cooked_beef, 9), new ItemStack(mod_lu.cookedBeefBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.chicken, 9), new ItemStack(mod_lu.chickenBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.cooked_chicken, 9), new ItemStack(mod_lu.cookedChickenBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.fish, 9, 0), new ItemStack(mod_lu.fishBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.fish, 9, 1), new ItemStack(mod_lu.salmonBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.fish, 9, 2), new ItemStack(mod_lu.clownfishBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.fish, 9, 3), new ItemStack(mod_lu.pufferfishBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.cooked_fished, 9, 0), new ItemStack(mod_lu.cookedFishBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.cooked_fished, 9, 1), new ItemStack(mod_lu.cookedSalmonBlock), 0.5f);
 		this.addRecipe(new ItemStack(Items.rotten_flesh, 9), new ItemStack(mod_lu.rottenFleshBlock), 0.5f);
 		this.addRecipe(new ItemStack(Items.apple, 9), new ItemStack(mod_lu.appleBlock), 0.6f);
+		this.addRecipe(new ItemStack(Items.spider_eye, 9), new ItemStack(mod_lu.spiderEyeBlock), 0.2f);
+		this.addRecipe(new ItemStack(Items.fermented_spider_eye, 9), new ItemStack(mod_lu.fSpiderEyeBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.carrot, 9), new ItemStack(mod_lu.carrotBlock), 0.2f);
+		this.addRecipe(new ItemStack(Items.potato, 9), new ItemStack(mod_lu.potatoBlock), 0.2f);
 
 		// Reverse Recipes
 		this.addRecipe(new ItemStack(mod_lu.ghastTearBlock), new ItemStack(Items.ghast_tear, 9), 5f);
 		this.addRecipe(new ItemStack(mod_lu.blazeRodBlock), new ItemStack(Items.blaze_rod, 9), 5f);
-		this.addRecipe(new ItemStack(mod_lu.porkBlock, 1, 0), new ItemStack(Items.porkchop, 9), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.porkBlock, 1, 1), new ItemStack(Items.cooked_porkchop, 9), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.beefBlock, 1, 0), new ItemStack(Items.beef, 9), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.beefBlock, 1, 1), new ItemStack(Items.cooked_beef, 9), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.chickenBlock, 1, 0), new ItemStack(Items.chicken, 9), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.chickenBlock, 1, 1), new ItemStack(Items.cooked_chicken, 9), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.fishBlock, 1, 0), new ItemStack(Items.fish, 9, 0), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.fishBlock, 1, 1), new ItemStack(Items.fish, 9, 1), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.fishBlock, 1, 2), new ItemStack(Items.fish, 9, 2), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.fishBlock, 1, 3), new ItemStack(Items.fish, 9, 3), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.fishBlock, 1, 4), new ItemStack(Items.cooked_fished, 9, 0), 0.5f);
-		this.addRecipe(new ItemStack(mod_lu.fishBlock, 1, 5), new ItemStack(Items.cooked_fished, 9, 1), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.porkBlock), new ItemStack(Items.porkchop, 9), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.cookedPorkBlock), new ItemStack(Items.cooked_porkchop, 9), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.beefBlock), new ItemStack(Items.beef, 9), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.cookedBeefBlock), new ItemStack(Items.cooked_beef, 9), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.chickenBlock), new ItemStack(Items.chicken, 9), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.cookedChickenBlock), new ItemStack(Items.cooked_chicken, 9), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.fishBlock), new ItemStack(Items.fish, 9, 0), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.salmonBlock), new ItemStack(Items.fish, 9, 1), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.clownfishBlock), new ItemStack(Items.fish, 9, 2), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.pufferfishBlock), new ItemStack(Items.fish, 9, 3), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.cookedFishBlock), new ItemStack(Items.cooked_fished, 9, 0), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.cookedSalmonBlock), new ItemStack(Items.cooked_fished, 9, 1), 0.5f);
 		this.addRecipe(new ItemStack(mod_lu.rottenFleshBlock), new ItemStack(Items.rotten_flesh, 9), 0.5f);
 		this.addRecipe(new ItemStack(mod_lu.appleBlock), new ItemStack(Items.apple, 9), 0.6f);
+		this.addRecipe(new ItemStack(mod_lu.spiderEyeBlock), new ItemStack(Items.spider_eye, 9), 0.2f);
+		this.addRecipe(new ItemStack(mod_lu.fSpiderEyeBlock), new ItemStack(Items.fermented_spider_eye, 9), 0.5f);
+		this.addRecipe(new ItemStack(mod_lu.carrotBlock), new ItemStack(Items.carrot, 9), 0.2f);
+		this.addRecipe(new ItemStack(mod_lu.potatoBlock), new ItemStack(Items.potato, 9), 0.2f);
 	}
 
 	/**

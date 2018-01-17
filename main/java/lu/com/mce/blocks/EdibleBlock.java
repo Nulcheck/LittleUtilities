@@ -3,6 +3,7 @@ package lu.com.mce.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -10,6 +11,10 @@ import net.minecraft.world.World;
 public class EdibleBlock extends Block {
 	public int lvl;
 	public float sat;
+	private int potionId;
+	private int potionDuration;
+	private int potionAmplifier;
+	private float potionEffectProbability;
 
 	public EdibleBlock(Material mat, int lvl, float sat) {
 		super(mat);
@@ -61,6 +66,10 @@ public class EdibleBlock extends Block {
 	}
 
 	private void eatBlock(World world, int x, int y, int z, EntityPlayer player) {
+		if (!world.isRemote && this.potionId > 0 && world.rand.nextFloat() < this.potionEffectProbability) {
+			player.addPotionEffect(new PotionEffect(this.potionId, this.potionDuration * 20, this.potionAmplifier));
+		}
+
 		if (player.canEat(false)) {
 			player.getFoodStats().addStats(lvl, sat);
 			int meta = world.getBlockMetadata(x, y, z) + 1;
@@ -71,5 +80,13 @@ public class EdibleBlock extends Block {
 				world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 			}
 		}
+	}
+
+	public EdibleBlock setPotionEffect(int id, int dur, int amp, float prob) {
+		this.potionId = id;
+		this.potionDuration = dur;
+		this.potionAmplifier = amp;
+		this.potionEffectProbability = prob;
+		return this;
 	}
 }

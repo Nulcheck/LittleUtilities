@@ -11,11 +11,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import lu.com.mce.blocks.Condenser;
 import lu.com.mce.blocks.EdibleBlock;
-import lu.com.mce.blocks.MeatBlocks.BeefBlock;
-import lu.com.mce.blocks.MeatBlocks.ChickenBlock;
-import lu.com.mce.blocks.MeatBlocks.FishBlock;
-import lu.com.mce.blocks.MeatBlocks.PorkBlock;
-import lu.com.mce.blocks.MeatBlocks.RottenFleshBlock;
+import lu.com.mce.blocks.ModBlocks;
 import lu.com.mce.blocks.ModBlocks.BlazeRodBlock;
 import lu.com.mce.blocks.ModBlocks.GhastTearBlock;
 import lu.com.mce.events.ChatEvent;
@@ -33,6 +29,7 @@ import lu.com.mce.util.updater.CheckVersion;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = mod_lu.modid, name = mod_lu.name, version = mod_lu.version)
@@ -52,14 +49,23 @@ public class mod_lu {
 	public static Block ghastTearBlock;
 	public static Block blazeRodBlock;
 	public static Block porkBlock;
+	public static Block cookedPorkBlock;
 	public static Block beefBlock;
+	public static Block cookedBeefBlock;
 	public static Block chickenBlock;
+	public static Block cookedChickenBlock;
 	public static Block fishBlock;
+	public static Block cookedFishBlock;
+	public static Block salmonBlock;
+	public static Block cookedSalmonBlock;
+	public static Block clownfishBlock;
+	public static Block pufferfishBlock;
 	public static Block rottenFleshBlock;
 	public static Block appleBlock;
 	public static Block breadBlock;
 	public static Block cookieBlock;
 	public static Block spiderEyeBlock;
+	public static Block fSpiderEyeBlock;
 	public static Block carrotBlock;
 	public static Block potatoBlock;
 	public static Block gunpowderBlock;
@@ -99,20 +105,45 @@ public class mod_lu {
 				.setBlockTextureName("mod_lu:block_blazeRod").setCreativeTab(lu).setStepSound(Block.soundTypeStone)
 				.setLightLevel(1f);
 
-		porkBlock = new PorkBlock(Material.ground).setBlockName("pork").setCreativeTab(lu)
+		porkBlock = new EdibleBlock(Material.ground, 3, 0.3f).setBlockName("pork").setCreativeTab(lu)
 				.setStepSound(Block.soundTypeGravel);
 
-		beefBlock = new BeefBlock(Material.ground).setBlockName("beef").setCreativeTab(lu)
+		cookedPorkBlock = new EdibleBlock(Material.ground, 8, 0.8f).setBlockName("cookedPork").setCreativeTab(lu)
 				.setStepSound(Block.soundTypeGravel);
 
-		chickenBlock = new ChickenBlock(Material.ground).setBlockName("chicken").setCreativeTab(lu)
+		beefBlock = new EdibleBlock(Material.ground, 3, 0.3f).setBlockName("beef").setCreativeTab(lu)
 				.setStepSound(Block.soundTypeGravel);
 
-		fishBlock = new FishBlock(Material.ground).setBlockName("fish").setCreativeTab(lu)
+		cookedBeefBlock = new EdibleBlock(Material.ground, 8, 0.8f).setBlockName("cookedBeef").setCreativeTab(lu)
 				.setStepSound(Block.soundTypeGravel);
 
-		rottenFleshBlock = new RottenFleshBlock(Material.ground, 4, 0.1f).setBlockName("rottenFleshBlock")
-				.setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		chickenBlock = ((EdibleBlock) new EdibleBlock(Material.ground, 2, 0.3f).setBlockName("chicken")
+				.setCreativeTab(lu).setStepSound(Block.soundTypeGravel)).setPotionEffect(Potion.hunger.id, 30, 0, 0.3F);
+
+		cookedChickenBlock = new EdibleBlock(Material.ground, 6, 0.6f).setBlockName("cookedChicken").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
+
+		fishBlock = new EdibleBlock(Material.ground, 2, 0.4f).setBlockName("fish").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
+
+		cookedFishBlock = new EdibleBlock(Material.ground, 5, 0.6f).setBlockName("cookedFish").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
+
+		salmonBlock = new EdibleBlock(Material.ground, 2, 0.2f).setBlockName("salmon").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
+
+		cookedSalmonBlock = new EdibleBlock(Material.ground, 6, 0.6f).setBlockName("cookedSalmon").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
+
+		clownfishBlock = new EdibleBlock(Material.ground, 1, 0.2f).setBlockName("clownfish").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
+
+		pufferfishBlock = ((EdibleBlock) new EdibleBlock(Material.ground, 1, 0.2f).setBlockName("puff")
+				.setCreativeTab(lu).setStepSound(Block.soundTypeGravel)).setPotionEffect(Potion.poison.id, 1200, 3, 1f)
+						.setPotionEffect(Potion.hunger.id, 300, 2, 1f).setPotionEffect(Potion.confusion.id, 300, 1, 1f);
+
+		rottenFleshBlock = new EdibleBlock(Material.ground, 4, 0.1f).setBlockName("rottenFleshBlock").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
 
 		appleBlock = new EdibleBlock(Material.ground, 4, 0.3f).setBlockName("appleBlock").setCreativeTab(lu)
 				.setStepSound(Block.soundTypeWood);
@@ -122,6 +153,18 @@ public class mod_lu {
 
 		cookieBlock = new EdibleBlock(Material.ground, 2, 0.1f).setBlockName("cookieBlock").setCreativeTab(lu)
 				.setStepSound(Block.soundTypeGravel);
+
+		spiderEyeBlock = new EdibleBlock(Material.ground, 2, 0.8f).setBlockName("spiderEyeBlock").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
+
+		fSpiderEyeBlock = new ModBlocks(Material.ground).setBlockName("fSpiderEyeBlock").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
+
+		carrotBlock = new EdibleBlock(Material.gourd, 4, 0.6f).setBlockName("carrotBlock").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeWood);
+
+		potatoBlock = new EdibleBlock(Material.gourd, 1, 0.3f).setBlockName("potatoBlock").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeWood);
 
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());
