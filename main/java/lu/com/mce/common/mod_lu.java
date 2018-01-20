@@ -143,8 +143,8 @@ public class mod_lu {
 				.setCreativeTab(lu).setStepSound(Block.soundTypeGravel)).setPotionEffect(Potion.poison.id, 1200, 3, 1f)
 						.setPotionEffect(Potion.hunger.id, 300, 2, 1f).setPotionEffect(Potion.confusion.id, 300, 1, 1f);
 
-		rottenFleshBlock = new EdibleBlock(Material.ground, 4, 0.1f).setBlockName("rottenFleshBlock").setCreativeTab(lu)
-				.setStepSound(Block.soundTypeGravel);
+		rottenFleshBlock = ((EdibleBlock) new EdibleBlock(Material.ground, 4, 0.1f).setBlockName("rottenFleshBlock").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel)).setPotionEffect(Potion.hunger.id, 30, 0, 0.8f);
 
 		appleBlock = new EdibleBlock(Material.ground, 4, 0.3f).setBlockName("appleBlock").setCreativeTab(lu)
 				.setStepSound(Block.soundTypeWood);

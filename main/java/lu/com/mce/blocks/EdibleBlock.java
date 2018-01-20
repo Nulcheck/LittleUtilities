@@ -30,8 +30,16 @@ public class EdibleBlock extends Block {
 		return false;
 	}
 
+	public int getDamageValue(World world, int x, int y, int z) {
+		return super.getDamageValue(world, x, y, z) & 9;
+	}
+
 	public int damageDropped(int meta) {
 		return meta;
+	}
+
+	public static int getMeta(int meta) {
+		return ~meta & 8;
 	}
 
 	public void setBlockBoundsBasedOnState(IBlockAccess block, int x, int y, int z) {
@@ -43,26 +51,19 @@ public class EdibleBlock extends Block {
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		int meta = world.getBlockMetadata(x, y, z);
 		float f1 = (float) (meta * 2) / 18f;
-		return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) x + 1, (double) y + 1 - f1,
-				(double) z + 1);
+		return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) x + 1, (double) y + 1 - f1, (double) z + 1);
 
 	}
 
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
 		int meta = world.getBlockMetadata(x, y, z);
 		float f1 = (float) (meta * 2) / 18f;
-		return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) x + 1, (double) y + 1 - f1,
-				(double) z + 1);
+		return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) x + 1, (double) y + 1 - f1, (double) z + 1);
 	}
 
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX,
-			float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
 		this.eatBlock(world, x, y, z, player);
 		return true;
-	}
-
-	public void onBlockClicked(World world, int x, int y, int z, EntityPlayer player) {
-		this.eatBlock(world, x, y, z, player);
 	}
 
 	private void eatBlock(World world, int x, int y, int z, EntityPlayer player) {

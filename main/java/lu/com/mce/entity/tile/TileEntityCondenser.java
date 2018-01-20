@@ -173,7 +173,10 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 			if (this.slots[0] == null)
 				return false;
 
-			if (this.slots[0].stackSize < 9)
+			if (this.slots[0].getItem() instanceof ItemBlock && this.slots[0].stackSize >= 1)
+				return true;
+			
+			if (this.slots[0].getItem() instanceof Item && this.slots[0].stackSize < 9)
 				return false;
 
 			if (this.slots[1] == null)
@@ -199,8 +202,8 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 		if (this.slots[0].getItem() instanceof ItemBlock && this.slots[0].stackSize >= 1)
 			--this.slots[0].stackSize;
 
-		/*else if (this.slots[0].getItem() instanceof Item && this.slots[0].stackSize >= 9)
-			this.slots[0].stackSize -= 9;*/
+		if (this.slots[0].getItem() instanceof Item && this.slots[0].stackSize >= 9)
+			this.slots[0].stackSize -= 9;
 
 		if (this.slots[0].stackSize <= 0)
 			this.slots[0] = null;
