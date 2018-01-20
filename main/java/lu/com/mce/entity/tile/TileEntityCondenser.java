@@ -3,6 +3,8 @@ package lu.com.mce.entity.tile;
 import lu.com.mce.handlers.recipes.CondenserRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -15,7 +17,7 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 
 	private String isInvNameLocalized;
 	private String ln;
-	
+
 	public int speed;
 	public int time;
 
@@ -86,7 +88,7 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 	public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
 		NBTTagList list = new NBTTagList();
-		
+
 		tag.setInteger("Time", this.time);
 
 		for (int i = 0; i < this.slots.length; i++) {
@@ -116,7 +118,7 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 				this.slots[b] = ItemStack.loadItemStackFromNBT(comp);
 			}
 		}
-		
+
 		this.time = tag.getInteger("Time");
 
 		if (tag.hasKey("CustomName"))
@@ -137,11 +139,11 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 
 	public void updateEntity() {
 		boolean flag1 = false;
-		
+
 		if (canCondense() && checkSlot() && !this.worldObj.isRemote) {
 			this.time++;
-			
-			if(this.time >= this.speed){
+
+			if (this.time >= this.speed) {
 				this.time = 0;
 				this.condenseItem();
 				flag1 = true;
@@ -170,8 +172,8 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 
 			if (this.slots[0] == null)
 				return false;
-			
-			if(this.slots[0].stackSize < 9)
+
+			if (this.slots[0].stackSize < 9)
 				return false;
 
 			if (this.slots[1] == null)
@@ -194,8 +196,11 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 		else if (this.slots[1].isItemEqual(stack))
 			this.slots[1].stackSize += stack.stackSize;
 
-		if(this.slots[0].stackSize >= 9)
-			this.slots[0].stackSize -= 9;
+		if (this.slots[0].getItem() instanceof ItemBlock && this.slots[0].stackSize >= 1)
+			--this.slots[0].stackSize;
+
+		/*else if (this.slots[0].getItem() instanceof Item && this.slots[0].stackSize >= 9)
+			this.slots[0].stackSize -= 9;*/
 
 		if (this.slots[0].stackSize <= 0)
 			this.slots[0] = null;

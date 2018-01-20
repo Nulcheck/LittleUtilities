@@ -1,15 +1,12 @@
 package lu.com.mce.blocks;
 
-import java.util.List;
 import java.util.Random;
 
 import lu.com.mce.common.mod_lu;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -117,6 +114,36 @@ public class ModBlocks extends Block {
 					mod_lu.proxy.spawnParticle(world, x, y, z, "blazeRodFx");
 				}
 			}
+		}
+	}
+
+	public static class BoundsBlock extends Block {
+		float f;
+
+		public BoundsBlock(Material mat, float maxY) {
+			super(mat);
+			this.f = maxY;
+			float f1 = 1f - maxY;
+			
+			this.setBlockBounds(0f, 0f, 0f, 1f, f1, 1f);
+		}
+
+		public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+			return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) (x + 1),
+					(double) ((float) (y + 1) - f), (double) (z + 1));
+		}
+
+		public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
+			return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) (x + 1),
+					(double) ((float) (y + 1) - f), (double) (z + 1));
+		}
+		
+		public boolean renderAsNormalBlock() {
+			return false;
+		}
+
+		public boolean isOpaqueCube() {
+			return false;
 		}
 	}
 }

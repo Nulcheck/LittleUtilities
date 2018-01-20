@@ -28,5 +28,6 @@ public class BlockRegistry {
 		GameRegistry.registerBlock(mod_lu.fSpiderEyeBlock, "fSpiderEyeBlock");
 		GameRegistry.registerBlock(mod_lu.carrotBlock, "carrotBlock");
 		GameRegistry.registerBlock(mod_lu.potatoBlock, "potatoBlock");
+		GameRegistry.registerBlock(mod_lu.gunpowderBlock, "gunpowderBlock");
 	}
 }

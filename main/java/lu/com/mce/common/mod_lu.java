@@ -13,6 +13,7 @@ import lu.com.mce.blocks.Condenser;
 import lu.com.mce.blocks.EdibleBlock;
 import lu.com.mce.blocks.ModBlocks;
 import lu.com.mce.blocks.ModBlocks.BlazeRodBlock;
+import lu.com.mce.blocks.ModBlocks.BoundsBlock;
 import lu.com.mce.blocks.ModBlocks.GhastTearBlock;
 import lu.com.mce.events.ChatEvent;
 import lu.com.mce.events.GameEvent;
@@ -165,6 +166,9 @@ public class mod_lu {
 
 		potatoBlock = new EdibleBlock(Material.gourd, 1, 0.3f).setBlockName("potatoBlock").setCreativeTab(lu)
 				.setStepSound(Block.soundTypeWood);
+
+		gunpowderBlock = new BoundsBlock(Material.ground, 0.1f).setBlockName("gunpowderBlock").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeSand);
 
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());
