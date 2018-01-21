@@ -1,7 +1,6 @@
 package lu.com.mce.handlers.recipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import lu.com.mce.blocks.EdibleBlock;
 import lu.com.mce.common.mod_lu;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -91,32 +90,10 @@ public class BlockRecipeHandler {
 		GameRegistry.addRecipe(new ItemStack(mod_lu.condenser), "*", '*', new ItemStack(Blocks.dirt));
 
 		// Reverse Recipes
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.ghast_tear, 9), new ItemStack(mod_lu.ghastTearBlock));
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.blaze_rod, 9), new ItemStack(mod_lu.blazeRodBlock));
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.fermented_spider_eye, 9), new ItemStack(mod_lu.fSpiderEyeBlock));
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.gunpowder, 9), new ItemStack(mod_lu.gunpowderBlock));
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.cobblestone, 9), new ItemStack(mod_lu.compCobble));
 
-		// Meta recipes
-		for (int i = 0; i < 10; ++i) {
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.porkchop, 9 - i), new ItemStack(mod_lu.porkBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.cooked_porkchop, 9 - i), new ItemStack(mod_lu.cookedPorkBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.beef, 9 - i), new ItemStack(mod_lu.beefBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.cooked_beef, 9 - i), new ItemStack(mod_lu.cookedBeefBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.chicken, 9 - i), new ItemStack(mod_lu.chickenBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.cooked_chicken, 9 - i), new ItemStack(mod_lu.cookedChickenBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.fish, 9 - i, 1), new ItemStack(mod_lu.fishBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.fish, 9 - i, 1), new ItemStack(mod_lu.salmonBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.fish, 9 - i, 2), new ItemStack(mod_lu.clownfishBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.fish, 9 - i, 3), new ItemStack(mod_lu.pufferfishBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.cooked_fished, 9 - i, 0), new ItemStack(mod_lu.cookedFishBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.cooked_fished, 9 - i, 1), new ItemStack(mod_lu.cookedSalmonBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.rotten_flesh, 9 - i), new ItemStack(mod_lu.rottenFleshBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.apple, 9 - i), new ItemStack(mod_lu.appleBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.bread, 9 - i), new ItemStack(mod_lu.breadBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.cookie, 9 - i), new ItemStack(mod_lu.cookieBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.spider_eye, 9 - i), new ItemStack(mod_lu.spiderEyeBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.carrot, 9 - i), new ItemStack(mod_lu.carrotBlock, 1, i));
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.potato, 9 - i), new ItemStack(mod_lu.potatoBlock, 1, i));
-		}
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt, 9), new ItemStack(mod_lu.compDirt));
+
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.netherrack, 9), new ItemStack(mod_lu.compNetherrack));
 	}
 }

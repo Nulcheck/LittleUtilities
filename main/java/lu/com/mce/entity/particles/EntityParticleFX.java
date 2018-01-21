@@ -6,16 +6,26 @@ import net.minecraft.world.World;
 
 public class EntityParticleFX extends EntityFX {
 	float dustParticleScale;
-	int index;
+	int index, multi;
 
-	public EntityParticleFX(World world, double moveX, double moveY, double moveZ, double x, double y, double z,
-			float r, float g, float b, int index) {
-		this(world, moveX, moveY, moveZ, 1f, x, y, (float) z, r, g, b, index);
-	}
-
-	public EntityParticleFX(World world, double moveX, double moveY, double moveZ, double x, double y, double z,
-			float size, float r, float g, float b, int index) {
-		super(world, moveX, moveY, moveZ, 0.0D, 0.0D, 0.0D);
+	/**
+	 * 
+	 * @param world
+	 * @param moveX
+	 * @param moveY
+	 * @param moveZ
+	 * @param size
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param r
+	 * @param g
+	 * @param b
+	 * @param index
+	 * @param multi
+	 */
+	public EntityParticleFX(World world, double moveX, double moveY, double moveZ, double size, double x, double y, double z, float r, float g, float b, int index, int multi) {
+		super(world, moveX, moveY, moveZ, x, y, z);
 		this.motionX *= 0.10000000149011612D;
 		this.motionY *= 0.25000000149011612D;
 		this.motionZ *= 0.10000000149011612D;
@@ -25,16 +35,17 @@ public class EntityParticleFX extends EntityFX {
 		}
 
 		this.index = index;
+		this.multi = multi;
 
 		float f4 = (float) Math.random() * 0.2F + 0.6F;
 		this.particleRed = (float) (((Math.random() * 0.20000000298023224D) + r) * y * f4);
 		this.particleGreen = (float) (((Math.random() * 0.20000000298023224D) + g) * y * f4);
 		this.particleBlue = (float) (((Math.random() * 0.20000000298023224D) + b) * y * f4);
 		this.particleScale *= 0.5F;
-		this.particleScale *= x;
+		this.particleScale *= size;
 		this.dustParticleScale = this.particleScale;
 		this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + .2D));
-		this.particleMaxAge = (int) ((float) this.particleMaxAge * x);
+		this.particleMaxAge = (int) ((float) this.particleMaxAge * size);
 		this.noClip = false;
 	}
 
@@ -65,7 +76,7 @@ public class EntityParticleFX extends EntityFX {
 			this.setDead();
 		}
 
-		this.setParticleTextureIndex(this.index - this.particleAge * 8 / this.particleMaxAge);
+		this.setParticleTextureIndex(this.index - this.particleAge * this.multi / this.particleMaxAge);
 		if (this.worldObj.isRemote) {
 			this.moveEntity(this.motionX, this.motionY, this.motionZ);
 		}

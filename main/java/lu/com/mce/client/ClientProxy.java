@@ -9,8 +9,7 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.world.World;
 
 public class ClientProxy extends CommonProxy {
-	public void registerRenders() {
-	}
+	public void registerRenders() {}
 
 	//// Particles
 	public void spawnParticle(World world, double posX, double posY, double posZ, String type) {
@@ -33,21 +32,23 @@ public class ClientProxy extends CommonProxy {
 			} else if (particleSetting > 1) {
 				return;
 			} else {
-				EntityFX particle = null;
+				EntityFX fx = null;
 
-				// world, x, y, z, moveX, moveY, moveZ, red, green, blue, index
+				// world, moveX, moveY, moveZ, size, x, y, z, red, green, blue, index, multiplier
 				if (type.equals("ghastTearFx")) {
-					particle = new EntityParticleFX(world, posX + rand.nextDouble(), posY + rand.nextDouble(),
-							posZ + rand.nextDouble(), 0d, 0d, 0d, 0.8f, 0.8f, 0.85f, 3);
+					fx = new EntityParticleFX(world, posX + rand.nextDouble(), posY + rand.nextDouble(), posZ + rand.nextDouble(), 1.3d, 0d, 0d, 0d, 0.8f, 0.8f, 0.85f, 3, 8);
 				}
 
 				else if (type.equals("blazeRodFx")) {
-					particle = new EntityParticleFX(world, posX + rand.nextDouble(), posY + rand.nextDouble(),
-							posZ + rand.nextDouble(), 0d, 0d, 0d, 0.9f, 0.6f, 0.3f, 3);
+					fx = new EntityParticleFX(world, posX + rand.nextDouble(), posY + rand.nextDouble(), posZ + rand.nextDouble(), 1.3d, 0d, 0d, 0d, 0.9f, 0.6f, 0.3f, 3, 8);
 				}
 
-				if (particle != null) {
-					minecraft.effectRenderer.addEffect(particle);
+				else if (type.equals("netherStarFx")) {
+					fx = new EntityParticleFX(world, posX + rand.nextDouble(), posY + rand.nextDouble(), posZ + rand.nextDouble(), 0.5d, 0d, 0d, 0d, 1f, 1f, 1f, 67, 2);
+				}
+
+				if (fx != null) {
+					minecraft.effectRenderer.addEffect(fx);
 				}
 			}
 		}

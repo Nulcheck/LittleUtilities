@@ -5,8 +5,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import lu.com.mce.blocks.EdibleBlock;
+import ebm.com.mce.common.mod_ebm;
 import lu.com.mce.common.mod_lu;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -47,6 +48,23 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.carrot, 9), new ItemStack(mod_lu.carrotBlock), 0.2f);
 		this.addRecipe(new ItemStack(Items.potato, 9), new ItemStack(mod_lu.potatoBlock), 0.2f);
 		this.addRecipe(new ItemStack(Items.gunpowder, 9), new ItemStack(mod_lu.gunpowderBlock), 0.3f);
+		this.addRecipe(new ItemStack(Items.flint, 9), new ItemStack(mod_lu.flintBlock), 0.3f);
+		this.addRecipe(new ItemStack(Items.nether_star, 9), new ItemStack(mod_lu.netherStarBlock), 10f);
+		this.addRecipe(new ItemStack(Items.paper, 9), new ItemStack(mod_lu.paperBlock), 0.4f);
+		this.addRecipe(new ItemStack(Items.slime_ball, 9), new ItemStack(mod_lu.slimeBlock), 0.5f);
+		this.addRecipe(new ItemStack(Items.ender_pearl, 9), new ItemStack(mod_lu.enderPerlBlock), 4f);
+		this.addRecipe(new ItemStack(Items.ender_eye, 9), new ItemStack(mod_lu.enderEyeBlock), 5f);
+		if (mod_lu.ebm)
+			this.addRecipe(new ItemStack(Items.bone, 9), new ItemStack(mod_ebm.boneBlock), 0.3f);
+		else
+			this.addRecipe(new ItemStack(Items.bone, 9), new ItemStack(mod_lu.boneBlock), 0.3f);
+		this.addRecipe(new ItemStack(Items.magma_cream, 9), new ItemStack(mod_lu.magmaCreamBlock), 2f);
+
+		// Compact Blocks
+		this.addRecipe(new ItemStack(Blocks.cobblestone, 9), new ItemStack(mod_lu.compCobble), 0.1f);
+		this.addRecipe(new ItemStack(Blocks.dirt, 9), new ItemStack(mod_lu.compDirt), 0.1f);
+		this.addRecipe(new ItemStack(Blocks.netherrack, 9), new ItemStack(mod_lu.compNetherrack), 0.2f);
+
 	}
 
 	/**

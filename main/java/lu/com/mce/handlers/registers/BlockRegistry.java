@@ -2,6 +2,7 @@ package lu.com.mce.handlers.registers;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import lu.com.mce.common.mod_lu;
+import lu.com.mce.items.blocks.ItemBlockEdible;
 import lu.com.mce.items.blocks.ItemBlockMeta;
 
 public class BlockRegistry {
@@ -9,26 +10,40 @@ public class BlockRegistry {
 		GameRegistry.registerBlock(mod_lu.condenser, "condenser");
 		GameRegistry.registerBlock(mod_lu.ghastTearBlock, "ghastTearBlock");
 		GameRegistry.registerBlock(mod_lu.blazeRodBlock, "blazeRodBlock");
-		GameRegistry.registerBlock(mod_lu.porkBlock, ItemBlockMeta.class, "pork");
-		GameRegistry.registerBlock(mod_lu.cookedPorkBlock, ItemBlockMeta.class, "cookedPork");
-		GameRegistry.registerBlock(mod_lu.beefBlock, ItemBlockMeta.class, "beef");
-		GameRegistry.registerBlock(mod_lu.cookedBeefBlock, ItemBlockMeta.class, "cookedBeef");
-		GameRegistry.registerBlock(mod_lu.chickenBlock, ItemBlockMeta.class, "chicken");
-		GameRegistry.registerBlock(mod_lu.cookedChickenBlock, ItemBlockMeta.class, "cookedChicken");
-		GameRegistry.registerBlock(mod_lu.fishBlock, ItemBlockMeta.class, "fish");
-		GameRegistry.registerBlock(mod_lu.cookedFishBlock, ItemBlockMeta.class, "cookedFish");
-		GameRegistry.registerBlock(mod_lu.salmonBlock, ItemBlockMeta.class, "salmon");
-		GameRegistry.registerBlock(mod_lu.cookedSalmonBlock, ItemBlockMeta.class, "cookedSalmon");
-		GameRegistry.registerBlock(mod_lu.clownfishBlock, ItemBlockMeta.class, "clownfish");
-		GameRegistry.registerBlock(mod_lu.pufferfishBlock, ItemBlockMeta.class, "puff");
-		GameRegistry.registerBlock(mod_lu.rottenFleshBlock, ItemBlockMeta.class, "rottenFleshBlock");
-		GameRegistry.registerBlock(mod_lu.appleBlock, ItemBlockMeta.class, "appleBlock");
-		GameRegistry.registerBlock(mod_lu.breadBlock, ItemBlockMeta.class, "breadBlock");
-		GameRegistry.registerBlock(mod_lu.cookieBlock, ItemBlockMeta.class, "cookieBlock");
-		GameRegistry.registerBlock(mod_lu.spiderEyeBlock, ItemBlockMeta.class, "spiderEyeBlock");
+		GameRegistry.registerBlock(mod_lu.porkBlock, ItemBlockEdible.class, mod_lu.porkBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.cookedPorkBlock, ItemBlockEdible.class, mod_lu.cookedPorkBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.beefBlock, ItemBlockEdible.class, mod_lu.beefBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.cookedBeefBlock, ItemBlockEdible.class, mod_lu.cookedBeefBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.chickenBlock, ItemBlockEdible.class, mod_lu.chickenBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.cookedChickenBlock, ItemBlockEdible.class, mod_lu.cookedChickenBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.fishBlock, ItemBlockEdible.class, mod_lu.fishBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.cookedFishBlock, ItemBlockEdible.class, mod_lu.cookedFishBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.salmonBlock, ItemBlockEdible.class, mod_lu.salmonBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.cookedSalmonBlock, ItemBlockEdible.class, mod_lu.cookedSalmonBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.clownfishBlock, ItemBlockEdible.class, mod_lu.clownfishBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.pufferfishBlock, ItemBlockEdible.class, mod_lu.pufferfishBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.rottenFleshBlock, ItemBlockEdible.class, mod_lu.rottenFleshBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.appleBlock, ItemBlockEdible.class, mod_lu.appleBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.breadBlock, ItemBlockEdible.class, mod_lu.breadBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.cookieBlock, ItemBlockEdible.class, mod_lu.cookieBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.spiderEyeBlock, ItemBlockEdible.class, mod_lu.spiderEyeBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(mod_lu.fSpiderEyeBlock, "fSpiderEyeBlock");
-		GameRegistry.registerBlock(mod_lu.carrotBlock, ItemBlockMeta.class, "carrotBlock");
-		GameRegistry.registerBlock(mod_lu.potatoBlock, ItemBlockMeta.class, "potatoBlock");
+		GameRegistry.registerBlock(mod_lu.carrotBlock, ItemBlockEdible.class, mod_lu.carrotBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.potatoBlock, ItemBlockEdible.class, mod_lu.potatoBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(mod_lu.gunpowderBlock, "gunpowderBlock");
+		GameRegistry.registerBlock(mod_lu.flintBlock, "flintBlock");
+		GameRegistry.registerBlock(mod_lu.netherStarBlock, "netherStarBlock");
+		GameRegistry.registerBlock(mod_lu.paperBlock, "paperBlock");
+		GameRegistry.registerBlock(mod_lu.slimeBlock, "slimeBlock");
+		GameRegistry.registerBlock(mod_lu.enderPerlBlock, ItemBlockMeta.class, mod_lu.enderPerlBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.enderEyeBlock, "enderEyeBlock");
+		GameRegistry.registerBlock(mod_lu.boneBlock, "boneBlock");
+		GameRegistry.registerBlock(mod_lu.magmaCreamBlock, "magmaCreamBlock");
+
+		// Compact Blocks
+		GameRegistry.registerBlock(mod_lu.compCobble, "compCobble");
+		GameRegistry.registerBlock(mod_lu.compDirt, "compDirt");
+		GameRegistry.registerBlock(mod_lu.compNetherrack, "compNetherrack");
+
 	}
 }
