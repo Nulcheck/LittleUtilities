@@ -35,12 +35,14 @@ import lu.com.mce.handlers.recipes.BlockRecipeHandler;
 import lu.com.mce.handlers.recipes.ItemRecipeHandler;
 import lu.com.mce.handlers.registers.AchRegistry;
 import lu.com.mce.handlers.registers.BlockRegistry;
+import lu.com.mce.handlers.registers.ItemRegistry;
 import lu.com.mce.handlers.registers.TileEntityRegistry;
 import lu.com.mce.util.ModCreativeTab;
 import lu.com.mce.util.updater.CheckVersion;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -102,6 +104,9 @@ public class mod_lu {
 	public static Block compCobble;
 	public static Block compDirt;
 	public static Block compNetherrack;
+
+	// Items
+	public static Item sponge;
 
 	public static final int condenserGUI = 0;
 
@@ -185,6 +190,9 @@ public class mod_lu {
 
 		compNetherrack = new CompactNetherrack().setBlockName("compNetherrack").setCreativeTab(lu).setStepSound(Block.soundTypePiston);
 
+		//// TODO: Items
+		sponge = new Item().setUnlocalizedName("sponge").setCreativeTab(lu);
+
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());
 		FMLCommonHandler.instance().bus().register(new GameEvent());
@@ -206,6 +214,7 @@ public class mod_lu {
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
 		BlockRegistry.registerBlocks();
+		ItemRegistry.registerItems();
 
 		BlockRecipeHandler.registerCrafting();
 		ItemRecipeHandler.registerCrafting();
