@@ -13,6 +13,7 @@ import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import lu.com.mce.api.AddAPIRecipeShit;
 import lu.com.mce.api.waila.LUModule;
 import lu.com.mce.blocks.Condenser;
 import lu.com.mce.blocks.EdibleBlock;
@@ -208,6 +209,7 @@ public class mod_lu {
 
 		BlockRecipeHandler.registerCrafting();
 		ItemRecipeHandler.registerCrafting();
+		AddAPIRecipeShit.getInstance().recipes();
 
 		TileEntityRegistry.teRegistry();
 

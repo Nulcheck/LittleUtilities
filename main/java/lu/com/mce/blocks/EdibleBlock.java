@@ -74,8 +74,10 @@ public class EdibleBlock extends Block {
 		if (player.canEat(false)) {
 			player.getFoodStats().addStats(lvl, sat);
 			int meta = world.getBlockMetadata(x, y, z) + 1;
+			world.playSoundAtEntity(player, "random.eat", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
 
 			if (meta >= 9) {
+				world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
 				world.setBlockToAir(x, y, z);
 			} else {
 				world.setBlockMetadataWithNotify(x, y, z, meta, 2);

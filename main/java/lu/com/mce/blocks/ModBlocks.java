@@ -11,12 +11,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 
 public class ModBlocks extends Block {
 	public ModBlocks(Material mat) {
@@ -217,31 +219,80 @@ public class ModBlocks extends Block {
 
 		public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
 			Random rand = new Random();
-			super.onBlockActivated(world, x, y, z, player, meta, hitX, hitY, hitZ);
+			double d0 = player.posX + (rand.nextDouble() - 0.5D) * 64.0D;
+			double d1 = player.posY + (double) (rand.nextInt(64) - 32);
+			double d2 = player.posZ + (rand.nextDouble() - 0.5D) * 64.0D;
 
-			int dx = (int) (player.posX + -rand.nextInt(16));
-			int dy = (int) (player.posY + -rand.nextInt(16));
-			int dz = (int) (player.posZ + -rand.nextInt(16));
-			boolean isSafe = checkNewPos(world, dx, dy, dz);
-			while (!isSafe) {
-				dy++;
-				isSafe = checkNewPos(world, dx, dy, dz);
+			if (this.teleportPlayer(d0, d1, d2, player)) {
+				super.onBlockActivated(world, x, y, z, player, meta, hitX, hitY, hitZ);
 			}
 
-			player.setPosition(dx, dy, dz);
-			return true;
+			return this.teleportPlayer(d0, d1, d2, player);
 		}
 
-		public boolean doesBlockExist(World world, int x, int y, int z) {
-			if (world.getBlock(x, y, z) == Blocks.air)
+		protected boolean teleportPlayer(double x, double y, double z, EntityPlayer player) {
+			Random rand = new Random();
+			EnderTeleportEvent event = new EnderTeleportEvent(player, x, y, z, 0);
+
+			if (MinecraftForge.EVENT_BUS.post(event)) {
 				return false;
-			return true;
-		}
+			}
 
-		public boolean checkNewPos(World world, int x, int y, int z) {
-			if ((!doesBlockExist(world, x, y, z)) && (!doesBlockExist(world, x, y + 1, z)))
+			double d3 = player.posX;
+			double d4 = player.posY;
+			double d5 = player.posZ;
+			player.posX = event.targetX;
+			player.posY = event.targetY;
+			player.posZ = event.targetZ;
+			boolean boundingBoxEmpty = false;
+			int i = MathHelper.floor_double(player.posX);
+			int j = MathHelper.floor_double(player.posY);
+			int k = MathHelper.floor_double(player.posZ);
+
+			if (player.worldObj.blockExists(i, j, k)) {
+				boolean isSolidBlock = false;
+
+				while (!isSolidBlock && j > 0) {
+					Block block = player.worldObj.getBlock(i, j - 1, k);
+
+					if (block.getMaterial().blocksMovement()) {
+						isSolidBlock = true;
+					} else {
+						--player.posY;
+						--j;
+					}
+				}
+
+				if (isSolidBlock) {
+					player.setPosition(player.posX, player.posY, player.posZ);
+
+					if (player.worldObj.getCollidingBoundingBoxes(player, player.boundingBox).isEmpty() && !player.worldObj.isAnyLiquid(player.boundingBox)) {
+						boundingBoxEmpty = true;
+					}
+				}
+			}
+
+			if (!boundingBoxEmpty) {
+				player.setPosition(d3, d4, d5);
+				return false;
+			} else {
+				short short1 = 128;
+
+				for (int l = 0; l < short1; ++l) {
+					double d6 = (double) l / ((double) short1 - 1.0D);
+					float f = (rand.nextFloat() - 0.5F) * 0.2F;
+					float f1 = (rand.nextFloat() - 0.5F) * 0.2F;
+					float f2 = (rand.nextFloat() - 0.5F) * 0.2F;
+					double d7 = d3 + (player.posX - d3) * d6 + (rand.nextDouble() - 0.5D) * (double) player.width * 2.0D;
+					double d8 = d4 + (player.posY - d4) * d6 + rand.nextDouble() * (double) player.height;
+					double d9 = d5 + (player.posZ - d5) * d6 + (rand.nextDouble() - 0.5D) * (double) player.width * 2.0D;
+					player.worldObj.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
+				}
+
+				player.worldObj.playSoundEffect(d3, d4, d5, "mob.endermen.portal", 1.0F, 1.0F);
+				player.playSound("mob.endermen.portal", 1.0F, 1.0F);
 				return true;
-			return false;
+			}
 		}
 	}
 

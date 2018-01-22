@@ -37,6 +37,7 @@ tile.paperBlock.name=Paper Block
 tile.slimeBlock.name=Slime Block
 tile.enderPerlBlock.name=Ender Perl Block
 tile.enderEyeBlock.name=Ender Eye Block
+tile.boneBlock.name=Bone Block
 tile.magmaCreamBlock.name=Magma Cream Block
 
 tile.compCobble.name=Compact Cobblestone
