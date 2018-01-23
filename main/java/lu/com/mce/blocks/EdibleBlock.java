@@ -62,8 +62,12 @@ public class EdibleBlock extends Block {
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
-		this.eatBlock(world, x, y, z, player);
-		return true;
+		if (!player.isSneaking()) {
+			this.eatBlock(world, x, y, z, player);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	private void eatBlock(World world, int x, int y, int z, EntityPlayer player) {

@@ -1,7 +1,6 @@
 package lu.com.mce.handlers.recipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import ebm.com.mce.common.mod_ebm;
 import lu.com.mce.common.mod_lu;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -58,10 +57,7 @@ public class ItemRecipeHandler {
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.paper, 9), new ItemStack(mod_lu.paperBlock));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.slime_ball, 9), new ItemStack(mod_lu.slimeBlock));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_eye, 9), new ItemStack(mod_lu.enderEyeBlock));
-		if (mod_lu.ebm)
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.bone, 9), new ItemStack(mod_ebm.boneBlock));
-		else
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.bone, 9), new ItemStack(mod_lu.boneBlock));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.bone, 9), new ItemStack(mod_lu.boneBlock));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.magma_cream, 9), new ItemStack(mod_lu.magmaCreamBlock));
 
 		// Meta recipes

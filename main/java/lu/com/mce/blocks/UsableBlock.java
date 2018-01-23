@@ -58,8 +58,12 @@ public class UsableBlock extends Block {
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
-		this.useBlock(world, x, y, z, player);
-		return true;
+		if(!player.isSneaking()){
+			this.useBlock(world, x, y, z, player);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	private void useBlock(World world, int x, int y, int z, EntityPlayer player) {

@@ -77,13 +77,166 @@ public class GameEvent {
 		}
 
 		// TODO: Condensed Usable Blocks
-		for(int i = 0; i <= 9; ++i){
-			if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.porkchop && e.world.getBlock(e.x, e.y, e.z) == mod_lu.porkBlock
-					&& e.world.getBlockMetadata(e.x, e.y, e.z) < 9) {
-				e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, i - 1, 2);
-				e.world.markBlockForUpdate(e.x, e.y, e.z);
-				e.entityPlayer.getHeldItem().stackSize -= 1;
-			}
+		if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.porkchop && e.world.getBlock(e.x, e.y, e.z) == mod_lu.porkBlock
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.cooked_porkchop
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.cookedPorkBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.beef && e.world.getBlock(e.x, e.y, e.z) == mod_lu.beefBlock
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.cooked_beef
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.cookedBeefBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.chicken
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.chickenBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.cooked_chicken
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.cookedChickenBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.fish && e.entityPlayer.getHeldItem().getItemDamage() == 0
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.fishBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.fish && e.entityPlayer.getHeldItem().getItemDamage() == 1
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.salmonBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.fish && e.entityPlayer.getHeldItem().getItemDamage() == 2
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.clownfishBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.fish && e.entityPlayer.getHeldItem().getItemDamage() == 3
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.pufferfishBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.cooked_fished
+				&& e.entityPlayer.getHeldItem().getItemDamage() == 0 && e.world.getBlock(e.x, e.y, e.z) == mod_lu.cookedFishBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.cooked_fished
+				&& e.entityPlayer.getHeldItem().getItemDamage() == 1 && e.world.getBlock(e.x, e.y, e.z) == mod_lu.cookedSalmonBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.rotten_flesh
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.rottenFleshBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.apple && e.world.getBlock(e.x, e.y, e.z) == mod_lu.appleBlock
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.bread && e.world.getBlock(e.x, e.y, e.z) == mod_lu.breadBlock
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.cookie && e.world.getBlock(e.x, e.y, e.z) == mod_lu.cookieBlock
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.spider_eye
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.spiderEyeBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.carrot && e.world.getBlock(e.x, e.y, e.z) == mod_lu.carrotBlock
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.potato && e.world.getBlock(e.x, e.y, e.z) == mod_lu.potatoBlock
+				&& e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
+		}
+
+		else if (e.entityPlayer.isSneaking() && e.entityPlayer.getHeldItem() != null && e.entityPlayer.getHeldItem().getItem() == Items.ender_pearl
+				&& e.world.getBlock(e.x, e.y, e.z) == mod_lu.enderPerlBlock && e.world.getBlockMetadata(e.x, e.y, e.z) < 9 && e.world.getBlockMetadata(e.x, e.y, e.z) > 0) {
+			int meta = e.world.getBlockMetadata(e.x, e.y, e.z);
+			e.world.setBlockMetadataWithNotify(e.x, e.y, e.z, meta - 1, 2);
+			e.world.markBlockForUpdate(e.x, e.y, e.z);
+			e.entityPlayer.getHeldItem().stackSize -= 1;
 		}
 	}
 }

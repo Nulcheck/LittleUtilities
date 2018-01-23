@@ -62,7 +62,7 @@ public class mod_lu {
 	public static Logger log = Logger.getLogger("Minecraft");
 	public static boolean ebm = Loader.isModLoaded("mod_ebm");
 
-	//
+	//TODO: Top
 	public static Block condenser;
 
 	//// Condensed Blocks
