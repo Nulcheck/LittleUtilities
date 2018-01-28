@@ -13,6 +13,7 @@ public class UsableBlock extends Block {
 	private int potionDuration;
 	private int potionAmplifier;
 	private float potionEffectProbability;
+	float f1;
 
 	public UsableBlock(Material mat) {
 		super(mat);
@@ -26,39 +27,30 @@ public class UsableBlock extends Block {
 		return false;
 	}
 
-	public int getDamageValue(World world, int x, int y, int z) {
-		return super.getDamageValue(world, x, y, z) & 9;
-	}
-
 	public int damageDropped(int meta) {
 		return meta;
 	}
 
-	public static int getMeta(int meta) {
-		return ~meta & 8;
+	public void setBlockBoundsForItemRender() {
+		this.setBlockBounds(0f, 0f, 0f, 1f, 1f, 1f);
 	}
 
 	public void setBlockBoundsBasedOnState(IBlockAccess block, int x, int y, int z) {
 		int meta = block.getBlockMetadata(x, y, z);
-		float f1 = (float) (meta * 2) / 18f;
-		this.setBlockBounds(0f, 0f, 0f, 1F, 1f - f1, 1F);
+		f1 = (float) (meta * 2) / 18f;
+		this.setBlockBounds(0f, 0f, 0f, 1f, 1 - f1, 1f);
 	}
 
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
-		float f1 = (float) (meta * 2) / 18f;
 		return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) x + 1, (double) y + 1 - f1, (double) z + 1);
-
 	}
 
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
-		float f1 = (float) (meta * 2) / 18f;
 		return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) x + 1, (double) y + 1 - f1, (double) z + 1);
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
-		if(!player.isSneaking()){
+		if (!player.isSneaking()) {
 			this.useBlock(world, x, y, z, player);
 			return true;
 		} else {

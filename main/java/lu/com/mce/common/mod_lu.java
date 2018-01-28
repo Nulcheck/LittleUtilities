@@ -18,12 +18,14 @@ import lu.com.mce.blocks.Condenser;
 import lu.com.mce.blocks.EdibleBlock;
 import lu.com.mce.blocks.ModBlocks;
 import lu.com.mce.blocks.ModBlocks.BlazeRodBlock;
+import lu.com.mce.blocks.ModBlocks.BoneBlock;
 import lu.com.mce.blocks.ModBlocks.BoundsBlock;
 import lu.com.mce.blocks.ModBlocks.CompactDirt;
 import lu.com.mce.blocks.ModBlocks.CompactNetherrack;
 import lu.com.mce.blocks.ModBlocks.EnderPerlBlock;
 import lu.com.mce.blocks.ModBlocks.GhastTearBlock;
 import lu.com.mce.blocks.ModBlocks.NetherStarBlock;
+import lu.com.mce.blocks.ModBlocks.PufferfishBlock;
 import lu.com.mce.blocks.ModBlocks.SlimeBlock;
 import lu.com.mce.events.ChatEvent;
 import lu.com.mce.events.GameEvent;
@@ -115,79 +117,79 @@ public class mod_lu {
 		condenser = new Condenser(Material.ground).setBlockName("condenser").setBlockTextureName("mod_lu:condenser").setCreativeTab(lu).setStepSound(Block.soundTypeStone);
 
 		//// TODO: Condensed Blocks
-		ghastTearBlock = new GhastTearBlock(Material.glass).setBlockName("ghastTearBlock").setBlockTextureName("mod_lu:block_ghastTear").setCreativeTab(lu).setStepSound(Block.soundTypeGlass)
+		ghastTearBlock = new GhastTearBlock(Material.glass).setBlockName("ghastTearBlock").setBlockTextureName("mod_lu:ghast_tear").setCreativeTab(lu).setStepSound(Block.soundTypeGlass)
 				.setLightLevel(0.4f);
 
-		blazeRodBlock = new BlazeRodBlock(Material.ground).setBlockName("blazeRodBlock").setBlockTextureName("mod_lu:block_blazeRod").setCreativeTab(lu).setStepSound(Block.soundTypeStone)
+		blazeRodBlock = new BlazeRodBlock(Material.ground).setBlockName("blazeRodBlock").setBlockTextureName("mod_lu:blaze_rod").setCreativeTab(lu).setStepSound(Block.soundTypeStone)
 				.setLightLevel(1f);
 
-		porkBlock = new EdibleBlock(Material.ground, 3, 0.3f).setBlockName("pork").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		porkBlock = new EdibleBlock(Material.ground, 3, 0.3f).setBlockName("pork").setBlockTextureName("mod_lu:pork").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		cookedPorkBlock = new EdibleBlock(Material.ground, 8, 0.8f).setBlockName("cookedPork").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		cookedPorkBlock = new EdibleBlock(Material.ground, 8, 0.8f).setBlockName("cookedPork").setBlockTextureName("mod_lu:cooked_pork").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		beefBlock = new EdibleBlock(Material.ground, 3, 0.3f).setBlockName("beef").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		beefBlock = new EdibleBlock(Material.ground, 3, 0.3f).setBlockName("beef").setBlockTextureName("mod_lu:beef").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		cookedBeefBlock = new EdibleBlock(Material.ground, 8, 0.8f).setBlockName("cookedBeef").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		cookedBeefBlock = new EdibleBlock(Material.ground, 8, 0.8f).setBlockName("cookedBeef").setBlockTextureName("mod_lu:cooked_beef").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		chickenBlock = ((EdibleBlock) new EdibleBlock(Material.ground, 2, 0.3f).setBlockName("chicken").setCreativeTab(lu).setStepSound(Block.soundTypeGravel)).setPotionEffect(Potion.hunger.id, 30, 0,
-				0.3F);
+		chickenBlock = ((EdibleBlock) new EdibleBlock(Material.ground, 2, 0.3f).setBlockName("chicken").setBlockTextureName("mod_lu:chicken").setCreativeTab(lu).setStepSound(Block.soundTypeGravel))
+				.setPotionEffect(Potion.hunger.id, 30, 0, 0.3F);
 
-		cookedChickenBlock = new EdibleBlock(Material.ground, 6, 0.6f).setBlockName("cookedChicken").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		cookedChickenBlock = new EdibleBlock(Material.ground, 6, 0.6f).setBlockName("cookedChicken").setBlockTextureName("mod_lu:cooked_chicken").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel);
 
-		fishBlock = new EdibleBlock(Material.ground, 2, 0.4f).setBlockName("fish").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		fishBlock = new EdibleBlock(Material.ground, 2, 0.4f).setBlockName("fish").setBlockTextureName("mod_lu:fish").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		cookedFishBlock = new EdibleBlock(Material.ground, 5, 0.6f).setBlockName("cookedFish").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		cookedFishBlock = new EdibleBlock(Material.ground, 5, 0.6f).setBlockName("cookedFish").setBlockTextureName("mod_lu:cooked_fish").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		salmonBlock = new EdibleBlock(Material.ground, 2, 0.2f).setBlockName("salmon").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		salmonBlock = new EdibleBlock(Material.ground, 2, 0.2f).setBlockName("salmon").setBlockTextureName("mod_lu:salmon").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		cookedSalmonBlock = new EdibleBlock(Material.ground, 6, 0.6f).setBlockName("cookedSalmon").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		cookedSalmonBlock = new EdibleBlock(Material.ground, 6, 0.6f).setBlockName("cookedSalmon").setBlockTextureName("mod_lu:cooked_salmon").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		clownfishBlock = new EdibleBlock(Material.ground, 1, 0.2f).setBlockName("clownfish").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		clownfishBlock = new EdibleBlock(Material.ground, 1, 0.2f).setBlockName("clownfish").setBlockTextureName("mod_lu:clownfish").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		pufferfishBlock = ((EdibleBlock) new EdibleBlock(Material.ground, 1, 0.2f).setBlockName("puff").setCreativeTab(lu).setStepSound(Block.soundTypeGravel))
-				.setPotionEffect(Potion.poison.id, 1200, 3, 1f).setPotionEffect(Potion.hunger.id, 300, 2, 1f).setPotionEffect(Potion.confusion.id, 300, 1, 1f);
+		pufferfishBlock = new PufferfishBlock(Material.ground, 1, 0.2f).setBlockName("puff").setBlockTextureName("mod_lu:pufferfish").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		rottenFleshBlock = ((EdibleBlock) new EdibleBlock(Material.ground, 4, 0.1f).setBlockName("rottenFleshBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGravel))
-				.setPotionEffect(Potion.hunger.id, 30, 0, 0.8f);
+		rottenFleshBlock = ((EdibleBlock) new EdibleBlock(Material.ground, 4, 0.1f).setBlockName("rottenFleshBlock").setBlockTextureName("mod_lu:rotten_flesh").setCreativeTab(lu)
+				.setStepSound(Block.soundTypeGravel)).setPotionEffect(Potion.hunger.id, 30, 0, 0.8f);
 
-		appleBlock = new EdibleBlock(Material.ground, 4, 0.3f).setBlockName("appleBlock").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
+		appleBlock = new EdibleBlock(Material.ground, 4, 0.3f).setBlockName("appleBlock").setBlockTextureName("mod_lu:apple").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
 
-		breadBlock = new EdibleBlock(Material.ground, 5, 0.6f).setBlockName("breadBlock").setCreativeTab(lu).setStepSound(Block.soundTypeCloth);
+		breadBlock = new EdibleBlock(Material.ground, 5, 0.6f).setBlockName("breadBlock").setBlockTextureName("mod_lu:bread").setCreativeTab(lu).setStepSound(Block.soundTypeCloth);
 
-		cookieBlock = new EdibleBlock(Material.ground, 2, 0.1f).setBlockName("cookieBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		cookieBlock = new EdibleBlock(Material.ground, 2, 0.1f).setBlockName("cookieBlock").setBlockTextureName("mod_lu:cookie").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		spiderEyeBlock = new EdibleBlock(Material.ground, 2, 0.8f).setBlockName("spiderEyeBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		spiderEyeBlock = new EdibleBlock(Material.ground, 2, 0.8f).setBlockName("spiderEyeBlock").setBlockTextureName("mod_lu:spider_eye").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		fSpiderEyeBlock = new ModBlocks(Material.ground).setBlockName("fSpiderEyeBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		fSpiderEyeBlock = new ModBlocks(Material.ground).setBlockName("fSpiderEyeBlock").setBlockTextureName("mod_lu:fermented_spider_eye").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		carrotBlock = new EdibleBlock(Material.gourd, 4, 0.6f).setBlockName("carrotBlock").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
+		carrotBlock = new EdibleBlock(Material.gourd, 4, 0.6f).setBlockName("carrotBlock").setBlockTextureName("mod_lu:carrot").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
 
-		potatoBlock = new EdibleBlock(Material.gourd, 1, 0.3f).setBlockName("potatoBlock").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
+		potatoBlock = new EdibleBlock(Material.gourd, 1, 0.3f).setBlockName("potatoBlock").setBlockTextureName("mod_lu:potato").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
 
-		gunpowderBlock = new BoundsBlock(Material.ground, 0.1f).setBlockName("gunpowderBlock").setCreativeTab(lu).setStepSound(Block.soundTypeSand);
+		gunpowderBlock = new BoundsBlock(Material.ground, 0.1f).setBlockName("gunpowderBlock").setBlockTextureName("mod_lu:gunpowder").setCreativeTab(lu).setStepSound(Block.soundTypeSand);
 
-		flintBlock = new ModBlocks(Material.ground).setBlockName("flintBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		flintBlock = new ModBlocks(Material.ground).setBlockName("flintBlock").setBlockTextureName("mod_lu:flint").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		netherStarBlock = new NetherStarBlock(Material.ground).setBlockName("netherStarBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGlass);
+		netherStarBlock = new NetherStarBlock(Material.ground).setBlockName("netherStarBlock").setBlockTextureName("mod_lu:nether_star").setCreativeTab(lu).setStepSound(Block.soundTypeGlass);
 
-		paperBlock = new ModBlocks(Material.ground).setBlockName("paperBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGrass);
+		paperBlock = new ModBlocks(Material.ground).setBlockName("paperBlock").setBlockTextureName("mod_lu:paper").setCreativeTab(lu).setStepSound(Block.soundTypeGrass);
 
-		slimeBlock = new SlimeBlock(Material.clay).setBlockName("slimeBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		slimeBlock = new SlimeBlock(Material.clay).setBlockName("slimeBlock").setBlockTextureName("mod_lu:slime").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		enderPerlBlock = new EnderPerlBlock(Material.ground).setBlockName("enderPerlBlock").setCreativeTab(lu).setStepSound(Block.soundTypeStone);
+		enderPerlBlock = new EnderPerlBlock(Material.ground).setBlockName("enderPerlBlock").setBlockTextureName("mod_lu:ender_perl").setCreativeTab(lu).setStepSound(Block.soundTypeStone);
 
-		enderEyeBlock = new ModBlocks(Material.ground).setBlockName("enderEyeBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGlass);
+		enderEyeBlock = new ModBlocks(Material.ground).setBlockName("enderEyeBlock").setBlockTextureName("mod_lu:ender_eye").setCreativeTab(lu).setStepSound(Block.soundTypeGlass);
 
-		boneBlock = new ModBlocks(Material.rock).setBlockName("boneBlock").setCreativeTab(lu).setStepSound(Block.soundTypeStone);
+		boneBlock = new BoneBlock(Material.rock).setBlockName("boneBlock").setBlockTextureName("mod_lu:bone").setCreativeTab(lu).setStepSound(Block.soundTypeStone);
 
-		magmaCreamBlock = new ModBlocks(Material.clay).setBlockName("magmaCreamBlock").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		magmaCreamBlock = new ModBlocks(Material.clay).setBlockName("magmaCreamBlock").setBlockTextureName("mod_lu:magma_cream").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
 		//// TODO: Compact Blocks
-		compCobble = new ModBlocks(Material.rock).setBlockName("compCobble").setCreativeTab(lu).setStepSound(Block.soundTypePiston);
+		compCobble = new ModBlocks(Material.rock).setBlockName("compCobble").setBlockTextureName("mod_lu:compact_cobble").setCreativeTab(lu).setStepSound(Block.soundTypePiston);
 
-		compDirt = new CompactDirt().setBlockName("compDirt").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		compDirt = new CompactDirt().setBlockName("compDirt").setBlockTextureName("mod_lu:compact_dirt").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
-		compNetherrack = new CompactNetherrack().setBlockName("compNetherrack").setCreativeTab(lu).setStepSound(Block.soundTypePiston);
+		compNetherrack = new CompactNetherrack().setBlockName("compNetherrack").setBlockTextureName("mod_lu:compact_netherrack").setCreativeTab(lu).setStepSound(Block.soundTypePiston);
 
 		//// TODO: Items
 		sponge = new Item().setUnlocalizedName("sponge").setCreativeTab(lu);

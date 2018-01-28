@@ -8,13 +8,19 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockNetherrack;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -203,6 +209,14 @@ public class ModBlocks extends Block {
 			// this.slipperiness = 0.8f;
 		}
 
+		public boolean isOpaqueCube() {
+			return false;
+		}
+
+		public boolean shouldSideBeRendered(IBlockAccess blockAcc, int x, int y, int z, int side) {
+			return true;
+		}
+
 		public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity e) {
 			e.motionY *= -1.2d;
 		}
@@ -316,6 +330,51 @@ public class ModBlocks extends Block {
 				return true;
 			else
 				return false;
+		}
+	}
+
+	public static class PufferfishBlock extends EdibleBlock {
+		private IIcon top;
+
+		public PufferfishBlock(Material mat, int lvl, float sat) {
+			super(mat, lvl, sat);
+			this.setPotionEffect(Potion.poison.id, 1200, 3, 1f);
+			this.setPotionEffect(Potion.hunger.id, 300, 2, 1f);
+			this.setPotionEffect(Potion.confusion.id, 300, 1, 1f);
+		}
+
+		public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.id, 1200, 3, false));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.hunger.id, 300, 2, false));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.confusion.id, 300, 1, false));
+			super.onEntityCollidedWithBlock(world, x, y, z, entity);
+		}
+
+		public IIcon getIcon(int side, int meta) {
+			return side == 1 ? this.top : (side == 0 ? this.top : this.blockIcon);
+		}
+
+		public void registerBlockIcons(IIconRegister icon) {
+			this.blockIcon = icon.registerIcon("mod_lu:pufferfish_side");
+			this.top = icon.registerIcon("mod_lu:pufferfish_top");
+		}
+
+		public int getRenderType() {
+			return 13;
+		}
+	}
+
+	public static class BoneBlock extends Block {
+		public BoneBlock(Material mat) {
+			super(mat);
+		}
+		
+		public boolean isOpaqueCube() {
+			return false;
+		}
+
+		public boolean shouldSideBeRendered(IBlockAccess blockAcc, int x, int y, int z, int side) {
+			return true;
 		}
 	}
 }

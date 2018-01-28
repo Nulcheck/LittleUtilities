@@ -43,3 +43,5 @@ tile.magmaCreamBlock.name=Magma Cream Block
 tile.compCobble.name=Compact Cobblestone
 tile.compDirt.name=Compact Dirt
 tile.compNetherrack.name=Compact Netherrack
+
+item.sponge.name=Sponge

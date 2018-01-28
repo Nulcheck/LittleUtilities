@@ -61,7 +61,7 @@ public class ItemRecipeHandler {
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.magma_cream, 9), new ItemStack(mod_lu.magmaCreamBlock));
 
 		// Meta recipes
-		for (int i = 0; i < 10; ++i) {
+		for (int i = 0; i < 9; ++i) {
 			GameRegistry.addShapelessRecipe(new ItemStack(Items.porkchop, 9 - i), new ItemStack(mod_lu.porkBlock, 1, i));
 			GameRegistry.addShapelessRecipe(new ItemStack(Items.cooked_porkchop, 9 - i), new ItemStack(mod_lu.cookedPorkBlock, 1, i));
 			GameRegistry.addShapelessRecipe(new ItemStack(Items.beef, 9 - i), new ItemStack(mod_lu.beefBlock, 1, i));

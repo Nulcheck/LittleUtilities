@@ -13,7 +13,6 @@ public class RecipeAPI {
 	 * @param in
 	 * @param out
 	 * @param exp
-	 * @return boolean
 	 */
 	public static void addCondenserRecipe(ItemStack in, ItemStack out, float exp) {
 		itemIn = in;
@@ -24,11 +23,10 @@ public class RecipeAPI {
 	}
 
 	/**
-	 * No XP given from recipe if this method used!
+	 * No XP given from recipe if this method is used!
 	 * 
 	 * @param in
 	 * @param out
-	 * @return boolean
 	 */
 	public static void addCondenserRecipe(ItemStack in, ItemStack out) {
 		itemIn = in;
