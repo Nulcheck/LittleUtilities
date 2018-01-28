@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import lu.com.mce.api.RecipeAPI;
 import lu.com.mce.common.mod_lu;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -60,7 +61,6 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Blocks.cobblestone, 9), new ItemStack(mod_lu.compCobble), 0.1f);
 		this.addRecipe(new ItemStack(Blocks.dirt, 9), new ItemStack(mod_lu.compDirt), 0.1f);
 		this.addRecipe(new ItemStack(Blocks.netherrack, 9), new ItemStack(mod_lu.compNetherrack), 0.2f);
-
 	}
 
 	/**
@@ -147,19 +147,5 @@ public class CondenserRecipes {
 
 	public static CondenserRecipes instance() {
 		return base;
-	}
-
-	public ItemStack findMatchingRecipe(InventoryCrafting inv, World world) {
-		int j;
-
-		for (j = 0; j < this.conMap.size(); ++j) {
-			IRecipe irecipe = (IRecipe) this.conMap.get(j);
-
-			if (irecipe.matches(inv, world)) {
-				return irecipe.getCraftingResult(inv);
-			}
-		}
-
-		return null;
 	}
 }

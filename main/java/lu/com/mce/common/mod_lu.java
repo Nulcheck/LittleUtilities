@@ -13,7 +13,6 @@ import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import lu.com.mce.api.AddAPIRecipeShit;
 import lu.com.mce.api.waila.LUModule;
 import lu.com.mce.blocks.Condenser;
 import lu.com.mce.blocks.EdibleBlock;
@@ -62,7 +61,7 @@ public class mod_lu {
 	public static Logger log = Logger.getLogger("Minecraft");
 	public static boolean ebm = Loader.isModLoaded("mod_ebm");
 
-	//TODO: Top
+	// TODO: Top
 	public static Block condenser;
 
 	//// Condensed Blocks
@@ -201,7 +200,7 @@ public class mod_lu {
 		NetworkRegistry.INSTANCE.registerGuiHandler(mod_lu.instance, new GuiHandler());
 	}
 
-	@Mod.EventHandler
+	@EventHandler
 	public void processIMC(FMLInterModComms.IMCEvent e) {
 		if (Loader.isModLoaded("Waila")) {
 			LUModule.register();
@@ -218,7 +217,6 @@ public class mod_lu {
 
 		BlockRecipeHandler.registerCrafting();
 		ItemRecipeHandler.registerCrafting();
-		AddAPIRecipeShit.getInstance().recipes();
 
 		TileEntityRegistry.teRegistry();
 

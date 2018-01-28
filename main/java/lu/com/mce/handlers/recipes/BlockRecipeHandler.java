@@ -87,7 +87,8 @@ public class BlockRecipeHandler {
 
 		GameRegistry.addRecipe(new ItemStack(Blocks.web), "s s", " s ", "s s", 's', new ItemStack(Items.string));
 
-		GameRegistry.addRecipe(new ItemStack(mod_lu.condenser), "*", '*', new ItemStack(Blocks.dirt));
+		CraftingManager.getInstance().getRecipeList()
+				.add(new ShapedOreRecipe(new ItemStack(mod_lu.condenser), "cic", "cpc", "cic", 'c', new ItemStack(Blocks.cobblestone), 'i', "ingotIron", 'p', new ItemStack(Blocks.piston)));
 
 		// Reverse Recipes
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.cobblestone, 9), new ItemStack(mod_lu.compCobble));
