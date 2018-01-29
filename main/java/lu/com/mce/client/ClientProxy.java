@@ -46,6 +46,14 @@ public class ClientProxy extends CommonProxy {
 				else if (type.equals("netherStarFx")) {
 					fx = new EntityParticleFX(world, posX + rand.nextDouble(), posY + rand.nextDouble(), posZ + rand.nextDouble(), 0.5d, 0d, 0d, 0d, 1f, 1f, 1f, 67, 2);
 				}
+				
+				else if (type.equals("enderPerlFx")) {
+					fx = new EntityParticleFX(world, posX + rand.nextDouble(), posY + rand.nextDouble(), posZ + rand.nextDouble(), 0.5d, 0d, 0d, 0d, 1f, 0.3f, 0.9f, (int)(Math.random() * 8.0D), 8);
+				}
+				
+				else if (type.equals("enderEyeFx")) {
+					fx = new EntityParticleFX(world, posX + rand.nextDouble(), posY + rand.nextDouble(), posZ + rand.nextDouble(), 0.5d, 0d, 0d, 0d, 1f, 0.3f, 0.9f, (int)(Math.random() * 8.0D), 8);
+				}
 
 				if (fx != null) {
 					minecraft.effectRenderer.addEffect(fx);

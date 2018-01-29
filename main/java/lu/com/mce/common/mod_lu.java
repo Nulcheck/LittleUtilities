@@ -22,6 +22,7 @@ import lu.com.mce.blocks.ModBlocks.BoneBlock;
 import lu.com.mce.blocks.ModBlocks.BoundsBlock;
 import lu.com.mce.blocks.ModBlocks.CompactDirt;
 import lu.com.mce.blocks.ModBlocks.CompactNetherrack;
+import lu.com.mce.blocks.ModBlocks.EnderEyeBlock;
 import lu.com.mce.blocks.ModBlocks.EnderPerlBlock;
 import lu.com.mce.blocks.ModBlocks.GhastTearBlock;
 import lu.com.mce.blocks.ModBlocks.NetherStarBlock;
@@ -178,11 +179,12 @@ public class mod_lu {
 
 		enderPerlBlock = new EnderPerlBlock(Material.ground).setBlockName("enderPerlBlock").setBlockTextureName("mod_lu:ender_perl").setCreativeTab(lu).setStepSound(Block.soundTypeStone);
 
-		enderEyeBlock = new ModBlocks(Material.ground).setBlockName("enderEyeBlock").setBlockTextureName("mod_lu:ender_eye").setCreativeTab(lu).setStepSound(Block.soundTypeGlass);
+		enderEyeBlock = new EnderEyeBlock(Material.ground).setBlockName("enderEyeBlock").setBlockTextureName("mod_lu:ender_eye").setCreativeTab(lu).setStepSound(Block.soundTypeGlass);
 
 		boneBlock = new BoneBlock(Material.rock).setBlockName("boneBlock").setBlockTextureName("mod_lu:bone").setCreativeTab(lu).setStepSound(Block.soundTypeStone);
 
-		magmaCreamBlock = new ModBlocks(Material.clay).setBlockName("magmaCreamBlock").setBlockTextureName("mod_lu:magma_cream").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+		magmaCreamBlock = new ModBlocks(Material.clay).setBlockName("magmaCreamBlock").setBlockTextureName("mod_lu:magma_cream").setCreativeTab(lu).setStepSound(Block.soundTypeGravel)
+				.setLightLevel(0.45f);
 
 		//// TODO: Compact Blocks
 		compCobble = new ModBlocks(Material.rock).setBlockName("compCobble").setBlockTextureName("mod_lu:compact_cobble").setCreativeTab(lu).setStepSound(Block.soundTypePiston);

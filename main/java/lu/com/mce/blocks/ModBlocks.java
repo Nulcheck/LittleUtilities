@@ -231,6 +231,44 @@ public class ModBlocks extends Block {
 			super(mat);
 		}
 
+		public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+			double d0 = 0.0625d;
+
+			for (int l = 0; l < 6; ++l) {
+				double d1 = (double) ((float) x + rand.nextFloat());
+				double d2 = (double) ((float) y + rand.nextFloat());
+				double d3 = (double) ((float) z + rand.nextFloat());
+
+				if (l == 0 && !world.getBlock(x, y + 1, z).isOpaqueCube()) {
+					d2 = (double) (y + 1) + d0;
+				}
+
+				if (l == 1 && !world.getBlock(x, y - 1, z).isOpaqueCube()) {
+					d2 = (double) (y + 0) - d0;
+				}
+
+				if (l == 2 && !world.getBlock(x, y, z + 1).isOpaqueCube()) {
+					d3 = (double) (z + 1) + d0;
+				}
+
+				if (l == 3 && !world.getBlock(x, y, z - 1).isOpaqueCube()) {
+					d3 = (double) (z + 0) - d0;
+				}
+
+				if (l == 4 && !world.getBlock(x + 1, y, z).isOpaqueCube()) {
+					d1 = (double) (x + 1) + d0;
+				}
+
+				if (l == 5 && !world.getBlock(x - 1, y, z).isOpaqueCube()) {
+					d1 = (double) (x + 0) - d0;
+				}
+
+				if (d1 < (double) x || d1 > (double) (x + 1) || d2 < 0.0D || d2 > (double) (y + 1) || d3 < (double) z || d3 > (double) (z + 1)) {
+					mod_lu.proxy.spawnParticle(world, x, y, z, "enderPerlFx");
+				}
+			}
+		}
+
 		public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
 			Random rand = new Random();
 			double d0 = player.posX + (rand.nextDouble() - 0.5D) * 64.0D;
@@ -310,6 +348,59 @@ public class ModBlocks extends Block {
 		}
 	}
 
+	public static class EnderEyeBlock extends Block {
+		Random rand = new Random();
+
+		public EnderEyeBlock(Material mat) {
+			super(mat);
+		}
+
+		public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+			double d0 = 0.0625d;
+
+			for (int l = 0; l < 6; ++l) {
+				double d1 = (double) ((float) x + rand.nextFloat());
+				double d2 = (double) ((float) y + rand.nextFloat());
+				double d3 = (double) ((float) z + rand.nextFloat());
+				double d4 = 0.0D;
+				double d5 = 0.0D;
+				double d6 = 0.0D;
+				d4 = ((double) rand.nextFloat() - 0.5D) * 0.5D;
+				d5 = ((double) rand.nextFloat() - 0.5D) * 0.5D;
+				d6 = ((double) rand.nextFloat() - 0.5D) * 0.5D;
+
+				if (l == 0 && !world.getBlock(x, y + 1, z).isOpaqueCube()) {
+					d2 = (double) (y + 1) + d0;
+				}
+
+				if (l == 1 && !world.getBlock(x, y - 1, z).isOpaqueCube()) {
+					d2 = (double) (y + 0) - d0;
+				}
+
+				if (l == 2 && !world.getBlock(x, y, z + 1).isOpaqueCube()) {
+					d3 = (double) (z + 1) + d0;
+				}
+
+				if (l == 3 && !world.getBlock(x, y, z - 1).isOpaqueCube()) {
+					d3 = (double) (z + 0) - d0;
+				}
+
+				if (l == 4 && !world.getBlock(x + 1, y, z).isOpaqueCube()) {
+					d1 = (double) (x + 1) + d0;
+				}
+
+				if (l == 5 && !world.getBlock(x - 1, y, z).isOpaqueCube()) {
+					d1 = (double) (x + 0) - d0;
+				}
+
+				if (d1 < (double) x || d1 > (double) (x + 1) || d2 < 0.0D || d2 > (double) (y + 1) || d3 < (double) z || d3 > (double) (z + 1)) {
+					mod_lu.proxy.spawnParticle(world, x, y, z, "enderEyeFx");
+					// world.spawnParticle("portal", d1, d2, d3, d4, d5, d6);
+				}
+			}
+		}
+	}
+
 	public static class CompactDirt extends BlockDirt {
 		public CompactDirt() {
 			super();
@@ -368,7 +459,7 @@ public class ModBlocks extends Block {
 		public BoneBlock(Material mat) {
 			super(mat);
 		}
-		
+
 		public boolean isOpaqueCube() {
 			return false;
 		}
