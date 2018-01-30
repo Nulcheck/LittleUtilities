@@ -35,6 +35,10 @@ public class EdibleBlock extends Block {
 	public int damageDropped(int meta) {
 		return meta;
 	}
+	
+	public void setBlockBoundsForItemRender() {
+		this.setBlockBounds(0f, 0f, 0f, 1f, 1f, 1f);
+	}
 
 	public void setBlockBoundsBasedOnState(IBlockAccess block, int x, int y, int z) {
 		int meta = block.getBlockMetadata(x, y, z);

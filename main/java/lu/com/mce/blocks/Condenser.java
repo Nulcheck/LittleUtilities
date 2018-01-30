@@ -7,6 +7,7 @@ import lu.com.mce.entity.tile.TileEntityCondenser;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -14,21 +15,31 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class Condenser extends BlockContainer {
 	private Random rand = new Random();
+	private IIcon top;
 
 	public Condenser(Material mat) {
 		super(mat);
+	}
+
+	public IIcon getIcon(int side, int meta) {
+		return side == 0 || side == 1 ? this.top : this.blockIcon;
+	}
+
+	public void registerBlockIcons(IIconRegister icon) {
+		this.blockIcon = icon.registerIcon("mod_lu:condenser_side");
+		this.top = icon.registerIcon("furnace_top");
 	}
 
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityCondenser();
 	}
 
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitx,
-			float hity, float hitz) {
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitx, float hity, float hitz) {
 		player.openGui(mod_lu.instance, mod_lu.condenserGUI, world, x, y, z);
 		return true;
 	}
@@ -54,8 +65,8 @@ public class Condenser extends BlockContainer {
 
 						stack.stackSize -= j;
 
-						EntityItem item = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1),
-								(double) ((float) z + f2), new ItemStack(stack.getItem(), j, stack.getItemDamage()));
+						EntityItem item = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1), (double) ((float) z + f2),
+								new ItemStack(stack.getItem(), j, stack.getItemDamage()));
 
 						// Check items for tag and load it
 						if (stack.hasTagCompound()) {
