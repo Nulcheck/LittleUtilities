@@ -30,6 +30,7 @@ public class BlockRegistry {
 		GameRegistry.registerBlock(mod_lu.fSpiderEyeBlock, "fSpiderEyeBlock");
 		GameRegistry.registerBlock(mod_lu.carrotBlock, ItemBlockEdible.class, mod_lu.carrotBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(mod_lu.potatoBlock, ItemBlockEdible.class, mod_lu.potatoBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(mod_lu.bakedPotatoBlock, ItemBlockEdible.class, mod_lu.bakedPotatoBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(mod_lu.gunpowderBlock, "gunpowderBlock");
 		GameRegistry.registerBlock(mod_lu.flintBlock, "flintBlock");
 		GameRegistry.registerBlock(mod_lu.netherStarBlock, "netherStarBlock");
@@ -39,10 +40,14 @@ public class BlockRegistry {
 		GameRegistry.registerBlock(mod_lu.enderEyeBlock, "enderEyeBlock");
 		GameRegistry.registerBlock(mod_lu.boneBlock, "boneBlock");
 		GameRegistry.registerBlock(mod_lu.magmaCreamBlock, "magmaCreamBlock");
+		GameRegistry.registerBlock(mod_lu.featherBlock, "featherBlock");
+		GameRegistry.registerBlock(mod_lu.eggBlock, "eggBlock");
+		GameRegistry.registerBlock(mod_lu.sugarBlock, "sugarBlock");
 
 		// Compact Blocks
 		GameRegistry.registerBlock(mod_lu.compCobble, "compCobble");
 		GameRegistry.registerBlock(mod_lu.compDirt, "compDirt");
+		GameRegistry.registerBlock(mod_lu.compGravel, "compGravel");
 		GameRegistry.registerBlock(mod_lu.compNetherrack, "compNetherrack");
 
 	}

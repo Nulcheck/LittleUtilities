@@ -96,5 +96,7 @@ public class BlockRecipeHandler {
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt, 9), new ItemStack(mod_lu.compDirt));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.netherrack, 9), new ItemStack(mod_lu.compNetherrack));
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.gravel, 9), new ItemStack(mod_lu.compGravel));
 	}
 }

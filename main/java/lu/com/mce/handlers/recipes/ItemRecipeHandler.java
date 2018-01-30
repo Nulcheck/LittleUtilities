@@ -48,6 +48,8 @@ public class ItemRecipeHandler {
 
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.string, 4), new ItemStack(Blocks.wool));
 
+		GameRegistry.addShapelessRecipe(new ItemStack(mod_lu.sponge), new ItemStack(Items.string), new ItemStack(Items.string), new ItemStack(Items.string), new ItemStack(Items.dye, 1, 11));
+
 		// Reverse Recipes
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ghast_tear, 9), new ItemStack(mod_lu.ghastTearBlock));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.blaze_rod, 9), new ItemStack(mod_lu.blazeRodBlock));
@@ -59,6 +61,10 @@ public class ItemRecipeHandler {
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_eye, 9), new ItemStack(mod_lu.enderEyeBlock));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.bone, 9), new ItemStack(mod_lu.boneBlock));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.magma_cream, 9), new ItemStack(mod_lu.magmaCreamBlock));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.feather, 9), new ItemStack(mod_lu.featherBlock));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.egg, 9), new ItemStack(mod_lu.eggBlock));
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.sugar, 9), new ItemStack(mod_lu.sugarBlock));
+		GameRegistry.addShapelessRecipe(new ItemStack(mod_lu.sponge, 9), new ItemStack(Blocks.sponge));
 
 		// Meta recipes
 		for (int i = 0; i < 9; ++i) {
@@ -81,6 +87,7 @@ public class ItemRecipeHandler {
 			GameRegistry.addShapelessRecipe(new ItemStack(Items.spider_eye, 9 - i), new ItemStack(mod_lu.spiderEyeBlock, 1, i));
 			GameRegistry.addShapelessRecipe(new ItemStack(Items.carrot, 9 - i), new ItemStack(mod_lu.carrotBlock, 1, i));
 			GameRegistry.addShapelessRecipe(new ItemStack(Items.potato, 9 - i), new ItemStack(mod_lu.potatoBlock, 1, i));
+			GameRegistry.addShapelessRecipe(new ItemStack(Items.baked_potato, 9 - i), new ItemStack(mod_lu.bakedPotatoBlock, 1, i));
 			GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_pearl, 9 - i), new ItemStack(mod_lu.enderPerlBlock, 1, i));
 		}
 	}

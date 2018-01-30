@@ -90,6 +90,7 @@ public class mod_lu {
 	public static Block fSpiderEyeBlock;
 	public static Block carrotBlock;
 	public static Block potatoBlock;
+	public static Block bakedPotatoBlock;
 	public static Block gunpowderBlock;
 	public static Block flintBlock;
 	public static Block netherStarBlock;
@@ -101,10 +102,14 @@ public class mod_lu {
 	public static Block magmaCreamBlock;
 	public static Block stickBlock;
 	public static Block dyeBlock; // Maybe
+	public static Block featherBlock;
+	public static Block eggBlock;
+	public static Block sugarBlock;
 
 	// Compact Blocks
 	public static Block compCobble;
 	public static Block compDirt;
+	public static Block compGravel;
 	public static Block compNetherrack;
 
 	// Items
@@ -167,7 +172,9 @@ public class mod_lu {
 
 		potatoBlock = new EdibleBlock(Material.gourd, 1, 0.3f).setBlockName("potatoBlock").setBlockTextureName("mod_lu:potato").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
 
-		gunpowderBlock = new BoundsBlock(Material.ground, 0.1f).setBlockName("gunpowderBlock").setBlockTextureName("mod_lu:gunpowder").setCreativeTab(lu).setStepSound(Block.soundTypeSand);
+		bakedPotatoBlock = new EdibleBlock(Material.gourd, 6, 0.6f).setBlockName("bakedPotatoBlock").setBlockTextureName("mod_lu:baked_potato").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
+
+		gunpowderBlock = new BoundsBlock(Material.ground, 0.05f).setBlockName("gunpowderBlock").setBlockTextureName("mod_lu:gunpowder").setCreativeTab(lu).setStepSound(Block.soundTypeSand);
 
 		flintBlock = new ModBlocks(Material.ground).setBlockName("flintBlock").setBlockTextureName("mod_lu:flint").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
@@ -186,15 +193,23 @@ public class mod_lu {
 		magmaCreamBlock = new ModBlocks(Material.clay).setBlockName("magmaCreamBlock").setBlockTextureName("mod_lu:magma_cream").setCreativeTab(lu).setStepSound(Block.soundTypeGravel)
 				.setLightLevel(0.45f);
 
+		featherBlock = new ModBlocks(Material.cloth).setBlockName("featherBlock").setBlockTextureName("mod_lu:feather").setCreativeTab(lu).setStepSound(Block.soundTypeCloth);
+
+		eggBlock = new ModBlocks(Material.ground).setBlockName("eggBlock").setBlockTextureName("mod_lu:egg").setCreativeTab(lu).setStepSound(Block.soundTypeWood);
+
+		sugarBlock = new BoundsBlock(Material.ground, 0.05f).setBlockName("sugarBlock").setBlockTextureName("mod_lu:sugar").setCreativeTab(lu).setStepSound(Block.soundTypeSand);
+
 		//// TODO: Compact Blocks
 		compCobble = new ModBlocks(Material.rock).setBlockName("compCobble").setBlockTextureName("mod_lu:compact_cobble").setCreativeTab(lu).setStepSound(Block.soundTypePiston);
 
 		compDirt = new CompactDirt().setBlockName("compDirt").setBlockTextureName("mod_lu:compact_dirt").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
 
+		compGravel = new ModBlocks(Material.ground).setBlockName("compGravel").setBlockTextureName("mod_lu:compact_gravel").setCreativeTab(lu).setStepSound(Block.soundTypeGravel);
+
 		compNetherrack = new CompactNetherrack().setBlockName("compNetherrack").setBlockTextureName("mod_lu:compact_netherrack").setCreativeTab(lu).setStepSound(Block.soundTypePiston);
 
 		//// TODO: Items
-		sponge = new Item().setUnlocalizedName("sponge").setCreativeTab(lu);
+		sponge = new Item().setUnlocalizedName("sponge").setTextureName("mod_lu:sponge").setCreativeTab(lu);
 
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());

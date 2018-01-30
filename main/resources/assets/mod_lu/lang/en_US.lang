@@ -30,6 +30,7 @@ tile.spiderEyeBlock.name=Spider Eye Block
 tile.fSpiderEyeBlock.name=Fermented Spider Eye Block
 tile.carrotBlock.name=Carrot Block
 tile.potatoBlock.name=Potato Block
+tile.bakedPotatoBlock.name=Baked Potato Block
 tile.gunpowderBlock.name=Gunpowder Block
 tile.flintBlock.name=Flint Block
 tile.netherStarBlock.name=Nether Star Block
@@ -39,9 +40,13 @@ tile.enderPerlBlock.name=Ender Perl Block
 tile.enderEyeBlock.name=Ender Eye Block
 tile.boneBlock.name=Bone Block
 tile.magmaCreamBlock.name=Magma Cream Block
+tile.featherBlock.name=Feather Block
+tile.eggBlock.name=Egg Block
+tile.sugarBlock.name=Sugar Block
 
 tile.compCobble.name=Compact Cobblestone
 tile.compDirt.name=Compact Dirt
+tile.compGravel.name=Compact Gravel
 tile.compNetherrack.name=Compact Netherrack
 
 item.sponge.name=Sponge

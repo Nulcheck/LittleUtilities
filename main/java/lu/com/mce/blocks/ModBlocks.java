@@ -435,10 +435,14 @@ public class ModBlocks extends Block {
 		}
 
 		public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.id, 1200, 3, false));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.hunger.id, 300, 2, false));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.confusion.id, 300, 1, false));
-			super.onEntityCollidedWithBlock(world, x, y, z, entity);
+			try {
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.id, 1200, 3, false));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.hunger.id, 300, 2, false));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.confusion.id, 300, 1, false));
+				super.onEntityCollidedWithBlock(world, x, y, z, entity);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		public IIcon getIcon(int side, int meta) {

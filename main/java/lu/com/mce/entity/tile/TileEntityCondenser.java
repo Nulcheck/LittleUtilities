@@ -127,15 +127,12 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 
 	public boolean isUseableByPlayer(EntityPlayer player) {
 		return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false
-				: player.getDistanceSq((double) this.xCoord + 0.5d, (double) this.yCoord + 0.5d,
-						(double) this.zCoord + 0.5d) <= 64d;
+				: player.getDistanceSq((double) this.xCoord + 0.5d, (double) this.yCoord + 0.5d, (double) this.zCoord + 0.5d) <= 64d;
 	}
 
-	public void openChest() {
-	}
+	public void openChest() {}
 
-	public void closeChest() {
-	}
+	public void closeChest() {}
 
 	public void updateEntity() {
 		boolean flag1 = false;
@@ -152,8 +149,10 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 			this.time = 0;
 		}
 
-		if (flag1)
+		if (flag1) {
 			this.onInventoryChanged();
+			this.markDirty();
+		}
 	}
 
 	public boolean checkSlot() {
@@ -175,18 +174,17 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 
 			if (this.slots[0].getItem() instanceof ItemBlock && this.slots[0].stackSize >= 1)
 				return true;
-			
+
 			if (this.slots[0].getItem() instanceof Item && this.slots[0].stackSize < 9)
 				return false;
 
 			if (this.slots[1] == null)
 				return true;
-
 			if (!this.slots[1].isItemEqual(stack))
 				return false;
 
 			int result = this.slots[1].stackSize + stack.stackSize;
-			return (result <= getInventoryStackLimit() && result <= stack.getMaxStackSize());
+			return result <= getInventoryStackLimit() && result <= this.slots[1].getMaxStackSize();
 		}
 	}
 
@@ -196,21 +194,20 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 		if (this.slots[1] == null)
 			this.slots[1] = stack.copy();
 
-		else if (this.slots[1].isItemEqual(stack))
+		else if (this.slots[1].getItem() == stack.getItem())
 			this.slots[1].stackSize += stack.stackSize;
 
-		if (this.slots[0].getItem() instanceof ItemBlock && this.slots[0].stackSize >= 1)
+		if (this.slots[0].getItem() instanceof ItemBlock)
 			--this.slots[0].stackSize;
 
-		if (this.slots[0].getItem() instanceof Item && this.slots[0].stackSize >= 9)
+		if (this.slots[0].getItem() instanceof Item)
 			this.slots[0].stackSize -= 9;
 
 		if (this.slots[0].stackSize <= 0)
 			this.slots[0] = null;
 	}
 
-	public void onInventoryChanged() {
-	}
+	public void onInventoryChanged() {}
 
 	public boolean isItemValidForSlot(int i, ItemStack stack) {
 		return i == 1 ? false : true;
@@ -236,9 +233,7 @@ public class TileEntityCondenser extends TileEntity implements ISidedInventory {
 		return false;
 	}
 
-	public void openInventory() {
-	}
+	public void openInventory() {}
 
-	public void closeInventory() {
-	}
+	public void closeInventory() {}
 }

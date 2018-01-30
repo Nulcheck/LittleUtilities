@@ -47,6 +47,7 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.fermented_spider_eye, 9), new ItemStack(mod_lu.fSpiderEyeBlock), 0.5f);
 		this.addRecipe(new ItemStack(Items.carrot, 9), new ItemStack(mod_lu.carrotBlock), 0.2f);
 		this.addRecipe(new ItemStack(Items.potato, 9), new ItemStack(mod_lu.potatoBlock), 0.2f);
+		this.addRecipe(new ItemStack(Items.baked_potato, 9), new ItemStack(mod_lu.bakedPotatoBlock), 0.2f);
 		this.addRecipe(new ItemStack(Items.gunpowder, 9), new ItemStack(mod_lu.gunpowderBlock), 0.3f);
 		this.addRecipe(new ItemStack(Items.flint, 9), new ItemStack(mod_lu.flintBlock), 0.3f);
 		this.addRecipe(new ItemStack(Items.nether_star, 9), new ItemStack(mod_lu.netherStarBlock), 10f);
@@ -56,10 +57,15 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.ender_eye, 9), new ItemStack(mod_lu.enderEyeBlock), 5f);
 		this.addRecipe(new ItemStack(Items.bone, 9), new ItemStack(mod_lu.boneBlock), 0.3f);
 		this.addRecipe(new ItemStack(Items.magma_cream, 9), new ItemStack(mod_lu.magmaCreamBlock), 2f);
+		this.addRecipe(new ItemStack(Items.feather, 9), new ItemStack(mod_lu.featherBlock), 0.3f);
+		this.addRecipe(new ItemStack(Items.egg, 9), new ItemStack(mod_lu.eggBlock), 0.3f);
+		this.addRecipe(new ItemStack(Items.sugar, 9), new ItemStack(mod_lu.sugarBlock), 0.3f);
+		this.addRecipe(new ItemStack(mod_lu.sponge, 9), new ItemStack(Blocks.sponge), 0.5f);
 
 		// Compact Blocks
 		this.addRecipe(new ItemStack(Blocks.cobblestone, 9), new ItemStack(mod_lu.compCobble), 0.1f);
 		this.addRecipe(new ItemStack(Blocks.dirt, 9), new ItemStack(mod_lu.compDirt), 0.1f);
+		this.addRecipe(new ItemStack(Blocks.gravel, 9), new ItemStack(mod_lu.compGravel), 0.1f);
 		this.addRecipe(new ItemStack(Blocks.netherrack, 9), new ItemStack(mod_lu.compNetherrack), 0.2f);
 	}
 
