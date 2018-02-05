@@ -205,9 +205,12 @@ public class ModBlocks extends Block {
 	}
 
 	public static class SlimeBlock extends Block {
+		private double height;
+		private boolean mY;
+
 		public SlimeBlock(Material mat) {
 			super(mat);
-			// this.slipperiness = 0.8f;
+			this.slipperiness = 0.8f;
 		}
 
 		public boolean isOpaqueCube() {
@@ -218,12 +221,31 @@ public class ModBlocks extends Block {
 			return true;
 		}
 
+		public void onFallenUpon(World world, int x, int y, int z, Entity e, float fallDistance) {
+			if (e.isSneaking()) {
+				super.onFallenUpon(world, x, y, z, e, fallDistance);
+			} else {
+				e.fallDistance = 0f;
+				mY = true;
+				this.height = (-e.motionY);
+			}
+		}
+
 		public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity e) {
-			e.motionY *= -1.2d;
+			/// e.motionY *= -1.2d;
+			if (mY) {
+				e.motionY = this.height;
+				mY = false;
+			} else if (Math.abs(e.motionY) < 0.1D) {
+				double d0 = 0.4D + Math.abs(e.motionY) * 1D;
+				e.motionX *= d0;
+				e.motionZ *= d0;
+			}
+			super.onEntityCollidedWithBlock(world, x, y, z, e);
 		}
 
 		public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-			return AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) (x + 1), (double) ((float) (y + 0.625d)), (double) (z + 1));
+			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1 - 0.0625f, z + 1);
 		}
 	}
 
