@@ -100,7 +100,6 @@ public class mod_lu {
 	public static Block enderEyeBlock;
 	public static Block boneBlock;
 	public static Block magmaCreamBlock;
-	public static Block stickBlock;
 	public static Block dyeBlock; // Maybe
 	public static Block featherBlock;
 	public static Block eggBlock;
