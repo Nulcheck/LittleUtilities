@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class UpdateInfo {
-	public static int thisVersion = 2;
+	public static int thisVersion = 4;
 	public static final String versionURL = "https://docs.google.com/document/d/1OmMBVciFnmQJn98AQHk-aGgaQTBT3QJlTPP9sMRSRBM/pub";
 
 	public static String getLatestVersion() throws Exception {

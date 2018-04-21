@@ -56,7 +56,7 @@ public class mod_lu {
 	public static final int renderId = RenderingRegistry.getNextAvailableRenderId();
 
 	public static final String modid = "mod_lu";
-	public static final String version = "1.4";
+	public static final String version = "1.4.1";
 	public static final String name = "LittleUtilities";
 
 	@SidedProxy(clientSide = "lu.com.mce.client.ClientProxy", serverSide = "lu.com.mce.common.CommonProxy")
