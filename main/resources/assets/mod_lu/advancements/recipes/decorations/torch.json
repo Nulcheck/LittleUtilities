@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_stone_pickaxe": {
+    "has_blaze_powder": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:stone_pickaxe"
+            "item": "minecraft:blaze_powder"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_stone_pickaxe",
+      "has_blaze_powder",
       "has_the_recipe"
     ]
   ]

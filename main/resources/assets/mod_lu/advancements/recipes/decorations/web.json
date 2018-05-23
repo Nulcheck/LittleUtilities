@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "mod_lu:gravel"
+      "mod_lu:web"
     ]
   },
   "criteria": {
-    "has_cobblestone": {
+    "has_string": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:cobblestone"
+            "item": "minecraft:string"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "mod_lu:gravel"
+        "recipe": "mod_lu:web"
       }
     }
   },
   "requirements": [
     [
-      "has_cobblestone",
+      "has_string",
       "has_the_recipe"
     ]
   ]

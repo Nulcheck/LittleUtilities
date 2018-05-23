@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "mod_lu:gravel"
+      "mod_lu:blaze_rod"
     ]
   },
   "criteria": {
-    "has_cobblestone": {
+    "has_blaze_powder": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:cobblestone"
+            "item": "minecraft:blaze_powder"
           }
         ]
       }
@@ -19,14 +19,14 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "mod_lu:gravel"
+        "recipe": "mod_lu:blaze_rod"
       }
     }
   },
   "requirements": [
     [
-      "has_cobblestone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_blaze_powder"
     ]
   ]
 }

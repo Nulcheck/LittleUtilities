@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "mod_lu:gravel"
+      "mod_lu:mossy_cobblestone_wall"
     ]
   },
   "criteria": {
-    "has_cobblestone": {
+    "has_vine": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:cobblestone"
+            "item": "minecraft:vine"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "mod_lu:gravel"
+        "recipe": "mod_lu:mossy_cobblestone_wall"
       }
     }
   },
   "requirements": [
     [
-      "has_cobblestone",
+      "has_vine",
       "has_the_recipe"
     ]
   ]
