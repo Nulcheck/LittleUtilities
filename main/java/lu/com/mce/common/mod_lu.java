@@ -1,8 +1,6 @@
 package lu.com.mce.common;
 
 import lu.com.mce.events.HitEvent;
-import lu.com.mce.handlers.recipes.BlockRecipeHandler;
-import lu.com.mce.handlers.recipes.ItemRecipeHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -16,7 +14,7 @@ public class mod_lu {
 	public static mod_lu instance;
 
 	public static final String modid = "mod_lu";
-	public static final String version = "1.2-1112";
+	public static final String version = "1.12.2-1.0";
 	public static final String name = "LittleUtilities";
 
 	@SidedProxy(clientSide = "lu.com.mce.client.ClientProxy", serverSide = "lu.com.mce.common.CommonProxy")
@@ -29,8 +27,8 @@ public class mod_lu {
 
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
-		BlockRecipeHandler.registerCrafting();
-		ItemRecipeHandler.registerCrafting();
+		//BlockRecipeHandler.registerCrafting();
+		//ItemRecipeHandler.registerCrafting();
 		proxy.registerRenders();
 	}
 }
