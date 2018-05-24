@@ -7,11 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:bonemeal"
+      "item": "minecraft:dye",
+      "data": 15
     }
   },
   "result": {
-    "item": "minecraft:bone",
-    "data": 0
+    "item": "minecraft:bone"
   }
 }

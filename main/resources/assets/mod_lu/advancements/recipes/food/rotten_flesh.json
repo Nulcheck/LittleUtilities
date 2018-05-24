@@ -2,17 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "mod_lu:bone"
+      "mod_lu:rotten_flesh"
     ]
   },
   "criteria": {
-    "has_bone": {
+    "has_ferm_spider_eye": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:dye",
-            "data": 15
+            "item": "minecraft:fermented_spider_eye"
           }
         ]
       }
@@ -20,14 +19,14 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "mod_lu:bone"
+        "recipe": "mod_lu:rotten_flesh"
       }
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_bone"
+      "has_ferm_spider_eye"
     ]
   ]
 }
