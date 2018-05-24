@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  i",
+    "isi",
+    "i i"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:saddle"
+    },
+    "i": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "minecraft:gold_horse_armor"
+  }
+}

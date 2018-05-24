@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "mod_lu:diamond_horse_armor"
+    ]
+  },
+  "criteria": {
+    "has_saddle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:saddle"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "mod_lu:diamond_horse_armor"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_saddle"
+    ]
+  ]
+}
