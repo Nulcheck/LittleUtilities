@@ -1,6 +1,6 @@
 package lu.com.mce.common;
 
-import lu.com.mce.events.HitEvent;
+import lu.com.mce.events.GameEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -22,7 +22,7 @@ public class mod_lu {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(new HitEvent());
+		MinecraftForge.EVENT_BUS.register(new GameEvent());
 	}
 
 	@EventHandler
