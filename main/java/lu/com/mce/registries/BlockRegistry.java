@@ -1,4 +1,4 @@
-package lu.com.mce.handlers.registers;
+package lu.com.mce.registries;
 
 import lu.com.mce.common.mod_lu;
 import net.minecraft.block.Block;

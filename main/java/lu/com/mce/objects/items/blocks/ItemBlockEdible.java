@@ -1,4 +1,4 @@
-package lu.com.mce.items.blocks;
+package lu.com.mce.objects.items.blocks;
 
 import java.util.List;
 import java.util.Random;

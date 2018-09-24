@@ -1,4 +1,4 @@
-package lu.com.mce.blocks;
+package lu.com.mce.objects.blocks;
 
 import lu.com.mce.common.mod_lu;
 import net.minecraft.block.Block;

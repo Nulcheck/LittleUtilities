@@ -3,7 +3,7 @@ package lu.com.mce.handlers;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import lu.com.mce.common.mod_lu;
-import lu.com.mce.handlers.registers.AchRegistry;
+import lu.com.mce.registries.AchRegistry;
 import net.minecraft.item.Item;
 
 public class AchievementHandler {

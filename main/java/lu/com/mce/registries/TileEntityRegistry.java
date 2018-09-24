@@ -1,4 +1,4 @@
-package lu.com.mce.handlers.registers;
+package lu.com.mce.registries;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import lu.com.mce.entity.tile.TileEntityCondenser;

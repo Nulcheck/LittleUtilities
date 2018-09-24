@@ -3,9 +3,9 @@ package lu.com.mce.api.waila;
 import java.util.List;
 import java.util.Random;
 
-import lu.com.mce.blocks.EdibleBlock;
-import lu.com.mce.blocks.UsableBlock;
 import lu.com.mce.common.mod_lu;
+import lu.com.mce.objects.blocks.EdibleBlock;
+import lu.com.mce.objects.blocks.UsableBlock;
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
 import mcp.mobius.waila.api.IWailaDataProvider;

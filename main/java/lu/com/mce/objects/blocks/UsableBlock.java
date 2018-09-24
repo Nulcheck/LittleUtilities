@@ -1,4 +1,4 @@
-package lu.com.mce.blocks;
+package lu.com.mce.objects.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

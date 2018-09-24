@@ -1,8 +1,8 @@
 package lu.com.mce.api.waila;
 
-import lu.com.mce.blocks.EdibleBlock;
-import lu.com.mce.blocks.ModBlocks.BlazeRodBlock;
-import lu.com.mce.blocks.UsableBlock;
+import lu.com.mce.objects.blocks.EdibleBlock;
+import lu.com.mce.objects.blocks.UsableBlock;
+import lu.com.mce.objects.blocks.ModBlocks.BlazeRodBlock;
 import mcp.mobius.waila.api.impl.ModuleRegistrar;
 
 public class LUModule {

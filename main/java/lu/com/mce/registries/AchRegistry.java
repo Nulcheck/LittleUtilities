@@ -1,4 +1,4 @@
-package lu.com.mce.handlers.registers;
+package lu.com.mce.registries;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import lu.com.mce.common.mod_lu;
