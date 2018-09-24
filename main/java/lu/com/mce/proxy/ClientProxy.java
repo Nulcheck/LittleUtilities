@@ -1,6 +1,4 @@
-package lu.com.mce.client;
-
-import lu.com.mce.common.CommonProxy;
+package lu.com.mce.proxy;
 
 public class ClientProxy extends CommonProxy {
 	public void registerRenders() {

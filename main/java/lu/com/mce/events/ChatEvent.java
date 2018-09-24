@@ -1,8 +1,8 @@
 package lu.com.mce.events;
 
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
 import net.minecraft.util.text.event.HoverEvent.Action;
@@ -12,12 +12,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ChatEvent {
 	@SubscribeEvent
 	public void chat(ClientChatReceivedEvent e) {
-		if (e.message.getUnformattedText().contains("New LittleUtilities Update! ")) {
-			e.message.appendSibling(
-					new ChatComponentText("[Click Here]").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GOLD)
-							.setChatHoverEvent(new HoverEvent(Action.SHOW_TEXT,
-									new ChatComponentText("New update!")))
-							.setChatClickEvent(new ClickEvent(net.minecraft.event.ClickEvent.Action.OPEN_URL,
+		if (e.getMessage().getUnformattedText().contains("New LittleUtilities Update! ")) {
+			e.getMessage().appendSibling(
+					new TextComponentString("[Click Here]").setStyle(new Style().setColor(TextFormatting.GOLD)
+							.setHoverEvent(new HoverEvent(Action.SHOW_TEXT,
+									new TextComponentString("New update!")))
+							.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL,
 									"https://minecraft.curseforge.com/projects/littleutilities"))));
 		}
 	}
