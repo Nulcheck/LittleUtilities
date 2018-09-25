@@ -3,7 +3,9 @@ package lu.com.mce.objects.blocks;
 import lu.com.mce.util.BlockBase;
 import lu.com.mce.util.EnumAmount;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
@@ -22,9 +24,9 @@ public class UsableBlock extends BlockBase {
 	private float potionEffectProbability;
 
 	int meta = getMetaFromState(blockState.getBaseState());
-	double maxY = (float) (meta * 2) / 18f;
+	double subtractY = (float) (meta * 2) / 18f;
 
-	protected final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
+	protected final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.<EnumAmount>create("amount", EnumAmount.class);
 
 	public UsableBlock(String name, Material mat) {
@@ -32,6 +34,10 @@ public class UsableBlock extends BlockBase {
 	}
 
 	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	public boolean isFullBlock(IBlockState state) {
 		return false;
 	}
 
@@ -48,12 +54,12 @@ public class UsableBlock extends BlockBase {
 	 * 0f, 1f, 1f, 1f); }
 	 */
 
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(IBlockState blockState, IBlockAccess world, BlockPos pos) {
-		return BLOCK_AABB;
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(IBlockState state, World world, BlockPos pos) {
-		return BLOCK_AABB;
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
+		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
@@ -92,5 +98,9 @@ public class UsableBlock extends BlockBase {
 
 	public int getMetaFromState(IBlockState state) {
 		return ((EnumAmount) state.getValue(AMOUNT)).getMetadata();
+	}
+
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] { AMOUNT });
 	}
 }

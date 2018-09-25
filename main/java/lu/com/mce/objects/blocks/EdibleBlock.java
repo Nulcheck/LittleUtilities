@@ -4,7 +4,9 @@ import lu.com.mce.objects.InitBlocks;
 import lu.com.mce.util.BlockBase;
 import lu.com.mce.util.EnumAmount;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -27,11 +29,11 @@ public class EdibleBlock extends BlockBase {
 	private float potionEffectProbability;
 
 	int meta = getMetaFromState(blockState.getBaseState());
-	double maxY = (float) (meta * 2) / 18f;
+	double subtractY = (float) (meta * 2) / 18f;
 	double d = 0.0625d;
 
-	protected final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
-	protected final AxisAlignedBB BLOCK_PUFFER_AABB = new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - maxY, 1d - d);
+	protected final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
+	protected final AxisAlignedBB BLOCK_PUFFER_AABB = new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d);
 	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.<EnumAmount>create("amount", EnumAmount.class);
 
 	/**
@@ -51,7 +53,11 @@ public class EdibleBlock extends BlockBase {
 		return false;
 	}
 
-	public boolean isOpaqueCube() {
+	public boolean isFullBlock(IBlockState state) {
+		return false;
+	}
+
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
@@ -63,19 +69,19 @@ public class EdibleBlock extends BlockBase {
 	 * public void setBlockBoundsForItemRender() { this.setBlockBounds(0f, 0f,
 	 * 0f, 1f, 1f, 1f); }
 	 */
-
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(IBlockState blockState, IBlockAccess world, BlockPos pos) {
+	
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		if (world.getBlockState(pos) == InitBlocks.PUFFERFISH_BLOCK)
-			return BLOCK_PUFFER_AABB;
+			return new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d);
 		else
-			return BLOCK_AABB;
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(IBlockState state, World world, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World world, BlockPos pos) {
 		if (world.getBlockState(pos) == InitBlocks.PUFFERFISH_BLOCK)
-			return BLOCK_PUFFER_AABB;
+			return new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d).offset(pos);
 		else
-			return BLOCK_AABB;
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d).offset(pos);
 	}
 
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
@@ -122,5 +128,9 @@ public class EdibleBlock extends BlockBase {
 
 	public int getMetaFromState(IBlockState state) {
 		return ((EnumAmount) state.getValue(AMOUNT)).getMetadata();
+	}
+
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] { AMOUNT });
 	}
 }

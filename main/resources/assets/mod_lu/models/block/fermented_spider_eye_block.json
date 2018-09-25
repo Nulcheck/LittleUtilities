@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "mod_lu:blocks/fermented_spider_eye_block"
+    }
+}

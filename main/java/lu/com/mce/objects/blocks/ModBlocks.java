@@ -1,5 +1,6 @@
 package lu.com.mce.objects.blocks;
 
+import java.util.List;
 import java.util.Random;
 
 import lu.com.mce.util.BlockBase;
@@ -11,7 +12,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -22,26 +22,27 @@ import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 
 public class ModBlocks {
 	public static class BoundsBlock extends BlockBase {
-		static double maxY;
-		static double maxY1 = 1d - maxY;
-		
-		protected static final AxisAlignedBB BLOCK_COLLISION_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, maxY1, 1d);
-		protected static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, maxY1, 1d);
+		double subtractY;
+		public AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 
-		public BoundsBlock(String name, Material mat, double maxY) {
+		public BoundsBlock(String name, Material mat, double subtractY) {
 			super(name, mat);
-			this.maxY = maxY;
+			this.subtractY = subtractY;
 		}
 
-		public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-			return BLOCK_COLLISION_AABB;
+		public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 		}
 
-		public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
-			return BLOCK_AABB.offset(pos);
+		public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 		}
 
 		public boolean isFullCube(IBlockState state) {
+			return false;
+		}
+
+		public boolean isFullBlock(IBlockState state) {
 			return false;
 		}
 

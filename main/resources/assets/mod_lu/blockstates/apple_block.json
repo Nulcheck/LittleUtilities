@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"amount=0": {"model": "mod_lu:apple_block", "y": 1},
+		"amount=1": {"model": "mod_lu:apple_block", "y": 0.8},
+		"amount=2": {"model": "mod_lu:apple_block", "y": 0.7},
+		"amount=3": {"model": "mod_lu:apple_block", "y": 0.6},
+		"amount=4": {"model": "mod_lu:apple_block", "y": 0.5},
+		"amount=5": {"model": "mod_lu:apple_block", "y": 0.4},
+		"amount=6": {"model": "mod_lu:apple_block", "y": 0.3},
+		"amount=7": {"model": "mod_lu:apple_block", "y": 0.2},
+		"amount=8": {"model": "mod_lu:apple_block", "y": 0.1},
+	}
+}
