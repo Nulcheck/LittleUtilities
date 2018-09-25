@@ -1,19 +1,16 @@
 package lu.com.mce.util;
 
-import lu.com.mce.common.mod_lu;
+import lu.com.mce.objects.InitBlocks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
 public class ModCreativeTab extends CreativeTabs {
-	public final String gui_tab = "tab.png";
-	
-	public ModCreativeTab(String name){
+	public ModCreativeTab(String name) {
 		super(name);
-		this.setBackgroundImageName(gui_tab);
-	}
-	
-	public ItemStack getTabIconItem() {
-		return new ItemStack(mod_lu.sponge);
+		this.setBackgroundImageName("lu.png");
 	}
 
+	public ItemStack getTabIconItem() {
+		return new ItemStack(InitBlocks.CONDENSER);
+	}
 }

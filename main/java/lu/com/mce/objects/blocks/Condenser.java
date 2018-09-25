@@ -2,12 +2,11 @@ package lu.com.mce.objects.blocks;
 
 import java.util.Random;
 
-import lu.com.mce.common.mod_lu;
 import lu.com.mce.entity.tile.TileEntityCondenser;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -15,38 +14,30 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Condenser extends BlockContainer {
+public class Condenser extends BlockContainer implements ITileEntityProvider {
 	private Random rand = new Random();
-	private IIcon top;
 
 	public Condenser(Material mat) {
 		super(mat);
-	}
-
-	public IIcon getIcon(int side, int meta) {
-		return side == 0 || side == 1 ? this.top : this.blockIcon;
-	}
-
-	public void registerBlockIcons(IIconRegister icon) {
-		this.blockIcon = icon.registerIcon("mod_lu:condenser_side");
-		this.top = icon.registerIcon("furnace_top");
 	}
 
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityCondenser();
 	}
 
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitx,
-			float hity, float hitz) {
-		player.openGui(mod_lu.instance, mod_lu.condenserGUI, world, x, y, z);
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+			EnumFacing facing, float hitX, float hitY, float hitZ) {
+		// player.openGui(mod_lu.instance, mod_lu.condenserGUI, world, pos.getX(), pos.getY(), pos.getZ());
 		return true;
 	}
 
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		TileEntityCondenser entity = (TileEntityCondenser) world.getTileEntity(x, y, z);
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		TileEntityCondenser entity = (TileEntityCondenser) world.getTileEntity(pos);
 
 		if (entity != null) {
 			for (int i = 0; i < entity.getSizeInv(); i++) {
@@ -57,21 +48,22 @@ public class Condenser extends BlockContainer {
 					float f1 = this.rand.nextFloat() * .8f + .1f;
 					float f2 = this.rand.nextFloat() * .8f + .1f;
 
-					while (stack.stackSize > 0) {
+					while (stack.getCount() > 0) {
 						int j = this.rand.nextInt(21) + 10;
 
-						if (j > stack.stackSize) {
-							j = stack.stackSize;
+						if (j > stack.getCount()) {
+							j = stack.getCount();
 						}
 
-						stack.stackSize -= j;
+						stack.shrink(j);
 
-						EntityItem item = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1),
-								(double) ((float) z + f2), new ItemStack(stack.getItem(), j, stack.getItemDamage()));
+						EntityItem item = new EntityItem(world, (double) ((float) pos.getX() + f),
+								(double) ((float) pos.getY() + f1), (double) ((float) pos.getZ() + f2),
+								new ItemStack(stack.getItem(), j, stack.getItemDamage()));
 
 						// Check items for tag and load it
 						if (stack.hasTagCompound()) {
-							item.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
+							item.getItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
 						}
 
 						// Set motion to dropped items
@@ -80,20 +72,20 @@ public class Condenser extends BlockContainer {
 						item.motionY = (double) ((float) this.rand.nextGaussian() * f3 + .2f);
 						item.motionZ = (double) ((float) this.rand.nextGaussian() * f3);
 
-						world.spawnEntityInWorld(item);
+						world.spawnEntity(item);
 					}
 				}
 			}
-			world.getBlock(x, y, z);
+			world.getBlockState(pos);
 		}
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	public boolean hasComparatorInputOverride() {
 		return true;
 	}
 
-	public int getComparatorInputOverride(World world, int x, int y, int z, int i) {
-		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(x, y, z));
+	public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos) {
+		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(pos));
 	}
 }

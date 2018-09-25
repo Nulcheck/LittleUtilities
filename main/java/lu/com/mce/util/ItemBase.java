@@ -1,7 +1,7 @@
 package lu.com.mce.util;
 
 import lu.com.mce.common.mod_lu;
-import lu.com.mce.objects.items.ModItems;
+import lu.com.mce.objects.InitItems;
 import net.minecraft.item.Item;
 
 public class ItemBase extends Item implements IHasModel {
@@ -11,7 +11,7 @@ public class ItemBase extends Item implements IHasModel {
 		setRegistryName(name);
 		setCreativeTab(mod_lu.lu);
 		
-		ModItems.ITEMS.add(this);
+		InitItems.ITEMS.add(this);
 	}
 	
 	public void registerModels() {

@@ -1,10 +1,11 @@
 package lu.com.mce.registries;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import lu.com.mce.entity.tile.TileEntityCondenser;
+import lu.com.mce.util.References;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class TileEntityRegistry {
 	public static void teRegistry() {
-		GameRegistry.registerTileEntity(TileEntityCondenser.class, "te_con");
+		GameRegistry.registerTileEntity(TileEntityCondenser.class, References.MOD_ID + "TileEntityCondenser");
 	}
 }

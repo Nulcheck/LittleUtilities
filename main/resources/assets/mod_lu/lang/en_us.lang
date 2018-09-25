@@ -1,1 +1,60 @@
+## English Language File
+# By MCE626
+# Created 9/24/2018
+
+itemGroup.lu=§aLittleUtilities
+
+container.condenser=Condenser
+
+////// BLOCKS
+tile.condenser.name=Condenser
+
+//// CONDENSED ITEM BLOCKS
+tile.ghast_tear_block.name=Ghast Tear Block
+tile.blaze_rod_block.name=Blaze Rod Block
+tile.nether_star_block.name=Nether Star Block
+tile.gunpowder_block.name=Gunpowder Block
+tile.flint_block.name=Flint Block
+tile.paper_block.name=Paper Block
+tile.ender_eye_block.name=Ender Eye Block
+tile.magma_cream_block.name=Magma Cream Block
+tile.feather_block.name=Feather Block
+tile.egg_block.name=Egg Block
+tile.sugar_block.name=Sugar Block
+tile.fermented_spider_eye_block.name=Fermented Spider Eye Block
+
+// USEABLE BLOCKS
+tile.ender_pearl_block.name=Ender Pearl Block
+
+// EDIBLE BLOCKS
+tile.pork_block.name=Raw Pork Block
+tile.cooked_pork_block.name=Cooked Pork Block
+tile.beef_block.name=Raw Beef Block
+tile.cooked_beef_block.name=Cooked Beef Block
+tile.chicken_block.name=Raw Chicken Block
+tile.cooked_chicken_block.name=Cooked Chicken Block
+tile.rabbit_block.name=Rabbit Block
+tile.cooked_rabbit_block.name=Cooked Rabbit Block
+tile.cod_block.name=Cod Block
+tile.cooked_cod_block.name=Cooked Cod Block
+tile.salmon_block.name=Salmon Block
+tile.cooked_salmon_block.name=Cooked Salmon Block
+tile.tropical_fish_block.name=Tropical Fish Block
+tile.pufferfish_block.name=Pufferfish Block
+tile.rotten_flesh_block.name=Rotten Flesh Block
+tile.apple_block.name=Apple Block
+tile.bread_block.name=Bread Block
+tile.cookie_block.name=Cookie Block
+tile.spider_eye_block.name=Spider Eye Block
+tile.carrot_block.name=Carrot Block
+tile.potato_block.name=Potato Block
+tile.baked_potato_block.name=Baked Potato Block
+
+//// COMPACT BLOCKS
+tile.compact_cobble.name=Compact Cobblestone
+tile.compact_dirt.name=Compact Dirt
+tile.compact_gravel.name=Compact Gravel
+tile.compact_netherrack.name=Compact Netherrack
+
+////// ITEMS
 item.sponge.name=Sponge
