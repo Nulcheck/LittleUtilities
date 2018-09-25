@@ -50,7 +50,9 @@ public class InitBlocks {
 			.setPotionEffect(MobEffects.HUNGER, 30, 0, 0.3f);
 	public static final Block COOKED_CHICKEN_BLOCK = new EdibleBlock("cooked_chicken_block", Material.CLAY, 6, 0.6f);
 	public static final Block RABBIT_BLOCK = new EdibleBlock("rabbit_block", Material.CLAY, 3, 0.3f);
-	public static final Block COOKED_RABBIT_BLOCK = new EdibleBlock("cooked_rabbit_block", Material.CLAY, 8, 0.8f);
+	public static final Block COOKED_RABBIT_BLOCK = new EdibleBlock("cooked_rabbit_block", Material.CLAY, 5, 0.6f);
+	public static final Block MUTTON_BLOCK = new EdibleBlock("mutton_block", Material.CLAY, 2, 0.3f);
+	public static final Block COOKED_MUTTON_BLOCK = new EdibleBlock("cooked_mutton_block", Material.CLAY, 6, 0.8f);
 	public static final Block COD_BLOCK = new EdibleBlock("cod_block", Material.CLAY, 2, 0.4f);
 	public static final Block COOKED_COD_BLOCK = new EdibleBlock("cooked_cod_block", Material.CLAY, 5, 0.6f);
 	public static final Block SALMON_BLOCK = new EdibleBlock("salmon_block", Material.CLAY, 2, 0.2f);

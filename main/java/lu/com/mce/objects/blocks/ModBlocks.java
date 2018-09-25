@@ -1,6 +1,5 @@
 package lu.com.mce.objects.blocks;
 
-import java.util.List;
 import java.util.Random;
 
 import lu.com.mce.util.BlockBase;
@@ -22,27 +21,24 @@ import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 
 public class ModBlocks {
 	public static class BoundsBlock extends BlockBase {
-		double subtractY;
-		public AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
+		double maxY;
+		// public AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d,
+		// maxY, 1d);
 
-		public BoundsBlock(String name, Material mat, double subtractY) {
+		public BoundsBlock(String name, Material mat, double maxY) {
 			super(name, mat);
-			this.subtractY = subtractY;
+			this.maxY = maxY;
 		}
 
-		public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
+		public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
 		}
 
-		public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
-			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
+		public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d).offset(pos);
 		}
 
 		public boolean isFullCube(IBlockState state) {
-			return false;
-		}
-
-		public boolean isFullBlock(IBlockState state) {
 			return false;
 		}
 
