@@ -1,16 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "# #",
-    " # ",
-    "# #"
+    "ss",
+    "sd"
   ],
   "key": {
-    "#": {
+    "s": {
       "item": "minecraft:string"
+    },
+    "d": {
+      "item": "minecraft:dye",
+      "data": 11
     }
   },
   "result": {
-    "item": "minecraft:web"
+    "item": "mod_lu:sponge"
   }
 }

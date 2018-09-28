@@ -11,7 +11,8 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:saddle"
+            "item": "minecraft:saddle",
+            "item": "minecraft:iron_ingot"
           }
         ]
       }

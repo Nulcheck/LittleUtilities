@@ -10,7 +10,6 @@
     }
   ],
   "result": {
-    "item": "minecraft:gravel",
-    "data": 0
+    "item": "minecraft:gravel"
   }
 }
