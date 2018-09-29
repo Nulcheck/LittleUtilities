@@ -3,14 +3,13 @@
   "modid": "mod_lu",
   "name": "\u00A7aLittleUtilities\u00A7r",
   "description": "Useful recipes, blocks and more!",
-  "version": "1.12.2-alpha0.1",
-  "mcversion": "1.12.2",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url": "https://minecraft.curseforge.com/projects/littleutilities",
-  "updateUrl": "",
+  "updateJSON": "https://raw.githubusercontent.com/MCE626/LittleUtilities/master/update.json",
   "authorList": ["\u00A7bMCE626\u00A7r"],
   "credits": "",
   "logoFile": "logo.png",
-  "screenshots": [],
-  "dependencies": []
+  "dependencies": ["mod_MinecraftForge"]
 }
 ]
