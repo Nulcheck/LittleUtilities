@@ -1,11 +1,10 @@
 {
   "homepage": "https://minecraft.curseforge.com/projects/littleutilities",
   "1.12.2": {
-    "1.12.2-alpha0.2": "Testing",
     "1.12.2-alpha0.1": "Took the 1.7.10 version and updated it for 1.12.2"
   },
   "promos": {
-    "1.12.2-latest": "1.12.2-alpha0.2",
-    "1.12.2-recommended": "1.12.2-alpha0.2"
+    "1.12.2-latest": "1.12.2-alpha0.1",
+    "1.12.2-recommended": "1.12.2-alpha0.1"
   }
 }
