@@ -1,4 +1,4 @@
-package lu.com.mce.common;
+package lu.com.mce.main;
 
 import lu.com.mce.events.ChatEvent;
 import lu.com.mce.events.GameEvent;

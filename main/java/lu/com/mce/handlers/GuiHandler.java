@@ -2,10 +2,10 @@ package lu.com.mce.handlers;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import lu.com.mce.common.mod_lu;
 import lu.com.mce.container.CondenserContainer;
 import lu.com.mce.entity.tile.TileEntityCondenser;
 import lu.com.mce.gui.CondenserGui;
+import lu.com.mce.main.mod_lu;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

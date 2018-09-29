@@ -1,7 +1,7 @@
 package lu.com.mce.registries;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import lu.com.mce.common.mod_lu;
+import lu.com.mce.main.mod_lu;
 import net.minecraft.item.Item;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;

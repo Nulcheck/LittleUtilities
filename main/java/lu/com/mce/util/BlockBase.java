@@ -1,6 +1,6 @@
 package lu.com.mce.util;
 
-import lu.com.mce.common.mod_lu;
+import lu.com.mce.main.mod_lu;
 import lu.com.mce.objects.InitBlocks;
 import lu.com.mce.objects.InitItems;
 import net.minecraft.block.Block;

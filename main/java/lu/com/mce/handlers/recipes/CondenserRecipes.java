@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import lu.com.mce.api.RecipeAPI;
-import lu.com.mce.common.mod_lu;
+import lu.com.mce.main.mod_lu;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
