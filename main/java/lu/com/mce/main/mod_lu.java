@@ -6,7 +6,6 @@ import lu.com.mce.handlers.PlayerHandler;
 import lu.com.mce.proxy.CommonProxy;
 import lu.com.mce.util.ModCreativeTab;
 import lu.com.mce.util.References;
-import lu.com.mce.util.updater.CheckVersion;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -30,8 +29,6 @@ public class mod_lu {
 
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
-		new CheckVersion();
-
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());
 		FMLCommonHandler.instance().bus().register(new GameEvent());
