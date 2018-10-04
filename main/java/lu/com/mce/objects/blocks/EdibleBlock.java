@@ -21,6 +21,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class EdibleBlock extends BlockBase {
+	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.<EnumAmount>create("amount", EnumAmount.class);
 	public int lvl;
 	public float sat;
 	private Potion potion;
@@ -31,10 +32,6 @@ public class EdibleBlock extends BlockBase {
 	int meta = getMetaFromState(blockState.getBaseState());
 	double subtractY = (float) (meta * 2) / 18f;
 	double d = 0.0625d;
-
-	protected final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
-	protected final AxisAlignedBB BLOCK_PUFFER_AABB = new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d);
-	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.<EnumAmount>create("amount", EnumAmount.class);
 
 	/**
 	 * 
@@ -49,27 +46,6 @@ public class EdibleBlock extends BlockBase {
 		this.sat = sat;
 	}
 
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-
-	public boolean isFullBlock(IBlockState state) {
-		return false;
-	}
-
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
-
-	public int damageDropped(int meta) {
-		return meta;
-	}
-
-	/*
-	 * public void setBlockBoundsForItemRender() { this.setBlockBounds(0f, 0f,
-	 * 0f, 1f, 1f, 1f); }
-	 */
-	
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		if (world.getBlockState(pos) == InitBlocks.PUFFERFISH_BLOCK)
 			return new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d);
@@ -82,6 +58,18 @@ public class EdibleBlock extends BlockBase {
 			return new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d).offset(pos);
 		else
 			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d).offset(pos);
+	}
+
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	public int damageDropped(int meta) {
+		return meta;
 	}
 
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,

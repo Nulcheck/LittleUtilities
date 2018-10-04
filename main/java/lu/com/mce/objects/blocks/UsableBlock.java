@@ -18,6 +18,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class UsableBlock extends BlockBase {
+	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.<EnumAmount>create("amount", EnumAmount.class);
 	private Potion potion;
 	private int potionDuration;
 	private int potionAmplifier;
@@ -26,18 +27,19 @@ public class UsableBlock extends BlockBase {
 	int meta = getMetaFromState(blockState.getBaseState());
 	double subtractY = (float) (meta * 2) / 18f;
 
-	protected final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
-	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.<EnumAmount>create("amount", EnumAmount.class);
-
 	public UsableBlock(String name, Material mat) {
 		super(name, mat);
 	}
 
-	public boolean isFullCube(IBlockState state) {
-		return false;
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
-	public boolean isFullBlock(IBlockState state) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
+		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
+	}
+	
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
@@ -47,19 +49,6 @@ public class UsableBlock extends BlockBase {
 
 	public int damageDropped(int meta) {
 		return meta;
-	}
-
-	/*
-	 * public void setBlockBoundsForItemRender() { this.setBlockBounds(0f, 0f,
-	 * 0f, 1f, 1f, 1f); }
-	 */
-
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
-	}
-
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
-		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,

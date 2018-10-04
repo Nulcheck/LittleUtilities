@@ -22,20 +22,18 @@ import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 public class ModBlocks {
 	public static class BoundsBlock extends BlockBase {
 		double maxY;
-		// public AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0d, 0d, 0d, 1d,
-		// maxY, 1d);
 
 		public BoundsBlock(String name, Material mat, double maxY) {
 			super(name, mat);
 			this.maxY = maxY;
 		}
 
-		public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+		public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
 		}
 
-		public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
-			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d).offset(pos);
+		public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
 		}
 
 		public boolean isFullCube(IBlockState state) {
