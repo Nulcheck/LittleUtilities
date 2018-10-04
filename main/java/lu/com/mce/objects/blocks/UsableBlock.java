@@ -18,7 +18,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class UsableBlock extends BlockBase {
-	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.<EnumAmount>create("amount", EnumAmount.class);
+	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.create("amount", EnumAmount.class);
 	private Potion potion;
 	private int potionDuration;
 	private int potionAmplifier;
@@ -29,6 +29,7 @@ public class UsableBlock extends BlockBase {
 
 	public UsableBlock(String name, Material mat) {
 		super(name, mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, EnumAmount.NINE));
 	}
 
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
@@ -47,8 +48,8 @@ public class UsableBlock extends BlockBase {
 		return false;
 	}
 
-	public int damageDropped(int meta) {
-		return meta;
+	public int damageDropped(IBlockState state) {
+		return getMetaFromState(state);
 	}
 
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
@@ -67,10 +68,14 @@ public class UsableBlock extends BlockBase {
 			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration * 20, this.potionAmplifier));
 		}
 
-		int meta = getMetaFromState(state) + 1;
+		int metaState = getMetaFromState(state);
+		int meta = metaState + 1;
+		System.out.println(meta);
 
-		if (meta >= 9)
+		if (metaState >= 9)
 			world.setBlockToAir(pos);
+		
+		getStateFromMeta(meta);
 	}
 
 	public UsableBlock setPotionEffect(Potion potion, int dur, int amp, float prob) {
