@@ -2,10 +2,9 @@ package lu.com.mce.objects.blocks;
 
 import lu.com.mce.objects.InitBlocks;
 import lu.com.mce.util.BlockBase;
-import lu.com.mce.util.EnumAmount;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,6 +20,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class EdibleBlock extends BlockBase {
+	public static final PropertyInteger AMOUNT = PropertyInteger.create("amount", 0, 8);
 	public int lvl;
 	public float sat;
 	private Potion potion;
@@ -43,21 +43,7 @@ public class EdibleBlock extends BlockBase {
 		super(name, mat);
 		this.lvl = lvl;
 		this.sat = sat;
-		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, EnumAmount.ZERO));
-	}
-
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
-		if (world.getBlockState(pos) == InitBlocks.PUFFERFISH_BLOCK)
-			return new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d);
-		else
-			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
-	}
-
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World world, BlockPos pos) {
-		if (world.getBlockState(pos) == InitBlocks.PUFFERFISH_BLOCK)
-			return new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d).offset(pos);
-		else
-			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d).offset(pos);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, 0));
 	}
 
 	public boolean isFullCube(IBlockState state) {
@@ -66,6 +52,13 @@ public class EdibleBlock extends BlockBase {
 
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
+	}
+	
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		if (world.getBlockState(pos) == InitBlocks.PUFFERFISH_BLOCK)
+			return new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d);
+		else
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
 	public int damageDropped(IBlockState state) {
@@ -83,22 +76,26 @@ public class EdibleBlock extends BlockBase {
 	}
 
 	private void eatBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
-		if (!world.isRemote && this.potion.getIdFromPotion(potion) > 0
+		if (!world.isRemote && Potion.getIdFromPotion(potion) > 0
 				&& world.rand.nextFloat() < this.potionEffectProbability) {
 			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration * 20, this.potionAmplifier));
 		}
 
 		if (player.canEat(false)) {
+			int metaState = getMetaFromState(state);		
+			int meta = metaState += 1;
+			
 			player.getFoodStats().addStats(lvl, sat);
-			int meta = getMetaFromState(state) + 1;
 			world.playSound(player, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.MASTER, 0.5f,
 					world.rand.nextFloat() * 0.1F + 0.9F);
 
-			if (meta >= 9) {
+			if (meta >= 8) {
 				world.playSound(player, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.MASTER, 0.5f,
 						world.rand.nextFloat() * 0.1F + 0.9F);
 				world.setBlockToAir(pos);
 			}
+			
+			world.setBlockState(pos, getStateFromMeta(meta), 1);
 		}
 	}
 
@@ -111,11 +108,11 @@ public class EdibleBlock extends BlockBase {
 	}
 
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(AMOUNT, EnumAmount.byMetadata(meta));
+		return this.getDefaultState().withProperty(AMOUNT, meta);
 	}
 
 	public int getMetaFromState(IBlockState state) {
-		return ((EnumAmount) state.getValue(AMOUNT)).getMetadata();
+		return state.getValue(AMOUNT);
 	}
 
 	protected BlockStateContainer createBlockState() {

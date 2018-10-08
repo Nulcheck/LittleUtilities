@@ -30,21 +30,17 @@ public class UsableBlock extends BlockBase {
 		super(name, mat);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, 0));
 	}
-
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
-	}
-
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
-		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
-	}
-
+	
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
+	}
+
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
 	public int damageDropped(IBlockState state) {
@@ -69,10 +65,11 @@ public class UsableBlock extends BlockBase {
 
 		int metaState = getMetaFromState(state);		
 		int meta = metaState += 1;
-		world.setBlockState(pos, getStateFromMeta(meta), 1);
-		
+
 		if (meta >= 8)
 			world.setBlockToAir(pos);
+		
+		world.setBlockState(pos, getStateFromMeta(meta), 1);
 	}
 
 	public UsableBlock setPotionEffect(Potion potion, int dur, int amp, float prob) {
