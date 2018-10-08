@@ -13,6 +13,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -27,21 +28,17 @@ public class ModBlocks {
 			super(name, mat);
 			this.maxY = maxY;
 		}
-
-		public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
-		}
-
-		public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
-		}
-
+		
 		public boolean isFullCube(IBlockState state) {
 			return false;
 		}
 
 		public boolean isOpaqueCube(IBlockState state) {
 			return false;
+		}
+
+		public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
 		}
 	}
 
@@ -211,12 +208,16 @@ public class ModBlocks {
 		 * mod_lu.proxy.spawnParticle(world, x, y, z, "enderPerlFx"); } } }
 		 */
 
-		public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX,
-				float hitY, float hitZ) {
+		public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
+				EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 			Random rand = new Random();
 			double d0 = player.posX + (rand.nextDouble() - 0.5D) * 64.0D;
 			double d1 = player.posY + (double) (rand.nextInt(64) - 32);
 			double d2 = player.posZ + (rand.nextDouble() - 0.5D) * 64.0D;
+			
+			if(this.teleportPlayer(d0, d1, d2, player)){
+				super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
+			}
 
 			return this.teleportPlayer(d0, d1, d2, player);
 		}

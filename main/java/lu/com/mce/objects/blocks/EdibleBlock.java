@@ -21,7 +21,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class EdibleBlock extends BlockBase {
-	public static final PropertyEnum<EnumAmount> AMOUNT = PropertyEnum.create("amount", EnumAmount.class);
 	public int lvl;
 	public float sat;
 	private Potion potion;
@@ -44,7 +43,7 @@ public class EdibleBlock extends BlockBase {
 		super(name, mat);
 		this.lvl = lvl;
 		this.sat = sat;
-		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, EnumAmount.NINE));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, EnumAmount.ZERO));
 	}
 
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
