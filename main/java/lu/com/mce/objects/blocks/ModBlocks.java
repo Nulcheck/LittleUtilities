@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -376,24 +377,36 @@ public class ModBlocks {
 	public static class PufferfishBlock extends EdibleBlock {
 		public PufferfishBlock(String name, Material mat, int lvl, float sat) {
 			super(name, mat, lvl, sat);
-			this.setPotionEffect(MobEffects.POISON, 1200, 3, 1f);
-			this.setPotionEffect(MobEffects.HUNGER, 300, 2, 1f);
-			this.setPotionEffect(MobEffects.NAUSEA, 300, 1, 1f);
+			this.setPotionEffect(Potion.getIdFromPotion(MobEffects.POISON), 1200, 3, 1f);
+			this.setPotionEffect(Potion.getIdFromPotion(MobEffects.HUNGER), 300, 2, 1f);
+			this.setPotionEffect(Potion.getIdFromPotion(MobEffects.NAUSEA), 300, 1, 1f);
 		}
 
 		public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-			try {
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 1200, 3, false, true));
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 300, 2, false, true));
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 300, 1, false, true));
-				super.onEntityCollidedWithBlock(world, pos, state, entity);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 1200, 3));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 300, 2));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 300, 1));
+			// super.onEntityCollidedWithBlock(world, pos, state, entity);
 		}
 
 		public int getRenderType() {
 			return 13;
+		}
+	}
+
+	public static class FeatherBlock extends BlockBase {
+		public FeatherBlock(String name, Material mat) {
+			super(name, mat);
+		}
+
+		public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
+			entityIn.fall(fallDistance, 0.0F);
+		}
+
+		public void onLanded(World worldIn, Entity entityIn) {
+			if (entityIn.motionY < 0d) {
+				entityIn.motionY = 0d;
+			}
 		}
 	}
 }

@@ -9,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -23,14 +24,15 @@ public class UsableBlock extends BlockBase {
 	private int potionAmplifier;
 	private float potionEffectProbability;
 
-	int meta = getMetaFromState(blockState.getBaseState());
-	double subtractY = (float) (meta * 2) / 18f;
-
 	public UsableBlock(String name, Material mat) {
 		super(name, mat);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, 0));
 	}
-	
+
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.CUTOUT;
+	}
+
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
@@ -40,6 +42,9 @@ public class UsableBlock extends BlockBase {
 	}
 
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		int meta = getMetaFromState(state);
+		double subtractY = (float) (meta * 2) / 18f;
+
 		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
@@ -60,7 +65,7 @@ public class UsableBlock extends BlockBase {
 	private void useBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 		if (!world.isRemote && Potion.getIdFromPotion(potion) > 0
 				&& world.rand.nextFloat() < this.potionEffectProbability) {
-			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration * 20, this.potionAmplifier));
+			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration, this.potionAmplifier));
 		}
 
 		int metaState = getMetaFromState(state);
@@ -68,8 +73,8 @@ public class UsableBlock extends BlockBase {
 
 		if (meta >= 8)
 			world.setBlockToAir(pos);
-		
-		world.setBlockState(pos, getStateFromMeta(meta), 1);
+		else
+			world.setBlockState(pos, getStateFromMeta(meta), 1);
 	}
 
 	public UsableBlock setPotionEffect(Potion potion, int dur, int amp, float prob) {

@@ -10,12 +10,15 @@ import lu.com.mce.objects.blocks.ModBlocks.CompactDirt;
 import lu.com.mce.objects.blocks.ModBlocks.CompactNetherrack;
 import lu.com.mce.objects.blocks.ModBlocks.EnderEyeBlock;
 import lu.com.mce.objects.blocks.ModBlocks.EnderPearlBlock;
+import lu.com.mce.objects.blocks.ModBlocks.FeatherBlock;
 import lu.com.mce.objects.blocks.ModBlocks.GhastTearBlock;
 import lu.com.mce.objects.blocks.ModBlocks.NetherStarBlock;
+import lu.com.mce.objects.blocks.ModBlocks.PufferfishBlock;
 import lu.com.mce.util.BlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.MobEffects;
+import net.minecraft.potion.Potion;
 
 public class InitBlocks {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
@@ -33,7 +36,7 @@ public class InitBlocks {
 	public static final Block ENDER_EYE_BLOCK = new EnderEyeBlock("ender_eye_block", Material.ROCK);
 	public static final Block MAGMA_CREAM_BLOCK = new BlockBase("magma_cream_block", Material.CLAY)
 			.setLightLevel(0.45f);
-	public static final Block FEATHER_BLOCK = new BlockBase("feather_block", Material.CLOTH);
+	public static final Block FEATHER_BLOCK = new FeatherBlock("feather_block", Material.CLOTH);
 	public static final Block EGG_BLOCK = new BlockBase("egg_block", Material.WOOD);
 	public static final Block SUGAR_BLOCK = new BoundsBlock("sugar_block", Material.SAND, 0.05d);
 	public static final Block FERMENTED_SPIDER_EYE_BLOCK = new BlockBase("fermented_spider_eye_block", Material.CLAY);
@@ -47,7 +50,7 @@ public class InitBlocks {
 	public static final Block BEEF_BLOCK = new EdibleBlock("beef_block", Material.CLAY, 3, 0.3f);
 	public static final Block COOKED_BEEF_BLOCK = new EdibleBlock("cooked_beef_block", Material.CLAY, 8, 0.8f);
 	public static final Block CHICKEN_BLOCK = ((EdibleBlock) new EdibleBlock("chicken_block", Material.CLAY, 2, 0.3f))
-			.setPotionEffect(MobEffects.HUNGER, 30, 0, 0.3f);
+			.setPotionEffect(Potion.getIdFromPotion(MobEffects.HUNGER), 30, 0, 0.3f);
 	public static final Block COOKED_CHICKEN_BLOCK = new EdibleBlock("cooked_chicken_block", Material.CLAY, 6, 0.6f);
 	public static final Block RABBIT_BLOCK = new EdibleBlock("rabbit_block", Material.CLAY, 3, 0.3f);
 	public static final Block COOKED_RABBIT_BLOCK = new EdibleBlock("cooked_rabbit_block", Material.CLAY, 5, 0.6f);
@@ -58,13 +61,14 @@ public class InitBlocks {
 	public static final Block SALMON_BLOCK = new EdibleBlock("salmon_block", Material.CLAY, 2, 0.2f);
 	public static final Block COOKED_SALMON_BLOCK = new EdibleBlock("cooked_salmon_block", Material.CLAY, 6, 0.6f);
 	public static final Block TROPICAL_FISH_BLOCK = new EdibleBlock("tropical_fish_block", Material.CLAY, 1, 0.2f);
-	public static final Block PUFFERFISH_BLOCK = new EdibleBlock("pufferfish_block", Material.CLAY, 1, 0.2f);
+	public static final Block PUFFERFISH_BLOCK = new PufferfishBlock("pufferfish_block", Material.CLAY, 1, 0.2f);
 	public static final Block ROTTEN_FLESH_BLOCK = ((EdibleBlock) new EdibleBlock("rotten_flesh_block", Material.CLAY,
-			4, 0.1f)).setPotionEffect(MobEffects.HUNGER, 30, 0, 0.8f);
+			4, 0.1f)).setPotionEffect(Potion.getIdFromPotion(MobEffects.HUNGER), 30, 0, 0.8f);
 	public static final Block APPLE_BLOCK = new EdibleBlock("apple_block", Material.CLAY, 4, 0.3f);
 	public static final Block BREAD_BLOCK = new EdibleBlock("bread_block", Material.CLAY, 5, 0.6f);
 	public static final Block COOKIE_BLOCK = new EdibleBlock("cookie_block", Material.CLAY, 2, 0.1f);
-	public static final Block SPIDER_EYE_BLOCK = new EdibleBlock("spider_eye_block", Material.CLAY, 2, 0.8f);
+	public static final Block SPIDER_EYE_BLOCK = ((EdibleBlock) new EdibleBlock("spider_eye_block", Material.CLAY, 2,
+			0.8f)).setPotionEffect(Potion.getIdFromPotion(MobEffects.POISON), 30, 0, 1f);
 	public static final Block CARROT_BLOCK = new EdibleBlock("carrot_block", Material.CLAY, 4, 0.6f);
 	public static final Block POTATO_BLOCK = new EdibleBlock("potato_block", Material.CLAY, 1, 0.3f);
 	public static final Block BAKED_POTATO_BLOCK = new EdibleBlock("baked_potato_block", Material.CLAY, 6, 0.6f);

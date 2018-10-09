@@ -1,5 +1,13 @@
 {
 	"variants": {
-		"normal": {"model": "mod_lu:baked_potato_block"}
+		"amount=0": {"model": "mod_lu:baked_potato_block"},
+		"amount=1": {"model": "mod_lu:baked_potato_block"},
+		"amount=2": {"model": "mod_lu:baked_potato_block"},
+		"amount=3": {"model": "mod_lu:baked_potato_block"},
+		"amount=4": {"model": "mod_lu:baked_potato_block"},
+		"amount=5": {"model": "mod_lu:baked_potato_block"},
+		"amount=6": {"model": "mod_lu:baked_potato_block"},
+		"amount=7": {"model": "mod_lu:baked_potato_block"},
+		"amount=8": {"model": "mod_lu:baked_potato_block"}
 	}
 }
