@@ -63,7 +63,7 @@ public class UsableBlock extends BlockBase {
 			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration * 20, this.potionAmplifier));
 		}
 
-		int metaState = getMetaFromState(state);		
+		int metaState = getMetaFromState(state);
 		int meta = metaState += 1;
 
 		if (meta >= 8)

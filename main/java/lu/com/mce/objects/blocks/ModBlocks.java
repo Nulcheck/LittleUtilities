@@ -12,6 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -28,13 +30,21 @@ public class ModBlocks {
 			super(name, mat);
 			this.maxY = maxY;
 		}
-		
+
 		public boolean isFullCube(IBlockState state) {
 			return false;
 		}
 
 		public boolean isOpaqueCube(IBlockState state) {
 			return false;
+		}
+
+		public BlockRenderLayer getBlockLayer() {
+			return BlockRenderLayer.CUTOUT;
+		}
+
+		public EnumBlockRenderType getRenderType(IBlockState state) {
+			return EnumBlockRenderType.MODEL;
 		}
 
 		public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
@@ -214,8 +224,8 @@ public class ModBlocks {
 			double d0 = player.posX + (rand.nextDouble() - 0.5D) * 64.0D;
 			double d1 = player.posY + (double) (rand.nextInt(64) - 32);
 			double d2 = player.posZ + (rand.nextDouble() - 0.5D) * 64.0D;
-			
-			if(this.teleportPlayer(d0, d1, d2, player)){
+
+			if (this.teleportPlayer(d0, d1, d2, player)) {
 				super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
 			}
 
