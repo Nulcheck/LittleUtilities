@@ -2,6 +2,7 @@ package lu.com.mce.objects.blocks;
 
 import java.util.Random;
 
+import lu.com.mce.main.mod_lu;
 import lu.com.mce.util.BlockBase;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -13,7 +14,6 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -43,10 +43,6 @@ public class ModBlocks {
 			return BlockRenderLayer.CUTOUT;
 		}
 
-		public EnumBlockRenderType getRenderType(IBlockState state) {
-			return EnumBlockRenderType.MODEL;
-		}
-
 		public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
 		}
@@ -58,39 +54,52 @@ public class ModBlocks {
 			setSoundType(SoundType.GLASS);
 		}
 
-		/*
-		 * public void randomDisplayTick(World world, BlockPos pos, Random rand)
-		 * { double d0 = 0.0625d;
-		 * 
-		 * for (int l = 0; l < 6; ++l) { double d1 = (double) ((float)
-		 * pos.getX() + rand.nextFloat()); double d2 = (double) ((float)
-		 * pos.getY() + rand.nextFloat()); double d3 = (double) ((float)
-		 * pos.getZ() + rand.nextFloat());
-		 * 
-		 * if (l == 0 && !world.getBlockState(pos.getX(), pos.getY() + 1,
-		 * pos.getZ()).isOpaqueCube()) { d2 = (double) (pos.getY() + 1) + d0; }
-		 * 
-		 * if (l == 1 && !world.getBlockState(pos.getX(), pos.getY() - 1,
-		 * pos.getZ()).isOpaqueCube()) { d2 = (double) (pos.getY() + 0) - d0; }
-		 * 
-		 * if (l == 2 && !world.getBlockState(pos.getX(), pos.getY(), pos.getZ()
-		 * + 1).isOpaqueCube()) { d3 = (double) (pos.getZ() + 1) + d0; }
-		 * 
-		 * if (l == 3 && !world.getBlockState(pos.getX(), pos.getY(), pos.getZ()
-		 * - 1).isOpaqueCube()) { d3 = (double) (pos.getZ() + 0) - d0; }
-		 * 
-		 * if (l == 4 && !world.getBlockState(pos.getX() + 1, pos.getY(),
-		 * pos.getZ()).isOpaqueCube()) { d1 = (double) (pos.getX() + 1) + d0; }
-		 * 
-		 * if (l == 5 && !world.getBlockState(pos.getX() - 1, pos.getY(),
-		 * pos.getZ()).isOpaqueCube()) { d1 = (double) (pos.getX() + 0) - d0; }
-		 * 
-		 * if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2
-		 * < 0.0D || d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
-		 * || d3 > (double) (pos.getZ() + 1)) {
-		 * mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(),
-		 * "ghastTearFx"); } } }
-		 */
+		public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+			double d0 = 0.0625d;
+
+			for (int l = 0; l < 6; ++l) {
+				double d1 = (double) ((float) pos.getX() + rand.nextFloat());
+				double d2 = (double) ((float) pos.getY() + rand.nextFloat());
+				double d3 = (double) ((float) pos.getZ() + rand.nextFloat());
+
+				if (l == 0
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 1) + d0;
+				}
+
+				if (l == 1
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 0) - d0;
+				}
+
+				if (l == 2
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 1) + d0;
+				}
+
+				if (l == 3
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 0) - d0;
+				}
+
+				if (l == 4
+						&& !world.getBlockState(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 1) + d0;
+				}
+
+				if (l == 5
+						&& !world.getBlockState(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 0) - d0;
+				}
+
+				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
+						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
+						|| d3 > (double) (pos.getZ() + 1)) {
+					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "ghastTearFX");
+				}
+			}
+		}
+
 	}
 
 	public static class BlazeRodBlock extends BlockBase {
@@ -110,37 +119,51 @@ public class ModBlocks {
 				return false;
 		}
 
-		/*
-		 * public void randomDisplayTick(World world, int x, int y, int z,
-		 * Random rand) { double d0 = 0.0625d;
-		 * 
-		 * for (int l = 0; l < 6; ++l) { double d1 = (double) ((float) x +
-		 * rand.nextFloat()); double d2 = (double) ((float) y +
-		 * rand.nextFloat()); double d3 = (double) ((float) z +
-		 * rand.nextFloat());
-		 * 
-		 * if (l == 0 && !world.getBlock(x, y + 1, z).isOpaqueCube()) { d2 =
-		 * (double) (y + 1) + d0; }
-		 * 
-		 * if (l == 1 && !world.getBlock(x, y - 1, z).isOpaqueCube()) { d2 =
-		 * (double) (y + 0) - d0; }
-		 * 
-		 * if (l == 2 && !world.getBlock(x, y, z + 1).isOpaqueCube()) { d3 =
-		 * (double) (z + 1) + d0; }
-		 * 
-		 * if (l == 3 && !world.getBlock(x, y, z - 1).isOpaqueCube()) { d3 =
-		 * (double) (z + 0) - d0; }
-		 * 
-		 * if (l == 4 && !world.getBlock(x + 1, y, z).isOpaqueCube()) { d1 =
-		 * (double) (x + 1) + d0; }
-		 * 
-		 * if (l == 5 && !world.getBlock(x - 1, y, z).isOpaqueCube()) { d1 =
-		 * (double) (x + 0) - d0; }
-		 * 
-		 * if (d1 < (double) x || d1 > (double) (x + 1) || d2 < 0.0D || d2 >
-		 * (double) (y + 1) || d3 < (double) z || d3 > (double) (z + 1)) {
-		 * mod_lu.proxy.spawnParticle(world, x, y, z, "blazeRodFx"); } } }
-		 */
+		public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+			double d0 = 0.0625d;
+
+			for (int l = 0; l < 6; ++l) {
+				double d1 = (double) ((float) pos.getX() + rand.nextFloat());
+				double d2 = (double) ((float) pos.getY() + rand.nextFloat());
+				double d3 = (double) ((float) pos.getZ() + rand.nextFloat());
+
+				if (l == 0
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 1) + d0;
+				}
+
+				if (l == 1
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 0) - d0;
+				}
+
+				if (l == 2
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 1) + d0;
+				}
+
+				if (l == 3
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 0) - d0;
+				}
+
+				if (l == 4
+						&& !world.getBlockState(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 1) + d0;
+				}
+
+				if (l == 5
+						&& !world.getBlockState(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 0) - d0;
+				}
+
+				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
+						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
+						|| d3 > (double) (pos.getZ() + 1)) {
+					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "blazeRodFX");
+				}
+			}
+		}
 	}
 
 	public static class NetherStarBlock extends BlockBase {
@@ -148,37 +171,51 @@ public class ModBlocks {
 			super(name, mat);
 		}
 
-		/*
-		 * public void randomDisplayTick(World world, int x, int y, int z,
-		 * Random rand) { double d0 = 0.0625d;
-		 * 
-		 * for (int l = 0; l < 6; ++l) { double d1 = (double) ((float) x +
-		 * rand.nextFloat()); double d2 = (double) ((float) y +
-		 * rand.nextFloat()); double d3 = (double) ((float) z +
-		 * rand.nextFloat());
-		 * 
-		 * if (l == 0 && !world.getBlock(x, y + 1, z).isOpaqueCube()) { d2 =
-		 * (double) (y + 1) + d0; }
-		 * 
-		 * if (l == 1 && !world.getBlock(x, y - 1, z).isOpaqueCube()) { d2 =
-		 * (double) (y + 0) - d0; }
-		 * 
-		 * if (l == 2 && !world.getBlock(x, y, z + 1).isOpaqueCube()) { d3 =
-		 * (double) (z + 1) + d0; }
-		 * 
-		 * if (l == 3 && !world.getBlock(x, y, z - 1).isOpaqueCube()) { d3 =
-		 * (double) (z + 0) - d0; }
-		 * 
-		 * if (l == 4 && !world.getBlock(x + 1, y, z).isOpaqueCube()) { d1 =
-		 * (double) (x + 1) + d0; }
-		 * 
-		 * if (l == 5 && !world.getBlock(x - 1, y, z).isOpaqueCube()) { d1 =
-		 * (double) (x + 0) - d0; }
-		 * 
-		 * if (d1 < (double) x || d1 > (double) (x + 1) || d2 < 0.0D || d2 >
-		 * (double) (y + 1) || d3 < (double) z || d3 > (double) (z + 1)) {
-		 * mod_lu.proxy.spawnParticle(world, x, y, z, "netherStarFx"); } } }
-		 */
+		public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+			double d0 = 0.0625d;
+
+			for (int l = 0; l < 6; ++l) {
+				double d1 = (double) ((float) pos.getX() + rand.nextFloat());
+				double d2 = (double) ((float) pos.getY() + rand.nextFloat());
+				double d3 = (double) ((float) pos.getZ() + rand.nextFloat());
+
+				if (l == 0
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 1) + d0;
+				}
+
+				if (l == 1
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 0) - d0;
+				}
+
+				if (l == 2
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 1) + d0;
+				}
+
+				if (l == 3
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 0) - d0;
+				}
+
+				if (l == 4
+						&& !world.getBlockState(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 1) + d0;
+				}
+
+				if (l == 5
+						&& !world.getBlockState(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 0) - d0;
+				}
+
+				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
+						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
+						|| d3 > (double) (pos.getZ() + 1)) {
+					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "netherStarFX");
+				}
+			}
+		}
 	}
 
 	public static class EnderPearlBlock extends UsableBlock {
@@ -186,37 +223,51 @@ public class ModBlocks {
 			super(name, mat);
 		}
 
-		/*
-		 * public void randomDisplayTick(World world, int x, int y, int z,
-		 * Random rand) { double d0 = 0.0625d;
-		 * 
-		 * for (int l = 0; l < 6; ++l) { double d1 = (double) ((float) x +
-		 * rand.nextFloat()); double d2 = (double) ((float) y +
-		 * rand.nextFloat()); double d3 = (double) ((float) z +
-		 * rand.nextFloat());
-		 * 
-		 * if (l == 0 && !world.getBlock(x, y + 1, z).isOpaqueCube()) { d2 =
-		 * (double) (y + 1) + d0; }
-		 * 
-		 * if (l == 1 && !world.getBlock(x, y - 1, z).isOpaqueCube()) { d2 =
-		 * (double) (y + 0) - d0; }
-		 * 
-		 * if (l == 2 && !world.getBlock(x, y, z + 1).isOpaqueCube()) { d3 =
-		 * (double) (z + 1) + d0; }
-		 * 
-		 * if (l == 3 && !world.getBlock(x, y, z - 1).isOpaqueCube()) { d3 =
-		 * (double) (z + 0) - d0; }
-		 * 
-		 * if (l == 4 && !world.getBlock(x + 1, y, z).isOpaqueCube()) { d1 =
-		 * (double) (x + 1) + d0; }
-		 * 
-		 * if (l == 5 && !world.getBlock(x - 1, y, z).isOpaqueCube()) { d1 =
-		 * (double) (x + 0) - d0; }
-		 * 
-		 * if (d1 < (double) x || d1 > (double) (x + 1) || d2 < 0.0D || d2 >
-		 * (double) (y + 1) || d3 < (double) z || d3 > (double) (z + 1)) {
-		 * mod_lu.proxy.spawnParticle(world, x, y, z, "enderPerlFx"); } } }
-		 */
+		public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+			double d0 = 0.0625d;
+
+			for (int l = 0; l < 6; ++l) {
+				double d1 = (double) ((float) pos.getX() + rand.nextFloat());
+				double d2 = (double) ((float) pos.getY() + rand.nextFloat());
+				double d3 = (double) ((float) pos.getZ() + rand.nextFloat());
+
+				if (l == 0
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 1) + d0;
+				}
+
+				if (l == 1
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 0) - d0;
+				}
+
+				if (l == 2
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 1) + d0;
+				}
+
+				if (l == 3
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 0) - d0;
+				}
+
+				if (l == 4
+						&& !world.getBlockState(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 1) + d0;
+				}
+
+				if (l == 5
+						&& !world.getBlockState(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 0) - d0;
+				}
+
+				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
+						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
+						|| d3 > (double) (pos.getZ() + 1)) {
+					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "enderPearlFX");
+				}
+			}
+		}
 
 		public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
 				EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -256,41 +307,51 @@ public class ModBlocks {
 			super(name, mat);
 		}
 
-		/*
-		 * public void randomDisplayTick(World world, int x, int y, int z,
-		 * Random rand) { double d0 = 0.0625d;
-		 * 
-		 * for (int l = 0; l < 6; ++l) { double d1 = (double) ((float) x +
-		 * rand.nextFloat()); double d2 = (double) ((float) y +
-		 * rand.nextFloat()); double d3 = (double) ((float) z +
-		 * rand.nextFloat()); double d4 = 0.0D; double d5 = 0.0D; double d6 =
-		 * 0.0D; d4 = ((double) rand.nextFloat() - 0.5D) * 0.5D; d5 = ((double)
-		 * rand.nextFloat() - 0.5D) * 0.5D; d6 = ((double) rand.nextFloat() -
-		 * 0.5D) * 0.5D;
-		 * 
-		 * if (l == 0 && !world.getBlock(x, y + 1, z).isOpaqueCube()) { d2 =
-		 * (double) (y + 1) + d0; }
-		 * 
-		 * if (l == 1 && !world.getBlock(x, y - 1, z).isOpaqueCube()) { d2 =
-		 * (double) (y + 0) - d0; }
-		 * 
-		 * if (l == 2 && !world.getBlock(x, y, z + 1).isOpaqueCube()) { d3 =
-		 * (double) (z + 1) + d0; }
-		 * 
-		 * if (l == 3 && !world.getBlock(x, y, z - 1).isOpaqueCube()) { d3 =
-		 * (double) (z + 0) - d0; }
-		 * 
-		 * if (l == 4 && !world.getBlock(x + 1, y, z).isOpaqueCube()) { d1 =
-		 * (double) (x + 1) + d0; }
-		 * 
-		 * if (l == 5 && !world.getBlock(x - 1, y, z).isOpaqueCube()) { d1 =
-		 * (double) (x + 0) - d0; }
-		 * 
-		 * if (d1 < (double) x || d1 > (double) (x + 1) || d2 < 0.0D || d2 >
-		 * (double) (y + 1) || d3 < (double) z || d3 > (double) (z + 1)) {
-		 * mod_lu.proxy.spawnParticle(world, x, y, z, "enderEyeFx"); //
-		 * world.spawnParticle("portal", d1, d2, d3, d4, d5, d6); } } }
-		 */
+		public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+			double d0 = 0.0625d;
+
+			for (int l = 0; l < 6; ++l) {
+				double d1 = (double) ((float) pos.getX() + rand.nextFloat());
+				double d2 = (double) ((float) pos.getY() + rand.nextFloat());
+				double d3 = (double) ((float) pos.getZ() + rand.nextFloat());
+
+				if (l == 0
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 1) + d0;
+				}
+
+				if (l == 1
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ())).isOpaqueCube()) {
+					d2 = (double) (pos.getY() + 0) - d0;
+				}
+
+				if (l == 2
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 1) + d0;
+				}
+
+				if (l == 3
+						&& !world.getBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1)).isOpaqueCube()) {
+					d3 = (double) (pos.getZ() + 0) - d0;
+				}
+
+				if (l == 4
+						&& !world.getBlockState(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 1) + d0;
+				}
+
+				if (l == 5
+						&& !world.getBlockState(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ())).isOpaqueCube()) {
+					d1 = (double) (pos.getX() + 0) - d0;
+				}
+
+				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
+						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
+						|| d3 > (double) (pos.getZ() + 1)) {
+					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "enderEyeFX");
+				}
+			}
+		}
 	}
 
 	public static class CompactDirt extends BlockBase {
