@@ -24,7 +24,7 @@ public class EdibleBlock extends BlockBase {
 	public static final PropertyInteger AMOUNT = PropertyInteger.create("amount", 0, 8);
 	public int lvl;
 	public float sat;
-	private int potion;
+	private Potion potion;
 	private int potionDuration;
 	private int potionAmplifier;
 	private float potionEffectProbability;
@@ -60,7 +60,7 @@ public class EdibleBlock extends BlockBase {
 		double subtractY = (float) (meta * 2) / 18f;
 		double d = 0.0625d;
 
-		if (world.getBlockState(pos) == InitBlocks.PUFFERFISH_BLOCK)
+		if (world.getBlockState(pos).getBlock() == InitBlocks.PUFFERFISH_BLOCK)
 			return new AxisAlignedBB(0d + d, 0d, 0d + d, 1d - d, 1d - subtractY, 1d - d);
 		else
 			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
@@ -81,9 +81,9 @@ public class EdibleBlock extends BlockBase {
 	}
 
 	private void eatBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
-		if (!world.isRemote && this.potion > 0
+		if (!world.isRemote && Potion.getIdFromPotion(this.potion) > 0
 				&& world.rand.nextFloat() < this.potionEffectProbability) {
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(this.potion), this.potionDuration, this.potionAmplifier));
+			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration, this.potionAmplifier));
 		}
 
 		if (player.canEat(false)) {
@@ -104,7 +104,7 @@ public class EdibleBlock extends BlockBase {
 		}
 	}
 
-	public EdibleBlock setPotionEffect(int potion, int dur, int amp, float prob) {
+	public EdibleBlock setPotionEffect(Potion potion, int dur, int amp, float prob) {
 		this.potion = potion;
 		this.potionDuration = dur;
 		this.potionAmplifier = amp;

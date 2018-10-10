@@ -50,7 +50,7 @@ public class InitBlocks {
 	public static final Block BEEF_BLOCK = new EdibleBlock("beef_block", Material.CLAY, 3, 0.3f);
 	public static final Block COOKED_BEEF_BLOCK = new EdibleBlock("cooked_beef_block", Material.CLAY, 8, 0.8f);
 	public static final Block CHICKEN_BLOCK = ((EdibleBlock) new EdibleBlock("chicken_block", Material.CLAY, 2, 0.3f))
-			.setPotionEffect(Potion.getIdFromPotion(MobEffects.HUNGER), 30, 0, 0.3f);
+			.setPotionEffect(MobEffects.HUNGER, 30, 0, 0.3f);
 	public static final Block COOKED_CHICKEN_BLOCK = new EdibleBlock("cooked_chicken_block", Material.CLAY, 6, 0.6f);
 	public static final Block RABBIT_BLOCK = new EdibleBlock("rabbit_block", Material.CLAY, 3, 0.3f);
 	public static final Block COOKED_RABBIT_BLOCK = new EdibleBlock("cooked_rabbit_block", Material.CLAY, 5, 0.6f);
@@ -63,12 +63,12 @@ public class InitBlocks {
 	public static final Block TROPICAL_FISH_BLOCK = new EdibleBlock("tropical_fish_block", Material.CLAY, 1, 0.2f);
 	public static final Block PUFFERFISH_BLOCK = new PufferfishBlock("pufferfish_block", Material.CLAY, 1, 0.2f);
 	public static final Block ROTTEN_FLESH_BLOCK = ((EdibleBlock) new EdibleBlock("rotten_flesh_block", Material.CLAY,
-			4, 0.1f)).setPotionEffect(Potion.getIdFromPotion(MobEffects.HUNGER), 30, 0, 0.8f);
+			4, 0.1f)).setPotionEffect(MobEffects.HUNGER, 30, 0, 0.8f);
 	public static final Block APPLE_BLOCK = new EdibleBlock("apple_block", Material.CLAY, 4, 0.3f);
 	public static final Block BREAD_BLOCK = new EdibleBlock("bread_block", Material.CLAY, 5, 0.6f);
 	public static final Block COOKIE_BLOCK = new EdibleBlock("cookie_block", Material.CLAY, 2, 0.1f);
 	public static final Block SPIDER_EYE_BLOCK = ((EdibleBlock) new EdibleBlock("spider_eye_block", Material.CLAY, 2,
-			0.8f)).setPotionEffect(Potion.getIdFromPotion(MobEffects.POISON), 30, 0, 1f);
+			0.8f)).setPotionEffect(MobEffects.POISON, 30, 0, 1f);
 	public static final Block CARROT_BLOCK = new EdibleBlock("carrot_block", Material.CLAY, 4, 0.6f);
 	public static final Block POTATO_BLOCK = new EdibleBlock("potato_block", Material.CLAY, 1, 0.3f);
 	public static final Block BAKED_POTATO_BLOCK = new EdibleBlock("baked_potato_block", Material.CLAY, 6, 0.6f);

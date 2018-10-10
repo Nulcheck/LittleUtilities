@@ -44,7 +44,7 @@ public class ModBlocks {
 			return BlockRenderLayer.CUTOUT;
 		}
 
-		public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
 		}
 	}
@@ -377,20 +377,36 @@ public class ModBlocks {
 	public static class PufferfishBlock extends EdibleBlock {
 		public PufferfishBlock(String name, Material mat, int lvl, float sat) {
 			super(name, mat, lvl, sat);
-			this.setPotionEffect(Potion.getIdFromPotion(MobEffects.POISON), 1200, 3, 1f);
-			this.setPotionEffect(Potion.getIdFromPotion(MobEffects.HUNGER), 300, 2, 1f);
-			this.setPotionEffect(Potion.getIdFromPotion(MobEffects.NAUSEA), 300, 1, 1f);
+		}
+
+		public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
+				EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+			if (!player.isSneaking()) {
+				super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
+				this.applyEffects(world, pos, (Entity) player);
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 1200, 3));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 300, 2));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 300, 1));
-			// super.onEntityCollidedWithBlock(world, pos, state, entity);
+			this.applyEffects(world, pos, entity);
 		}
 
-		public int getRenderType() {
-			return 13;
+		public void onEntityWalk(World world, BlockPos pos, Entity entity) {
+			this.applyEffects(world, pos, entity);
+		}
+
+		public void applyEffects(World world, BlockPos pos, Entity entity) {
+			try {
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 1200, 3));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 300, 2));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 300, 1));
+				super.onEntityWalk(world, pos, entity);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
