@@ -277,11 +277,14 @@ public class ModBlocks {
 			double d1 = player.posY + (double) (rand.nextInt(64) - 32);
 			double d2 = player.posZ + (rand.nextDouble() - 0.5D) * 64.0D;
 
-			if (this.teleportPlayer(d0, d1, d2, player)) {
-				super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
-			}
+			if (!player.isSneaking()) {
+				if (this.teleportPlayer(d0, d1, d2, player)) {
+					super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
+				}
 
-			return this.teleportPlayer(d0, d1, d2, player);
+				return this.teleportPlayer(d0, d1, d2, player);
+			} else
+				return false;
 		}
 
 		private boolean teleportPlayer(double x, double y, double z, EntityPlayer player) {
