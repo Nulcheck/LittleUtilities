@@ -4,6 +4,7 @@ import java.util.Random;
 
 import lu.com.mce.main.mod_lu;
 import lu.com.mce.util.BlockBase;
+import lu.com.mce.util.ParticleManager;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +13,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -96,7 +96,7 @@ public class ModBlocks {
 				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
 						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
 						|| d3 > (double) (pos.getZ() + 1)) {
-					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "ghastTearFX");
+					ParticleManager.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "ghastTearFX");
 				}
 			}
 		}
@@ -161,7 +161,7 @@ public class ModBlocks {
 				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
 						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
 						|| d3 > (double) (pos.getZ() + 1)) {
-					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "blazeRodFX");
+					ParticleManager.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "blazeRodFX");
 				}
 			}
 		}
@@ -213,7 +213,7 @@ public class ModBlocks {
 				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
 						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
 						|| d3 > (double) (pos.getZ() + 1)) {
-					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "netherStarFX");
+					ParticleManager.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "netherStarFX");
 				}
 			}
 		}
@@ -265,7 +265,7 @@ public class ModBlocks {
 				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
 						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
 						|| d3 > (double) (pos.getZ() + 1)) {
-					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "enderPearlFX");
+					ParticleManager.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "enderPearlFX");
 				}
 			}
 		}
@@ -352,7 +352,7 @@ public class ModBlocks {
 				if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
 						|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ()
 						|| d3 > (double) (pos.getZ() + 1)) {
-					mod_lu.proxy.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "enderEyeFX");
+					ParticleManager.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(), "enderEyeFX");
 				}
 			}
 		}
