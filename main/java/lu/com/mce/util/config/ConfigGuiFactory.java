@@ -8,6 +8,7 @@ import lu.com.mce.util.References;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.IModGuiFactory;
@@ -39,7 +40,9 @@ public class ConfigGuiFactory implements IModGuiFactory {
 
 	public static class ConfigGui extends GuiConfig {
 		public ConfigGui(GuiScreen parentScreen) {
-			super(parentScreen, getConfigElements(), References.MOD_ID, false, false, I18n.format("gui.config.title"));
+			super(parentScreen, getConfigElements(), References.MOD_ID, false, false,
+					TextFormatting.GREEN + I18n.format("gui.config.title.name") + TextFormatting.RESET + " "
+							+ I18n.format("gui.config.title.config"));
 		}
 	}
 

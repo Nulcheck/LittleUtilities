@@ -2,12 +2,11 @@
 # By MCE626
 # Created 9/24/2018
 
-itemGroup.lu=§aLittleUtilities
-
 container.condenser=Condenser
 
 ////// GUI
-gui.config.title=LittleUtilities Configuration
+gui.config.title.name=LittleUtilities
+gui.config.title.config=Configuration
 gui.config.category.vanilla_recipes=Vanilla Recipes
 gui.config.category.vanilla_recipes.tooltip=Recipes for Vanilla Items
 gui.config.recipes.name_tag_recipe.name=Name Tag Recipe
