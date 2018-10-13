@@ -1,4 +1,4 @@
-package lu.com.mce.util;
+package lu.com.mce.util.config.conditions;
 
 import java.util.function.BooleanSupplier;
 
@@ -8,7 +8,7 @@ import lu.com.mce.util.config.ConfigHandler;
 import net.minecraftforge.common.crafting.IConditionFactory;
 import net.minecraftforge.common.crafting.JsonContext;
 
-public class Condition implements IConditionFactory {
+public class NameTagRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
 		return () -> ConfigHandler.nameTagRecipe;
 	}

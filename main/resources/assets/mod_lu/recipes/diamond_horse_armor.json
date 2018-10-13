@@ -1,4 +1,9 @@
 {
+  "conditions":[
+    {
+      "type": "mod_lu:horse_armors_recipe"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "  i",

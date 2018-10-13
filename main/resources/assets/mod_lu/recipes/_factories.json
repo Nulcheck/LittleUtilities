@@ -1,5 +1,7 @@
 {
 	"conditions": {
-		"name_tag_recipe": "lu.com.mce.util.Condition"
+		"name_tag_recipe": "lu.com.mce.util.config.conditions.NameTagRecipe",
+		"saddle_recipe": "lu.com.mce.util.config.conditions.SaddleRecipe",
+		"horse_armors_recipe": "lu.com.mce.util.config.conditions.HorseArmorsRecipe"
 	}
 }
