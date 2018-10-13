@@ -4,16 +4,6 @@
 
 container.condenser=Condenser
 
-////// GUI
-gui.config.title.name=LittleUtilities
-gui.config.title.config=Configuration
-gui.config.category.vanilla_recipes=Vanilla Recipes
-gui.config.category.vanilla_recipes.tooltip=Recipes for Vanilla Items
-gui.config.recipes.name_tag_recipe.name=Name Tag Recipe
-gui.config.recipes.name_tag_recipe.comment=Should you be able to craft Name Tags?
-gui.config.recipes.saddles_recipe.name=Saddles Recipe
-gui.config.recipes.saddles_recipe.comment=Should you be able to craft Saddles? (Normal and Horse Armors)
-
 ////// BLOCKS
 tile.condenser.name=Condenser
 

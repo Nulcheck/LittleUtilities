@@ -1,89 +1,31 @@
 package lu.com.mce.util.config;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.Level;
 
-import lu.com.mce.util.References;
-import net.minecraft.client.resources.I18n;
-import net.minecraftforge.common.MinecraftForge;
+import lu.com.mce.main.mod_lu;
+import lu.com.mce.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ConfigHandler {
-	private static Configuration config = null;
-	public static final String CATEGORY_VANILLA_RECIPES = "vanilla_recipes";
-
-	public static boolean nameTagRecipe;
-	public static boolean saddlesRecipe;
-
-	public static void preInit() {
-		File configFile = new File(Loader.instance().getConfigDir(), "LittleUtilities.cfg");
-		config = new Configuration(configFile);
-		syncFromFiles();
-	}
-
-	public static Configuration getConfig() {
-		return config;
-	}
-
-	public static void clientPreInit() {
-		MinecraftForge.EVENT_BUS.register(new ConfigEventHandler());
-	}
-
-	public static void syncFromFiles() {
-		syncConfig(true, true);
-	}
-
-	public static void syncFromGui() {
-		syncConfig(false, true);
-	}
-
-	public static void syncFromFields() {
-		syncConfig(false, false);
-	}
-
-	private static void syncConfig(boolean loadFromConfigFile, boolean readFieldsFromConfig) {
-		if (loadFromConfigFile)
+	private static final String CATEGORY_VANILLA_RECIPES = "Vanilla Recipes";
+	
+	public static boolean nameTagRecipe = true;
+	
+	public static void readConfig(){
+		Configuration config = CommonProxy.config;
+		try{
 			config.load();
-
-		Property NAME_TAG_RECIPE = config.get(CATEGORY_VANILLA_RECIPES, "name_tag_recipe", true);
-		NAME_TAG_RECIPE.setLanguageKey("gui.config.recipes.name_tag_recipe.name");
-		NAME_TAG_RECIPE.setComment(I18n.format("gui.config.recipes.name_tag_recipe.comment"));
-		NAME_TAG_RECIPE.set(true);
-
-		Property SADDLES_RECIPE = config.get(CATEGORY_VANILLA_RECIPES, "saddles_recipe", true);
-		SADDLES_RECIPE.setLanguageKey("gui.config.recipes.saddles_recipe.name");
-		SADDLES_RECIPE.setComment(I18n.format("gui.config.recipes.saddles_recipe.comment"));
-		SADDLES_RECIPE.set(true);
-
-		List<String> recipesOrder = new ArrayList<String>();
-		recipesOrder.add(NAME_TAG_RECIPE.getName());
-		recipesOrder.add(SADDLES_RECIPE.getName());
-
-		config.setCategoryPropertyOrder(CATEGORY_VANILLA_RECIPES, recipesOrder);
-
-		if (readFieldsFromConfig) {
-			nameTagRecipe = NAME_TAG_RECIPE.getBoolean();
-			saddlesRecipe = SADDLES_RECIPE.getBoolean();
+			initConfig(config);
+		} catch (Exception ex){
+			mod_lu.logger.log(Level.SEVERE, "An error has occurred! Error ID: LU100", ex);
+		} finally {
+			if(config.hasChanged())
+				config.save();
 		}
-
-		NAME_TAG_RECIPE.set(nameTagRecipe);
-		SADDLES_RECIPE.set(saddlesRecipe);
-
-		if (config.hasChanged())
-			config.save();
 	}
-
-	public static class ConfigEventHandler {
-		@SubscribeEvent(priority = EventPriority.LOWEST)
-		public void onEvent(ConfigChangedEvent.OnConfigChangedEvent e) {
-			if (e.getModID().equals(References.MOD_ID))
-				syncFromGui();
-		}
+	
+	private static void initConfig(Configuration config){
+		config.addCustomCategoryComment(CATEGORY_VANILLA_RECIPES, "Should you be able to craft these things. These are recipes for vanilla stuff that the mod adds.");
+		nameTagRecipe = config.getBoolean("Name Tag", CATEGORY_VANILLA_RECIPES, nameTagRecipe, "Craft Name Tags?");
 	}
 }

@@ -1,12 +1,13 @@
 package lu.com.mce.main;
 
+import java.util.logging.Logger;
+
 import lu.com.mce.events.ChatEvent;
 import lu.com.mce.events.GameEvent;
 import lu.com.mce.handlers.PlayerHandler;
 import lu.com.mce.proxy.CommonProxy;
 import lu.com.mce.util.ModCreativeTab;
 import lu.com.mce.util.References;
-import lu.com.mce.util.config.ConfigHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -23,6 +24,8 @@ public class mod_lu {
 	@Instance
 	public static mod_lu instance;
 
+	public static Logger logger = Logger.getLogger("Minecraft");
+
 	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.COMMON_PROXY_CLASS)
 	public static CommonProxy proxy;
 
@@ -30,8 +33,7 @@ public class mod_lu {
 
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
-		ConfigHandler.preInit();
-		proxy.preInit();
+		proxy.preInit(e);
 
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());
