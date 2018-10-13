@@ -7,7 +7,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:stonebrick",
+      "item": "minecraft:cobblestone",
       "data": 0
     },
     {
@@ -16,7 +16,7 @@
     }
   ],
   "result": {
-    "item": "minecraft:stonebrick",
+    "item": "minecraft:cobblestone",
     "data": 1
   }
 }

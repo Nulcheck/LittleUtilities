@@ -9,7 +9,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent e) {
 		super.preInit(e);
-		// ConfigHandler.clientPreInit();
 	}
 
 	public void registerItemRenderer(Item item, int meta, String id) {

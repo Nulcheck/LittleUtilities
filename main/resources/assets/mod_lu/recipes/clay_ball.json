@@ -1,4 +1,9 @@
 {
+  "conditions":[
+    {
+      "type": "mod_lu:clay_ball_recipe"
+    }
+  ],
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {

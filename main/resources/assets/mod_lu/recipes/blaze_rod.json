@@ -1,4 +1,9 @@
 {
+  "conditions":[
+    {
+      "type": "mod_lu:blaze_rod_recipe"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "X",

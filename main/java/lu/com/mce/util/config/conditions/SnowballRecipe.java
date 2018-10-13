@@ -8,8 +8,8 @@ import lu.com.mce.util.config.ConfigHandler;
 import net.minecraftforge.common.crafting.IConditionFactory;
 import net.minecraftforge.common.crafting.JsonContext;
 
-public class HorseArmorsRecipe implements IConditionFactory {
+public class SnowballRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> ConfigHandler.SubCategory.horseArmorsRecipe;
+		return () -> ConfigHandler.SubCategory.snowballRecipe;
 	}
 }

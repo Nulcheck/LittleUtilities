@@ -1,4 +1,9 @@
 {
+  "conditions":[
+    {
+      "type": "mod_lu:mossy_stones_recipe"
+    }
+  ],
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
