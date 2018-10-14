@@ -18,7 +18,6 @@ import lu.com.mce.util.BlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.MobEffects;
-import net.minecraft.potion.Potion;
 
 public class InitBlocks {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();

@@ -22,7 +22,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = References.MOD_ID, name = References.NAME, version = References.VERSION, updateJSON = References.UPDATE, guiFactory = References.GUI_FACTORY)
 public class mod_lu {
@@ -52,12 +51,6 @@ public class mod_lu {
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
 		ConfigManager.sync(References.MOD_ID, Type.INSTANCE);
-	}
-	
-	@SubscribeEvent
-	public void onConfigChangedEvent(OnConfigChangedEvent e){
-		if(e.getModID().equals(References.MOD_ID))
-			ConfigManager.sync(References.MOD_ID, Type.INSTANCE);
 	}
 
 	@EventHandler

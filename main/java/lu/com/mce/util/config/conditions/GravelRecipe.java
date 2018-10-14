@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class GravelRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> ConfigHandler.SubCategory.gravelRecipe;
+		return () -> ConfigHandler.gravelRecipe;
 	}
 }

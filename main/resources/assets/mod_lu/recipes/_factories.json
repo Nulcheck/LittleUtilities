@@ -8,7 +8,7 @@
 		"bone_recipe": "lu.com.mce.util.config.conditions.BoneRecipe",
 		"gravel_recipe": "lu.com.mce.util.config.conditions.GravelRecipe",
 		"name_tag_recipe": "lu.com.mce.util.config.conditions.NameTagRecipe",
-		"torch_recipe": "lu.com.mce.util.config.conditions.BlazPowderTorchRecipe",
+		"torch_recipe": "lu.com.mce.util.config.conditions.BlazePowderTorchRecipe",
 		"cobweb_recipe": "lu.com.mce.util.config.conditions.CobwebRecipe",
 		"mossy_stones_recipe": "lu.com.mce.util.config.conditions.MossyStonesRecipe",
 		"clay_ball_recipe": "lu.com.mce.util.config.conditions.ClayBallRecipe",

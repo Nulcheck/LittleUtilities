@@ -2,7 +2,6 @@ package lu.com.mce.objects.blocks;
 
 import java.util.Random;
 
-import lu.com.mce.main.mod_lu;
 import lu.com.mce.util.BlockBase;
 import lu.com.mce.util.ParticleManager;
 import net.minecraft.block.SoundType;

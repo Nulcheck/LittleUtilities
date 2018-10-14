@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class RottenFleshRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> ConfigHandler.SubCategory.rottenFleshRecipe;
+		return () -> ConfigHandler.rottenFleshRecipe;
 	}
 }
