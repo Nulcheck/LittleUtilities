@@ -5,7 +5,8 @@ import java.util.logging.Logger;
 import lu.com.mce.events.ChatEvent;
 import lu.com.mce.events.GameEvent;
 import lu.com.mce.handlers.PlayerHandler;
-import lu.com.mce.proxy.CommonProxy;
+import lu.com.mce.handlers.RecipeHandler;
+import lu.com.mce.proxy.ServerProxy;
 import lu.com.mce.util.ModCreativeTab;
 import lu.com.mce.util.References;
 import lu.com.mce.util.config.ConfigHandler;
@@ -13,7 +14,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -22,7 +22,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = References.MOD_ID, name = References.NAME, version = References.VERSION, updateJSON = References.UPDATE, guiFactory = References.GUI_FACTORY)
+@Mod(modid = References.MOD_ID, name = References.NAME, version = References.VERSION, updateJSON = References.UPDATE)
 public class mod_lu {
 	@Instance
 	public static mod_lu instance;
@@ -30,7 +30,7 @@ public class mod_lu {
 	public static Logger logger = Logger.getLogger("Minecraft");
 
 	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.COMMON_PROXY_CLASS)
-	public static CommonProxy proxy;
+	public static ServerProxy proxy;
 
 	public static final int condenserGUI = 0;
 
@@ -49,6 +49,7 @@ public class mod_lu {
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
 		ConfigManager.sync(References.MOD_ID, Type.INSTANCE);
+		RecipeHandler.registerSmeltingRecipe();
 	}
 
 	@EventHandler

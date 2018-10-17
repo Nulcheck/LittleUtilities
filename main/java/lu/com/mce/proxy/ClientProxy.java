@@ -6,7 +6,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class ClientProxy extends CommonProxy {
+public class ClientProxy extends ServerProxy {
 	public void preInit(FMLPreInitializationEvent e) {
 		super.preInit(e);
 	}

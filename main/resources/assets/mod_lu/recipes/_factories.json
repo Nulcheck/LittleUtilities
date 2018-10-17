@@ -14,6 +14,7 @@
 		"clay_ball_recipe": "lu.com.mce.util.config.conditions.ClayBallRecipe",
 		"snowball_recipe": "lu.com.mce.util.config.conditions.SnowballRecipe",
 		"glowstone_dust_recipe": "lu.com.mce.util.config.conditions.GlowstoneDustRecipe",
-		"pure_quartz_recipe": "lu.com.mce.util.config.conditions.PureQuartzRecipe"
+		"pure_quartz_recipe": "lu.com.mce.util.config.conditions.PureQuartzRecipe",
+		"leather_scraps_recipe": "lu.com.mce.util.config.conditions.LeatherScrapsRecipe"
 	}
 }

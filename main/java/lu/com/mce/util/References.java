@@ -7,7 +7,5 @@ public class References {
 	public static final String UPDATE = "https://raw.githubusercontent.com/MCE626/LittleUtilities/master/update.json";
 	
 	public static final String CLIENT_PROXY_CLASS = "lu.com.mce.proxy.ClientProxy";
-	public static final String COMMON_PROXY_CLASS = "lu.com.mce.proxy.CommonProxy";
-	
-	public static final String GUI_FACTORY = "lu.com.mce.util.config.ConfigGuiFactory";
+	public static final String COMMON_PROXY_CLASS = "lu.com.mce.proxy.ServerProxy";
 }

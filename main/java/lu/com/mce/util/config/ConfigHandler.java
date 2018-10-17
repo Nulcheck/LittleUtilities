@@ -87,6 +87,11 @@ public class ConfigHandler {
 	@Comment("Should you be able to craft pure quartz? (To get silicon if a mod has it)")
 	@RequiresMcRestart
 	public static boolean pureQuartzRecipe = true;
+	
+	@Name("leather_scraps")
+	@Comment("Should mobs (pig, sheep, wolf, polar bear), drop leather scraps, and can you craft leather from this?")
+	@RequiresMcRestart
+	public static boolean leatherScraps = true;
 
 	@Mod.EventBusSubscriber(modid = References.MOD_ID)
 	public static class Handler {

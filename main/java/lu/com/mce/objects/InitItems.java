@@ -10,5 +10,6 @@ public class InitItems {
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	
 	public static final Item SPONGE = new ItemBase("sponge");
-	public static final Item PURE_QUARTZ = new ItemBase("PureQuartz");
+	public static final Item PURE_QUARTZ = new ItemBase("pure_quartz");
+	public static final Item LEATHER_SCRAPS = new ItemBase("leather_scraps");
 }

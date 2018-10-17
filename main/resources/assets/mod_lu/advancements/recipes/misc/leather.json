@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "mod_lu:pure_quartz"
+      "mod_lu:leather"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:sand",
+            "item": "mod_lu:leather_scraps",
             "data": 0
           }
         ]
@@ -20,7 +20,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "mod_lu:pure_quartz"
+        "recipe": "mod_lu:leather"
       }
     }
   },
