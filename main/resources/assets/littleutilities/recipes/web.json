@@ -1,0 +1,21 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:cobweb_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    " # ",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "minecraft:web"
+  }
+}

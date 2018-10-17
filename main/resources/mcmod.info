@@ -1,9 +1,9 @@
 [
 {
-  "modid": "mod_lu",
+  "modid": "littleutilities",
   "name": "\u00A7aLittleUtilities\u00A7r",
   "description": "Useful recipes, blocks and more!",
-  "version": "1.12.2-alpha0.1.1.0",
+  "version": "1.12.2-alpha1.0.0.0",
   "mcversion": "${mcversion}",
   "url": "https://minecraft.curseforge.com/projects/littleutilities",
   "updateUrl": "https://raw.githubusercontent.com/MCE626/LittleUtilities/master/update.json",

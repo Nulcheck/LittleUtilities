@@ -1,0 +1,22 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:mossy_stones_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone_wall",
+      "data": 0
+    },
+    {
+      "item": "minecraft:vine",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "minecraft:cobblestone_wall",
+    "data": 1
+  }
+}

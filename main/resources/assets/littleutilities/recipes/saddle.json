@@ -1,0 +1,24 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:saddle_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "lll",
+    "lil",
+    "i i"
+  ],
+  "key": {
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "minecraft:saddle"
+  }
+}

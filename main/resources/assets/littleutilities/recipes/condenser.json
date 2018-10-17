@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cic",
+    "cpc",
+    "cic"
+  ],
+  "key": {
+    "c": {
+      	"item": "minecraft:cobblestone"
+    },
+    "p": {
+     	"item": "minecraft:piston"
+    },
+    "i": {
+    	"item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "littleutilities:condenser"
+  }
+}

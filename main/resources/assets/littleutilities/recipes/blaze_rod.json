@@ -1,0 +1,21 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:blaze_rod_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "result": {
+    "item": "minecraft:blaze_rod",
+    "data": 0
+  }
+}

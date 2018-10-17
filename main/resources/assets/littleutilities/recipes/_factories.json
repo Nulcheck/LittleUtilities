@@ -1,0 +1,20 @@
+{
+	"conditions": {
+		"saddle_recipe": "mce.lu.common.util.config.conditions.SaddleRecipe",
+		"horse_armors_recipe": "mce.lu.common.util.config.conditions.HorseArmorsRecipe",
+		"colored_glass_recipe": "mce.lu.common.util.config.conditions.ColoredGlassRecipe",
+		"rotten_flesh_recipe": "mce.lu.common.util.config.conditions.RottenFleshRecipe",
+		"blaze_rod_recipe": "mce.lu.common.util.config.conditions.BlazeRodRecipe",
+		"bone_recipe": "mce.lu.common.util.config.conditions.BoneRecipe",
+		"gravel_recipe": "mce.lu.common.util.config.conditions.GravelRecipe",
+		"name_tag_recipe": "mce.lu.common.util.config.conditions.NameTagRecipe",
+		"torch_recipe": "mce.lu.common.util.config.conditions.BlazePowderTorchRecipe",
+		"cobweb_recipe": "mce.lu.common.util.config.conditions.CobwebRecipe",
+		"mossy_stones_recipe": "mce.lu.common.util.config.conditions.MossyStonesRecipe",
+		"clay_ball_recipe": "mce.lu.common.util.config.conditions.ClayBallRecipe",
+		"snowball_recipe": "mce.lu.common.util.config.conditions.SnowballRecipe",
+		"glowstone_dust_recipe": "mce.lu.common.util.config.conditions.GlowstoneDustRecipe",
+		"pure_quartz_recipe": "mce.lu.common.util.config.conditions.PureQuartzRecipe",
+		"leather_scraps_recipe": "mce.lu.common.util.config.conditions.LeatherScrapsRecipe"
+	}
+}

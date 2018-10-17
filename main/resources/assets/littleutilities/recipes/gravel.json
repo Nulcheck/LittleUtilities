@@ -1,0 +1,20 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:gravel_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:flint"
+    },
+    {
+      "item": "minecraft:cobblestone",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "minecraft:gravel"
+  }
+}

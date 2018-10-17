@@ -1,0 +1,22 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:pure_quartz_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:sand",
+      "data": 0
+    },
+    {
+      "item": "minecraft:sand",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pure_quartz",
+    "count": 1
+  }
+}

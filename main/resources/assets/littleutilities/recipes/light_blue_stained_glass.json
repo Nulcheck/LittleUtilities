@@ -1,0 +1,23 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:colored_glass_recipe"
+    }
+  ],
+	"type": "minecraft:crafting_shapeless",
+	"group": "stained_glass",
+	"ingredients": [
+		{
+			"item": "minecraft:dye",
+			"data": 12
+		},
+		{
+			"item": "minecraft:glass",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "minecraft:stained_glass",
+		"data": 3
+	}
+}

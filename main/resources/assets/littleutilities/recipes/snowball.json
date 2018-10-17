@@ -1,0 +1,17 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:snowball_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:snow"
+    }
+  ],
+  "result": {
+    "item": "minecraft:snowball",
+    "count": 4
+  }
+}

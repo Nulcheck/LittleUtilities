@@ -1,0 +1,22 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:bone_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:dye",
+      "data": 15
+    }
+  },
+  "result": {
+    "item": "minecraft:bone"
+  }
+}

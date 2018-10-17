@@ -1,0 +1,21 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:leather_scraps_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xx",
+    "xx"
+  ],
+  "key": {
+    "x": {
+      "item": "littleutilities:leather_scraps"
+    }
+  },
+  "result": {
+    "item": "minecraft:leather",
+    "count": 1
+  }
+}

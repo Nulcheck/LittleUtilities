@@ -1,0 +1,26 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:torch_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": [
+      {
+        "item": "minecraft:blaze_powder"
+      }
+    ]
+  },
+  "result": {
+    "item": "minecraft:torch",
+    "count": 4
+  }
+}

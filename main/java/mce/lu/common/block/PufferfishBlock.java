@@ -1,0 +1,49 @@
+package mce.lu.common.block;
+
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+public class PufferfishBlock extends EdibleBlock {
+	public PufferfishBlock(String name, Material mat, int lvl, float sat) {
+		super(name, mat, lvl, sat);
+	}
+
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+			EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if (!player.isSneaking()) {
+			super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
+			this.applyEffects(world, pos, (Entity) player);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+		this.applyEffects(world, pos, entity);
+	}
+
+	public void onEntityWalk(World world, BlockPos pos, Entity entity) {
+		this.applyEffects(world, pos, entity);
+	}
+
+	public void applyEffects(World world, BlockPos pos, Entity entity) {
+		try {
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 1200, 3));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 300, 2));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 300, 1));
+			super.onEntityWalk(world, pos, entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

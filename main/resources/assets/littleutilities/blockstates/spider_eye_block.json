@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"amount=0": {"model": "littleutilities:spider_eye_block"},
+		"amount=1": {"model": "littleutilities:spider_eye_block"},
+		"amount=2": {"model": "littleutilities:spider_eye_block"},
+		"amount=3": {"model": "littleutilities:spider_eye_block"},
+		"amount=4": {"model": "littleutilities:spider_eye_block"},
+		"amount=5": {"model": "littleutilities:spider_eye_block"},
+		"amount=6": {"model": "littleutilities:spider_eye_block"},
+		"amount=7": {"model": "littleutilities:spider_eye_block"},
+		"amount=8": {"model": "littleutilities:spider_eye_block"}
+	}
+}

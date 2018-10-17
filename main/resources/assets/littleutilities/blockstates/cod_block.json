@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"amount=0": {"model": "littleutilities:cod_block"},
+		"amount=1": {"model": "littleutilities:cod_block"},
+		"amount=2": {"model": "littleutilities:cod_block"},
+		"amount=3": {"model": "littleutilities:cod_block"},
+		"amount=4": {"model": "littleutilities:cod_block"},
+		"amount=5": {"model": "littleutilities:cod_block"},
+		"amount=6": {"model": "littleutilities:cod_block"},
+		"amount=7": {"model": "littleutilities:cod_block"},
+		"amount=8": {"model": "littleutilities:cod_block"}
+	}
+}
