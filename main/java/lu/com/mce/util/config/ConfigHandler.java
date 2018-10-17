@@ -82,6 +82,11 @@ public class ConfigHandler {
 	@Comment("Should you be able to craft glowstone dust from a glowstone block?")
 	@RequiresMcRestart
 	public static boolean glowstoneDustRecipe = true;
+	
+	@Name("pure_quartz")
+	@Comment("Should you be able to craft pure quartz? (To get silicon if a mod has it)")
+	@RequiresMcRestart
+	public static boolean pureQuartzRecipe = true;
 
 	@Mod.EventBusSubscriber(modid = References.MOD_ID)
 	public static class Handler {

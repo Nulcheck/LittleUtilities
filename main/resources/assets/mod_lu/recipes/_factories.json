@@ -13,6 +13,7 @@
 		"mossy_stones_recipe": "lu.com.mce.util.config.conditions.MossyStonesRecipe",
 		"clay_ball_recipe": "lu.com.mce.util.config.conditions.ClayBallRecipe",
 		"snowball_recipe": "lu.com.mce.util.config.conditions.SnowballRecipe",
-		"glowstone_dust_recipe": "lu.com.mce.util.config.conditions.GlowstoneDustRecipe"
+		"glowstone_dust_recipe": "lu.com.mce.util.config.conditions.GlowstoneDustRecipe",
+		"pure_quartz_recipe": "lu.com.mce.util.config.conditions.PureQuartzRecipe"
 	}
 }

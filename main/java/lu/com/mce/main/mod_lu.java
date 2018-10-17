@@ -13,7 +13,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -42,8 +41,7 @@ public class mod_lu {
 		MinecraftForge.EVENT_BUS.register(new ConfigHandler());
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());
-		FMLCommonHandler.instance().bus().register(new GameEvent());
-		FMLCommonHandler.instance().bus().register(new PlayerHandler());
+		MinecraftForge.EVENT_BUS.register(new PlayerHandler());
 	}
 
 	public static CreativeTabs lu = new ModCreativeTab("lu");
