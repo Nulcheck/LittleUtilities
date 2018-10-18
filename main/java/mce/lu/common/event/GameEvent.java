@@ -3,17 +3,20 @@ package mce.lu.common.event;
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.monster.EntityPolarBear;
+import net.minecraft.entity.passive.EntityPig;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class GameEvent {
-	TileEntity te;
-
 	@SubscribeEvent
 	public void setEntityOnFire(AttackEntityEvent e) {
 		if (!e.getEntityPlayer().getHeldItemMainhand().isEmpty()
@@ -22,10 +25,22 @@ public class GameEvent {
 	}
 
 	@SubscribeEvent
+	public void mobDrops(LivingDropsEvent e) {
+		if (e.getEntityLiving() instanceof EntityPig)
+			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
+		if (e.getEntityLiving() instanceof EntitySheep)
+			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
+		if (e.getEntityLiving() instanceof EntityWolf)
+			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
+		if (e.getEntityLiving() instanceof EntityPolarBear)
+			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 3);
+	}
+
+	@SubscribeEvent
 	public void onInteractEvent(PlayerInteractEvent e) {
 		BlockPos pos = e.getPos();
 		IBlockState state = e.getWorld().getBlockState(pos);
-		te = e.getWorld().getTileEntity(pos);
+		TileEntity te = e.getWorld().getTileEntity(pos);
 
 		// Dye a block in world.
 		for (int i = 0; i <= 15; i++) {
