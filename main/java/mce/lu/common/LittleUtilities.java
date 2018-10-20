@@ -7,6 +7,7 @@ import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.core.LUCreativeTab;
 import mce.lu.common.core.proxy.ServerProxy;
 import mce.lu.common.event.ChatEvent;
+import mce.lu.common.event.CureEvent;
 import mce.lu.common.event.GameEvent;
 import mce.lu.common.util.References;
 import mce.lu.common.util.config.LUConfigManager;
@@ -42,6 +43,7 @@ public class LittleUtilities {
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());
 		MinecraftForge.EVENT_BUS.register(new PlayerHandler());
+		MinecraftForge.EVENT_BUS.register(new CureEvent());
 	}
 
 	public static CreativeTabs lu = new LUCreativeTab("lu");

@@ -2,14 +2,19 @@ package mce.lu.common.event;
 
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.monster.EntityPolarBear;
+import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -40,7 +45,7 @@ public class GameEvent {
 	public void onInteractEvent(PlayerInteractEvent e) {
 		BlockPos pos = e.getPos();
 		IBlockState state = e.getWorld().getBlockState(pos);
-		TileEntity te = e.getWorld().getTileEntity(pos);
+		// TileEntity te = e.getWorld().getTileEntity(pos);
 
 		// Dye a block in world.
 		for (int i = 0; i <= 15; i++) {

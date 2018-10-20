@@ -15,6 +15,7 @@ public class ModItems {
 	public static final Item SPONGE = new ItemBase("sponge");
 	public static final Item PURE_QUARTZ = new ItemBase("pure_quartz");
 	public static final Item LEATHER_SCRAPS = new ItemBase("leather_scraps");
+	public static final Item RED_PILL = new ItemBase("red_pill");
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> e) {
