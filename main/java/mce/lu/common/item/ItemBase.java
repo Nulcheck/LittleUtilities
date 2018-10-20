@@ -17,7 +17,6 @@ public class ItemBase extends Item implements IModelRegister {
 	}
 
 	@SideOnly(Side.CLIENT)
-	@Override
 	public void registerModels() {
 		ModelHandler.registerItemRenderer(this, 0, "inventory");
 	}

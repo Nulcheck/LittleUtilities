@@ -7,9 +7,11 @@ import com.google.gson.JsonObject;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraftforge.common.crafting.IConditionFactory;
 import net.minecraftforge.common.crafting.JsonContext;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class PureQuartzRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.pureQuartzRecipe;
+		return () -> OreDictionary.doesOreNameExist("ingotSilicon") ? OreDictionary.doesOreNameExist("itemSilicon")
+				: LUConfigManager.pureQuartzRecipe;
 	}
 }

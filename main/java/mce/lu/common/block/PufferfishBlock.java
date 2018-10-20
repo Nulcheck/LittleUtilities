@@ -17,6 +17,7 @@ public class PufferfishBlock extends EdibleBlock {
 		super(name, mat, lvl, sat);
 	}
 
+	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!player.isSneaking()) {
@@ -28,10 +29,12 @@ public class PufferfishBlock extends EdibleBlock {
 		}
 	}
 
+	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		this.applyEffects(world, pos, entity);
 	}
 
+	@Override
 	public void onEntityWalk(World world, BlockPos pos, Entity entity) {
 		this.applyEffects(world, pos, entity);
 	}

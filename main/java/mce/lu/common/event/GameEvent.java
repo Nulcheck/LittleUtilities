@@ -2,35 +2,31 @@ package mce.lu.common.event;
 
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.monster.EntityPolarBear;
-import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@EventBusSubscriber
 public class GameEvent {
 	@SubscribeEvent
-	public void setEntityOnFire(AttackEntityEvent e) {
+	public static void setEntityOnFire(AttackEntityEvent e) {
 		if (!e.getEntityPlayer().getHeldItemMainhand().isEmpty()
 				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.BLAZE_ROD)
 			e.getTarget().setFire(8);
 	}
 
 	@SubscribeEvent
-	public void mobDrops(LivingDropsEvent e) {
+	public static void mobDrops(LivingDropsEvent e) {
 		if (e.getEntityLiving() instanceof EntityPig)
 			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
 		if (e.getEntityLiving() instanceof EntitySheep)
@@ -41,8 +37,9 @@ public class GameEvent {
 			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 3);
 	}
 
+	@SuppressWarnings("deprecation")
 	@SubscribeEvent
-	public void onInteractEvent(PlayerInteractEvent e) {
+	public static void onInteractEvent(PlayerInteractEvent e) {
 		BlockPos pos = e.getPos();
 		IBlockState state = e.getWorld().getBlockState(pos);
 		// TileEntity te = e.getWorld().getTileEntity(pos);

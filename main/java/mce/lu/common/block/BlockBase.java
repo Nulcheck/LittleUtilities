@@ -24,7 +24,6 @@ public class BlockBase extends Block implements IModelRegister {
 	}
 
 	@SideOnly(Side.CLIENT)
-	@Override
 	public void registerModels() {
 		ModelHandler.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
 	}

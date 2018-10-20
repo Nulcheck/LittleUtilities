@@ -15,7 +15,7 @@ public class ClientProxy extends ServerProxy {
 	public void postInit(FMLPostInitializationEvent e) {
 		super.postInit(e);
 	}
-	
+
 	public void registerItemRenderer(Item item, int meta, String id) {
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
 	}

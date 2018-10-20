@@ -8,9 +8,10 @@ import net.minecraftforge.common.config.Config.RequiresMcRestart;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@EventBusSubscriber
 @Config(modid = References.MOD_ID, type = Type.INSTANCE, name = References.NAME)
 public class LUConfigManager {
 	@Name("saddle")
@@ -82,18 +83,18 @@ public class LUConfigManager {
 	@Comment("Should you be able to craft glowstone dust from a glowstone block?")
 	@RequiresMcRestart
 	public static boolean glowstoneDustRecipe = true;
-	
+
 	@Name("pure_quartz")
 	@Comment("Should you be able to craft pure quartz? (To get silicon if a mod has it)")
 	@RequiresMcRestart
 	public static boolean pureQuartzRecipe = true;
-	
+
 	@Name("leather_scraps")
 	@Comment("Should mobs (pig, sheep, wolf, polar bear), drop leather scraps, and can you craft leather from this?")
 	@RequiresMcRestart
 	public static boolean leatherScraps = true;
 
-	@Mod.EventBusSubscriber(modid = References.MOD_ID)
+	@EventBusSubscriber
 	public static class Handler {
 		@SubscribeEvent
 		public void onConfigChangedEvent(OnConfigChangedEvent e) {

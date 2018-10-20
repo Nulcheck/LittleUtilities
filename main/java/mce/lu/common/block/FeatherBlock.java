@@ -10,10 +10,12 @@ public class FeatherBlock extends BlockBase {
 		super(name, mat);
 	}
 
+	@Override
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
 		entityIn.fall(fallDistance, 0.0F);
 	}
 
+	@Override
 	public void onLanded(World worldIn, Entity entityIn) {
 		if (entityIn.motionY < 0d) {
 			entityIn.motionY = 0d;

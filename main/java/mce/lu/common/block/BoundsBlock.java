@@ -15,18 +15,22 @@ public class BoundsBlock extends BlockBase {
 		this.maxY = maxY;
 	}
 
+	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
+	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
+	@Override
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
 
+	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
 	}

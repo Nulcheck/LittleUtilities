@@ -17,6 +17,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EdibleBlock extends BlockBase {
 	public static final PropertyInteger AMOUNT = PropertyInteger.create("amount", 0, 8);
@@ -41,18 +43,23 @@ public class EdibleBlock extends BlockBase {
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, 0));
 	}
 
+	@SideOnly(Side.CLIENT)
+	@Override
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
 
+	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
+	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
+	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		int meta = getMetaFromState(state);
 		double subtractY = (float) (meta * 2) / 18f;
@@ -64,10 +71,12 @@ public class EdibleBlock extends BlockBase {
 			return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - subtractY, 1d);
 	}
 
+	@Override
 	public int damageDropped(IBlockState state) {
 		return getMetaFromState(state);
 	}
 
+	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!player.isSneaking()) {
@@ -110,14 +119,17 @@ public class EdibleBlock extends BlockBase {
 		return this;
 	}
 
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(AMOUNT, meta);
 	}
 
+	@Override
 	public int getMetaFromState(IBlockState state) {
 		return state.getValue(AMOUNT);
 	}
 
+	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { AMOUNT });
 	}

@@ -13,6 +13,7 @@ public class NetherStarBlock extends BlockBase {
 		super(name, mat);
 	}
 
+	@Override
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
 		double d0 = 0.0625d;
 

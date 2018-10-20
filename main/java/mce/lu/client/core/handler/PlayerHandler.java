@@ -13,12 +13,14 @@ import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.ForgeVersion.Status;
 import net.minecraftforge.event.entity.player.PlayerEvent.NameFormat;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 
+@EventBusSubscriber
 public class PlayerHandler {
 	@SubscribeEvent
-	public void onPlayerLogin(PlayerLoggedInEvent e) {
+	public static void onPlayerLogin(PlayerLoggedInEvent e) {
 		try {
 			if (ForgeVersion.getResult(Loader.instance().activeModContainer()).status == Status.OUTDATED) {
 				e.player.sendMessage(new TextComponentString(ChatFormatting.AQUA + "New LittleUtilities Update! "));
@@ -30,7 +32,7 @@ public class PlayerHandler {
 	}
 
 	@SubscribeEvent
-	public void addPatreonTag(NameFormat e) throws Exception {
+	public static void addPatreonTag(NameFormat e) throws Exception {
 		TextComponentString patreonTag = new TextComponentString(TextFormatting.GOLD + "[" + TextFormatting.DARK_PURPLE
 				+ "p" + TextFormatting.GOLD + "] " + TextFormatting.RESET);
 		Style hoverEvent = new Style()

@@ -15,11 +15,13 @@ public class BlazeRodBlock extends BlockBase {
 		super(name, mat);
 	}
 
+	@Override
 	public void onEntityWalk(World world, BlockPos pos, Entity e) {
 		e.setFire(8);
 		super.onEntityWalk(world, pos, e);
 	}
 
+	@Override
 	public boolean isFireSource(World world, BlockPos pos, EnumFacing side) {
 		if (side == EnumFacing.UP)
 			return true;
@@ -27,6 +29,7 @@ public class BlazeRodBlock extends BlockBase {
 			return false;
 	}
 
+	@Override
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
 		double d0 = 0.0625d;
 

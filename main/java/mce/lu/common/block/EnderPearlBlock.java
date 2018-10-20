@@ -18,6 +18,7 @@ public class EnderPearlBlock extends UsableBlock {
 		super(name, mat);
 	}
 
+	@Override
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
 		double d0 = 0.0625d;
 
@@ -57,6 +58,7 @@ public class EnderPearlBlock extends UsableBlock {
 		}
 	}
 
+	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		Random rand = new Random();

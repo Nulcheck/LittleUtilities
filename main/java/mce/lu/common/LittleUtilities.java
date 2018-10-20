@@ -2,17 +2,11 @@ package mce.lu.common;
 
 import java.util.logging.Logger;
 
-import mce.lu.client.core.handler.PlayerHandler;
 import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.core.LUCreativeTab;
 import mce.lu.common.core.proxy.ServerProxy;
-import mce.lu.common.event.ChatEvent;
-import mce.lu.common.event.CureEvent;
-import mce.lu.common.event.GameEvent;
 import mce.lu.common.util.References;
-import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.common.Mod;
@@ -38,11 +32,6 @@ public class LittleUtilities {
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
 		proxy.preInit(e);
-
-		MinecraftForge.EVENT_BUS.register(new LUConfigManager());
-		MinecraftForge.EVENT_BUS.register(new ChatEvent());
-		MinecraftForge.EVENT_BUS.register(new GameEvent());
-		MinecraftForge.EVENT_BUS.register(new PlayerHandler());
 	}
 
 	public static CreativeTabs lu = new LUCreativeTab("lu");

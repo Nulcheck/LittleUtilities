@@ -15,6 +15,7 @@ public class GhastTearBlock extends BlockBase {
 		setSoundType(SoundType.GLASS);
 	}
 
+	@Override
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
 		double d0 = 0.0625d;
 
