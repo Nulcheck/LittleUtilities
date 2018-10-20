@@ -5,19 +5,22 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@EventBusSubscriber
 public class CureEvent {
 	@SubscribeEvent
-	public void cureZombie(EntityInteractSpecific e) {
-		if (!e.getWorld().isRemote && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
+	public static void cureZombie(EntityInteractSpecific e) {
+		if (!e.getWorld().isRemote && e.getHand().equals(EnumHand.MAIN_HAND)
+				&& !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
 				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == ModItems.RED_PILL) {
 			if (e.getTarget() instanceof EntityZombieVillager) {
 				EntityVillager villager = new EntityVillager(e.getWorld());
@@ -26,7 +29,8 @@ public class CureEvent {
 				// Set villager traits from zombie villager
 				villager.copyLocationAndAnglesFrom(e.getTarget());
 				villager.setProfession(((EntityZombieVillager) e.getTarget()).getForgeProfession());
-				villager.finalizeMobSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(villager)), (IEntityLivingData) null, false);
+				villager.finalizeMobSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(villager)),
+						(IEntityLivingData) null, false);
 				villager.setLookingForHome();
 
 				// Remove zombie villager
@@ -49,7 +53,7 @@ public class CureEvent {
 				EntityPlayer entityplayer = e.getWorld().getPlayerEntityByUUID(e.getEntityPlayer().getUniqueID());
 				if (entityplayer instanceof EntityPlayerMP)
 					CriteriaTriggers.CURED_ZOMBIE_VILLAGER.trigger((EntityPlayerMP) entityplayer,
-							(EntityZombie) e.getTarget(), villager);
+							(EntityZombieVillager) e.getTarget(), villager);
 
 				e.getWorld().playEvent((EntityPlayer) null, 1027,
 						new BlockPos((int) e.getPos().getX(), (int) e.getPos().getY(), (int) e.getPos().getZ()), 0);

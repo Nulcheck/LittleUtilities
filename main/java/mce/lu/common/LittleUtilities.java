@@ -43,7 +43,6 @@ public class LittleUtilities {
 		MinecraftForge.EVENT_BUS.register(new ChatEvent());
 		MinecraftForge.EVENT_BUS.register(new GameEvent());
 		MinecraftForge.EVENT_BUS.register(new PlayerHandler());
-		MinecraftForge.EVENT_BUS.register(new CureEvent());
 	}
 
 	public static CreativeTabs lu = new LUCreativeTab("lu");
