@@ -3,6 +3,8 @@ package mce.lu.common.block;
 import mce.lu.client.core.handler.ModelHandler;
 import mce.lu.client.render.IModelRegister;
 import mce.lu.common.LittleUtilities;
+import mce.lu.common.item.ItemBlockEdible;
+import mce.lu.common.item.ItemBlockUsable;
 import mce.lu.common.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -20,7 +22,12 @@ public class BlockBase extends Block implements IModelRegister {
 		setCreativeTab(LittleUtilities.lu);
 
 		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		if (this instanceof EdibleBlock)
+			ModItems.ITEMS.add(new ItemBlockEdible(this).setRegistryName(this.getRegistryName()));
+		else if (this instanceof UsableBlock)
+			ModItems.ITEMS.add(new ItemBlockUsable(this).setRegistryName(this.getRegistryName()));
+		else
+			ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
 	@SideOnly(Side.CLIENT)

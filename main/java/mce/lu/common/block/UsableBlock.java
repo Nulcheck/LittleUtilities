@@ -81,8 +81,6 @@ public class UsableBlock extends BlockBase {
 			world.setBlockToAir(pos);
 		else
 			world.setBlockState(pos, getStateFromMeta(meta), 2);
-
-		// world.scheduleBlockUpdate(pos, this, 0, 1);
 	}
 
 	public UsableBlock setPotionEffect(Potion potion, int dur, int amp, float prob) {
