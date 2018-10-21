@@ -31,7 +31,7 @@ public class BoundsBlock extends BlockBase {
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return new AxisAlignedBB(0d, 0d, 0d, 1d, 1d - maxY, 1d);
 	}
 }

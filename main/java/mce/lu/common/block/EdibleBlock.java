@@ -6,15 +6,20 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -72,11 +77,6 @@ public class EdibleBlock extends BlockBase {
 	}
 
 	@Override
-	public int damageDropped(IBlockState state) {
-		return getMetaFromState(state);
-	}
-
-	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!player.isSneaking()) {
@@ -105,9 +105,8 @@ public class EdibleBlock extends BlockBase {
 				world.playSound(player, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.MASTER, 0.5f,
 						world.rand.nextFloat() * 0.1F + 0.9F);
 				world.setBlockToAir(pos);
-			} else {
-				world.setBlockState(pos, getStateFromMeta(meta), 1);
-			}
+			} else
+				world.setBlockState(pos, getStateFromMeta(meta), 2);
 		}
 	}
 
@@ -132,5 +131,25 @@ public class EdibleBlock extends BlockBase {
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { AMOUNT });
+	}
+
+	@Override
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state,
+			int fortune) {
+		Item item = this.getItemDropped(state, RANDOM, fortune);
+
+		if (item != Items.AIR)
+			drops.add(new ItemStack(item, 1, this.damageDropped(state)));
+	}
+
+	@Override
+	public int damageDropped(IBlockState state) {
+		return getMetaFromState(state);
+	}
+
+	@Override
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
+			EntityPlayer player) {
+		return new ItemStack(Item.getItemFromBlock(this), 1, 0);
 	}
 }

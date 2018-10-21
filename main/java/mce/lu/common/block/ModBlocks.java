@@ -23,7 +23,7 @@ public class ModBlocks {
 			.setHardness(1f);
 	public static final Block NETHER_STAR_BLOCK = new NetherStarBlock("nether_star_block", Material.GLASS)
 			.setHardness(2f);
-	public static final Block GUNPOWDER_BLOCK = new BoundsBlock("gunpowder_block", Material.SAND, 0.05d)
+	public static final Block GUNPOWDER_BLOCK = new BoundsBlock("gunpowder_block", Material.SAND, 0.0625d)
 			.setHardness(0.5f);
 	public static final Block FLINT_BLOCK = new BlockBase("flint_block", Material.CLAY).setHardness(0.7f);
 	public static final Block PAPER_BLOCK = new BlockBase("paper_block", Material.GROUND).setHardness(0.6f);
@@ -32,7 +32,7 @@ public class ModBlocks {
 			.setHardness(0.8f);
 	public static final Block FEATHER_BLOCK = new FeatherBlock("feather_block", Material.CLOTH).setHardness(0.5f);
 	public static final Block EGG_BLOCK = new BlockBase("egg_block", Material.WOOD).setHardness(0.5f);
-	public static final Block SUGAR_BLOCK = new BoundsBlock("sugar_block", Material.SAND, 0.05d).setHardness(0.5f);
+	public static final Block SUGAR_BLOCK = new BoundsBlock("sugar_block", Material.SAND, 0.0625d).setHardness(0.5f);
 	public static final Block FERMENTED_SPIDER_EYE_BLOCK = new BlockBase("fermented_spider_eye_block", Material.CLAY)
 			.setHardness(0.6f);
 
