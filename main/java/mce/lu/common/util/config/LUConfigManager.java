@@ -94,6 +94,11 @@ public class LUConfigManager {
 	@RequiresMcRestart
 	public static boolean leatherScraps = true;
 
+	@Name("zombie_curing_kit")
+	@Comment("Should you be able to craft the zombie curing kit? (Instantly cure zombie villagers, but isn't super easy to get)")
+	@RequiresMcRestart
+	public static boolean zombieCuringKit = true;
+
 	@EventBusSubscriber
 	public static class Handler {
 		@SubscribeEvent

@@ -21,7 +21,7 @@ public class CureEvent {
 	public static void cureZombie(EntityInteractSpecific e) {
 		if (!e.getWorld().isRemote && e.getHand().equals(EnumHand.MAIN_HAND)
 				&& !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == ModItems.RED_PILL) {
+				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == ModItems.ZOMBIE_CURING_KIT) {
 			if (e.getTarget() instanceof EntityZombieVillager) {
 				EntityVillager villager = new EntityVillager(e.getWorld());
 				e.getTarget().getEntityWorld().setEntityState(e.getTarget(), (byte) 16);

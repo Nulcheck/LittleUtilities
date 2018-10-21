@@ -1,0 +1,20 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:zombie_curing_kit_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:golden_apple",
+      "data": 0
+    },
+    {
+      "item": "minecraft:potion"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:zombie_curing_kit"
+  }
+}
