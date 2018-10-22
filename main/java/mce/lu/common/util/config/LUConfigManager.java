@@ -90,7 +90,7 @@ public class LUConfigManager {
 	public static boolean pureQuartzRecipe = true;
 
 	@Name("leather_scraps")
-	@Comment("Should mobs (pig, sheep, wolf, polar bear), drop leather scraps, and can you craft leather from this?")
+	@Comment("Should mobs (pig, sheep, wolf, polar bear) drop leather scraps, and can you craft leather from this?")
 	@RequiresMcRestart
 	public static boolean leatherScraps = true;
 

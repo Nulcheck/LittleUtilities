@@ -2,6 +2,7 @@ package mce.lu.common.event;
 
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
+import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.entity.passive.EntityPig;
@@ -27,14 +28,16 @@ public class GameEvent {
 
 	@SubscribeEvent
 	public static void mobDrops(LivingDropsEvent e) {
-		if (e.getEntityLiving() instanceof EntityPig)
-			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
-		if (e.getEntityLiving() instanceof EntitySheep)
-			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
-		if (e.getEntityLiving() instanceof EntityWolf)
-			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
-		if (e.getEntityLiving() instanceof EntityPolarBear)
-			e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 3);
+		if (LUConfigManager.leatherScraps) {
+			if (e.getEntityLiving() instanceof EntityPig)
+				e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
+			if (e.getEntityLiving() instanceof EntitySheep)
+				e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
+			if (e.getEntityLiving() instanceof EntityWolf)
+				e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 2);
+			if (e.getEntityLiving() instanceof EntityPolarBear)
+				e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 3);
+		}
 	}
 
 	@SuppressWarnings("deprecation")
