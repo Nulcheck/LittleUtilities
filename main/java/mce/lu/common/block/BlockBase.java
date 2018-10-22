@@ -31,7 +31,12 @@ public class BlockBase extends Block implements IModelRegister {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void registerModels() {
-		ModelHandler.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+	public void registerItemModels() {
+		if (this instanceof EdibleBlock)
+			ModelHandler.registerItemBlockModel(this, new ItemBlockEdible(this), "inventory");
+		else if (this instanceof UsableBlock)
+			ModelHandler.registerItemBlockModel(this, new ItemBlockUsable(this), "inventory");
+		else
+			ModelHandler.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
 	}
 }
