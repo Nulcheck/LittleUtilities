@@ -1,13 +1,17 @@
 {
+	"forge_marker": 1,
 	"variants": {
-		"amount=0": {"model": "littleutilities:salmon_block"},
-		"amount=1": {"model": "littleutilities:salmon_block"},
-		"amount=2": {"model": "littleutilities:salmon_block"},
-		"amount=3": {"model": "littleutilities:salmon_block"},
-		"amount=4": {"model": "littleutilities:salmon_block"},
-		"amount=5": {"model": "littleutilities:salmon_block"},
-		"amount=6": {"model": "littleutilities:salmon_block"},
-		"amount=7": {"model": "littleutilities:salmon_block"},
-		"amount=8": {"model": "littleutilities:salmon_block"}
+		"inventory": [{}],
+		"amount": {
+			"0": {"model": "littleutilities:usable_block0", "textures": { "all": "littleutilities:blocks/salmon_block"}},
+			"1": {"model": "littleutilities:usable_block1", "textures": { "all": "littleutilities:blocks/salmon_block"}},
+			"2": {"model": "littleutilities:usable_block2", "textures": { "all": "littleutilities:blocks/salmon_block"}},
+			"3": {"model": "littleutilities:usable_block3", "textures": { "all": "littleutilities:blocks/salmon_block"}},
+			"4": {"model": "littleutilities:usable_block4", "textures": { "all": "littleutilities:blocks/salmon_block"}},
+			"5": {"model": "littleutilities:usable_block5", "textures": { "all": "littleutilities:blocks/salmon_block"}},
+			"6": {"model": "littleutilities:usable_block6", "textures": { "all": "littleutilities:blocks/salmon_block"}},
+			"7": {"model": "littleutilities:usable_block7", "textures": { "all": "littleutilities:blocks/salmon_block"}},
+			"8": {"model": "littleutilities:usable_block8", "textures": { "all": "littleutilities:blocks/salmon_block"}}
+		}
 	}
 }

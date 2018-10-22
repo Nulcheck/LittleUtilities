@@ -1,13 +1,17 @@
 {
+	"forge_marker": 1,
 	"variants": {
-		"amount=0": {"model": "littleutilities:pufferfish_block"},
-		"amount=1": {"model": "littleutilities:pufferfish_block"},
-		"amount=2": {"model": "littleutilities:pufferfish_block"},
-		"amount=3": {"model": "littleutilities:pufferfish_block"},
-		"amount=4": {"model": "littleutilities:pufferfish_block"},
-		"amount=5": {"model": "littleutilities:pufferfish_block"},
-		"amount=6": {"model": "littleutilities:pufferfish_block"},
-		"amount=7": {"model": "littleutilities:pufferfish_block"},
-		"amount=8": {"model": "littleutilities:pufferfish_block"}
+		"inventory": [{}],
+		"amount": {
+			"0": {"model": "littleutilities:pufferfish_block0"},
+			"1": {"model": "littleutilities:pufferfish_block1"},
+			"2": {"model": "littleutilities:pufferfish_block2"},
+			"3": {"model": "littleutilities:pufferfish_block3"},
+			"4": {"model": "littleutilities:pufferfish_block4"},
+			"5": {"model": "littleutilities:pufferfish_block5"},
+			"6": {"model": "littleutilities:pufferfish_block6"},
+			"7": {"model": "littleutilities:pufferfish_block7"},
+			"8": {"model": "littleutilities:pufferfish_block8"}
+		}
 	}
 }
