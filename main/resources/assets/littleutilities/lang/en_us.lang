@@ -61,3 +61,19 @@ item.sponge.name=Sponge
 item.pure_quartz.name=Pure Quartz
 item.leather_scraps.name=Leather Scraps
 item.zombie_curing_kit.name=Zombie Curing Kit
+
+////// ADVANCEMENTS
+adv.lu.root.title=Immense Pressure
+adv.lu.root.desc=Craft a Condenser
+
+adv.lu.ghast_tear_block.title=Cry Some More
+adv.lu.ghast_tear_block.desc=Make a Ghast Tear Block
+
+adv.lu.blaze_rod_block.title=Burn Baby, Burn!
+adv.lu.blaze_rod_block.desc=Make a Blaze Rod Block
+
+adv.lu.nether_star_block.title=Stars in the Night Sky
+adv.lu.nether_star_block.desc=Make a Nether Star Block
+
+adv.lu.ender_eye_block.title=Staring Contest
+adv.lu.ender_eye_block.desc=Make an Ender Eye Block

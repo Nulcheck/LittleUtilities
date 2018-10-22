@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "littleutilities:condenser"
+		},
+		"title": {
+			"translate": "adv.lu.root.title"
+		},
+		"description": {
+			"translate": "adv.lu.root.desc"
+		},
+		"background": "littleutilities:textures/blocks/flint_block.png"
+	},
+	"criteria": {
+		"item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [{
+					"item": "littleutilities:condenser"
+				}]
+			}
+		}
+	}
+}

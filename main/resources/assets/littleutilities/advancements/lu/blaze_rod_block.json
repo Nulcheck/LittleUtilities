@@ -1,0 +1,28 @@
+{
+	"display":{
+		"icon": {
+			"item": "littleutilities:blaze_rod_block"
+		},
+		"title": {
+			"translate": "adv.lu.blaze_rod_block.title"
+		},
+		"description": {
+			"translate": "adv.lu.blaze_rod_block.desc"
+		},
+		"frame": "challenge"
+	},
+	"parent": "littleutilities:lu/root",
+	"rewards": {
+        "experience": 100
+    },
+	"criteria": {
+		"item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [{
+					"item": "littleutilities:blaze_rod_block"
+				}]
+			}
+		}
+	}
+}

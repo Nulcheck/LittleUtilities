@@ -11,7 +11,8 @@
       "data": 0
     },
     {
-      "item": "minecraft:potion"
+      "item_nbt": "minecraft:potion",
+      "data": "weakness"
     }
   ],
   "result": {

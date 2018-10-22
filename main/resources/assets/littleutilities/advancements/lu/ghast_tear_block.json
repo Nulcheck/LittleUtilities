@@ -1,0 +1,28 @@
+{
+	"display":{
+		"icon": {
+			"item": "littleutilities:ghast_tear_block"
+		},
+		"title": {
+			"translate": "adv.lu.ghast_tear_block.title"
+		},
+		"description": {
+			"translate": "adv.lu.ghast_tear_block.desc"
+		},
+		"frame": "challenge"
+	},
+	"parent": "littleutilities:lu/root",
+	"rewards": {
+        "experience": 100
+    },
+	"criteria": {
+		"item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [{
+					"item": "littleutilities:ghast_tear_block"
+				}]
+			}
+		}
+	}
+}
