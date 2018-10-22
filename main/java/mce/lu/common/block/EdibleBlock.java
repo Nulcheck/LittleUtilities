@@ -84,14 +84,13 @@ public class EdibleBlock extends BlockBase {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!player.isSneaking()) {
-			this.eatBlock(world, pos, state, player);
-			return true;
+			return this.eatBlock(world, pos, state, player);
 		} else {
 			return false;
 		}
 	}
 
-	private void eatBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+	public boolean eatBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 		if (!world.isRemote && Potion.getIdFromPotion(this.potion) > 0
 				&& world.rand.nextFloat() < this.potionEffectProbability) {
 			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration, this.potionAmplifier));
@@ -111,6 +110,10 @@ public class EdibleBlock extends BlockBase {
 				world.setBlockToAir(pos);
 			} else
 				world.setBlockState(pos, getStateFromMeta(meta), 2);
+
+			return true;
+		} else {
+			return false;
 		}
 	}
 

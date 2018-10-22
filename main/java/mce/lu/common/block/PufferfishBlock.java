@@ -22,8 +22,17 @@ public class PufferfishBlock extends EdibleBlock {
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!player.isSneaking()) {
 			super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
-			this.applyEffects(world, pos, (Entity) player);
-			return true;
+
+			/*
+			 * If you ate the block, then apply effects. Otherwise, it would
+			 * appply effects just by right clicking, and I wanted to apply
+			 * effects upon eating it.
+			 */
+			if (super.eatBlock(world, pos, state, player)) {
+				this.applyEffects(world, pos, (Entity) player);
+				return true;
+			}
+			return false;
 		} else {
 			return false;
 		}
@@ -39,7 +48,7 @@ public class PufferfishBlock extends EdibleBlock {
 		this.applyEffects(world, pos, entity);
 	}
 
-	public void applyEffects(World world, BlockPos pos, Entity entity) {
+	private void applyEffects(World world, BlockPos pos, Entity entity) {
 		try {
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 1200, 3));
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 300, 2));
