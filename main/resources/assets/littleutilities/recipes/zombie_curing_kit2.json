@@ -1,0 +1,33 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:zombie_curing_kit_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " gp",
+    "gbg",
+    "ag "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:golden_apple",
+      "data": 0
+    },
+    "p": {
+      "type": "minecraft:item_nbt",
+      "item": "minecraft:potion",
+      "nbt": { "Potion": "minecraft:long_weakness" }
+    },
+    "b": {
+      "item": "minecraft:blaze_powder"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "littleutilities:zombie_curing_kit"
+  }
+}
