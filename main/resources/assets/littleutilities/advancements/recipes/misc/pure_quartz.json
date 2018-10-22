@@ -1,4 +1,9 @@
 {
+  "conditions":[
+    {
+      "type": "littleutilities:pure_quartz_recipe"
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
