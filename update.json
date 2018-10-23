@@ -1,10 +1,11 @@
 {
   "homepage": "https://minecraft.curseforge.com/projects/littleutilities",
   "1.12.2": {
-    "1.12.2-alpha0.1": "Took the 1.7.10 version and updated it for 1.12.2"
+    "1.12.2-alpha0.1": "Took the 1.7.10 version and updated it for 1.12.2",
+    "1.12.2-alpha1.0.0.0": "- You can eat edible blocks now. - You can dye a colored block (wool, glass, etc) by right clicking it with a dye in hand. - Feather block prevents fall damage. - Fixed pufferfish block. - Added config options! - Added pure quartz. - Added leather scraps. - Added zombie curing kit."
   },
   "promos": {
-    "1.12.2-latest": "1.12.2-alpha0.1",
-    "1.12.2-recommended": "1.12.2-alpha0.1"
+    "1.12.2-latest": "1.12.2-alpha1.0.0.0",
+    "1.12.2-recommended": "1.12.2-alpha1.0.0.0"
   }
 }
