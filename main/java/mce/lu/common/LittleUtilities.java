@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.core.LUCreativeTab;
-import mce.lu.common.core.proxy.ServerProxy;
+import mce.lu.common.core.proxy.CommonProxy;
 import mce.lu.common.util.References;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Config.Type;
@@ -25,7 +25,7 @@ public class LittleUtilities {
 	public static Logger logger = Logger.getLogger("Minecraft");
 
 	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.COMMON_PROXY_CLASS)
-	public static ServerProxy proxy;
+	public static CommonProxy proxy;
 
 	public static final int condenserGUI = 0;
 
@@ -34,7 +34,7 @@ public class LittleUtilities {
 		proxy.preInit(e);
 	}
 
-	public static CreativeTabs lu = new LUCreativeTab("lu");
+	public static CreativeTabs lu = new LUCreativeTab("littleutilities");
 
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
