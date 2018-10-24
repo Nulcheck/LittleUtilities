@@ -1,5 +1,4 @@
-[
-{
+[{
   "modid": "littleutilities",
   "name": "\u00A7aLittleUtilities\u00A7r",
   "description": "Useful recipes, blocks and more!",
@@ -12,5 +11,4 @@
   "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": []
-}
-]
+}]
