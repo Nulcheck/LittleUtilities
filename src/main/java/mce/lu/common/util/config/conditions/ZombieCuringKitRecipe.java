@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class ZombieCuringKitRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.zombieCuringKit;
+		return () -> LUConfigManager.modConfig.modRecipes.zombieCuringKit;
 	}
 }

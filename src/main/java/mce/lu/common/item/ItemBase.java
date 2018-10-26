@@ -44,14 +44,14 @@ public class ItemBase extends Item implements IModelRegister {
 				list.add(TextFormatting.RED
 						+ "Did not find a mod with silicon.\nCrafting this item is disabled!");
 			
-			else if (!LUConfigManager.pureQuartzRecipe)
+			else if (!LUConfigManager.modConfig.modRecipes.pureQuartzRecipe)
 				list.add(TextFormatting.RED + "Disabled in config!");
 		}
 
-		else if (!LUConfigManager.leatherScraps && stack.getItem() == ModItems.LEATHER_SCRAPS)
+		else if (!LUConfigManager.modConfig.modRecipes.leatherScraps && stack.getItem() == ModItems.LEATHER_SCRAPS)
 			list.add(TextFormatting.RED + "Disabled in config!");
 
-		else if (!LUConfigManager.zombieCuringKit && stack.getItem() == ModItems.ZOMBIE_CURING_KIT)
+		else if (!LUConfigManager.modConfig.modRecipes.zombieCuringKit && stack.getItem() == ModItems.ZOMBIE_CURING_KIT)
 			list.add(TextFormatting.RED + "Disabled in config!");
 	}
 }

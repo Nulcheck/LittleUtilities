@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class NameTagRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.nameTagRecipe;
+		return () -> LUConfigManager.vanillaRecipes.nameTagRecipe;
 	}
 }

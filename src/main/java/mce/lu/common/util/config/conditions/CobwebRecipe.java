@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class CobwebRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.cobwebRecipe;
+		return () -> LUConfigManager.vanillaRecipes.cobwebRecipe;
 	}
 }

@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class ColoredGlassRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.coloredGlassRecipe;
+		return () -> LUConfigManager.vanillaRecipes.coloredGlassRecipe;
 	}
 }

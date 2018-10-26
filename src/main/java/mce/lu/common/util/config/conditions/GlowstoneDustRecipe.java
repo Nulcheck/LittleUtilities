@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class GlowstoneDustRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.glowstoneDustRecipe;
+		return () -> LUConfigManager.vanillaRecipes.glowstoneDustRecipe;
 	}
 }

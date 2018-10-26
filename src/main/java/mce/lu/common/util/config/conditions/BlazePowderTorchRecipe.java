@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class BlazePowderTorchRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.blazePowderTorchRecipe;
+		return () -> LUConfigManager.vanillaRecipes.blazePowderTorchRecipe;
 	}
 }

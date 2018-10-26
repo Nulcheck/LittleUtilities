@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class SaddleRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.saddleRecipe;
+		return () -> LUConfigManager.vanillaRecipes.saddleRecipe;
 	}
 }

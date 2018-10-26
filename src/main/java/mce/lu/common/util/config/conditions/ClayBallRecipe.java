@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class ClayBallRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.clayBallRecipe;
+		return () -> LUConfigManager.vanillaRecipes.clayBallRecipe;
 	}
 }

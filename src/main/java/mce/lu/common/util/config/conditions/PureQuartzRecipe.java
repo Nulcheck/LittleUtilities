@@ -16,7 +16,7 @@ public class PureQuartzRecipe implements IConditionFactory {
 		if (OreDictionary.doesOreNameExist("ingotSilicon") || OreDictionary.doesOreNameExist("itemSilicon")) {
 			LittleUtilities.logger.log(Level.INFO,
 					"Found a mod with silicon in the ore dictionary. Enabling pure quartz.");
-			return () -> LUConfigManager.pureQuartzRecipe;
+			return () -> LUConfigManager.modConfig.modRecipes.pureQuartzRecipe;
 		} else {
 			LittleUtilities.logger.log(Level.INFO,
 					"Did not find a mod with silicon in the ore dictionary. Disabling pure quartz.");

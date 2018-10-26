@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class BoneRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.boneRecipe;
+		return () -> LUConfigManager.vanillaRecipes.boneRecipe;
 	}
 }

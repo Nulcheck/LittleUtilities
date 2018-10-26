@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class HorseArmorsRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.horseArmorsRecipe;
+		return () -> LUConfigManager.vanillaRecipes.horseArmorsRecipe;
 	}
 }

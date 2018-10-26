@@ -10,6 +10,6 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 public class LeatherScrapsRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
-		return () -> LUConfigManager.leatherScraps;
+		return () -> LUConfigManager.modConfig.modRecipes.leatherScraps;
 	}
 }
