@@ -52,7 +52,7 @@ public class CondenserOutputSlot extends Slot {
 
 		if (!this.thePlayer.world.isRemote) {
 			int i = this.removeCount;
-			float f = CondenserRecipes.condensing().expHandling(stack);
+			float f = CondenserRecipes.instance().expHandling(stack);
 
 			if (f == 0.0F) {
 				i = 0;

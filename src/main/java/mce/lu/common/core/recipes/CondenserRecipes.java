@@ -16,7 +16,7 @@ public class CondenserRecipes {
 	private Map<ItemStack, ItemStack> conMap = new HashMap<ItemStack, ItemStack>();
 	private Map<ItemStack, Float> expMap = new HashMap<ItemStack, Float>();
 
-	public static CondenserRecipes condensing() {
+	public static CondenserRecipes instance() {
 		return base;
 	}
 
@@ -151,9 +151,5 @@ public class CondenserRecipes {
 		} while (!this.output(stack, (ItemStack) entry.getKey()));
 
 		return ((Float) entry.getValue()).floatValue();
-	}
-
-	public static CondenserRecipes instance() {
-		return base;
 	}
 }

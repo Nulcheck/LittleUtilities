@@ -84,7 +84,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 		if (((ItemStack) this.stacks.get(0)).isEmpty()) {
 			return false;
 		} else {
-			ItemStack recipeResultStack = CondenserRecipes.condensing().getCondensingResult(this.stacks.get(0));
+			ItemStack recipeResultStack = CondenserRecipes.instance().getCondensingResult(this.stacks.get(0));
 			ItemStack outputStack = this.stacks.get(1);
 
 			// You can't condense if input slot is empty. Duh..
