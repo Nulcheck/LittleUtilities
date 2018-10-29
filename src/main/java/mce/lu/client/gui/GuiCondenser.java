@@ -1,0 +1,48 @@
+package mce.lu.client.gui;
+
+import mce.lu.common.container.ContainerCondenser;
+import mce.lu.common.util.References;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.util.ResourceLocation;
+
+public class GuiCondenser extends GuiContainer {
+	public final ResourceLocation texture = new ResourceLocation(References.MOD_ID, "textures/gui/condenser.png");
+	private IInventory condenser;
+	private InventoryPlayer playerInv;
+
+	public GuiCondenser(InventoryPlayer playerInv, IInventory tileInv) {
+		super(new ContainerCondenser(playerInv, tileInv));
+
+		this.xSize = 176;
+		this.ySize = 166;
+
+		this.condenser = tileInv;
+		this.playerInv = playerInv;
+	}
+
+	/**
+	 * Drawing stuff like the GUI name and the word "Inventory". This is on the
+	 * foreground and is not on the actual GUI png file. (background texture)
+	 */
+	@Override
+	public void drawGuiContainerForegroundLayer(int x, int y) {
+		String name = this.condenser.getDisplayName().getUnformattedText();
+		String invName = this.playerInv.getDisplayName().getUnformattedText();
+
+		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRenderer.drawString(invName, 8, this.ySize - 96 + 2, 4210752);
+	}
+
+	/**
+	 * Draw main texture image.
+	 */
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+		GlStateManager.color(1f, 1f, 1f);
+		this.mc.getTextureManager().bindTexture(texture);
+		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+	}
+}

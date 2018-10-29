@@ -13,15 +13,15 @@ import net.minecraft.item.ItemStack;
 
 public class CondenserRecipes {
 	public static final CondenserRecipes base = new CondenserRecipes();
-	private Map conMap = new HashMap();
-	private Map expMap = new HashMap();
+	private Map<ItemStack, ItemStack> conMap = new HashMap<ItemStack, ItemStack>();
+	private Map<ItemStack, Float> expMap = new HashMap<ItemStack, Float>();
 
 	public static CondenserRecipes condensing() {
 		return base;
 	}
 
 	public CondenserRecipes() {
-		// Condensed Stuff
+		// Condensed Items
 		this.addRecipe(new ItemStack(Items.GHAST_TEAR, 9), new ItemStack(ModBlocks.GHAST_TEAR_BLOCK), 5f);
 		this.addRecipe(new ItemStack(Items.BLAZE_ROD, 9), new ItemStack(ModBlocks.BLAZE_ROD_BLOCK), 2f);
 		this.addRecipe(new ItemStack(Items.PORKCHOP, 9), new ItemStack(ModBlocks.PORK_BLOCK), 0.5f);
@@ -93,16 +93,16 @@ public class CondenserRecipes {
 	}
 
 	public ItemStack getInput(ItemStack stack) {
-		Iterator iter = this.conMap.entrySet().iterator();
-		Entry entry;
+		Iterator<Entry<ItemStack, ItemStack>> iter = this.conMap.entrySet().iterator();
+		Entry<ItemStack, ItemStack> entry;
 
 		do {
 			if (!iter.hasNext()) {
 				return null;
 			}
 
-			entry = (Entry) iter.next();
-		} while (!this.input(stack, (ItemStack) entry.getKey()));
+			entry = iter.next();
+		} while (!this.input(stack, entry.getKey()));
 
 		return stack;
 	}
@@ -112,25 +112,25 @@ public class CondenserRecipes {
 	}
 
 	public ItemStack getCondensingResult(ItemStack stack) {
-		Iterator iter = this.conMap.entrySet().iterator();
-		Entry entry;
+		Iterator<Entry<ItemStack, ItemStack>> iter = this.conMap.entrySet().iterator();
+		Entry<ItemStack, ItemStack> entry;
 
 		do {
 			if (!iter.hasNext()) {
 				return null;
 			}
 
-			entry = (Entry) iter.next();
-		} while (!this.output(stack, (ItemStack) entry.getKey()));
+			entry = iter.next();
+		} while (!this.output(stack, entry.getKey()));
 
-		return (ItemStack) entry.getValue();
+		return entry.getValue();
 	}
 
 	private boolean output(ItemStack in, ItemStack out) {
 		return out.getItem() == in.getItem();
 	}
 
-	public Map getRecipeList() {
+	public Map<ItemStack, ItemStack> getRecipeList() {
 		return this.conMap;
 	}
 
@@ -139,15 +139,15 @@ public class CondenserRecipes {
 		if (ret != -1)
 			return ret;
 
-		Iterator iter = this.expMap.entrySet().iterator();
-		Entry entry;
+		Iterator<Entry<ItemStack, Float>> iter = this.expMap.entrySet().iterator();
+		Entry<ItemStack, Float> entry;
 
 		do {
 			if (!iter.hasNext()) {
 				return 0.0F;
 			}
 
-			entry = (Entry) iter.next();
+			entry = iter.next();
 		} while (!this.output(stack, (ItemStack) entry.getKey()));
 
 		return ((Float) entry.getValue()).floatValue();

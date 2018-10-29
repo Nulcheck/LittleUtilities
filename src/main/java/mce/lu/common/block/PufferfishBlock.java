@@ -33,9 +33,8 @@ public class PufferfishBlock extends EdibleBlock {
 				return true;
 			}
 			return false;
-		} else {
+		} else
 			return false;
-		}
 	}
 
 	@Override

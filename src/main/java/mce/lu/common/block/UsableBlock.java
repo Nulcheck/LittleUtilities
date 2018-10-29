@@ -63,16 +63,14 @@ public class UsableBlock extends BlockBase {
 		if (!player.isSneaking()) {
 			this.useBlock(world, pos, state, player);
 			return true;
-		} else {
+		} else
 			return false;
-		}
 	}
 
 	private void useBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 		if (!world.isRemote && Potion.getIdFromPotion(potion) > 0
-				&& world.rand.nextFloat() < this.potionEffectProbability) {
+				&& world.rand.nextFloat() < this.potionEffectProbability)
 			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration, this.potionAmplifier));
-		}
 
 		int metaState = getMetaFromState(state);
 		int meta = metaState += 1;

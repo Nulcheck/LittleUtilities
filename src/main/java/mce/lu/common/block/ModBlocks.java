@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ModBlocks {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 
-	public static final Block CONDENSER = new BlockBase("condenser", Material.ROCK).setHardness(1.5f);
+	public static final Block CONDENSER = new Condenser("condenser", Material.ROCK).setHardness(1.5f);
 
 	//// CONDENSED ITEM BLOCKS
 	public static final Block GHAST_TEAR_BLOCK = new GhastTearBlock("ghast_tear_block", Material.GLASS)
