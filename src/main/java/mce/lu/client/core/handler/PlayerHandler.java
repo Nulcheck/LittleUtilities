@@ -1,7 +1,5 @@
 package mce.lu.client.core.handler;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import mce.lu.common.util.UsernameHandler;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
@@ -23,7 +21,7 @@ public class PlayerHandler {
 	public static void onPlayerLogin(PlayerLoggedInEvent e) {
 		try {
 			if (ForgeVersion.getResult(Loader.instance().activeModContainer()).status == Status.OUTDATED) {
-				e.player.sendMessage(new TextComponentString(ChatFormatting.AQUA + "New LittleUtilities Update! "));
+				e.player.sendMessage(new TextComponentString(TextFormatting.AQUA + "New LittleUtilities Update! "));
 			}
 		} catch (Exception ex) {
 			System.out.println("An error has occurred while checking for LittleUtilities updates!\nError ID: LU000");
