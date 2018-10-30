@@ -4,9 +4,9 @@ import java.util.logging.Logger;
 
 import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.client.core.handler.RecipeHandler;
-import mce.lu.client.core.proxy.ClientProxy;
 import mce.lu.common.core.LUCreativeTab;
 import mce.lu.common.core.handler.TileEntityRegistry;
+import mce.lu.common.core.proxy.ServerProxy;
 import mce.lu.common.util.References;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Config.Type;
@@ -25,8 +25,8 @@ public class LittleUtilities {
 	@Instance(References.MOD_ID)
 	public static LittleUtilities instance;
 
-	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS)
-	public static ClientProxy proxy;
+	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.SERVER_PROXY_CLASS)
+	public static ServerProxy proxy;
 
 	public static Logger logger = Logger.getLogger("Minecraft");
 	public static CreativeTabs lu = new LUCreativeTab("littleutilities");

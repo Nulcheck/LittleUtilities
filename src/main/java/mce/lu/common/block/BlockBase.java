@@ -1,6 +1,6 @@
 package mce.lu.common.block;
 
-import mce.lu.client.core.handler.ModelHandler;
+import mce.lu.client.core.proxy.ClientProxy;
 import mce.lu.client.render.IModelRegister;
 import mce.lu.common.LittleUtilities;
 import mce.lu.common.item.ItemBlockEdible;
@@ -33,10 +33,10 @@ public class BlockBase extends Block implements IModelRegister {
 	@SideOnly(Side.CLIENT)
 	public void registerItemModels() {
 		if (this instanceof EdibleBlock)
-			ModelHandler.registerItemBlockModel(this, new ItemBlockEdible(this), "inventory");
+			ClientProxy.registerItemBlockModel(this, new ItemBlockEdible(this), "inventory");
 		else if (this instanceof UsableBlock)
-			ModelHandler.registerItemBlockModel(this, new ItemBlockUsable(this), "inventory");
+			ClientProxy.registerItemBlockModel(this, new ItemBlockUsable(this), "inventory");
 		else
-			ModelHandler.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
+			ClientProxy.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
 	}
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import mce.lu.client.core.handler.ModelHandler;
+import mce.lu.client.core.proxy.ClientProxy;
 import mce.lu.client.render.IModelRegister;
 import mce.lu.common.LittleUtilities;
 import mce.lu.common.util.config.LUConfigManager;
@@ -28,7 +28,7 @@ public class ItemBase extends Item implements IModelRegister {
 
 	@SideOnly(Side.CLIENT)
 	public void registerItemModels() {
-		ModelHandler.registerItemModel(this, 0, "inventory");
+		ClientProxy.registerItemModel(this, 0, "inventory");
 	}
 
 	/*
@@ -41,9 +41,8 @@ public class ItemBase extends Item implements IModelRegister {
 	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
 		if (stack.getItem() == ModItems.PURE_QUARTZ) {
 			if (!OreDictionary.doesOreNameExist("itemSilicon") || !OreDictionary.doesOreNameExist("ingotSilicon"))
-				list.add(TextFormatting.RED
-						+ "Did not find a mod with silicon.\nCrafting this item is disabled!");
-			
+				list.add(TextFormatting.RED + "Did not find a mod with silicon.\nCrafting this item is disabled!");
+
 			else if (!LUConfigManager.modConfig.modRecipes.pureQuartzRecipe)
 				list.add(TextFormatting.RED + "Disabled in config!");
 		}

@@ -1,6 +1,6 @@
 package mce.lu.common.block;
 
-import mce.lu.client.core.handler.ModelHandler;
+import mce.lu.client.core.proxy.ClientProxy;
 import mce.lu.client.render.IModelRegister;
 import mce.lu.common.LittleUtilities;
 import mce.lu.common.item.ModItems;
@@ -27,7 +27,7 @@ public class BlockContainerBase extends BlockContainer implements IModelRegister
 
 	@SideOnly(Side.CLIENT)
 	public void registerItemModels() {
-		ModelHandler.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
+		ClientProxy.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
 	}
 
 	@Override
