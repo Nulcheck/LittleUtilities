@@ -1,6 +1,8 @@
 package mce.lu.common.container;
 
 import mce.lu.common.container.parts.CondenserOutputSlot;
+import mce.lu.common.container.parts.ISlotValidator;
+import mce.lu.common.container.parts.SlotValid;
 import mce.lu.common.core.recipes.CondenserRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -9,9 +11,10 @@ import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ContainerCondenser extends Container {
-	// private TileEntityCondenser condenser;
+public class ContainerCondenser extends Container implements ISlotValidator {
 	private final IInventory tileCondenser;
 
 	public int lastTime;
@@ -19,13 +22,8 @@ public class ContainerCondenser extends Container {
 
 	public ContainerCondenser(InventoryPlayer playerInv, IInventory tileInv) {
 		this.tileCondenser = tileInv;
-		/*
-		 * IItemHandler handler =
-		 * condenserInv.getCapability(CapabilityItemHandler.
-		 * ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
-		 */
 
-		this.addSlotToContainer(new Slot(this.tileCondenser, 0, 56, 35)); // Input;
+		this.addSlotToContainer(new SlotValid(this, this.tileCondenser, 0, 56, 35)); // Input;
 		this.addSlotToContainer(new CondenserOutputSlot(playerInv.player, this.tileCondenser, 1, 116, 35)); // Output
 
 		// Player Inventory
@@ -41,6 +39,10 @@ public class ContainerCondenser extends Container {
 		}
 	}
 
+	public boolean isItemValid(ItemStack input) {
+		return CondenserRecipes.isRecipe(input);
+	}
+
 	@Override
 	public void addListener(IContainerListener listener) {
 		super.addListener(listener);
@@ -51,7 +53,7 @@ public class ContainerCondenser extends Container {
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
 
-		for (int i = 0; i < this.listeners.size(); i++) {
+		for (int i = 0; i < this.listeners.size(); ++i) {
 			IContainerListener listener = this.listeners.get(i);
 
 			if (this.lastTime != this.tileCondenser.getField(0))
@@ -64,6 +66,7 @@ public class ContainerCondenser extends Container {
 		this.lastSpeed = this.tileCondenser.getField(1);
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void updateProgressBar(int id, int value) {
 		this.tileCondenser.setField(id, value);
@@ -95,8 +98,8 @@ public class ContainerCondenser extends Container {
 			// If selected slot is not input(s) and fuel (if there is fuel slot)
 			else if (index != 0) {
 				if (CondenserRecipes.instance().getCondensingResult(stack1) != null) {
-					// 0 is input slot
-					if (!this.mergeItemStack(stack1, 0, 0, false))
+					// Inventory to input slot
+					if (!this.mergeItemStack(stack1, 0, 1, false))
 						return ItemStack.EMPTY;
 				}
 				// These below are for moving within inventory

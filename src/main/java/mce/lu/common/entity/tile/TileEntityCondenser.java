@@ -85,33 +85,35 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 			return false;
 		} else {
 			ItemStack recipeResultStack = CondenserRecipes.instance().getCondensingResult(this.stacks.get(0));
-			ItemStack outputStack = this.stacks.get(1);
 
 			// You can't condense if input slot is empty. Duh..
-			if (recipeResultStack.isEmpty())
+			if (recipeResultStack == null)
 				return false;
+			else {
+				ItemStack outputStack = this.stacks.get(1);
 
-			// If input slot has less than 9 items, you can't condense
-			if (this.stacks.get(0).getCount() < 9)
-				return false;
+				// If input slot has less than 9 items, you can't condense
+				if (this.stacks.get(0).getCount() < 9)
+					return false;
 
-			// If output slot is empty, you can condense
-			if (outputStack.isEmpty())
-				return true;
+				// If output slot is empty, you can condense
+				if (outputStack.isEmpty())
+					return true;
 
-			/*
-			 * If output item is NOT equal to the same item as the output in the
-			 * recipe, you CAN'T condense
-			 */
-			if (!outputStack.isItemEqual(recipeResultStack))
-				return false;
+				/*
+				 * If output item is NOT equal to the same item as the output in
+				 * the recipe, you CAN'T condense
+				 */
+				if (!outputStack.isItemEqual(recipeResultStack))
+					return false;
 
-			// If stack size in output is less than 64, you can condense
-			if (outputStack.getCount() + recipeResultStack.getCount() <= this.getInventoryStackLimit()
-					&& outputStack.getCount() + recipeResultStack.getCount() <= outputStack.getMaxStackSize())
-				return true;
-			else
-				return outputStack.getCount() + recipeResultStack.getCount() <= recipeResultStack.getMaxStackSize();
+				// If stack size in output is less than 64, you can condense
+				if (outputStack.getCount() + recipeResultStack.getCount() <= this.getInventoryStackLimit()
+						&& outputStack.getCount() + recipeResultStack.getCount() <= outputStack.getMaxStackSize())
+					return true;
+				else
+					return outputStack.getCount() + recipeResultStack.getCount() <= recipeResultStack.getMaxStackSize();
+			}
 		}
 	}
 
@@ -127,8 +129,8 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 				outputStack.grow(recipeResultStack.getCount());
 
 			inputStack.shrink(9);
-			
-			if(inputStack.getCount() <= 0)
+
+			if (inputStack.getCount() <= 0)
 				inputStack.isEmpty();
 		}
 	}

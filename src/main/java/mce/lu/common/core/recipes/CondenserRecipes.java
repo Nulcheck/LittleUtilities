@@ -134,6 +134,10 @@ public class CondenserRecipes {
 		return this.conMap;
 	}
 
+	public static boolean isRecipe(ItemStack input) {
+		return instance().getCondensingResult(input) != null;
+	}
+
 	public float expHandling(ItemStack stack) {
 		float ret = stack.getItem().getSmeltingExperience(stack);
 		if (ret != -1)
