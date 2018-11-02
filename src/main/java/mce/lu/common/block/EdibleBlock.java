@@ -94,7 +94,7 @@ public class EdibleBlock extends BlockBase {
 				&& world.rand.nextFloat() < this.potionEffectProbability)
 			player.addPotionEffect(new PotionEffect(this.potion, this.potionDuration, this.potionAmplifier));
 
-		if (player.canEat(false)) {
+		if (player.canEat(false) || player.capabilities.isCreativeMode) {
 			int metaState = getMetaFromState(state);
 			int meta = metaState += 1;
 

@@ -40,6 +40,7 @@ public class LittleUtilities {
 	public void init(FMLInitializationEvent e) {
 		ConfigManager.sync(References.MOD_ID, Type.INSTANCE);
 		RecipeHandler.registerSmeltingRecipe();
+		RecipeHandler.registerCrafting();
 		TileEntityRegistry.registerTileEntities();
 	}
 
