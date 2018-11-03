@@ -1,8 +1,9 @@
 # LittleUtilities
 [![](http://cf.way2muchnoise.eu/versions/littleutilities_all.svg)](https://minecraft.curseforge.com/projects/littleutilities)
 [![](http://cf.way2muchnoise.eu/versions/Latest%20MC%20Version_littleutilities_latest.svg)](https://minecraft.curseforge.com/projects/littleutilities)
-[![](http://cf.way2muchnoise.eu/full_littleutilities_downloads.svg)](https://minecraft.curseforge.com/projects/littleutilities)
+[![](http://cf.way2muchnoise.eu/short_littleutilities_downloads.svg)](https://minecraft.curseforge.com/projects/littleutilities)
 [![Discord](https://img.shields.io/discord/174514721158856704.svg?logo=discord&colorB=7289DA)](http://discord.gg/XyjNtY2)
+[![Trello](https://img.shields.io/badge/Trello_Board-blue.svg?logo=trello&label=+&colorA=2b2b2b)](https://trello.com/b/eijcsQmj)
 
 LittleUtilities mod adds useful recipes, blocks, items and more. Created by MCE626.
 
