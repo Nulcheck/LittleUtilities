@@ -97,7 +97,7 @@ public class ContainerCondenser extends Container implements ISlotValidator {
 			}
 			// If selected slot is not input(s) and fuel (if there is fuel slot)
 			else if (index != 0) {
-				if (CondenserRecipes.instance().getCondensingResult(stack1) != null) {
+				if (!CondenserRecipes.instance().getRecipeResult(stack1).isEmpty()) {
 					// Inventory to input slot
 					if (!this.mergeItemStack(stack1, 0, 1, false))
 						return ItemStack.EMPTY;

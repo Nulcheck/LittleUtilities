@@ -24,6 +24,17 @@ public class GuiCondenser extends GuiContainer {
 	}
 
 	/**
+	 * Draws screen and all components in it. (Also makes the background, behind
+	 * GUI image, darker)
+	 */
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float ticks) {
+		this.drawDefaultBackground();
+		super.drawScreen(mouseX, mouseY, ticks);
+		this.renderHoveredToolTip(mouseX, mouseY);
+	}
+
+	/**
 	 * Drawing stuff like the GUI name and the word "Inventory". This is on the
 	 * foreground and is not on the actual GUI png file. (background texture)
 	 */

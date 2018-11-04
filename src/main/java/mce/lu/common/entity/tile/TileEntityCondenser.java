@@ -58,7 +58,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 	public void update() {
 		boolean flag1 = false;
 
-		if (!this.world.isRemote && canCondense()) {
+		if (!this.world.isRemote && this.canCondense()) {
 			++this.time;
 
 			if (this.time >= this.speed) {
@@ -84,16 +84,18 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 		if (((ItemStack) this.stacks.get(0)).isEmpty()) {
 			return false;
 		} else {
-			ItemStack recipeResultStack = CondenserRecipes.instance().getCondensingResult(this.stacks.get(0));
+			// ItemStack stack;
+			ItemStack inputStack = this.stacks.get(0);
+			ItemStack recipeResultStack = CondenserRecipes.instance().getRecipeResult(inputStack);
 
 			// You can't condense if input slot is empty. Duh..
-			if (recipeResultStack == null)
+			if (recipeResultStack.isEmpty())
 				return false;
 			else {
 				ItemStack outputStack = this.stacks.get(1);
 
-				// If input slot has less than 9 items, you can't condense
-				if (this.stacks.get(0).getCount() < 9)
+				// If input slot has less than recipe amount calls for, you can't condense
+				if (inputStack.getCount() < 9)
 					return false;
 
 				// If output slot is empty, you can condense
@@ -102,7 +104,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 
 				/*
 				 * If output item is NOT equal to the same item as the output in
-				 * the recipe, you CAN'T condense
+				 * the recipe list, you CAN'T condense
 				 */
 				if (!outputStack.isItemEqual(recipeResultStack))
 					return false;
@@ -120,7 +122,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 	public void condenseItem() {
 		if (this.canCondense()) {
 			ItemStack inputStack = this.stacks.get(0);
-			ItemStack recipeResultStack = CondenserRecipes.instance().getCondensingResult(inputStack);
+			ItemStack recipeResultStack = CondenserRecipes.instance().getRecipeResult(inputStack);
 			ItemStack outputStack = this.stacks.get(1);
 
 			if (outputStack.isEmpty())
