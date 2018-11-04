@@ -39,8 +39,9 @@ public class LittleUtilities {
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
 		ConfigManager.sync(References.MOD_ID, Type.INSTANCE);
-		RecipeHandler.registerSmeltingRecipe();
+		RecipeHandler.registerSmelting();
 		RecipeHandler.registerCrafting();
+		RecipeHandler.registerMetaCrafting();
 		TileEntityRegistry.registerTileEntities();
 	}
 

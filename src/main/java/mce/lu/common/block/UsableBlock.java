@@ -75,7 +75,7 @@ public class UsableBlock extends BlockBase {
 		int metaState = getMetaFromState(state);
 		int meta = metaState += 1;
 
-		if (meta >= 8)
+		if (meta >= 9)
 			world.setBlockToAir(pos);
 		else
 			world.setBlockState(pos, getStateFromMeta(meta), 2);

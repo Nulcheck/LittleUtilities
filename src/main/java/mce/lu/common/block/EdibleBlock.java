@@ -102,7 +102,7 @@ public class EdibleBlock extends BlockBase {
 			world.playSound(player, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.MASTER, 0.5f,
 					world.rand.nextFloat() * 0.1F + 0.9F);
 
-			if (meta >= 8) {
+			if (meta >= 9) {
 				world.playSound(player, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.MASTER, 0.5f,
 						world.rand.nextFloat() * 0.1F + 0.9F);
 				world.setBlockToAir(pos);
