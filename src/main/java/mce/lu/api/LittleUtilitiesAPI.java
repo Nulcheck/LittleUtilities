@@ -5,8 +5,7 @@ import javax.annotation.Nonnull;
 import mce.lu.common.core.recipes.CondenserRecipes;
 import net.minecraft.item.ItemStack;
 
-public class RecipeAPI {
-
+public class LittleUtilitiesAPI {
 	/**
 	 * Adds a recipe to the condenser.
 	 * 

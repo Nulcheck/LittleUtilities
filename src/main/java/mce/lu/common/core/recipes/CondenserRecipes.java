@@ -16,10 +16,8 @@ public class CondenserRecipes {
 	private final Map<ItemStack, ItemStack> recipeMap = Maps.<ItemStack, ItemStack>newHashMap();
 	private final Map<ItemStack, Float> xpMap = Maps.<ItemStack, Float>newHashMap();
 
-	public static CondenserRecipes instance() {
-		return base;
-	}
-
+	public static CondenserRecipes instance() { return base; }
+	
 	public CondenserRecipes() {
 		// Condensed Items
 		this.addRecipe(new ItemStack(Items.GHAST_TEAR, 9), new ItemStack(ModBlocks.GHAST_TEAR_BLOCK), 5f);
@@ -45,8 +43,7 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.BREAD, 9), new ItemStack(ModBlocks.BREAD_BLOCK), 0.6f);
 		this.addRecipe(new ItemStack(Items.COOKIE, 9), new ItemStack(ModBlocks.COOKIE_BLOCK), 0.6f);
 		this.addRecipe(new ItemStack(Items.SPIDER_EYE, 9), new ItemStack(ModBlocks.SPIDER_EYE_BLOCK), 0.4f);
-		this.addRecipe(new ItemStack(Items.FERMENTED_SPIDER_EYE, 9),
-				new ItemStack(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK), 0.5f);
+		this.addRecipe(new ItemStack(Items.FERMENTED_SPIDER_EYE, 9), new ItemStack(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK), 0.5f);
 		this.addRecipe(new ItemStack(Items.CARROT, 9), new ItemStack(ModBlocks.CARROT_BLOCK), 0.2f);
 		this.addRecipe(new ItemStack(Items.POTATO, 9), new ItemStack(ModBlocks.POTATO_BLOCK), 0.2f);
 		this.addRecipe(new ItemStack(Items.BAKED_POTATO, 9), new ItemStack(ModBlocks.BAKED_POTATO_BLOCK), 0.2f);
@@ -105,8 +102,8 @@ public class CondenserRecipes {
 	 * @param XP
 	 */
 	public void addRecipe(ItemStack stackIn, ItemStack stackOut, float XP) {
-		this.recipeMap.put(stackIn, stackOut);
-		this.xpMap.put(stackOut, Float.valueOf(XP));
+		recipeMap.put(stackIn, stackOut);
+		xpMap.put(stackOut, Float.valueOf(XP));
 	}
 
 	/**
@@ -116,8 +113,8 @@ public class CondenserRecipes {
 	 * @return ItemStack
 	 */
 	public ItemStack getRecipeResult(ItemStack stack) {
-		for (Entry<ItemStack, ItemStack> entry : this.recipeMap.entrySet()) {
-			if (this.compareStacks(stack, entry.getKey()))
+		for (Entry<ItemStack, ItemStack> entry : recipeMap.entrySet()) {
+			if (compareStacks(stack, entry.getKey()))
 				return entry.getValue();
 		}
 
@@ -137,7 +134,7 @@ public class CondenserRecipes {
 	}
 
 	public Map<ItemStack, ItemStack> getRecipeList() {
-		return this.recipeMap;
+		return recipeMap;
 	}
 
 	/**
@@ -161,8 +158,8 @@ public class CondenserRecipes {
 		if (ret != -1)
 			return ret;
 
-		for (Entry<ItemStack, Float> entry : this.xpMap.entrySet()) {
-			if (this.compareStacks(stack, entry.getKey()))
+		for (Entry<ItemStack, Float> entry : xpMap.entrySet()) {
+			if (compareStacks(stack, entry.getKey()))
 				return ((Float) entry.getValue()).floatValue();
 		}
 
