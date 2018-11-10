@@ -7,7 +7,8 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:prismarine"
+      "item": "minecraft:prismarine",
+      "data": 0
     }
   ],
   "result": {

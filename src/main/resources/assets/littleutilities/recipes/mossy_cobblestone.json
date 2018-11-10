@@ -7,16 +7,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:cobblestone",
-      "data": 0
+      "item": "minecraft:cobblestone"
     },
     {
-      "item": "minecraft:vine",
-      "data": 0
+      "item": "minecraft:vine"
     }
   ],
   "result": {
-    "item": "minecraft:cobblestone",
-    "data": 1
+    "item": "minecraft:mossy_cobblestone"
   }
 }
