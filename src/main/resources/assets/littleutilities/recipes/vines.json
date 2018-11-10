@@ -15,7 +15,8 @@
       "item": "minecraft:slime_ball"
     },
     "g": {
-      "item": "minecraft:tall_grass"
+      "item": "minecraft:tallgrass",
+      "data": 1
     }
   },
   "result": {
