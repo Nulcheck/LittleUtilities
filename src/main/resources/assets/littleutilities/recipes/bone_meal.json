@@ -1,0 +1,19 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:bone_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:skull",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "data": 15,
+    "count": 4
+  }
+}
