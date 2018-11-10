@@ -92,6 +92,21 @@ public class LUConfigManager {
 		@Comment("Should you be able to craft glowstone dust from a glowstone block?")
 		@RequiresMcRestart
 		public boolean glowstoneDustRecipe = true;
+		
+		@Name("Vines")
+		@Comment("Should you be able to craft vines from tall grass and slime balls?")
+		@RequiresMcRestart
+		public boolean vinesRecipe = true;
+		
+		@Name("Prismarine Shards")
+		@Comment("Should you be able to get prismarine shards back from prismarine blocks?")
+		@RequiresMcRestart
+		public boolean prismarineShardsRecipe = true;
+		
+		@Name("Prismarine Crystals")
+		@Comment("Should you be able to get prismarine crystals back from sea lanterns?")
+		@RequiresMcRestart
+		public boolean prismarineCrystalsRecipe = true;
 	}
 
 	public static class ModConfig {

@@ -1,0 +1,24 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:vines_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "g g",
+    "gsg",
+    "g g"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:slime_ball"
+    },
+    "g": {
+      "item": "minecraft:tall_grass"
+    }
+  },
+  "result": {
+    "item": "minecraft:vines"
+  }
+}
