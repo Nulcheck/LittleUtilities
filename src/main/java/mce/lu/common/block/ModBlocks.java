@@ -15,6 +15,7 @@ public class ModBlocks {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 
 	public static final Block CONDENSER = new Condenser("condenser", Material.ROCK).setHardness(1.5f);
+	public static final Block SNOW_MELTER = new SnowMelter("snow_melter", Material.IRON).setHardness(1.2f);
 
 	//// CONDENSED ITEM BLOCKS
 	public static final Block GHAST_TEAR_BLOCK = new GhastTearBlock("ghast_tear_block", Material.GLASS)

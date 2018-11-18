@@ -4,6 +4,7 @@ import mce.lu.common.util.References;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.Name;
+import net.minecraftforge.common.config.Config.RangeInt;
 import net.minecraftforge.common.config.Config.RequiresMcRestart;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
@@ -92,17 +93,17 @@ public class LUConfigManager {
 		@Comment("Should you be able to craft glowstone dust from a glowstone block?")
 		@RequiresMcRestart
 		public boolean glowstoneDustRecipe = true;
-		
+
 		@Name("Vines")
 		@Comment("Should you be able to craft vines from tall grass and slime balls?")
 		@RequiresMcRestart
 		public boolean vinesRecipe = true;
-		
+
 		@Name("Prismarine Shards")
 		@Comment("Should you be able to get prismarine shards back from prismarine blocks?")
 		@RequiresMcRestart
 		public boolean prismarineShardsRecipe = true;
-		
+
 		@Name("Prismarine Crystals")
 		@Comment("Should you be able to get prismarine crystals back from sea lanterns?")
 		@RequiresMcRestart
@@ -117,6 +118,10 @@ public class LUConfigManager {
 		@Name("Events")
 		@Comment("These are events that the mod adds such as mob drops, dungeon loot, etc.")
 		public Events modEvents = new Events();
+
+		@Name("Blocks/Items")
+		@Comment("Block or item features.")
+		public Features features = new Features();
 
 		public static class Recipes {
 			@Name("Pure Quartz")
@@ -145,6 +150,14 @@ public class LUConfigManager {
 			@Comment("Should you be able to dye a block (Glass, Wool, Terracotta, etc) just by holding a dye and right clicking the block?")
 			@RequiresMcRestart
 			public boolean dyeEvent = true;
+		}
+
+		public static class Features {
+			@Name("Snow Melter Range")
+			@Comment("The range of the snow melter. Min 1, and a max of 7 blocks in each direction. Default is 3 blocks. The full 7 blocks in each direction (plus the position of the block itself) is almost a full chunks worth.")
+			@RangeInt(min = 1, max = 7)
+			@RequiresMcRestart
+			public int snowMelterRange = 3;
 		}
 	}
 

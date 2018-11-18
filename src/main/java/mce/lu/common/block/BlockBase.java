@@ -8,8 +8,11 @@ import mce.lu.common.item.ItemBlockUsable;
 import mce.lu.common.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -38,5 +41,15 @@ public class BlockBase extends Block implements IModelRegister {
 			ClientProxy.registerItemBlockModel(this, new ItemBlockUsable(this), "inventory");
 		else
 			ClientProxy.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
+	}
+	
+	public static void turnIntoWater(World world, BlockPos pos) {
+		if (world.provider.doesWaterVaporize())
+			world.setBlockToAir(pos);
+		else {
+			world.getBlockState(pos).getBlock().dropBlockAsItem(world, pos, world.getBlockState(pos), 0);
+			world.setBlockState(pos, Blocks.WATER.getDefaultState());
+			world.neighborChanged(pos, Blocks.WATER, pos);
+		}
 	}
 }
