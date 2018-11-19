@@ -1,7 +1,7 @@
 package mce.lu.common.entity.tile;
 
 import mce.lu.common.block.BlockBase;
-import mce.lu.common.block.SnowMelter;
+import mce.lu.common.block.SnowMelterBlock;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -17,14 +17,14 @@ public class TileEntitySnowMelter extends TileEntity implements ITickable {
 	public void readFromNBT(NBTTagCompound tag){
 		super.readFromNBT(tag);
 		
-		SnowMelter.isActive = tag.getBoolean("Powered");
+		SnowMelterBlock.isActive = tag.getBoolean("Powered");
 	}
 	
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound tag){
 		super.writeToNBT(tag);
 		
-		tag.setBoolean("Powered", SnowMelter.isActive);
+		tag.setBoolean("Powered", SnowMelterBlock.isActive);
 		return tag;
 	}
 	
@@ -51,7 +51,7 @@ public class TileEntitySnowMelter extends TileEntity implements ITickable {
 	@Override
 	public void update(){
 		if(!this.getWorld().isRemote){
-			if(SnowMelter.isActive){
+			if(SnowMelterBlock.isActive){
 				tickCount++;
 				if(tickCount == 30){
 					meltSnow();

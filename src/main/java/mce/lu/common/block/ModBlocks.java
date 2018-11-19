@@ -14,8 +14,16 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ModBlocks {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 
-	public static final Block CONDENSER = new Condenser("condenser", Material.ROCK).setHardness(1.5f);
-	public static final Block SNOW_MELTER = new SnowMelter("snow_melter", Material.IRON).setHardness(1.2f);
+	//// UTILITY
+	public static final Block CONDENSER = new CondenserBlock("condenser", Material.ROCK).setHardness(1.5f);
+	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", Material.IRON).setHardness(1.2f);
+	
+	//// NORMAL
+	public static final Block GOLD_BARS = new MetalBarsBlock("gold_bars", Material.IRON, true);
+	public static final Block DIAMOND_BARS = new MetalBarsBlock("diamond_bars", Material.IRON, true);
+	public static final Block LAPIS_BARS = new MetalBarsBlock("lapis_bars", Material.IRON, true);
+	public static final Block OBSIDIAN_BARS = new MetalBarsBlock("obsidian_bars", Material.IRON, true);
+	public static final Block BLAZE_BARS = new MetalBarsBlock("blaze_bars", Material.IRON, true);
 
 	//// CONDENSED ITEM BLOCKS
 	public static final Block GHAST_TEAR_BLOCK = new GhastTearBlock("ghast_tear_block", Material.GLASS)
@@ -84,7 +92,7 @@ public class ModBlocks {
 	public static final Block COMPACT_COBBLE = new BlockBase("compact_cobble", Material.ROCK).setHardness(2.2f);
 	public static final Block COMPACT_DIRT = new BlockBase("compact_dirt", Material.CLAY).setHardness(1f);
 	public static final Block COMPACT_GRAVEL = new BlockBase("compact_gravel", Material.CLAY).setHardness(0.9f);
-	public static final Block COMPACT_NETHERRACK = new CompactNetherrack("compact_netherrack", Material.ROCK)
+	public static final Block COMPACT_NETHERRACK = new CompactNetherrackBlock("compact_netherrack", Material.ROCK)
 			.setHardness(0.8f);
 	
 	@SubscribeEvent

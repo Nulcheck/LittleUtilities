@@ -12,10 +12,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class SnowMelter extends BlockContainerBase {
+public class SnowMelterBlock extends BlockContainerBase {
 	public static boolean isActive;
 
-	public SnowMelter(String name, Material mat) {
+	public SnowMelterBlock(String name, Material mat) {
 		super(name, mat);
 		this.setTickRandomly(true);
 	}

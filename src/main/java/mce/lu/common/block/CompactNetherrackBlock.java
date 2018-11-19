@@ -5,8 +5,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CompactNetherrack extends BlockBase {
-	public CompactNetherrack(String name, Material mat) {
+public class CompactNetherrackBlock extends BlockBase {
+	public CompactNetherrackBlock(String name, Material mat) {
 		super(name, mat);
 	}
 

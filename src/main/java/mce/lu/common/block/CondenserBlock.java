@@ -16,8 +16,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Condenser extends BlockContainerBase {
-	public Condenser(String name, Material mat) {
+public class CondenserBlock extends BlockContainerBase {
+	public CondenserBlock(String name, Material mat) {
 		super(name, mat);
 	}
 
