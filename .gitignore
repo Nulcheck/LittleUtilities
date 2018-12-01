@@ -20,18 +20,21 @@ build
 # other
 eclipse
 run
-CREDITS.txt
-CREDITS-fml.txt
-LICENSE-Paulscode SoundSystem CodecIBXM.txt
-LICENSE-Paulscode IBXM Library.txt
-MinecraftForge-Credits.txt
-LICENSE.txt
-LICENSE-new.txt
+forge-1.12.2-14.23.5.2784-changelog.txt
+mods/jei_1.12.2-4.12.1.217.jar
+mods/RebornStorage-1.12.2-3.2.2.65.jar
+mods/RebornCore-1.12.2-3.10.2.337-universal.jar
+mods/JustEnoughResources-1.12.2-0.8.5.27.jar
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
+gradle.properties
 README.txt
 Paulscode SoundSystem CodecIBXM License.txt
 Paulscode IBXM Library License.txt
-gradle/wrapper/gradle-wrapper.properties
-gradle/wrapper/gradle-wrapper.jar
-mods
-Old Classes/
-gradle.properties
+MinecraftForge-Credits.txt
+LICENSE.txt
+LICENSE-new.txt
+LICENSE-Paulscode SoundSystem CodecIBXM.txt
+LICENSE-Paulscode IBXM Library.txt
+CREDITS.txt
+CREDITS-fml.txt

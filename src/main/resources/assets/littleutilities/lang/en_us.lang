@@ -9,6 +9,14 @@ container.condenser=Condenser
 ////// BLOCKS
 tile.condenser.name=Condenser
 tile.snow_melter.name=Snow Melter
+tile.gold_bars.name=Gold Bars
+tile.diamond_bars.name=Diamond Bars
+tile.lapis_bars.name=Lapis Lazuli Bars
+tile.obsidian_bars.name=Obsidian Bars
+tile.blaze_bars.name=Blaze Rod Bars
+tile.lava_stone.name=Lava Stone
+tile.lava_cobblestone.name=Lava Cobblestone
+tile.lava_obsidian.name=Lava Obsidian
 
 //// CONDENSED ITEM BLOCKS
 tile.ghast_tear_block.name=Ghast Tear Block
