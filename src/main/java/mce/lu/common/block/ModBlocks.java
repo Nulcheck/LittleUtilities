@@ -17,6 +17,9 @@ public class ModBlocks {
 	//// UTILITY
 	public static final Block CONDENSER = new CondenserBlock("condenser", Material.ROCK).setHardness(1.5f);
 	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", Material.IRON).setHardness(1.2f);
+	public static final Block LAVA_STONE = new BlockBase("lava_stone", Material.ROCK).setHardness(2f).setLightLevel(1f);
+	public static final Block LAVA_COBBLESTONE = new BlockBase("lava_cobblestone", Material.ROCK).setHardness(2f).setLightLevel(1f);
+	public static final Block LAVA_OBSIDIAN = new BlockBase("lava_obsidian", Material.ROCK).setHardness(50f).setLightLevel(1f);
 	
 	//// NORMAL
 	public static final Block GOLD_BARS = new MetalBarsBlock("gold_bars", Material.IRON, true);

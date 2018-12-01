@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "result": {
+    "item": "littleutilities:blaze_bars",
+    "count": 16
+  }
+}

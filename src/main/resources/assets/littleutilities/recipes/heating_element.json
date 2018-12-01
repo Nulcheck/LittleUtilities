@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    "xhx",
+    " x "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "h": {
+      "item": "littleutilities:lava_cobblestone"
+    }
+  },
+  "result": {
+    "item": "littleutilities:heating_element"
+  }
+}

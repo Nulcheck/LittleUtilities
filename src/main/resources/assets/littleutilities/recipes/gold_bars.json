@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "littleutilities:gold_bars",
+    "count": 16
+  }
+}

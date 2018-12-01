@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xhx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "h": {
+      "item": "littleutilities:heating_element"
+    }
+  },
+  "result": {
+    "item": "littleutilities:snow_melter"
+  }
+}
