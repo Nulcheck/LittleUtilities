@@ -3,7 +3,6 @@ package mce.lu.client.core.handler;
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -27,52 +26,6 @@ public class RecipeHandler {
 			for (ItemStack stack : OreDictionary.getOres("ingotSilicon"))
 				GameRegistry.addSmelting(ModItems.PURE_QUARTZ, stack, 0.5f);
 		}
-	}
-
-	public static void registerCrafting() {
-		//// Recipes from Condensed Blocks
-		GameRegistry.addShapelessRecipe(new ResourceLocation("GHAST_TEAR_BLOCK"), group,
-				new ItemStack(Items.GHAST_TEAR, 9), Ingredient.fromStacks(new ItemStack(ModBlocks.GHAST_TEAR_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("BLAZE_ROD_BLOCK"), group,
-				new ItemStack(Items.BLAZE_ROD, 9), Ingredient.fromStacks(new ItemStack(ModBlocks.BLAZE_ROD_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("FERMENTED_SPIDER_EYE_BLOCK"), group,
-				new ItemStack(Items.FERMENTED_SPIDER_EYE, 9),
-				Ingredient.fromStacks(new ItemStack(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("GUNPOWDER_BLOCK"), group,
-				new ItemStack(Items.GUNPOWDER, 9), Ingredient.fromStacks(new ItemStack(ModBlocks.GUNPOWDER_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("NETHER_STAR_BLOCK"), group,
-				new ItemStack(Items.NETHER_STAR, 9), Ingredient.fromStacks(new ItemStack(ModBlocks.NETHER_STAR_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("PAPER_BLOCK"), group, new ItemStack(Items.PAPER, 9),
-				Ingredient.fromStacks(new ItemStack(ModBlocks.PAPER_BLOCK)));
-		
-		// GameRegistry.addShapelessRecipe(new ItemStack(Items.SLIME_BALL, 9),
-		// new ItemStack(ModBlocks.slimeBlock));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("ENDER_EYE_BLOCK"), group,
-				new ItemStack(Items.ENDER_EYE, 9), Ingredient.fromStacks(new ItemStack(ModBlocks.ENDER_EYE_BLOCK)));
-		
-		// GameRegistry.addShapelessRecipe(new ItemStack(Items.BONE, 9), new
-		// ItemStack(ModBlocks.boneBlock));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("MAGMA_CREAM_BLOCK"), group,
-				new ItemStack(Items.MAGMA_CREAM, 9), Ingredient.fromStacks(new ItemStack(ModBlocks.MAGMA_CREAM_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("FEATHER_BLOCK"), group, new ItemStack(Items.FEATHER, 9),
-				Ingredient.fromStacks(new ItemStack(ModBlocks.FEATHER_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("EGG_BLOCK"), group, new ItemStack(Items.EGG, 9),
-				Ingredient.fromStacks(new ItemStack(ModBlocks.EGG_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("SUGAR_BLOCK"), group, new ItemStack(Items.SUGAR, 9),
-				Ingredient.fromStacks(new ItemStack(ModBlocks.SUGAR_BLOCK)));
-		
-		GameRegistry.addShapelessRecipe(new ResourceLocation("SPONGE"), group, new ItemStack(ModItems.SPONGE, 9),
-				Ingredient.fromStacks(new ItemStack(Blocks.SPONGE)));
 	}
 
 	public static void registerMetaCrafting() {

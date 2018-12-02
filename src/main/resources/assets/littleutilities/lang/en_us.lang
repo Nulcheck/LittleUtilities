@@ -31,6 +31,7 @@ tile.feather_block.name=Feather Block
 tile.egg_block.name=Egg Block
 tile.sugar_block.name=Sugar Block
 tile.fermented_spider_eye_block.name=Fermented Spider Eye Block
+tile.bone_block.name=Bone Block
 
 // USEABLE BLOCKS
 tile.ender_pearl_block.name=Ender Pearl Block
@@ -73,6 +74,7 @@ item.pure_quartz.name=Pure Quartz
 item.leather_scraps.name=Leather Scraps
 item.zombie_curing_kit.name=Zombie Curing Kit
 item.heating_element.name=Heating Element
+item.obsidian_boat.name=Obsidian Boat
 
 ////// ADVANCEMENTS
 adv.lu.root.title=Immense Pressure

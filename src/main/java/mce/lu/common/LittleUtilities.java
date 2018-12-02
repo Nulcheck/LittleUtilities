@@ -6,7 +6,7 @@ import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.core.LUCreativeTab;
 import mce.lu.common.core.handler.TileEntityRegistry;
-import mce.lu.common.core.proxy.ServerProxy;
+import mce.lu.common.core.proxy.CommonProxy;
 import mce.lu.common.util.References;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Config.Type;
@@ -26,13 +26,16 @@ public class LittleUtilities {
 	public static LittleUtilities instance;
 
 	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.SERVER_PROXY_CLASS)
-	public static ServerProxy proxy;
+	public static CommonProxy proxy;
 
 	public static Logger logger = Logger.getLogger("Minecraft");
 	public static CreativeTabs lu = new LUCreativeTab("littleutilities");
 
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
+		proxy.preInit(e);
+		
+		TileEntityRegistry.registerTileEntities();
 		NetworkRegistry.INSTANCE.registerGuiHandler(LittleUtilities.instance, new GuiHandler());
 	}
 
@@ -40,9 +43,7 @@ public class LittleUtilities {
 	public void init(FMLInitializationEvent e) {
 		ConfigManager.sync(References.MOD_ID, Type.INSTANCE);
 		RecipeHandler.registerSmelting();
-		RecipeHandler.registerCrafting();
 		RecipeHandler.registerMetaCrafting();
-		TileEntityRegistry.registerTileEntities();
 	}
 
 	@EventHandler

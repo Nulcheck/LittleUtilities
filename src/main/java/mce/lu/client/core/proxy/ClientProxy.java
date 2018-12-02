@@ -2,7 +2,9 @@ package mce.lu.client.core.proxy;
 
 import com.google.common.collect.ImmutableList;
 
-import mce.lu.common.core.proxy.ServerProxy;
+import mce.lu.client.render.entity.RenderObsidianBoat;
+import mce.lu.common.core.proxy.CommonProxy;
+import mce.lu.common.entity.EntityObsidianBoat;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -12,12 +14,19 @@ import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * Here to properly render/model edible blocks so the mod works for server.
  * (Putting this in the ModelHandler class crashes the game)
  */
-public class ClientProxy extends ServerProxy {
+public class ClientProxy extends CommonProxy {
+	public void preInit(FMLPreInitializationEvent e) {
+		super.preInit(e);
+		RenderingRegistry.registerEntityRenderingHandler(EntityObsidianBoat.class, RenderObsidianBoat::new);
+	}
+
 	public static void registerItemBlockModel(Block block, ItemBlock item, String name) {
 		StateMapperBase mapper = new DefaultStateMapper();
 		BlockStateContainer stateContainer = block.getBlockState();

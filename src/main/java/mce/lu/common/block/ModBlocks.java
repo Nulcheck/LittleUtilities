@@ -17,9 +17,6 @@ public class ModBlocks {
 	//// UTILITY
 	public static final Block CONDENSER = new CondenserBlock("condenser", Material.ROCK).setHardness(1.5f);
 	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", Material.IRON).setHardness(1.2f);
-	public static final Block LAVA_STONE = new BlockBase("lava_stone", Material.ROCK).setHardness(2f).setLightLevel(1f);
-	public static final Block LAVA_COBBLESTONE = new BlockBase("lava_cobblestone", Material.ROCK).setHardness(2f).setLightLevel(1f);
-	public static final Block LAVA_OBSIDIAN = new BlockBase("lava_obsidian", Material.ROCK).setHardness(50f).setLightLevel(1f);
 	
 	//// NORMAL
 	public static final Block GOLD_BARS = new MetalBarsBlock("gold_bars", Material.IRON, true);
@@ -27,7 +24,10 @@ public class ModBlocks {
 	public static final Block LAPIS_BARS = new MetalBarsBlock("lapis_bars", Material.IRON, true);
 	public static final Block OBSIDIAN_BARS = new MetalBarsBlock("obsidian_bars", Material.IRON, true);
 	public static final Block BLAZE_BARS = new MetalBarsBlock("blaze_bars", Material.IRON, true);
-
+	public static final Block LAVA_STONE = new BlockBase("lava_stone", Material.ROCK).setHardness(1.5f).setLightLevel(1f);
+	public static final Block LAVA_COBBLESTONE = new BlockBase("lava_cobblestone", Material.ROCK).setHardness(2f).setLightLevel(1f);
+	public static final Block LAVA_OBSIDIAN = new BlockBase("lava_obsidian", Material.ROCK).setHardness(50f).setLightLevel(1f);
+	
 	//// CONDENSED ITEM BLOCKS
 	public static final Block GHAST_TEAR_BLOCK = new GhastTearBlock("ghast_tear_block", Material.GLASS)
 			.setLightLevel(0.4f).setHardness(1f);
@@ -47,6 +47,7 @@ public class ModBlocks {
 	public static final Block SUGAR_BLOCK = new BoundsBlock("sugar_block", Material.SAND, 0.0625d).setHardness(0.5f);
 	public static final Block FERMENTED_SPIDER_EYE_BLOCK = new BlockBase("fermented_spider_eye_block", Material.CLAY)
 			.setHardness(0.6f);
+	public static final Block BONE_BLOCK = new BoneBlock("bone_block", Material.ROCK).setHardness(1f);
 
 	// USEABLE BLOCKS
 	public static final Block ENDER_PEARL_BLOCK = new EnderPearlBlock("ender_pearl_block", Material.GLASS)

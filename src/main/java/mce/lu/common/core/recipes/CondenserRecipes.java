@@ -57,6 +57,7 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.FEATHER, 9), new ItemStack(ModBlocks.FEATHER_BLOCK), 0.3f);
 		this.addRecipe(new ItemStack(Items.EGG, 9), new ItemStack(ModBlocks.EGG_BLOCK), 0.3f);
 		this.addRecipe(new ItemStack(Items.SUGAR, 9), new ItemStack(ModBlocks.SUGAR_BLOCK), 0.3f);
+		this.addRecipe(new ItemStack(Items.BONE, 9), new ItemStack(ModBlocks.BONE_BLOCK), 0.3f);
 		this.addRecipe(new ItemStack(ModItems.SPONGE, 9), new ItemStack(Blocks.SPONGE), 0.5f);
 
 		// Vanilla Stuff (Idk why you'd use this.)
@@ -69,7 +70,7 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.REDSTONE, 9), new ItemStack(Blocks.REDSTONE_BLOCK), 0.5f);
 		this.addRecipe(new ItemStack(Items.SNOWBALL, 9), new ItemStack(Blocks.SNOW), 0.5f);
 		this.addRecipe(new ItemStack(Items.SLIME_BALL, 9), new ItemStack(Blocks.SLIME_BLOCK), 0.5f);
-		this.addRecipe(new ItemStack(Items.BONE, 9), new ItemStack(Blocks.BONE_BLOCK), 0.3f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 15), new ItemStack(Blocks.BONE_BLOCK), 0.3f);
 		this.addRecipe(new ItemStack(Items.STRING, 9), new ItemStack(Blocks.WOOL, 1, 0), 0.3f);
 		this.addRecipe(new ItemStack(Items.WHEAT, 9), new ItemStack(Blocks.HAY_BLOCK), 0.3f);
 		this.addRecipe(new ItemStack(Items.MELON, 9), new ItemStack(Blocks.MELON_BLOCK), 0.3f);

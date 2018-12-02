@@ -17,6 +17,7 @@ public class ModItems {
 	public static final Item LEATHER_SCRAPS = new ItemBase("leather_scraps");
 	public static final Item ZOMBIE_CURING_KIT = new ItemBase("zombie_curing_kit");
 	public static final Item HEATING_ELEMENT = new ItemBase("heating_element");
+	public static final Item OBSIDIAN_BOAT = new ObsidianBoat("obsidian_boat");
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> e) {
