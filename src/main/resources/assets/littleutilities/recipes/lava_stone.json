@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:lava_bucket"
+    },
+    {
+      "item": "minecraft:stone",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "littleutilities:lava_stone"
+  }
+}
