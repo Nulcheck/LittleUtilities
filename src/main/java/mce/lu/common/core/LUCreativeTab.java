@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class LUCreativeTab extends CreativeTabs {
 	public LUCreativeTab(String name) {
 		super(name);
-		this.setBackgroundImageName("lu.png");
+		// this.setBackgroundImageName("lu.png");
 	}
 
 	@Override
@@ -15,7 +15,7 @@ public class LUCreativeTab extends CreativeTabs {
 		return new ItemStack(ModBlocks.CONDENSER);
 	}
 
-	@Override
+	/*@Override
 	public boolean hasSearchBar() {
 		return true;
 	}
@@ -23,10 +23,10 @@ public class LUCreativeTab extends CreativeTabs {
 	@Override
 	public int getSearchbarWidth() {
 		return 71;
-	}
+	}*/
 
 	@Override
 	public int getLabelColor() {
-		return 5635925;
+		return 5635925; // Green Color
 	}
 }

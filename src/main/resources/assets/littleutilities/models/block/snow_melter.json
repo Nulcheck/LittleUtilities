@@ -1,8 +1,8 @@
 {
     "parent": "block/orientable",
     "textures": {
-        "top": "blocks/furnace_top",
-        "front": "blocks/cobblestone",
-        "side": "blocks/cobblestone"
+        "top": "littleutilities:blocks/snow_melter_top",
+        "front": "littleutilities:blocks/snow_melter_side",
+        "side": "littleutilities:blocks/snow_melter_side"
     }
 }

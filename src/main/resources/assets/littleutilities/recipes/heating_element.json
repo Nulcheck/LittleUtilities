@@ -10,7 +10,7 @@
       "item": "minecraft:iron_ingot"
     },
     "h": {
-      "item": "littleutilities:lava_cobblestone"
+      "item": "minecraft:lava_bucket"
     }
   },
   "result": {
