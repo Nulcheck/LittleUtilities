@@ -26,7 +26,7 @@ public class ObsidianBoat extends ItemBase {
 
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack itemstack = player.getHeldItem(hand);
-		float f = 1.0F;
+		// float f = 1.0F;
 		float f1 = player.prevRotationPitch + (player.rotationPitch - player.prevRotationPitch) * 1.0F;
 		float f2 = player.prevRotationYaw + (player.rotationYaw - player.prevRotationYaw) * 1.0F;
 		double d0 = player.prevPosX + (player.posX - player.prevPosX) * 1.0D;
@@ -39,7 +39,7 @@ public class ObsidianBoat extends ItemBase {
 		float f6 = MathHelper.sin(-f1 * 0.017453292F);
 		float f7 = f4 * f5;
 		float f8 = f3 * f5;
-		double d3 = 5.0D;
+		// double d3 = 5.0D;
 		Vec3d vec3d1 = vec3d.addVector((double) f7 * 5.0D, (double) f6 * 5.0D, (double) f8 * 5.0D);
 		RayTraceResult raytraceresult = world.rayTraceBlocks(vec3d, vec3d1, true);
 
@@ -70,7 +70,7 @@ public class ObsidianBoat extends ItemBase {
 				return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 			} else {
 				Block block = world.getBlockState(raytraceresult.getBlockPos()).getBlock();
-				boolean flag1 = block == Blocks.WATER || block == Blocks.FLOWING_WATER;
+				boolean flag1 = block == Blocks.LAVA || block == Blocks.FLOWING_LAVA;
 				EntityObsidianBoat entityboat = new EntityObsidianBoat(world, raytraceresult.hitVec.x,
 						flag1 ? raytraceresult.hitVec.y - 0.12D : raytraceresult.hitVec.y, raytraceresult.hitVec.z);
 				entityboat.rotationYaw = player.rotationYaw;

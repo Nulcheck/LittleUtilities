@@ -1,10 +1,9 @@
 package mce.lu.client.render.entity;
 
+import mce.lu.client.model.ObsidianBoatModel;
 import mce.lu.common.entity.EntityObsidianBoat;
 import mce.lu.common.util.References;
 import net.minecraft.client.model.IMultipassModel;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBoat;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -17,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderObsidianBoat extends Render<EntityObsidianBoat> {
 	private static final ResourceLocation BOAT_TEXTURE = new ResourceLocation(References.MOD_ID,
 			"textures/entity/obsidian_boat.png");
-	protected ModelBase modelBoat = new ModelBoat();
+	protected ObsidianBoatModel modelBoat = new ObsidianBoatModel();
 
 	public RenderObsidianBoat(RenderManager renderManagerIn) {
 		super(renderManagerIn);

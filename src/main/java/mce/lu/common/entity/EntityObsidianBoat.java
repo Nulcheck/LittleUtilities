@@ -171,7 +171,7 @@ public class EntityObsidianBoat extends Entity {
 			} else {
 				this.setForwardDirection(-this.getForwardDirection());
 				this.setTimeSinceHit(10);
-				this.setDamageTaken(this.getDamageTaken() + amount * 20.0F);
+				this.setDamageTaken(this.getDamageTaken() + amount * 10.0F);
 				this.markVelocityChanged();
 				boolean flag = source.getTrueSource() instanceof EntityPlayer
 						&& ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;
@@ -216,7 +216,7 @@ public class EntityObsidianBoat extends Entity {
 	public void performHurtAnimation() {
 		this.setForwardDirection(-this.getForwardDirection());
 		this.setTimeSinceHit(10);
-		this.setDamageTaken(this.getDamageTaken() * 22.0F);
+		this.setDamageTaken(this.getDamageTaken() * 11.0F);
 	}
 
 	/**
@@ -596,7 +596,7 @@ public class EntityObsidianBoat extends Entity {
 	 * Update the boat's speed, based on momentum.
 	 */
 	private void updateMotion() {
-		// double d0 = -0.03999999910593033D;
+		double d0 = -0.03999999910593033D;
 		double d1 = this.hasNoGravity() ? 0.0D : -0.03999999910593033D;
 		double d2 = 0.0D;
 		this.momentum = 0.05F;
@@ -634,9 +634,9 @@ public class EntityObsidianBoat extends Entity {
 			this.motionY += d1;
 
 			if (d2 > 0.0D) {
-				// double d3 = 0.65D;
+				double d3 = 0.65D;
 				this.motionY += d2 * 0.06153846016296973D;
-				// double d4 = 0.75D;
+				double d4 = 0.75D;
 				this.motionY *= 0.75D;
 			}
 		}
