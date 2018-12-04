@@ -49,14 +49,11 @@ public class EntityObsidianBoat extends Entity {
 	private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager
 			.<Float>createKey(EntityObsidianBoat.class, DataSerializers.FLOAT);
 
-	@SuppressWarnings("unchecked")
 	private static final DataParameter<Boolean>[] DATA_ID_PADDLE = new DataParameter[] {
 			EntityDataManager.createKey(EntityObsidianBoat.class, DataSerializers.BOOLEAN),
 			EntityDataManager.createKey(EntityObsidianBoat.class, DataSerializers.BOOLEAN) };
 
 	private final float[] paddlePositions;
-
-	/** How much of current speed to retain. Value zero to one. */
 	private float momentum;
 	private float outOfControlTicks;
 	private float deltaRotation;
@@ -70,7 +67,7 @@ public class EntityObsidianBoat extends Entity {
 	private boolean rightInputDown;
 	private boolean forwardInputDown;
 	private boolean backInputDown;
-	private double lavaLevel;
+	private double waterLevel;
 
 	/**
 	 * How much the boat should glide given the slippery blocks it's currently
@@ -98,7 +95,6 @@ public class EntityObsidianBoat extends Entity {
 		this.prevPosX = x;
 		this.prevPosY = y;
 		this.prevPosZ = z;
-		this.isImmuneToFire = true;
 	}
 
 	/**
@@ -176,7 +172,7 @@ public class EntityObsidianBoat extends Entity {
 				boolean flag = source.getTrueSource() instanceof EntityPlayer
 						&& ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;
 
-				if (flag || this.getDamageTaken() > 80.0F) {
+				if (flag || this.getDamageTaken() > 40.0F) {
 					if (!flag && this.world.getGameRules().getBoolean("doEntityDrops")) {
 						this.dropItemWithOffset(this.getItemBoat(), 1, 0.0F);
 					}
@@ -252,12 +248,13 @@ public class EntityObsidianBoat extends Entity {
 	/**
 	 * Called to update the entity's position/logic.
 	 */
+	@Override
 	public void onUpdate() {
 		this.previousStatus = this.status;
 		this.status = this.getBoatStatus();
 
-		if (this.status != EntityObsidianBoat.Status.UNDER_LAVA
-				&& this.status != EntityObsidianBoat.Status.UNDER_FLOWING_LAVA) {
+		if (this.status != EntityObsidianBoat.Status.UNDER_WATER
+				&& this.status != EntityObsidianBoat.Status.UNDER_FLOWING_WATER) {
 			this.outOfControlTicks = 0.0F;
 		} else {
 			++this.outOfControlTicks;
@@ -287,9 +284,8 @@ public class EntityObsidianBoat extends Entity {
 			}
 
 			this.updateMotion();
-
+			
 			if (this.world.isRemote) {
-				this.controlBoat();
 				this.world.sendPacketToServer(new CPacketSteerBoat(this.getPaddleState(0), this.getPaddleState(1)));
 			}
 
@@ -349,9 +345,9 @@ public class EntityObsidianBoat extends Entity {
 	@Nullable
 	protected SoundEvent getPaddleSound() {
 		switch (this.getBoatStatus()) {
-		case IN_LAVA:
-		case UNDER_LAVA:
-		case UNDER_FLOWING_LAVA:
+		case IN_WATER:
+		case UNDER_WATER:
+		case UNDER_FLOWING_WATER:
 			return SoundEvents.ENTITY_BOAT_PADDLE_WATER;
 		case ON_LAND:
 			return SoundEvents.ENTITY_BOAT_PADDLE_LAND;
@@ -390,16 +386,16 @@ public class EntityObsidianBoat extends Entity {
 	}
 
 	/**
-	 * Determines whether the boat is in lava, gliding on land, or in air
+	 * Determines whether the boat is in water, gliding on land, or in air
 	 */
 	private EntityObsidianBoat.Status getBoatStatus() {
-		EntityObsidianBoat.Status entityboat$status = this.getUnderLavaStatus();
+		EntityObsidianBoat.Status entityboat$status = this.getUnderwaterStatus();
 
 		if (entityboat$status != null) {
-			this.lavaLevel = this.getEntityBoundingBox().maxY;
+			this.waterLevel = this.getEntityBoundingBox().maxY;
 			return entityboat$status;
-		} else if (this.checkInLava()) {
-			return EntityObsidianBoat.Status.IN_LAVA;
+		} else if (this.checkInWater()) {
+			return EntityObsidianBoat.Status.IN_WATER;
 		} else {
 			float f = this.getBoatGlide();
 
@@ -412,7 +408,7 @@ public class EntityObsidianBoat extends Entity {
 		}
 	}
 
-	public float getLavaLevelAbove() {
+	public float getWaterLevelAbove() {
 		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
 		int i = MathHelper.floor(axisalignedbb.minX);
 		int j = MathHelper.ceil(axisalignedbb.maxX);
@@ -515,7 +511,7 @@ public class EntityObsidianBoat extends Entity {
 		return f / (float) k1;
 	}
 
-	private boolean checkInLava() {
+	private boolean checkInWater() {
 		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
 		int i = MathHelper.floor(axisalignedbb.minX);
 		int j = MathHelper.ceil(axisalignedbb.maxX);
@@ -524,7 +520,7 @@ public class EntityObsidianBoat extends Entity {
 		int i1 = MathHelper.floor(axisalignedbb.minZ);
 		int j1 = MathHelper.ceil(axisalignedbb.maxZ);
 		boolean flag = false;
-		this.lavaLevel = Double.MIN_VALUE;
+		this.waterLevel = Double.MIN_VALUE;
 		BlockPos.PooledMutableBlockPos blockpos$pooledmutableblockpos = BlockPos.PooledMutableBlockPos.retain();
 
 		try {
@@ -537,7 +533,7 @@ public class EntityObsidianBoat extends Entity {
 						if (iblockstate.getMaterial() == Material.LAVA) {
 							float f = BlockLiquid.getLiquidHeight(iblockstate, this.world,
 									blockpos$pooledmutableblockpos);
-							this.lavaLevel = Math.max((double) f, this.lavaLevel);
+							this.waterLevel = Math.max((double) f, this.waterLevel);
 							flag |= axisalignedbb.minY < (double) f;
 						}
 					}
@@ -551,10 +547,10 @@ public class EntityObsidianBoat extends Entity {
 	}
 
 	/**
-	 * Decides whether the boat is currently under lava.
+	 * Decides whether the boat is currently underwater.
 	 */
 	@Nullable
-	private EntityObsidianBoat.Status getUnderLavaStatus() {
+	private EntityObsidianBoat.Status getUnderwaterStatus() {
 		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
 		double d0 = axisalignedbb.maxY + 0.001D;
 		int i = MathHelper.floor(axisalignedbb.minX);
@@ -576,7 +572,7 @@ public class EntityObsidianBoat extends Entity {
 						if (iblockstate.getMaterial() == Material.LAVA && d0 < (double) BlockLiquid
 								.getLiquidHeight(iblockstate, this.world, blockpos$pooledmutableblockpos)) {
 							if (((Integer) iblockstate.getValue(BlockLiquid.LEVEL)).intValue() != 0) {
-								EntityObsidianBoat.Status entityboat$status = EntityObsidianBoat.Status.UNDER_FLOWING_LAVA;
+								EntityObsidianBoat.Status entityboat$status = EntityObsidianBoat.Status.UNDER_FLOWING_WATER;
 								return entityboat$status;
 							}
 
@@ -589,7 +585,7 @@ public class EntityObsidianBoat extends Entity {
 			blockpos$pooledmutableblockpos.release();
 		}
 
-		return flag ? EntityObsidianBoat.Status.UNDER_LAVA : null;
+		return flag ? EntityObsidianBoat.Status.UNDER_WATER : null;
 	}
 
 	/**
@@ -603,19 +599,19 @@ public class EntityObsidianBoat extends Entity {
 
 		if (this.previousStatus == EntityObsidianBoat.Status.IN_AIR && this.status != EntityObsidianBoat.Status.IN_AIR
 				&& this.status != EntityObsidianBoat.Status.ON_LAND) {
-			this.lavaLevel = this.getEntityBoundingBox().minY + (double) this.height;
-			this.setPosition(this.posX, (double) (this.getLavaLevelAbove() - this.height) + 0.101D, this.posZ);
+			this.waterLevel = this.getEntityBoundingBox().minY + (double) this.height;
+			this.setPosition(this.posX, (double) (this.getWaterLevelAbove() - this.height) + 0.101D, this.posZ);
 			this.motionY = 0.0D;
 			this.lastYd = 0.0D;
-			this.status = EntityObsidianBoat.Status.IN_LAVA;
+			this.status = EntityObsidianBoat.Status.IN_WATER;
 		} else {
-			if (this.status == EntityObsidianBoat.Status.IN_LAVA) {
-				d2 = (this.lavaLevel - this.getEntityBoundingBox().minY) / (double) this.height;
+			if (this.status == EntityObsidianBoat.Status.IN_WATER) {
+				d2 = (this.waterLevel - this.getEntityBoundingBox().minY) / (double) this.height;
 				this.momentum = 0.9F;
-			} else if (this.status == EntityObsidianBoat.Status.UNDER_FLOWING_LAVA) {
+			} else if (this.status == EntityObsidianBoat.Status.UNDER_FLOWING_WATER) {
 				d1 = -7.0E-4D;
 				this.momentum = 0.9F;
-			} else if (this.status == EntityObsidianBoat.Status.UNDER_LAVA) {
+			} else if (this.status == EntityObsidianBoat.Status.UNDER_WATER) {
 				d2 = 0.009999999776482582D;
 				this.momentum = 0.45F;
 			} else if (this.status == EntityObsidianBoat.Status.IN_AIR) {
@@ -732,6 +728,18 @@ public class EntityObsidianBoat extends Entity {
 		this.applyYawToEntity(entityToUpdate);
 	}
 
+	/**
+	 * (abstract) Protected helper method to write subclass entity data to NBT.
+	 */
+	protected void writeEntityToNBT(NBTTagCompound compound) {
+	}
+
+	/**
+	 * (abstract) Protected helper method to read subclass entity data from NBT.
+	 */
+	protected void readEntityFromNBT(NBTTagCompound compound) {
+	}
+
 	public boolean processInitialInteract(EntityPlayer player, EnumHand hand) {
 		if (player.isSneaking()) {
 			return false;
@@ -762,7 +770,11 @@ public class EntityObsidianBoat extends Entity {
 
 						if (this.world.getGameRules().getBoolean("doEntityDrops")) {
 							for (int i = 0; i < 3; ++i) {
-								this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.OBSIDIAN), 2), 0.0F);
+								this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.OBSIDIAN), 1), 0.0F);
+							}
+
+							for (int j = 0; j < 2; ++j) {
+								this.dropItemWithOffset(Item.getItemFromBlock(Blocks.OBSIDIAN), 1, 0.0F);
 							}
 						}
 					}
@@ -847,7 +859,7 @@ public class EntityObsidianBoat extends Entity {
 	}
 
 	public static enum Status {
-		IN_LAVA, UNDER_LAVA, UNDER_FLOWING_LAVA, ON_LAND, IN_AIR;
+		IN_WATER, UNDER_WATER, UNDER_FLOWING_WATER, ON_LAND, IN_AIR;
 	}
 
 	// Forge: Fix MC-119811 by instantly completing lerp on board
@@ -862,13 +874,5 @@ public class EntityObsidianBoat extends Entity {
 			this.rotationYaw = (float) this.lerpYaw;
 			this.rotationPitch = (float) this.lerpPitch;
 		}
-	}
-
-	@Override
-	protected void readEntityFromNBT(NBTTagCompound compound) {
-	}
-
-	@Override
-	protected void writeEntityToNBT(NBTTagCompound compound) {
 	}
 }
