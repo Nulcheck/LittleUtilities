@@ -9,6 +9,8 @@ container.condenser=Condenser
 ////// BLOCKS
 tile.condenser.name=Condenser
 tile.snow_melter.name=Snow Melter
+tile.aqua_reservoir.name=Aqua Reservoir
+tile.magma_reservoir.name=Magma Reservoir
 tile.gold_bars.name=Gold Bars
 tile.diamond_bars.name=Diamond Bars
 tile.lapis_bars.name=Lapis Lazuli Bars

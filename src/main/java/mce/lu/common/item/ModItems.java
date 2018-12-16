@@ -3,6 +3,7 @@ package mce.lu.common.item;
 import java.util.ArrayList;
 import java.util.List;
 
+import mce.lu.common.block.ModBlocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -17,7 +18,10 @@ public class ModItems {
 	public static final Item LEATHER_SCRAPS = new ItemBase("leather_scraps");
 	public static final Item ZOMBIE_CURING_KIT = new ItemBase("zombie_curing_kit");
 	public static final Item HEATING_ELEMENT = new ItemBase("heating_element");
-	public static final Item OBSIDIAN_BOAT = new ObsidianBoat("obsidian_boat");
+	public static final Item AQUA_RESERVOIR_ITEM = new ItemSpecialBlock("aqua_reservoir_item", ModBlocks.AQUA_RESERVOIR);
+	public static final Item MAGMA_RESERVOIR_ITEM = new ItemSpecialBlock("magma_reservoir_item", ModBlocks.MAGMA_RESERVOIR);
+	
+	// public static final Item OBSIDIAN_BOAT = new ObsidianBoat("obsidian_boat");
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> e) {

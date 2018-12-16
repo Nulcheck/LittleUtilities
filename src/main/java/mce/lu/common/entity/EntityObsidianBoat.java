@@ -201,7 +201,8 @@ public class EntityObsidianBoat extends EntityBoat {
 	}
 
 	public Item getItemBoat() {
-		return ModItems.OBSIDIAN_BOAT;
+		// return ModItems.OBSIDIAN_BOAT;
+		return null;
 	}
 
 	/**
