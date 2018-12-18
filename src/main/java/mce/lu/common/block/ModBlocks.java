@@ -15,7 +15,7 @@ public class ModBlocks {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 
 	//// UTILITY
-	public static final Block CONDENSER = new CondenserBlock("condenser", Material.ROCK).setHardness(1.5f);
+	public static final Block CONDENSER = new CondenserBlock("lu_condenser", Material.ROCK).setHardness(1.5f);
 	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", Material.IRON).setHardness(1.2f);
 	public static final Block AQUA_RESERVOIR = new AquaReservoir("aqua_reservoir", Material.IRON).setHardness(1f);
 	public static final Block MAGMA_RESERVOIR = new MagmaReservoir("magma_reservoir", Material.IRON).setHardness(1f);

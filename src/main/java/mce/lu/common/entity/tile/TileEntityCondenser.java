@@ -151,7 +151,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 
 	@Override
 	public String getName() {
-		return this.hasCustomName() ? this.customName : "container.condenser";
+		return this.hasCustomName() ? this.customName : "container.lu_condenser";
 	}
 
 	@Override
