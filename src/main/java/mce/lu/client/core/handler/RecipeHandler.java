@@ -3,6 +3,7 @@ package mce.lu.client.core.handler;
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -20,6 +21,9 @@ public class RecipeHandler {
 
 	public static void registerSmelting() {
 		if (OreDictionary.doesOreNameExist("itemSilicon") || OreDictionary.doesOreNameExist("ingotSilicon")) {
+			GameRegistry.addSmelting(Blocks.SANDSTONE, new ItemStack(ModItems.PURE_QUARTZ), 0.1f);
+			GameRegistry.addSmelting(Blocks.RED_SANDSTONE, new ItemStack(ModItems.PURE_QUARTZ), 0.1f);
+			
 			for (ItemStack stack : OreDictionary.getOres("itemSilicon"))
 				GameRegistry.addSmelting(ModItems.PURE_QUARTZ, stack, 0.5f);
 
