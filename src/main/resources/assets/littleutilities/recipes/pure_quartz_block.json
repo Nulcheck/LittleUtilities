@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    "***",
+    "***"
+  ],
+  "key": {
+    "*": {
+      "item": "littleutilities:pure_quartz"
+    }
+  },
+  "result": {
+    "item": "littleutilities:pure_quartz_block"
+  }
+}

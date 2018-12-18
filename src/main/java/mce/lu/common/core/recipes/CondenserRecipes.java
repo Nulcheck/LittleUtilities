@@ -59,6 +59,7 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.SUGAR, 9), new ItemStack(ModBlocks.SUGAR_BLOCK), 0.3f);
 		this.addRecipe(new ItemStack(Items.BONE, 9), new ItemStack(ModBlocks.BONE_BLOCK), 0.3f);
 		this.addRecipe(new ItemStack(ModItems.SPONGE, 9), new ItemStack(Blocks.SPONGE), 0.5f);
+		this.addRecipe(new ItemStack(ModItems.PURE_QUARTZ, 9), new ItemStack(ModBlocks.PURE_QUARTZ_BLOCK), 0.3f);
 
 		// Vanilla Stuff (Idk why you'd use this.)
 		this.addRecipe(new ItemStack(Items.COAL, 9, 0), new ItemStack(Blocks.COAL_BLOCK), 0.5f);

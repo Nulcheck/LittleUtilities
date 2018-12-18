@@ -32,6 +32,7 @@ public class ModBlocks {
 			.setLightLevel(1f);
 	public static final Block LAVA_OBSIDIAN = new BlockBase("lava_obsidian", Material.ROCK).setHardness(50f)
 			.setLightLevel(1f);
+	public static final Block PURE_QUARTZ_BLOCK = new BlockBase("pure_quartz_block", Material.ROCK).setHardness(1.2f);
 
 	//// CONDENSED ITEM BLOCKS
 	public static final Block GHAST_TEAR_BLOCK = new GhastTearBlock("ghast_tear_block", Material.GLASS)

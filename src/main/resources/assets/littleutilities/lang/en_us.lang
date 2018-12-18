@@ -19,6 +19,7 @@ tile.blaze_bars.name=Blaze Rod Bars
 tile.lava_stone.name=Lava Stone
 tile.lava_cobblestone.name=Lava Cobblestone
 tile.lava_obsidian.name=Lava Obsidian
+tile.pure_quartz_block.name=Pure Quartz Block
 
 //// CONDENSED ITEM BLOCKS
 tile.ghast_tear_block.name=Ghast Tear Block
