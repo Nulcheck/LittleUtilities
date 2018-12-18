@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "r r",
+    "nbn",
+    "rnr"
+  ],
+  "key": {
+    "r": {
+    	"item": "minecraft:blaze_rod"
+    },
+    "b": {
+    	"item": "minecraft:lava_bucket"
+    },
+    "n": {
+      "item": "minecraft:netherbrick"
+    }
+  },
+  "result": {
+    "item": "littleutilities:magma_reservoir"
+  }
+}
