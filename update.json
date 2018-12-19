@@ -1,5 +1,17 @@
 {
   "1.12.2": {
+    "1.12.2-beta1.0.0.0": "
+    - Config is easier to read now.
+    - Condenser works now.
+    - Fixed several bugs and fatal crashes for server.
+    - More crafting recipes.
+    - Dungeon loots.
+    - Added snow melter.
+    - Added gold, diamond, lapis, obsidian and blaze bars blocks.
+    - Added lava cobblestone, stone and obsidian.
+    - Added aqua and magma reservoirs.
+    - And more!
+    ",
     "1.12.2-alpha1.0.0.0": "
     - You can eat edible blocks now.
     - You can dye a colored block (wool, glass, etc) by right clicking it with a dye in hand.
