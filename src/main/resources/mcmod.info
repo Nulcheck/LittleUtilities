@@ -2,7 +2,7 @@
   "modid": "littleutilities",
   "name": "LittleUtilities",
   "description": "Useful recipes, blocks and more!",
-  "version": "1.12.2-beta1.0.0.0",
+  "version": "1.12.2-beta1.0.0.1",
   "mcversion": "${mcversion}",
   "url": "https://minecraft.curseforge.com/projects/littleutilities",
   "updateUrl": "https://raw.githubusercontent.com/MCE626/LittleUtilities/master/update.json",
