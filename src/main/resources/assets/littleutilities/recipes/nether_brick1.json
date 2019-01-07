@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:red_nether_bricks"
+      "item": "minecraft:red_nether_brick"
     }
   ],
   "result": {
-    "item": "minecraft:nether_brick",
+    "item": "minecraft:netherbrick",
     "count": 2
   }
 }
