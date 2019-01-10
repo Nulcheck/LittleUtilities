@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"item": "littleutilities:condenser"
+			"item": "littleutilities:lu_condenser"
 		},
 		"title": {
 			"translate": "adv.lu.root.title"

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "littleutilities:condenser"
+      "littleutilities:lu_condenser"
     ]
   },
   "criteria": {
@@ -20,7 +20,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "littleutilities:condenser"
+        "recipe": "littleutilities:lu_condenser"
       }
     }
   },
