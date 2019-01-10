@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "littleutilities:bone"
+      "littleutilities:bone_1"
     ]
   },
   "criteria": {
@@ -11,8 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:dye",
-            "data": 15
+            "item": "littleutilities:bone_block"
           }
         ]
       }
@@ -20,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "littleutilities:bone"
+        "recipe": "littleutilities:bone_1"
       }
     }
   },

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "littleutilities:sponge_0"
+      "littleutilities:sponge_1"
     ]
   },
   "criteria": {
@@ -11,8 +11,7 @@
       "conditions": {
         "items": [
           {
-          	"item": "minecraft:double_plant",
-            "data": 0
+          	"item": "minecraft:sponge"
           }
         ]
       }
@@ -20,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "littleutilities:sponge_0"
+        "recipe": "littleutilities:sponge_1"
       }
     }
   },

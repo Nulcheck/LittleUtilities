@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:red_sandstone",
+      "data": 32767
+    }
+  ],
+  "result": {
+    "item": "minecraft:sand",
+    "count": 4,
+    "data": 1
+  }
+}

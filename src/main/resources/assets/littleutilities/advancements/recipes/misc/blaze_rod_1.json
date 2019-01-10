@@ -1,13 +1,8 @@
 {
-  "conditions":[
-    {
-      "type": "littleutilities:pure_quartz_recipe"
-    }
-  ],
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "littleutilities:pure_quartz"
+      "littleutilities:blaze_rod_1"
     ]
   },
   "criteria": {
@@ -16,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:sand"
+            "item": "littleutilities:blaze_rod_block"
           }
         ]
       }
@@ -24,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "littleutilities:pure_quartz"
+        "recipe": "littleutilities:blaze_rod_1"
       }
     }
   },

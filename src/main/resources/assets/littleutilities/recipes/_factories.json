@@ -14,7 +14,6 @@
 		"clay_ball_recipe": "mce.lu.common.util.config.conditions.ClayBallRecipe",
 		"snowball_recipe": "mce.lu.common.util.config.conditions.SnowballRecipe",
 		"glowstone_dust_recipe": "mce.lu.common.util.config.conditions.GlowstoneDustRecipe",
-		"pure_quartz_recipe": "mce.lu.common.util.config.conditions.PureQuartzRecipe",
 		"leather_scraps_recipe": "mce.lu.common.util.config.conditions.LeatherScrapsRecipe",
 		"zombie_curing_kit_recipe": "mce.lu.common.util.config.conditions.ZombieCuringKitRecipe",
 		"prismarine_crystals_recipe": "mce.lu.common.util.config.conditions.PrismarineCrystalsRecipe",

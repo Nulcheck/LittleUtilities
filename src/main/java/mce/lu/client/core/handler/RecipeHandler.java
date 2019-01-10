@@ -30,6 +30,8 @@ public class RecipeHandler {
 			for (ItemStack stack : OreDictionary.getOres("ingotSilicon"))
 				GameRegistry.addSmelting(ModItems.PURE_QUARTZ, stack, 0.5f);
 		}
+		
+		GameRegistry.addSmelting(Items.ROTTEN_FLESH, new ItemStack(ModItems.LEATHER_SCRAPS), 0);
 	}
 
 	public static void registerMetaCrafting() {
