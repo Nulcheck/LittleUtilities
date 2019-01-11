@@ -18,7 +18,8 @@ public class ModBlocks {
 	public static final Block CONDENSER = new CondenserBlock("lu_condenser", Material.ROCK).setHardness(1.5f);
 	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", Material.IRON).setHardness(1.2f);
 	public static final Block AQUA_RESERVOIR = new AquaReservoir("aqua_reservoir", Material.IRON).setHardness(1f);
-	public static final Block MAGMA_RESERVOIR = new MagmaReservoir("magma_reservoir", Material.IRON).setHardness(1f).setLightLevel(1f);
+	public static final Block MAGMA_RESERVOIR = new MagmaReservoir("magma_reservoir", Material.IRON).setHardness(1f)
+			.setLightLevel(1f);
 
 	//// NORMAL
 	public static final Block GOLD_BARS = new MetalBarsBlock("gold_bars", Material.IRON, true);
@@ -41,19 +42,22 @@ public class ModBlocks {
 			.setHardness(1f);
 	public static final Block NETHER_STAR_BLOCK = new NetherStarBlock("nether_star_block", Material.GLASS)
 			.setHardness(2f);
-	public static final Block GUNPOWDER_BLOCK = new BoundsBlock("gunpowder_block", Material.SAND, 0.0625d)
+	public static final Block GUNPOWDER_BLOCK = new GunpowderBlock("gunpowder_block", Material.SAND, 0.0625d)
 			.setHardness(0.5f);
 	public static final Block FLINT_BLOCK = new BlockBase("flint_block", Material.CLAY).setHardness(0.7f);
-	public static final Block PAPER_BLOCK = new BlockBase("paper_block", Material.GROUND).setHardness(0.6f);
+	public static final Block PAPER_BLOCK = new PaperBlock("paper_block", Material.GROUND).setHardness(0.6f);
 	public static final Block ENDER_EYE_BLOCK = new EnderEyeBlock("ender_eye_block", Material.ROCK).setHardness(1f);
 	public static final Block MAGMA_CREAM_BLOCK = new BlockBase("magma_cream_block", Material.CLAY).setLightLevel(0.45f)
 			.setHardness(0.8f);
 	public static final Block FEATHER_BLOCK = new FeatherBlock("feather_block", Material.CLOTH).setHardness(0.5f);
-	public static final Block EGG_BLOCK = new BlockBase("egg_block", Material.WOOD).setHardness(0.5f);
+	public static final Block EGG_BLOCK = new EggBlock("egg_block", Material.GROUND).setHardness(0.5f);
 	public static final Block SUGAR_BLOCK = new BoundsBlock("sugar_block", Material.SAND, 0.0625d).setHardness(0.5f);
 	public static final Block FERMENTED_SPIDER_EYE_BLOCK = new BlockBase("fermented_spider_eye_block", Material.CLAY)
 			.setHardness(0.6f);
-	/*public static final Block GLISTERING_MELON = new BlockBase("glistering_melon", Material.CLAY).setHardness(0.6f);*/
+	/*
+	 * public static final Block GLISTERING_MELON = new
+	 * BlockBase("glistering_melon", Material.CLAY).setHardness(0.6f);
+	 */
 	public static final Block BONE_BLOCK = new BoneBlock("bone_block", Material.ROCK).setHardness(1f);
 
 	// USEABLE BLOCKS
@@ -90,18 +94,27 @@ public class ModBlocks {
 	public static final Block ROTTEN_FLESH_BLOCK = ((EdibleBlock) new EdibleBlock("rotten_flesh_block", Material.CLAY,
 			4, 0.1f)).setPotionEffect(MobEffects.HUNGER, 30, 0, 0.8f).setHardness(0.8f);
 	public static final Block APPLE_BLOCK = new EdibleBlock("apple_block", Material.CLAY, 4, 0.3f).setHardness(0.9f);
-	/*public static final Block GOLDEN_APPLE_BLOCK = new EdibleBlock("golden_apple_block", Material.CLAY, 4, 0.3f)
-			.setHardness(0.9f);*/
+	/*
+	 * public static final Block GOLDEN_APPLE_BLOCK = new
+	 * EdibleBlock("golden_apple_block", Material.CLAY, 4, 0.3f)
+	 * .setHardness(0.9f);
+	 */
 	public static final Block BREAD_BLOCK = new EdibleBlock("bread_block", Material.CLAY, 5, 0.6f).setHardness(0.6f);
 	public static final Block COOKIE_BLOCK = new EdibleBlock("cookie_block", Material.CLAY, 2, 0.1f).setHardness(0.5f);
 	public static final Block SPIDER_EYE_BLOCK = ((EdibleBlock) new EdibleBlock("spider_eye_block", Material.CLAY, 2,
 			0.8f)).setPotionEffect(MobEffects.POISON, 30, 0, 1f).setHardness(0.8f);
 	public static final Block CARROT_BLOCK = new EdibleBlock("carrot_block", Material.CLAY, 4, 0.6f).setHardness(0.8f);
-	/*public static final Block GOLDEN_CARROT_BLOCK = new EdibleBlock("golden_carrot_block", Material.CLAY, 4, 0.6f)
-			.setHardness(0.8f);*/
+	/*
+	 * public static final Block GOLDEN_CARROT_BLOCK = new
+	 * EdibleBlock("golden_carrot_block", Material.CLAY, 4, 0.6f)
+	 * .setHardness(0.8f);
+	 */
 	public static final Block POTATO_BLOCK = new EdibleBlock("potato_block", Material.CLAY, 1, 0.3f).setHardness(0.8f);
-	/*public static final Block POISONOUS_POTATO_BLOCK = new EdibleBlock("poisonous_potato_block", Material.CLAY, 1, 0.3f)
-			.setHardness(0.8f);*/
+	/*
+	 * public static final Block POISONOUS_POTATO_BLOCK = new
+	 * EdibleBlock("poisonous_potato_block", Material.CLAY, 1, 0.3f)
+	 * .setHardness(0.8f);
+	 */
 	public static final Block BAKED_POTATO_BLOCK = new EdibleBlock("baked_potato_block", Material.CLAY, 6, 0.6f)
 			.setHardness(0.6f);
 
