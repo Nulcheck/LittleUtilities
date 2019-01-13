@@ -30,4 +30,4 @@ Contribution to this repository means that you are granting me rights over the c
 
 Create addon mods if you want! If you see something that can be improved or a bug that I don't know how to fix, tell me. Submit a Pull Request! One thing: Don't steal please! An enormous amount of effort and time went into this and it's not ok for someone to take this and call it their own.
 
-© 2017-2018 MCE626
+© 2017-2019 MCE626
