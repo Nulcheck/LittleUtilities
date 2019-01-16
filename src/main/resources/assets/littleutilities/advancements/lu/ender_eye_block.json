@@ -17,7 +17,7 @@
     },
 	"criteria": {
 		"item": {
-			"trigger": "minecraft:inventory_changed",
+			"trigger": "littleutilities:condense_ender_eye",
 			"conditions": {
 				"items": [{
 					"item": "littleutilities:ender_eye_block"

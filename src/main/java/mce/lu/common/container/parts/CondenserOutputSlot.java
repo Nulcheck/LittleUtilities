@@ -1,8 +1,10 @@
 package mce.lu.common.container.parts;
 
 import mce.lu.common.core.recipes.CondenserRecipes;
+import mce.lu.common.event.trigger.ModTriggers;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -79,5 +81,6 @@ public class CondenserOutputSlot extends Slot {
 		FMLCommonHandler.instance().firePlayerCraftingEvent(thePlayer, stack, thePlayer.inventory);
 
 		// Custom Achievements/Advancements below
+		// ModTriggers.CONDENSE_GHAST_TEAR.trigger((EntityPlayerMP) thePlayer); // Can't cast SPlayer to MPlayer 
 	}
 }

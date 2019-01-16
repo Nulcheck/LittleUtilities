@@ -17,7 +17,7 @@
     },
 	"criteria": {
 		"item": {
-			"trigger": "minecraft:inventory_changed",
+			"trigger": "littleutilities:condense_ghast_tear",
 			"conditions": {
 				"items": [{
 					"item": "littleutilities:ghast_tear_block"

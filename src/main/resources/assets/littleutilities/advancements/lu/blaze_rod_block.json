@@ -17,7 +17,7 @@
     },
 	"criteria": {
 		"item": {
-			"trigger": "minecraft:inventory_changed",
+			"trigger": "littleutilities:condense_blaze_rod",
 			"conditions": {
 				"items": [{
 					"item": "littleutilities:blaze_rod_block"

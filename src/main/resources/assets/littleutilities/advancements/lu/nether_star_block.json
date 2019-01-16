@@ -17,7 +17,7 @@
     },
 	"criteria": {
 		"item": {
-			"trigger": "minecraft:inventory_changed",
+			"trigger": "littleutilities:condense_nether_star",
 			"conditions": {
 				"items": [{
 					"item": "littleutilities:nether_star_block"

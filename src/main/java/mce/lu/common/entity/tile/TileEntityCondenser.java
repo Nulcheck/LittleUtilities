@@ -237,7 +237,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 		if (side == EnumFacing.DOWN)
 			return SLOT_OUTPUT;
 		else
-			return side == EnumFacing.UP ? SLOT_INPUT : SLOT_OUTPUT;
+			return SLOT_INPUT;
 	}
 
 	public boolean canInsertItem(int index, ItemStack stack, EnumFacing dir) {
