@@ -15,7 +15,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemBase extends Item implements IModelRegister {
 	public ItemBase(String name) {
@@ -40,11 +39,8 @@ public class ItemBase extends Item implements IModelRegister {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
 		if (stack.getItem() == ModItems.PURE_QUARTZ) {
-			if (!OreDictionary.doesOreNameExist("itemSilicon") || !OreDictionary.doesOreNameExist("ingotSilicon"))
-				list.add(TextFormatting.RED + "Did not find a mod with silicon.\nCrafting this item is disabled!");
-
-			else if (!LUConfigManager.modConfig.modRecipes.pureQuartzRecipe)
-				list.add(TextFormatting.RED + "Disabled in config!");
+			if (!LUConfigManager.modConfig.modRecipes.pureQuartzRecipe)
+				list.add(TextFormatting.RED + "Smelting into silicon disabled in config!");
 		}
 
 		else if (!LUConfigManager.modConfig.modRecipes.leatherScraps && stack.getItem() == ModItems.LEATHER_SCRAPS)

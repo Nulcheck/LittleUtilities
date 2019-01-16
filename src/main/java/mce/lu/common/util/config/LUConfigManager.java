@@ -125,7 +125,7 @@ public class LUConfigManager {
 
 		public static class Recipes {
 			@Name("Pure Quartz")
-			@Comment("Should you be able to craft pure quartz? (To get silicon if a mod has it)")
+			@Comment("Should you be able to smelt pure quartz into silicon?")
 			@RequiresMcRestart
 			public boolean pureQuartzRecipe = true;
 

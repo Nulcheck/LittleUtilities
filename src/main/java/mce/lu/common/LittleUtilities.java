@@ -44,6 +44,7 @@ public class LittleUtilities {
 		ConfigManager.sync(References.MOD_ID, Type.INSTANCE);
 		RecipeHandler.registerSmelting();
 		RecipeHandler.registerMetaCrafting();
+		RecipeHandler.registerMetaSmelting();
 	}
 
 	@EventHandler

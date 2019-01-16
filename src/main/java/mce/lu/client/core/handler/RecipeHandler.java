@@ -2,6 +2,7 @@ package mce.lu.client.core.handler;
 
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
+import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -20,17 +21,19 @@ public class RecipeHandler {
 	static Block block;
 
 	public static void registerSmelting() {
-		if (OreDictionary.doesOreNameExist("itemSilicon") || OreDictionary.doesOreNameExist("ingotSilicon")) {
-			GameRegistry.addSmelting(Blocks.SANDSTONE, new ItemStack(ModItems.PURE_QUARTZ), 0.1f);
-			GameRegistry.addSmelting(Blocks.RED_SANDSTONE, new ItemStack(ModItems.PURE_QUARTZ), 0.1f);
-			
-			for (ItemStack stack : OreDictionary.getOres("itemSilicon"))
-				GameRegistry.addSmelting(ModItems.PURE_QUARTZ, stack, 0.5f);
+		GameRegistry.addSmelting(Blocks.SANDSTONE, new ItemStack(ModItems.PURE_QUARTZ), 0.1f);
+		GameRegistry.addSmelting(Blocks.RED_SANDSTONE, new ItemStack(ModItems.PURE_QUARTZ), 0.1f);
 
-			for (ItemStack stack : OreDictionary.getOres("ingotSilicon"))
-				GameRegistry.addSmelting(ModItems.PURE_QUARTZ, stack, 0.5f);
+		if (OreDictionary.doesOreNameExist("itemSilicon") || OreDictionary.doesOreNameExist("ingotSilicon")) {
+			if (LUConfigManager.modConfig.modRecipes.pureQuartzRecipe) {
+				for (ItemStack stack : OreDictionary.getOres("itemSilicon"))
+					GameRegistry.addSmelting(ModItems.PURE_QUARTZ, stack, 0.5f);
+
+				for (ItemStack stack : OreDictionary.getOres("ingotSilicon"))
+					GameRegistry.addSmelting(ModItems.PURE_QUARTZ, stack, 0.5f);
+			}
 		}
-		
+
 		GameRegistry.addSmelting(Items.ROTTEN_FLESH, new ItemStack(ModItems.LEATHER_SCRAPS), 0);
 	}
 
@@ -45,8 +48,8 @@ public class RecipeHandler {
 					new ItemStack(Items.COOKED_PORKCHOP, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.COOKED_PORK_BLOCK, 1, i)));
 
-			GameRegistry.addShapelessRecipe(new ResourceLocation("BEEF_BLOCK" + i), group, new ItemStack(Items.BEEF, 9 - i),
-					Ingredient.fromStacks(new ItemStack(ModBlocks.BEEF_BLOCK, 1, i)));
+			GameRegistry.addShapelessRecipe(new ResourceLocation("BEEF_BLOCK" + i), group,
+					new ItemStack(Items.BEEF, 9 - i), Ingredient.fromStacks(new ItemStack(ModBlocks.BEEF_BLOCK, 1, i)));
 
 			GameRegistry.addShapelessRecipe(new ResourceLocation("COOKED_BEEF_BLOCK" + i), group,
 					new ItemStack(Items.COOKED_BEEF, 9 - i),
@@ -59,7 +62,7 @@ public class RecipeHandler {
 			GameRegistry.addShapelessRecipe(new ResourceLocation("COOKED_CHICKEN_BLOCK" + i), group,
 					new ItemStack(Items.COOKED_CHICKEN, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.COOKED_CHICKEN_BLOCK, 1, i)));
-			
+
 			GameRegistry.addShapelessRecipe(new ResourceLocation("MUTTON_BLOCK" + i), group,
 					new ItemStack(Items.MUTTON, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.MUTTON_BLOCK, 1, i)));
@@ -67,7 +70,7 @@ public class RecipeHandler {
 			GameRegistry.addShapelessRecipe(new ResourceLocation("COOKED_MUTTON_BLOCK" + i), group,
 					new ItemStack(Items.COOKED_MUTTON, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.COOKED_MUTTON_BLOCK, 1, i)));
-			
+
 			GameRegistry.addShapelessRecipe(new ResourceLocation("RABBIT_BLOCK" + i), group,
 					new ItemStack(Items.RABBIT, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.RABBIT_BLOCK, 1, i)));
@@ -135,6 +138,38 @@ public class RecipeHandler {
 			GameRegistry.addShapelessRecipe(new ResourceLocation("ENDER_PEARL_BLOCK" + i), group,
 					new ItemStack(Items.ENDER_PEARL, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.ENDER_PEARL_BLOCK, 1, i)));
+		}
+	}
+
+	public static void registerMetaSmelting() {
+		// Meta Recipes
+		for (int i = 0; i < 9; i++) {
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.PORK_BLOCK, 1, i),
+					new ItemStack(ModBlocks.COOKED_PORK_BLOCK, 1, i), 0f);
+
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.BEEF_BLOCK, 1, i),
+					new ItemStack(ModBlocks.COOKED_BEEF_BLOCK, 1, i), 0f);
+
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.CHICKEN_BLOCK, 1, i),
+					new ItemStack(ModBlocks.COOKED_CHICKEN_BLOCK, 1, i), 0f);
+
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.RABBIT_BLOCK, 1, i),
+					new ItemStack(ModBlocks.COOKED_RABBIT_BLOCK, 1, i), 0f);
+
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.MUTTON_BLOCK, 1, i),
+					new ItemStack(ModBlocks.COOKED_MUTTON_BLOCK, 1, i), 0f);
+
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.COD_BLOCK, 1, i),
+					new ItemStack(ModBlocks.COOKED_COD_BLOCK, 1, i), 0f);
+
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.SALMON_BLOCK, 1, i),
+					new ItemStack(ModBlocks.COOKED_SALMON_BLOCK, 1, i), 0f);
+
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.POTATO_BLOCK, 1, i),
+					new ItemStack(ModBlocks.BAKED_POTATO_BLOCK, 1, i), 0f);
+
+			GameRegistry.addSmelting(new ItemStack(ModBlocks.ROTTEN_FLESH_BLOCK, 1, i),
+					new ItemStack(ModItems.LEATHER_SCRAPS, 9), 0f);
 		}
 	}
 }

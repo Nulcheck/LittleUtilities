@@ -15,11 +15,11 @@ public class PureQuartzRecipe implements IConditionFactory {
 	public BooleanSupplier parse(JsonContext context, JsonObject json) {
 		if (OreDictionary.doesOreNameExist("ingotSilicon") || OreDictionary.doesOreNameExist("itemSilicon")) {
 			LittleUtilities.logger.log(Level.INFO,
-					"Found a mod with silicon in the ore dictionary. Enabling pure quartz.");
+					"Found a mod with silicon in the ore dictionary.");
 			return () -> LUConfigManager.modConfig.modRecipes.pureQuartzRecipe;
 		} else {
 			LittleUtilities.logger.log(Level.INFO,
-					"Did not find a mod with silicon in the ore dictionary. Disabling pure quartz.");
+					"Did not find a mod with silicon in the ore dictionary.");
 			return () -> false;
 		}
 	}
