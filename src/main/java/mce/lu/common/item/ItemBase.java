@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 import mce.lu.client.core.proxy.ClientProxy;
 import mce.lu.client.render.IModelRegister;
 import mce.lu.common.LittleUtilities;
-import mce.lu.common.block.ModBlocks;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -53,15 +52,5 @@ public class ItemBase extends Item implements IModelRegister {
 
 		else if (!LUConfigManager.modConfig.modRecipes.zombieCuringKit && stack.getItem() == ModItems.ZOMBIE_CURING_KIT)
 			list.add(TextFormatting.RED + "Disabled in config!");
-	}
-
-	// 200 smelts 1 item
-	@Override
-	public int getItemBurnTime(ItemStack stack) {
-		if (stack.getItem() == Item.getItemFromBlock(ModBlocks.PAPER_BLOCK))
-			return 200;
-		else if (stack.getItem() == Item.getItemFromBlock(ModBlocks.BLAZE_ROD_BLOCK))
-			return 21600;
-		return -1;
 	}
 }

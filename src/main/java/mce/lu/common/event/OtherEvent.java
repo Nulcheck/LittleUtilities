@@ -10,6 +10,7 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +23,7 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -48,6 +50,18 @@ public class OtherEvent {
 			if (e.getEntityLiving() instanceof EntityPolarBear)
 				e.getEntityLiving().dropItem(ModItems.LEATHER_SCRAPS, 3);
 		}
+	}
+
+	@SubscribeEvent
+	public static void fuelBurnTime(FurnaceFuelBurnTimeEvent e) {
+		Item item = e.getItemStack().getItem();
+
+		if (item == Item.getItemFromBlock(ModBlocks.PAPER_BLOCK))
+			e.setBurnTime(200);
+		else if (item == Item.getItemFromBlock(ModBlocks.BLAZE_ROD_BLOCK))
+			e.setBurnTime(21600);
+		else
+			e.setBurnTime(-1);
 	}
 
 	@SubscribeEvent
