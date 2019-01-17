@@ -24,6 +24,7 @@ tile.pure_quartz_block.name=Pure Quartz Block
 //// CONDENSED ITEM BLOCKS
 tile.ghast_tear_block.name=Ghast Tear Block
 tile.blaze_rod_block.name=Blaze Rod Block
+tile.blaze_powder_block.name=Blaze Powder Block
 tile.nether_star_block.name=Nether Star Block
 tile.gunpowder_block.name=Gunpowder Block
 tile.flint_block.name=Flint Block
@@ -34,7 +35,25 @@ tile.feather_block.name=Feather Block
 tile.egg_block.name=Egg Block
 tile.sugar_block.name=Sugar Block
 tile.fermented_spider_eye_block.name=Fermented Spider Eye Block
+tile.glistering_melon_block.name=Glistering Melon Block
 tile.bone_block.name=Bone Block
+tile.charcoal_block.name=Charcoal Block
+
+// DYES
+tile.dye_black_block.name=Ink Sac Block
+tile.dye_red_block.name=Rose Red Block
+tile.dye_green_block.name=Cactus Green Block
+tile.dye_brown_block.name=Cocoa Beans Block
+tile.dye_purple_block.name=Purple Dye Block
+tile.dye_cyan_block.name=Cyan Dye Block
+tile.dye_light_gray_block.name=Light Gray Dye Block
+tile.dye_gray_block.name=Gray Dye Block
+tile.dye_pink_block.name=Pink Dye Block
+tile.dye_lime_block.name=Lime Dye Block
+tile.dye_yellow_block.name=Dandelion Yellow Block
+tile.dye_light_blue_block.name=Light Blue Dye Block
+tile.dye_magenta_block.name=Magenta Dye Block
+tile.dye_orange_block.name=Orange Dye Block
 
 // USEABLE BLOCKS
 tile.ender_pearl_block.name=Ender Pearl Block
@@ -58,20 +77,32 @@ tile.tropical_fish_block.name=Tropical Fish Block
 tile.pufferfish_block.name=Pufferfish Block
 tile.rotten_flesh_block.name=Rotten Flesh Block
 tile.apple_block.name=Apple Block
+tile.golden_apple_block.name=§bGolden Apple Block§r
+tile.notch_apple_block.name=§dGolden Apple Block§r
 tile.bread_block.name=Bread Block
 tile.cookie_block.name=Cookie Block
 tile.spider_eye_block.name=Spider Eye Block
 tile.carrot_block.name=Carrot Block
+tile.golden_carrot_block.name=Golden Carrot
 tile.potato_block.name=Potato Block
 tile.baked_potato_block.name=Baked Potato Block
+tile.poisonous_potato_block.name=Poisonous Potato Block
+tile.beetroot_block.name=Beetroot Block
 
 //// COMPACT BLOCKS
 tile.compact_cobble.name=Compact Cobblestone
 tile.compact_dirt.name=Compact Dirt
 tile.compact_gravel.name=Compact Gravel
 tile.compact_netherrack.name=Compact Netherrack
+tile.compact_granite.name=Compact Granite
+tile.compact_diorite.name=Compact Diorite
+tile.compact_andesite.name=Compact Andesite
+tile.compact_soul_sand.name=Compact Soul Sand
+tile.compact_obsidian.name=Compact Obsidian
+tile.compact_dragon_egg.name=Compact Dragon Egg
 
 ////// ITEMS
+item.lu_wrench.name=Wrench
 item.sponge.name=Sponge
 item.pure_quartz.name=Pure Quartz
 item.leather_scraps.name=Leather Scraps

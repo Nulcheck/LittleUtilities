@@ -18,7 +18,7 @@
     "p": {
       "type": "minecraft:item_nbt",
       "item": "minecraft:potion",
-      "nbt": { "Potion": "minecraft:long_weakness" }
+      "nbt": { "Potion": "minecraft:weakness" }
     },
     "b": {
       "item": "minecraft:blaze_powder"

@@ -12,12 +12,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ModItems {
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 
+	public static final Item WRENCH = new Wrench("lu_wrench");
 	public static final Item SPONGE = new ItemBase("sponge");
 	public static final Item PURE_QUARTZ = new ItemBase("pure_quartz");
 	public static final Item LEATHER_SCRAPS = new ItemBase("leather_scraps");
 	public static final Item ZOMBIE_CURING_KIT = new ItemBase("zombie_curing_kit");
 	public static final Item HEATING_ELEMENT = new ItemBase("heating_element");
-	public static final Item WRENCH = new Wrench("lu_wrench");
 
 	// public static final Item OBSIDIAN_BOAT = new
 	// ObsidianBoat("obsidian_boat");

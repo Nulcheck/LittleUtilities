@@ -12,8 +12,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class PufferfishBlock extends EdibleBlock {
-	public PufferfishBlock(String name, Material mat, int lvl, float sat) {
+public class GoldenAppleBlock extends EdibleBlock {
+	public GoldenAppleBlock(String name, Material mat, int lvl, float sat) {
 		super(name, mat, lvl, sat);
 	}
 
@@ -37,22 +37,17 @@ public class PufferfishBlock extends EdibleBlock {
 			return false;
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-		this.applyEffects(world, pos, entity);
-	}
-
-	@Override
-	public void onEntityWalk(World world, BlockPos pos, Entity entity) {
-		this.applyEffects(world, pos, entity);
-	}
-
 	private void applyEffects(World world, BlockPos pos, Entity entity) {
 		try {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 1200, 3));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 300, 2));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 300, 1));
-			super.onEntityWalk(world, pos, entity);
+			if (world.getBlockState(pos).getBlock() == ModBlocks.NOTCH_APPLE_BLOCK) {
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 400, 1));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 6000, 0));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 6000, 0));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 2400, 3));
+			} else {
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100, 1));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 2400, 0));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

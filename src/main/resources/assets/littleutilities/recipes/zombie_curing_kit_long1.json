@@ -7,8 +7,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     " gp",
-    "gbg",
-    "ag "
+    "gag",
+    "bg "
   ],
   "key": {
     "a": {
@@ -18,7 +18,7 @@
     "p": {
       "type": "minecraft:item_nbt",
       "item": "minecraft:potion",
-      "nbt": { "Potion": "minecraft:weakness" }
+      "nbt": { "Potion": "minecraft:long_weakness" }
     },
     "b": {
       "item": "minecraft:blaze_powder"

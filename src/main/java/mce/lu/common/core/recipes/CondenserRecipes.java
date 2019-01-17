@@ -16,8 +16,10 @@ public class CondenserRecipes {
 	private final Map<ItemStack, ItemStack> recipeMap = Maps.<ItemStack, ItemStack>newHashMap();
 	private final Map<ItemStack, Float> xpMap = Maps.<ItemStack, Float>newHashMap();
 
-	public static CondenserRecipes instance() { return base; }
-	
+	public static CondenserRecipes instance() {
+		return base;
+	}
+
 	public CondenserRecipes() {
 		// Condensed Items
 		this.addRecipe(new ItemStack(Items.GHAST_TEAR, 9), new ItemStack(ModBlocks.GHAST_TEAR_BLOCK), 5f);
@@ -43,7 +45,8 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.BREAD, 9), new ItemStack(ModBlocks.BREAD_BLOCK), 0.6f);
 		this.addRecipe(new ItemStack(Items.COOKIE, 9), new ItemStack(ModBlocks.COOKIE_BLOCK), 0.6f);
 		this.addRecipe(new ItemStack(Items.SPIDER_EYE, 9), new ItemStack(ModBlocks.SPIDER_EYE_BLOCK), 0.4f);
-		this.addRecipe(new ItemStack(Items.FERMENTED_SPIDER_EYE, 9), new ItemStack(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK), 0.5f);
+		this.addRecipe(new ItemStack(Items.FERMENTED_SPIDER_EYE, 9),
+				new ItemStack(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK), 0.5f);
 		this.addRecipe(new ItemStack(Items.CARROT, 9), new ItemStack(ModBlocks.CARROT_BLOCK), 0.2f);
 		this.addRecipe(new ItemStack(Items.POTATO, 9), new ItemStack(ModBlocks.POTATO_BLOCK), 0.2f);
 		this.addRecipe(new ItemStack(Items.BAKED_POTATO, 9), new ItemStack(ModBlocks.BAKED_POTATO_BLOCK), 0.2f);
@@ -60,9 +63,31 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.BONE, 9), new ItemStack(ModBlocks.BONE_BLOCK), 0.3f);
 		this.addRecipe(new ItemStack(ModItems.SPONGE, 9), new ItemStack(Blocks.SPONGE), 0.5f);
 		this.addRecipe(new ItemStack(ModItems.PURE_QUARTZ, 9), new ItemStack(ModBlocks.PURE_QUARTZ_BLOCK), 0.3f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 0), new ItemStack(ModBlocks.DYE_BLACK_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 1), new ItemStack(ModBlocks.DYE_RED_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 2), new ItemStack(ModBlocks.DYE_GREEN_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 3), new ItemStack(ModBlocks.DYE_BROWN_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 5), new ItemStack(ModBlocks.DYE_PURPLE_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 6), new ItemStack(ModBlocks.DYE_CYAN_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 7), new ItemStack(ModBlocks.DYE_LIGHT_GRAY_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 8), new ItemStack(ModBlocks.DYE_GRAY_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 9), new ItemStack(ModBlocks.DYE_PINK_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 10), new ItemStack(ModBlocks.DYE_LIME_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 11), new ItemStack(ModBlocks.DYE_YELLOW_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 12), new ItemStack(ModBlocks.DYE_LIGHT_BLUE_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 13), new ItemStack(ModBlocks.DYE_MAGENTA_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.DYE, 9, 14), new ItemStack(ModBlocks.DYE_ORANGE_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(Items.GOLDEN_APPLE, 9, 0), new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK), 3f);
+		this.addRecipe(new ItemStack(Items.GOLDEN_APPLE, 9, 1), new ItemStack(ModBlocks.NOTCH_APPLE_BLOCK), 3f);
+		this.addRecipe(new ItemStack(Items.GOLDEN_CARROT, 9), new ItemStack(ModBlocks.GOLDEN_CARROT_BLOCK), 3f);
+		this.addRecipe(new ItemStack(Items.SPECKLED_MELON, 9), new ItemStack(ModBlocks.GLISTERING_MELON), 3f);
+		this.addRecipe(new ItemStack(Items.COAL, 9, 1), new ItemStack(ModBlocks.CHARCOAL_BLOCK), 0.2f);
+		this.addRecipe(new ItemStack(Items.BLAZE_POWDER), new ItemStack(ModBlocks.BLAZE_POWDER_BLOCK), 2f);
+		this.addRecipe(new ItemStack(Items.POISONOUS_POTATO, 9), new ItemStack(ModBlocks.POISONOUS_POTATO_BLOCK), 0.3f);
+		this.addRecipe(new ItemStack(Items.BEETROOT, 9), new ItemStack(ModBlocks.BEETROOT_BLOCK), 0.5f);
 
 		// Vanilla Stuff (Idk why you'd use this.)
-		this.addRecipe(new ItemStack(Items.COAL, 9, 0), new ItemStack(Blocks.COAL_BLOCK), 0.5f);
+		this.addRecipe(new ItemStack(Items.COAL, 9, 0), new ItemStack(Blocks.COAL_BLOCK), 0.2f);
 		this.addRecipe(new ItemStack(Items.IRON_INGOT, 9), new ItemStack(Blocks.IRON_BLOCK), 0.5f);
 		this.addRecipe(new ItemStack(Items.GOLD_INGOT, 9), new ItemStack(Blocks.GOLD_BLOCK), 0.5f);
 		this.addRecipe(new ItemStack(Items.DYE, 9, 4), new ItemStack(Blocks.LAPIS_BLOCK), 0.5f);
@@ -84,6 +109,8 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Blocks.ICE, 9), new ItemStack(Blocks.PACKED_ICE), 0.3f);
 		this.addRecipe(new ItemStack(Blocks.SAND, 9, 0), new ItemStack(Blocks.SANDSTONE, 1, 0), 0.5f);
 		this.addRecipe(new ItemStack(Blocks.SAND, 9, 1), new ItemStack(Blocks.SANDSTONE, 1, 1), 0.5f);
+		this.addRecipe(new ItemStack(Blocks.BROWN_MUSHROOM, 9, 0), new ItemStack(Blocks.BROWN_MUSHROOM_BLOCK), 0.2f);
+		this.addRecipe(new ItemStack(Blocks.RED_MUSHROOM, 9, 0), new ItemStack(Blocks.RED_MUSHROOM_BLOCK), 0.2f);
 
 		// Compact Blocks
 		this.addRecipe(new ItemStack(Blocks.COBBLESTONE, 9), new ItemStack(ModBlocks.COMPACT_COBBLE), 0.1f);
@@ -92,6 +119,12 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Blocks.GRASS_PATH, 9), new ItemStack(ModBlocks.COMPACT_DIRT), 0.1f);
 		this.addRecipe(new ItemStack(Blocks.GRAVEL, 9), new ItemStack(ModBlocks.COMPACT_GRAVEL), 0.1f);
 		this.addRecipe(new ItemStack(Blocks.NETHERRACK, 9), new ItemStack(ModBlocks.COMPACT_NETHERRACK), 0.2f);
+		this.addRecipe(new ItemStack(Blocks.DRAGON_EGG, 9), new ItemStack(ModBlocks.COMPACT_DRAGON_EGG), 15f);
+		this.addRecipe(new ItemStack(Blocks.STONE, 9, 1), new ItemStack(ModBlocks.COMPACT_GRANITE), 1f);
+		this.addRecipe(new ItemStack(Blocks.STONE, 9, 3), new ItemStack(ModBlocks.COMPACT_DIORITE), 1f);
+		this.addRecipe(new ItemStack(Blocks.STONE, 9, 5), new ItemStack(ModBlocks.COMPACT_ANDESITE), 1f);
+		this.addRecipe(new ItemStack(Blocks.SOUL_SAND, 9), new ItemStack(ModBlocks.COMPACT_SOUL_SAND), 2f);
+		this.addRecipe(new ItemStack(Blocks.OBSIDIAN, 9), new ItemStack(ModBlocks.COMPACT_OBSIDIAN), 4.5f);
 	}
 
 	/**

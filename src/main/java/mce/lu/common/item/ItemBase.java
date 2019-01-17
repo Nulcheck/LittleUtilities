@@ -38,10 +38,8 @@ public class ItemBase extends Item implements IModelRegister {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
-		if (stack.getItem() == ModItems.PURE_QUARTZ) {
-			if (!LUConfigManager.modConfig.modRecipes.pureQuartzRecipe)
-				list.add(TextFormatting.RED + "Smelting into silicon disabled in config!");
-		}
+		if (!LUConfigManager.modConfig.modRecipes.pureQuartzRecipe && stack.getItem() == ModItems.PURE_QUARTZ)
+			list.add(TextFormatting.RED + "Smelting into silicon disabled in config!");
 
 		else if (!LUConfigManager.modConfig.modRecipes.leatherScraps && stack.getItem() == ModItems.LEATHER_SCRAPS)
 			list.add(TextFormatting.RED + "Disabled in config!");

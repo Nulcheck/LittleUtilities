@@ -40,6 +40,8 @@ public class ModBlocks {
 			.setLightLevel(0.4f).setHardness(1f);
 	public static final Block BLAZE_ROD_BLOCK = new BlazeRodBlock("blaze_rod_block", Material.GLASS).setLightLevel(1f)
 			.setHardness(1f);
+	public static final Block BLAZE_POWDER_BLOCK = new BlazeRodBlock("blaze_powder_block", Material.CLAY)
+			.setLightLevel(8f);
 	public static final Block NETHER_STAR_BLOCK = new NetherStarBlock("nether_star_block", Material.GLASS)
 			.setHardness(2f);
 	public static final Block GUNPOWDER_BLOCK = new GunpowderBlock("gunpowder_block", Material.SAND, 0.0625d)
@@ -54,11 +56,27 @@ public class ModBlocks {
 	public static final Block SUGAR_BLOCK = new BoundsBlock("sugar_block", Material.SAND, 0.0625d).setHardness(0.5f);
 	public static final Block FERMENTED_SPIDER_EYE_BLOCK = new BlockBase("fermented_spider_eye_block", Material.CLAY)
 			.setHardness(0.6f);
-	/*
-	 * public static final Block GLISTERING_MELON = new
-	 * BlockBase("glistering_melon", Material.CLAY).setHardness(0.6f);
-	 */
+	public static final Block GLISTERING_MELON = new BlockBase("glistering_melon_block", Material.CLAY).setHardness(0.6f);
 	public static final Block BONE_BLOCK = new BoneBlock("bone_block", Material.ROCK).setHardness(1f);
+	public static final Block CHARCOAL_BLOCK = new BlockBase("charcoal_block", Material.ROCK);
+
+	// DYES
+	public static final Block DYE_BLACK_BLOCK = new BlockBase("dye_black_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_RED_BLOCK = new BlockBase("dye_red_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_GREEN_BLOCK = new BlockBase("dye_green_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_BROWN_BLOCK = new BlockBase("dye_brown_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_PURPLE_BLOCK = new BlockBase("dye_purple_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_CYAN_BLOCK = new BlockBase("dye_cyan_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_LIGHT_GRAY_BLOCK = new BlockBase("dye_light_gray_block", Material.CLAY)
+			.setHardness(0.3f);
+	public static final Block DYE_GRAY_BLOCK = new BlockBase("dye_gray_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_PINK_BLOCK = new BlockBase("dye_pink_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_LIME_BLOCK = new BlockBase("dye_lime_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_YELLOW_BLOCK = new BlockBase("dye_yellow_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_LIGHT_BLUE_BLOCK = new BlockBase("dye_light_blue_block", Material.CLAY)
+			.setHardness(0.3f);
+	public static final Block DYE_MAGENTA_BLOCK = new BlockBase("dye_magenta_block", Material.CLAY).setHardness(0.3f);
+	public static final Block DYE_ORANGE_BLOCK = new BlockBase("dye_orange_block", Material.CLAY).setHardness(0.3f);
 
 	// USEABLE BLOCKS
 	public static final Block ENDER_PEARL_BLOCK = new EnderPearlBlock("ender_pearl_block", Material.GLASS)
@@ -94,29 +112,23 @@ public class ModBlocks {
 	public static final Block ROTTEN_FLESH_BLOCK = ((EdibleBlock) new EdibleBlock("rotten_flesh_block", Material.CLAY,
 			4, 0.1f)).setPotionEffect(MobEffects.HUNGER, 30, 0, 0.8f).setHardness(0.8f);
 	public static final Block APPLE_BLOCK = new EdibleBlock("apple_block", Material.CLAY, 4, 0.3f).setHardness(0.9f);
-	/*
-	 * public static final Block GOLDEN_APPLE_BLOCK = new
-	 * EdibleBlock("golden_apple_block", Material.CLAY, 4, 0.3f)
-	 * .setHardness(0.9f);
-	 */
+	public static final Block GOLDEN_APPLE_BLOCK = new GoldenAppleBlock("golden_apple_block", Material.CLAY, 4, 1.2f)
+			.setHardness(0.9f);
+	public static final Block NOTCH_APPLE_BLOCK = new GoldenAppleBlock("notch_apple_block", Material.CLAY, 4, 1.2f)
+			.setHardness(0.9f);
 	public static final Block BREAD_BLOCK = new EdibleBlock("bread_block", Material.CLAY, 5, 0.6f).setHardness(0.6f);
 	public static final Block COOKIE_BLOCK = new EdibleBlock("cookie_block", Material.CLAY, 2, 0.1f).setHardness(0.5f);
 	public static final Block SPIDER_EYE_BLOCK = ((EdibleBlock) new EdibleBlock("spider_eye_block", Material.CLAY, 2,
 			0.8f)).setPotionEffect(MobEffects.POISON, 30, 0, 1f).setHardness(0.8f);
 	public static final Block CARROT_BLOCK = new EdibleBlock("carrot_block", Material.CLAY, 4, 0.6f).setHardness(0.8f);
-	/*
-	 * public static final Block GOLDEN_CARROT_BLOCK = new
-	 * EdibleBlock("golden_carrot_block", Material.CLAY, 4, 0.6f)
-	 * .setHardness(0.8f);
-	 */
+	public static final Block GOLDEN_CARROT_BLOCK = new EdibleBlock("golden_carrot_block", Material.CLAY, 6, 1.2f)
+			.setHardness(0.8f);
 	public static final Block POTATO_BLOCK = new EdibleBlock("potato_block", Material.CLAY, 1, 0.3f).setHardness(0.8f);
-	/*
-	 * public static final Block POISONOUS_POTATO_BLOCK = new
-	 * EdibleBlock("poisonous_potato_block", Material.CLAY, 1, 0.3f)
-	 * .setHardness(0.8f);
-	 */
-	public static final Block BAKED_POTATO_BLOCK = new EdibleBlock("baked_potato_block", Material.CLAY, 6, 0.6f)
+	public static final Block BAKED_POTATO_BLOCK = new EdibleBlock("baked_potato_block", Material.CLAY, 5, 0.6f)
 			.setHardness(0.6f);
+	public static final Block POISONOUS_POTATO_BLOCK = ((EdibleBlock) new EdibleBlock("poisonous_potato_block",
+			Material.CLAY, 2, 0.3f)).setPotionEffect(MobEffects.POISON, 100, 0, 0.6F).setHardness(0.8f);
+	public static final Block BEETROOT_BLOCK = new EdibleBlock("beetroot_block", Material.CLAY, 1, 0.6f);
 
 	//// COMPACT BLOCKS
 	public static final Block COMPACT_COBBLE = new BlockBase("compact_cobble", Material.ROCK).setHardness(2.2f);
@@ -124,6 +136,14 @@ public class ModBlocks {
 	public static final Block COMPACT_GRAVEL = new BlockBase("compact_gravel", Material.CLAY).setHardness(0.9f);
 	public static final Block COMPACT_NETHERRACK = new CompactNetherrackBlock("compact_netherrack", Material.ROCK)
 			.setHardness(0.8f);
+	public static final Block COMPACT_GRANITE = new BlockBase("compact_granite", Material.ROCK).setHardness(2.2f);
+	public static final Block COMPACT_DIORITE = new BlockBase("compact_diorite", Material.ROCK).setHardness(2.2f);
+	public static final Block COMPACT_ANDESITE = new BlockBase("compact_andesite", Material.ROCK).setHardness(2.2f);
+	public static final Block COMPACT_SOUL_SAND = new CompactSoulSand("compact_soul_sand", Material.SAND);
+	public static final Block COMPACT_OBSIDIAN = new BlockBase("compact_obsidian", Material.ROCK).setHardness(50f)
+			.setResistance(2000f);
+	public static final Block COMPACT_DRAGON_EGG = new BlockBase("compact_dragon_egg", Material.DRAGON_EGG)
+			.setHardness(3f).setResistance(20f);
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> e) {
