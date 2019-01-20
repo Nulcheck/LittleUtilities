@@ -122,6 +122,10 @@ public class LUConfigManager {
 		@Name("Blocks/Items")
 		@Comment("Block or item features.")
 		public Features features = new Features();
+		
+		@Name("Loot Generation")
+		@Comment("Dungeon Loot!")
+		public Loot loot = new Loot();
 
 		public static class Recipes {
 			@Name("Pure Quartz")
@@ -158,6 +162,13 @@ public class LUConfigManager {
 			@RangeInt(min = 1, max = 7)
 			@RequiresMcRestart
 			public int snowMelterRange = 3;
+		}
+		
+		public static class Loot {
+			@Name("Pure Quartz")
+			@Comment("Should you be able to find pure quartz in dungeon loot?")
+			@RequiresMcRestart
+			public boolean pureQuartzLoot = true;
 		}
 	}
 

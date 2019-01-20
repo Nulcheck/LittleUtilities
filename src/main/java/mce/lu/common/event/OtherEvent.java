@@ -65,6 +65,36 @@ public class OtherEvent {
 	}
 
 	@SubscribeEvent
+	public static void loadLoot(LootTableLoadEvent e) {
+		LootEntry skullEntry = new LootEntryItem(new ItemStack(Items.SKULL, 1, 0).getItem(), 45, 1, new LootFunction[0],
+				new LootCondition[0], References.MOD_ID + "skullEntry");
+
+		LootEntry curingKitEntry = new LootEntryItem(ModItems.ZOMBIE_CURING_KIT, 40, 1, new LootFunction[0],
+				new LootCondition[0], References.MOD_ID + "curingKitEntry");
+
+		LootEntry pureQuartzEntry = new LootEntryItem(ModItems.PURE_QUARTZ, 35, 3, new LootFunction[0],
+				new LootCondition[0], References.MOD_ID + "pureQuartzEntry");
+
+		if (e.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON)) {
+			e.getTable().getPool("main").addEntry(skullEntry);
+			e.getTable().getPool("main").addEntry(curingKitEntry);
+		}
+
+		if (e.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE)) {
+			e.getTable().getPool("main").addEntry(skullEntry);
+			e.getTable().getPool("main").addEntry(curingKitEntry);
+		}
+
+		if (e.getName().equals(LootTableList.CHESTS_ABANDONED_MINESHAFT)) {
+			e.getTable().getPool("main").addEntry(skullEntry);
+			e.getTable().getPool("main").addEntry(curingKitEntry);
+
+			if (LUConfigManager.modConfig.loot.pureQuartzLoot)
+				e.getTable().getPool("main").addEntry(pureQuartzEntry);
+		}
+	}
+
+	@SubscribeEvent
 	public static void onInteractEvent(PlayerInteractEvent e) {
 		BlockPos pos = e.getPos();
 
@@ -112,36 +142,6 @@ public class OtherEvent {
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.LAVA_BUCKET, 1));
 				}
 			}
-		}
-	}
-
-	@SubscribeEvent
-	public static void loadLoot(LootTableLoadEvent e) {
-		LootEntry skullEntry = new LootEntryItem(new ItemStack(Items.SKULL, 1, 0).getItem(), 45, 1, new LootFunction[0],
-				new LootCondition[0], References.MOD_ID + "skullEntry");
-
-		LootEntry curingKitEntry = new LootEntryItem(ModItems.ZOMBIE_CURING_KIT, 40, 1, new LootFunction[0],
-				new LootCondition[0], References.MOD_ID + "curingKitEntry");
-
-		LootEntry pureQuartzEntry = new LootEntryItem(ModItems.PURE_QUARTZ, 35, 3, new LootFunction[0],
-				new LootCondition[0], References.MOD_ID + "pureQuartzEntry");
-
-		if (e.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON)) {
-			e.getTable().getPool("main").addEntry(skullEntry);
-			e.getTable().getPool("main").addEntry(curingKitEntry);
-		}
-
-		if (e.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE)) {
-			e.getTable().getPool("main").addEntry(skullEntry);
-			e.getTable().getPool("main").addEntry(curingKitEntry);
-		}
-
-		if (e.getName().equals(LootTableList.CHESTS_ABANDONED_MINESHAFT)) {
-			e.getTable().getPool("main").addEntry(skullEntry);
-			e.getTable().getPool("main").addEntry(curingKitEntry);
-
-			if (LUConfigManager.modConfig.modRecipes.pureQuartzRecipe)
-				e.getTable().getPool("main").addEntry(pureQuartzEntry);
 		}
 	}
 }
