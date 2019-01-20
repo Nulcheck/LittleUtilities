@@ -34,7 +34,8 @@ public class RecipeHandler {
 			}
 		}
 
-		GameRegistry.addSmelting(Items.ROTTEN_FLESH, new ItemStack(ModItems.LEATHER_SCRAPS), 0);
+		if (LUConfigManager.modConfig.modRecipes.leatherScraps)
+			GameRegistry.addSmelting(Items.ROTTEN_FLESH, new ItemStack(ModItems.LEATHER_SCRAPS), 0);
 	}
 
 	public static void registerMetaCrafting() {
@@ -169,7 +170,7 @@ public class RecipeHandler {
 					new ItemStack(ModBlocks.BAKED_POTATO_BLOCK, 1, i), 0f);
 
 			GameRegistry.addSmelting(new ItemStack(ModBlocks.ROTTEN_FLESH_BLOCK, 1, i),
-					new ItemStack(ModItems.LEATHER_SCRAPS, 9), 0f);
+					new ItemStack(ModItems.LEATHER_SCRAPS, 9 - i), 0f);
 		}
 	}
 }
