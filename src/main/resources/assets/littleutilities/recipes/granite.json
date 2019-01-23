@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:compact_granite"
+    }
+  ],
+  "result": {
+    "item": "minecraft:stone",
+    "data": 1,
+    "count": 9
+  }
+}

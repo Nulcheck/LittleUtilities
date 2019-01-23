@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:glistering_melon_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:speckled_melon",
+    "count": 9
+  }
+}

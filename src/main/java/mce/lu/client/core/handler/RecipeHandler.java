@@ -41,6 +41,12 @@ public class RecipeHandler {
 	public static void registerMetaCrafting() {
 		// Meta Recipes
 		for (int i = 0; i < 9; i++) {
+			// Usable Blocks
+			GameRegistry.addShapelessRecipe(new ResourceLocation("ENDER_PEARL_BLOCK" + i), group,
+					new ItemStack(Items.ENDER_PEARL, 9 - i),
+					Ingredient.fromStacks(new ItemStack(ModBlocks.ENDER_PEARL_BLOCK, 1, i)));
+
+			// Edible Blocks
 			GameRegistry.addShapelessRecipe(new ResourceLocation("PORK_BLOCK" + i), group,
 					new ItemStack(Items.PORKCHOP, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.PORK_BLOCK, 1, i)));
@@ -84,9 +90,17 @@ public class RecipeHandler {
 					new ItemStack(Items.FISH, 9 - i, 1),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.COD_BLOCK, 1, i)));
 
+			GameRegistry.addShapelessRecipe(new ResourceLocation("COOKED_COD_BLOCK" + i), group,
+					new ItemStack(Items.COOKED_FISH, 9 - i, 0),
+					Ingredient.fromStacks(new ItemStack(ModBlocks.COOKED_COD_BLOCK, 1, i)));
+
 			GameRegistry.addShapelessRecipe(new ResourceLocation("SALMON_BLOCK" + i), group,
 					new ItemStack(Items.FISH, 9 - i, 1),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.SALMON_BLOCK, 1, i)));
+
+			GameRegistry.addShapelessRecipe(new ResourceLocation("COOKED_SALMON_BLOCK" + i), group,
+					new ItemStack(Items.COOKED_FISH, 9 - i, 1),
+					Ingredient.fromStacks(new ItemStack(ModBlocks.COOKED_SALMON_BLOCK, 1, i)));
 
 			GameRegistry.addShapelessRecipe(new ResourceLocation("TROPICAL_FISH_BLOCK" + i), group,
 					new ItemStack(Items.FISH, 9 - i, 2),
@@ -96,14 +110,6 @@ public class RecipeHandler {
 					new ItemStack(Items.FISH, 9 - i, 3),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.PUFFERFISH_BLOCK, 1, i)));
 
-			GameRegistry.addShapelessRecipe(new ResourceLocation("COOKED_COD_BLOCK" + i), group,
-					new ItemStack(Items.COOKED_FISH, 9 - i, 0),
-					Ingredient.fromStacks(new ItemStack(ModBlocks.COOKED_COD_BLOCK, 1, i)));
-
-			GameRegistry.addShapelessRecipe(new ResourceLocation("COOKED_SALMON_BLOCK" + i), group,
-					new ItemStack(Items.COOKED_FISH, 9 - i, 1),
-					Ingredient.fromStacks(new ItemStack(ModBlocks.COOKED_SALMON_BLOCK, 1, i)));
-
 			GameRegistry.addShapelessRecipe(new ResourceLocation("ROTTEN_FLESH_BLOCK" + i), group,
 					new ItemStack(Items.ROTTEN_FLESH, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.ROTTEN_FLESH_BLOCK, 1, i)));
@@ -111,6 +117,14 @@ public class RecipeHandler {
 			GameRegistry.addShapelessRecipe(new ResourceLocation("APPLE_BLOCK" + i), group,
 					new ItemStack(Items.APPLE, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.APPLE_BLOCK, 1, i)));
+
+			GameRegistry.addShapelessRecipe(new ResourceLocation("GOLDEN_APPLE_BLOCK" + i), group,
+					new ItemStack(Items.GOLDEN_APPLE, 9 - i, 0),
+					Ingredient.fromStacks(new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK, 1, i)));
+
+			GameRegistry.addShapelessRecipe(new ResourceLocation("NOTCH_APPLE_BLOCK" + i), group,
+					new ItemStack(Items.GOLDEN_APPLE, 9 - i, 1),
+					Ingredient.fromStacks(new ItemStack(ModBlocks.NOTCH_APPLE_BLOCK, 1, i)));
 
 			GameRegistry.addShapelessRecipe(new ResourceLocation("BREAD_BLOCK" + i), group,
 					new ItemStack(Items.BREAD, 9 - i),
@@ -128,6 +142,10 @@ public class RecipeHandler {
 					new ItemStack(Items.CARROT, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.CARROT_BLOCK, 1, i)));
 
+			GameRegistry.addShapelessRecipe(new ResourceLocation("GOLDEN_CARROT_BLOCK" + i), group,
+					new ItemStack(Items.GOLDEN_CARROT, 9 - i),
+					Ingredient.fromStacks(new ItemStack(ModBlocks.GOLDEN_CARROT_BLOCK, 1, i)));
+
 			GameRegistry.addShapelessRecipe(new ResourceLocation("POTATO_BLOCK" + i), group,
 					new ItemStack(Items.POTATO, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.POTATO_BLOCK, 1, i)));
@@ -136,9 +154,13 @@ public class RecipeHandler {
 					new ItemStack(Items.BAKED_POTATO, 9 - i),
 					Ingredient.fromStacks(new ItemStack(ModBlocks.BAKED_POTATO_BLOCK, 1, i)));
 
-			GameRegistry.addShapelessRecipe(new ResourceLocation("ENDER_PEARL_BLOCK" + i), group,
-					new ItemStack(Items.ENDER_PEARL, 9 - i),
-					Ingredient.fromStacks(new ItemStack(ModBlocks.ENDER_PEARL_BLOCK, 1, i)));
+			GameRegistry.addShapelessRecipe(new ResourceLocation("POISONOUS_POTATO_BLOCK" + i), group,
+					new ItemStack(Items.POISONOUS_POTATO, 9 - i),
+					Ingredient.fromStacks(new ItemStack(ModBlocks.POISONOUS_POTATO_BLOCK, 1, i)));
+
+			GameRegistry.addShapelessRecipe(new ResourceLocation("BEETROOT_BLOCK" + i), group,
+					new ItemStack(Items.BEETROOT, 9 - i),
+					Ingredient.fromStacks(new ItemStack(ModBlocks.BEETROOT_BLOCK, 1, i)));
 		}
 	}
 

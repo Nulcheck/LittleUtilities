@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:dye_lime_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "data": 10,
+    "count": 9
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:compact_andesite"
+    }
+  ],
+  "result": {
+    "item": "minecraft:stone",
+    "data": 5,
+    "count": 9
+  }
+}

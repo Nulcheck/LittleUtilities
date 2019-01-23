@@ -16,7 +16,7 @@ public class StackedBlockEvent {
 		BlockPos pos = e.getPos();
 		IBlockState state = e.getWorld().getBlockState(pos);
 
-		// Useable Blocks
+		// Usable Blocks
 		if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
 				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.ENDER_PEARL
 				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.ENDER_PEARL_BLOCK

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:compact_diorite"
+    }
+  ],
+  "result": {
+    "item": "minecraft:stone",
+    "data": 3,
+    "count": 9
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:dye_cyan_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "data": 6,
+    "count": 9
+  }
+}

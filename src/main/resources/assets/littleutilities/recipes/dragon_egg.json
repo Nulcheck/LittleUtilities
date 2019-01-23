@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:compact_dragon_egg"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dragon_egg",
+    "count": 9
+  }
+}
