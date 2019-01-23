@@ -1,5 +1,7 @@
 {
+	"forge_marker": 1,
 	"variants": {
-		"normal": {"model": "littleutilities:pure_quartz_block"}
+		"inventory": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/pure_quartz_block"}},
+		"normal": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/pure_quartz_block"}}
 	}
 }

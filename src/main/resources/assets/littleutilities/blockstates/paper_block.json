@@ -1,5 +1,7 @@
 {
+	"forge_marker": 1,
 	"variants": {
-		"normal": {"model": "littleutilities:paper_block"}
+		"inventory": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/paper_block"}},
+		"normal": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/paper_block"}}
 	}
 }

@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"inventory": [{}],
+		"amount": {
+			"0": {"model": "littleutilities:usable_block0", "textures": { "all": "littleutilities:blocks/notch_apple_block"}},
+			"1": {"model": "littleutilities:usable_block1", "textures": { "all": "littleutilities:blocks/notch_apple_block"}},
+			"2": {"model": "littleutilities:usable_block2", "textures": { "all": "littleutilities:blocks/notch_apple_block"}},
+			"3": {"model": "littleutilities:usable_block3", "textures": { "all": "littleutilities:blocks/notch_apple_block"}},
+			"4": {"model": "littleutilities:usable_block4", "textures": { "all": "littleutilities:blocks/notch_apple_block"}},
+			"5": {"model": "littleutilities:usable_block5", "textures": { "all": "littleutilities:blocks/notch_apple_block"}},
+			"6": {"model": "littleutilities:usable_block6", "textures": { "all": "littleutilities:blocks/notch_apple_block"}},
+			"7": {"model": "littleutilities:usable_block7", "textures": { "all": "littleutilities:blocks/notch_apple_block"}},
+			"8": {"model": "littleutilities:usable_block8", "textures": { "all": "littleutilities:blocks/notch_apple_block"}}
+		}
+	}
+}

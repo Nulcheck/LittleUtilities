@@ -1,5 +1,7 @@
 {
+	"forge_marker": 1,
 	"variants": {
-		"normal": {"model": "littleutilities:magma_cream_block"}
+		"inventory": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/magma_cream_block"}},
+		"normal": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/magma_cream_block"}}
 	}
 }

@@ -1,5 +1,7 @@
 {
+	"forge_marker": 1,
 	"variants": {
-		"normal": {"model": "littleutilities:bone_block"}
+		"inventory": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/bone_block"}},
+		"normal": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/bone_block"}}
 	}
 }

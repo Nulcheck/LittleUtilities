@@ -1,5 +1,7 @@
 {
+	"forge_marker": 1,
 	"variants": {
-		"normal": {"model": "littleutilities:lava_obsidian"}
+		"inventory": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/lava_obsidian"}},
+		"normal": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/lava_obsidian"}}
 	}
 }

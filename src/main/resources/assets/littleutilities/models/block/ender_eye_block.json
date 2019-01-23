@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "littleutilities:blocks/ender_eye_block"
-    }
-}

@@ -1,5 +1,7 @@
 {
+	"forge_marker": 1,
 	"variants": {
-		"normal": {"model": "littleutilities:gunpowder_block"}
+		"inventory": {"model": "littleutilities:bounds_block0", "textures": {"all": "littleutilities:blocks/gunpowder_block"}},
+		"normal": {"model": "littleutilities:bounds_block0", "textures": {"all": "littleutilities:blocks/gunpowder_block"}}
 	}
 }
