@@ -1,9 +1,9 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "#all",
-        "bars": "#all",
-        "edge": "#all"
+        "particle": "littleutilities:blocks/blaze_bars",
+        "bars": "littleutilities:blocks/blaze_bars",
+        "edge": "littleutilities:blocks/blaze_bars"
     },
     "elements": [
         {   "from": [ 8, 0, 7 ],

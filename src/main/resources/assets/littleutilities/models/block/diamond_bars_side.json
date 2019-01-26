@@ -1,9 +1,9 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "#all",
-        "bars": "#all",
-        "edge": "#all"
+        "particle": "littleutilities:blocks/diamond_bars",
+        "bars": "littleutilities:blocks/diamond_bars",
+        "edge": "littleutilities:blocks/diamond_bars"
     },
     "elements": [
         {   "from": [ 8, 0, 0 ],

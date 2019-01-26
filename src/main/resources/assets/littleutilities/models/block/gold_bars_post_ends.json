@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "#all",
-        "edge": "#all"
+        "particle": "littleutilities:blocks/gold_bars",
+        "edge": "littleutilities:blocks/gold_bars"
     },
     "elements": [
         {   "from": [ 7, 0.001, 7 ],
