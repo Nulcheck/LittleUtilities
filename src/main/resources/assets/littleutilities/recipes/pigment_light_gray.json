@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "light_gray_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:reeds_light_gray"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_light_gray"
+  }
+}

@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"age": {
+			"0": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"1": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"2": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"3": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"4": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"5": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"6": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"7": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"8": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"9": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}}
+		}
+	}
+}

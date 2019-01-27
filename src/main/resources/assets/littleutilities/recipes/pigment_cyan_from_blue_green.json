@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cyan_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_blue"
+    },
+    {
+      "item": "littleutilities:pigment_green"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_cyan",
+    "count": 2
+  }
+}

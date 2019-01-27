@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "purple_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_blue"
+    },
+    {
+      "item": "littleutilities:pigment_red"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_purple",
+    "count": 2
+  }
+}

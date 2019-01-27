@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "black_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:reeds_black"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_black"
+  }
+}

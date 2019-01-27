@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "gray_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_black"
+    },
+    {
+      "item": "littleutilities:pigment_white"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_gray",
+    "count": 2
+  }
+}

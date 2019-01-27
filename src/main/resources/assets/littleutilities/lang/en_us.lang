@@ -21,6 +21,24 @@ tile.lava_cobblestone.name=Lava Cobblestone
 tile.lava_obsidian.name=Lava Obsidian
 tile.pure_quartz_block.name=Pure Quartz Block
 
+// Dye Reeds
+tile.reeds_black.name=Black Reeds
+tile.reeds_red.name=Red Reeds
+tile.reeds_green.name=Green Reeds
+tile.reeds_brown.name=Brown Reeds
+tile.reeds_blue.name=Blue Reeds
+tile.reeds_purple.name=Purple Reeds
+tile.reeds_cyan.name=Cyan Reeds
+tile.reeds_light_gray.name=Light Gray Reeds
+tile.reeds_gray.name=Gray Reeds
+tile.reeds_pink.name=Pink Reeds
+tile.reeds_lime.name=Lime Reeds
+tile.reeds_yellow.name=Yellow Reeds
+tile.reeds_light_blue.name=Light Blue Reeds
+tile.reeds_magenta.name=Magenta Reeds
+tile.reeds_orange.name=Orange Reeds
+tile.reeds_white.name=White Reeds
+
 //// CONDENSED ITEM BLOCKS
 tile.ghast_tear_block.name=Ghast Tear Block
 tile.blaze_rod_block.name=Blaze Rod Block
@@ -109,6 +127,24 @@ item.leather_scraps.name=Leather Scraps
 item.zombie_curing_kit.name=Zombie Curing Kit
 item.heating_element.name=Heating Element
 item.obsidian_boat.name=Obsidian Boat
+
+// Pigment
+item.pigment_black.name=Black Pigment
+item.pigment_red.name=Red Pigment
+item.pigment_green.name=Green Pigment
+item.pigment_brown.name=Brown Pigment
+item.pigment_blue.name=Blue Pigment
+item.pigment_purple.name=Purple Pigment
+item.pigment_cyan.name=Cyan Pigment
+item.pigment_light_gray.name=Light Gray Pigment
+item.pigment_gray.name=Gray Pigment
+item.pigment_pink.name=Pink Pigment
+item.pigment_lime.name=Lime Pigment
+item.pigment_yellow.name=Yellow Pigment
+item.pigment_light_blue.name=Light Blue Pigment
+item.pigment_magenta.name=Magenta Pigment
+item.pigment_orange.name=Orange Pigment
+item.pigment_white.name=White Pigment
 
 ////// ADVANCEMENTS
 adv.lu.root.title=Immense Pressure

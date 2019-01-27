@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "red_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:reeds_red"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_red"
+  }
+}

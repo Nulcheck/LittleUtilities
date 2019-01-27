@@ -8,8 +8,8 @@
 	"group": "stained_glass",
 	"ingredients": [
 		{
-			"item": "minecraft:dye",
-			"data": 5
+			"type": "forge:ore_dict",
+			"ore": "dyePurple"
 		},
 		{
 			"item": "minecraft:glass",

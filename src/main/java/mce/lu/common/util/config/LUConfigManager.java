@@ -122,7 +122,7 @@ public class LUConfigManager {
 		@Name("Blocks/Items")
 		@Comment("Block or item features.")
 		public Features features = new Features();
-		
+
 		@Name("Loot Generation")
 		@Comment("Dungeon Loot!")
 		public Loot loot = new Loot();
@@ -158,12 +158,25 @@ public class LUConfigManager {
 
 		public static class Features {
 			@Name("Snow Melter Range")
-			@Comment("The range of the snow melter. Min 1, and a max of 7 blocks in each direction. Default is 3 blocks. The full 7 blocks in each direction (plus the position of the block itself) is almost a full chunks worth.")
+			@Comment({
+					"The range of the snow melter. Min 1, and a max of 7 blocks in each direction. The full 7 blocks in each direction (plus the position of the block itself) is almost a full chunks worth.",
+					"[Default: 3]" })
 			@RangeInt(min = 1, max = 7)
 			@RequiresMcRestart
 			public int snowMelterRange = 3;
+
+			@Name("Generate Dye Reeds")
+			@Comment("Should dye reeds generate?")
+			@RequiresMcRestart
+			public boolean generateDyeReeds = true;
+
+			@Name("Dye Reeds Per Chunk")
+			@Comment({ "How many dye reeds per chunk should generate?", "[Default: 32]" })
+			@RangeInt(min = 1, max = 50)
+			@RequiresMcRestart
+			public int dyeReedsPerChunk = 32;
 		}
-		
+
 		public static class Loot {
 			@Name("Pure Quartz")
 			@Comment("Should you be able to find pure quartz in dungeon loot?")

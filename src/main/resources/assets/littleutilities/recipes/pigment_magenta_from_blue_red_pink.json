@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "magenta_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_blue"
+    },
+    {
+      "item": "littleutilities:pigment_red"
+    },
+    {
+      "item": "littleutilities:pigment_pink"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_magenta",
+    "count": 3
+  }
+}

@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"age": {
+			"0": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"1": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"2": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"3": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"4": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"5": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"6": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"7": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"8": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}},
+			"9": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_purple"}}
+		}
+	}
+}

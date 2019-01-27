@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "light_blue_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:reeds_light_blue"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_light_blue"
+  }
+}

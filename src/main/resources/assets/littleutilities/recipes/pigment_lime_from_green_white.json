@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "lime_dye",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_green"
+    },
+    {
+      "item": "littleutilities:pigment_white"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_lime",
+    "count": 2
+  }
+}

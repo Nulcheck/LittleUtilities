@@ -22,6 +22,24 @@ public class ModItems {
 	// public static final Item OBSIDIAN_BOAT = new
 	// ObsidianBoat("obsidian_boat");
 
+	// Pigments
+	public static final Item PIGMENT_BLACK = new ItemBase("pigment_black");
+	public static final Item PIGMENT_RED = new ItemBase("pigment_red");
+	public static final Item PIGMENT_GREEN = new ItemBase("pigment_green");
+	public static final Item PIGMENT_BROWN = new ItemBase("pigment_brown");
+	public static final Item PIGMENT_BLUE = new ItemBase("pigment_blue");
+	public static final Item PIGMENT_PURPLE = new ItemBase("pigment_purple");
+	public static final Item PIGMENT_CYAN = new ItemBase("pigment_cyan");
+	public static final Item PIGMENT_LIGHT_GRAY = new ItemBase("pigment_light_gray");
+	public static final Item PIGMENT_GRAY = new ItemBase("pigment_gray");
+	public static final Item PIGMENT_PINK = new ItemBase("pigment_pink");
+	public static final Item PIGMENT_LIME = new ItemBase("pigment_lime");
+	public static final Item PIGMENT_YELLOW = new ItemBase("pigment_yellow");
+	public static final Item PIGMENT_LIGHT_BLUE = new ItemBase("pigment_light_blue");
+	public static final Item PIGMENT_MAGENTA = new ItemBase("pigment_magenta");
+	public static final Item PIGMENT_ORANGE = new ItemBase("pigment_orange");
+	public static final Item PIGMENT_WHITE = new ItemBase("pigment_white");
+	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> e) {
 		e.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));

@@ -35,6 +35,30 @@ public class ModBlocks {
 			.setLightLevel(1f);
 	public static final Block PURE_QUARTZ_BLOCK = new BlockBase("pure_quartz_block", Material.ROCK).setHardness(1.2f);
 
+	// Dye Reeds
+	public static final DyeReeds REEDS_BLACK = (DyeReeds) new DyeReeds("reeds_black", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_RED = (DyeReeds) new DyeReeds("reeds_red", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_GREEN = (DyeReeds) new DyeReeds("reeds_green", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_BROWN = (DyeReeds) new DyeReeds("reeds_brown", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_BLUE = (DyeReeds) new DyeReeds("reeds_blue", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_PURPLE = (DyeReeds) new DyeReeds("reeds_purple", Material.PLANTS)
+			.setHardness(0f);
+	public static final DyeReeds REEDS_CYAN = (DyeReeds) new DyeReeds("reeds_cyan", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_LIGHT_GRAY = (DyeReeds) new DyeReeds("reeds_light_gray", Material.PLANTS)
+			.setHardness(0f);
+	public static final DyeReeds REEDS_GRAY = (DyeReeds) new DyeReeds("reeds_gray", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_PINK = (DyeReeds) new DyeReeds("reeds_pink", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_LIME = (DyeReeds) new DyeReeds("reeds_lime", Material.PLANTS).setHardness(0f);
+	public static final DyeReeds REEDS_YELLOW = (DyeReeds) new DyeReeds("reeds_yellow", Material.PLANTS)
+			.setHardness(0f);
+	public static final DyeReeds REEDS_LIGHT_BLUE = (DyeReeds) new DyeReeds("reeds_light_blue", Material.PLANTS)
+			.setHardness(0f);
+	public static final DyeReeds REEDS_MAGENTA = (DyeReeds) new DyeReeds("reeds_magenta", Material.PLANTS)
+			.setHardness(0f);
+	public static final DyeReeds REEDS_ORANGE = (DyeReeds) new DyeReeds("reeds_orange", Material.PLANTS)
+			.setHardness(0f);
+	public static final DyeReeds REEDS_WHITE = (DyeReeds) new DyeReeds("reeds_white", Material.PLANTS).setHardness(0f);
+
 	//// CONDENSED ITEM BLOCKS
 	public static final Block GHAST_TEAR_BLOCK = new GhastTearBlock("ghast_tear_block", Material.GLASS)
 			.setLightLevel(0.4f).setHardness(1f);
@@ -56,7 +80,8 @@ public class ModBlocks {
 	public static final Block SUGAR_BLOCK = new BoundsBlock("sugar_block", Material.SAND, 0.0625d).setHardness(0.5f);
 	public static final Block FERMENTED_SPIDER_EYE_BLOCK = new BlockBase("fermented_spider_eye_block", Material.CLAY)
 			.setHardness(0.6f);
-	public static final Block GLISTERING_MELON = new BlockBase("glistering_melon_block", Material.CLAY).setHardness(0.6f);
+	public static final Block GLISTERING_MELON = new BlockBase("glistering_melon_block", Material.CLAY)
+			.setHardness(0.6f);
 	public static final Block BONE_BLOCK = new BoneBlock("bone_block", Material.ROCK).setHardness(1f);
 	public static final Block CHARCOAL_BLOCK = new BlockBase("charcoal_block", Material.ROCK);
 

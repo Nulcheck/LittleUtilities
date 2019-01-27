@@ -7,6 +7,7 @@ import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.core.LUCreativeTab;
 import mce.lu.common.core.handler.TileEntityRegistry;
 import mce.lu.common.core.proxy.CommonProxy;
+import mce.lu.common.util.OreDict;
 import mce.lu.common.util.References;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Config.Type;
@@ -34,7 +35,7 @@ public class LittleUtilities {
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
 		proxy.preInit(e);
-		
+
 		TileEntityRegistry.registerTileEntities();
 		NetworkRegistry.INSTANCE.registerGuiHandler(LittleUtilities.instance, new GuiHandler());
 	}
@@ -45,6 +46,7 @@ public class LittleUtilities {
 		RecipeHandler.registerSmelting();
 		RecipeHandler.registerMetaCrafting();
 		RecipeHandler.registerMetaSmelting();
+		OreDict.registerOreDict();
 	}
 
 	@EventHandler
