@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_yellow_block"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_yellow",
+    "count": 9
+  }
+}

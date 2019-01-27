@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_cyan_block"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_cyan",
+    "count": 9
+  }
+}

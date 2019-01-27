@@ -77,6 +77,24 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.DYE, 9, 12), new ItemStack(ModBlocks.DYE_LIGHT_BLUE_BLOCK), 0.1f);
 		this.addRecipe(new ItemStack(Items.DYE, 9, 13), new ItemStack(ModBlocks.DYE_MAGENTA_BLOCK), 0.1f);
 		this.addRecipe(new ItemStack(Items.DYE, 9, 14), new ItemStack(ModBlocks.DYE_ORANGE_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_BLACK, 9), new ItemStack(ModBlocks.PIGMENT_BLACK_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_RED, 9), new ItemStack(ModBlocks.PIGMENT_RED_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_GREEN, 9), new ItemStack(ModBlocks.PIGMENT_GREEN_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_BROWN, 9), new ItemStack(ModBlocks.PIGMENT_BROWN_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_BLUE, 9), new ItemStack(ModBlocks.PIGMENT_BLUE_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_PURPLE, 9), new ItemStack(ModBlocks.PIGMENT_PURPLE_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_CYAN, 9), new ItemStack(ModBlocks.PIGMENT_CYAN_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_LIGHT_GRAY, 9), new ItemStack(ModBlocks.PIGMENT_LIGHT_GRAY_BLOCK),
+				0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_GRAY, 9), new ItemStack(ModBlocks.PIGMENT_GRAY_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_PINK, 9), new ItemStack(ModBlocks.PIGMENT_PINK_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_LIME, 9), new ItemStack(ModBlocks.PIGMENT_LIME_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_YELLOW, 9), new ItemStack(ModBlocks.PIGMENT_YELLOW_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_LIGHT_BLUE, 9), new ItemStack(ModBlocks.PIGMENT_LIGHT_BLUE_BLOCK),
+				0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_MAGENTA, 9), new ItemStack(ModBlocks.PIGMENT_MAGENTA_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_ORANGE, 9), new ItemStack(ModBlocks.PIGMENT_ORANGE_BLOCK), 0.1f);
+		this.addRecipe(new ItemStack(ModItems.PIGMENT_WHITE, 9), new ItemStack(ModBlocks.PIGMENT_WHITE_BLOCK), 0.1f);
 		this.addRecipe(new ItemStack(Items.GOLDEN_APPLE, 9, 0), new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK), 3f);
 		this.addRecipe(new ItemStack(Items.GOLDEN_APPLE, 9, 1), new ItemStack(ModBlocks.NOTCH_APPLE_BLOCK), 3f);
 		this.addRecipe(new ItemStack(Items.GOLDEN_CARROT, 9), new ItemStack(ModBlocks.GOLDEN_CARROT_BLOCK), 3f);

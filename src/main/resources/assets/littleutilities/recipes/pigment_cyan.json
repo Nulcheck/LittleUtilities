@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "cyan_dye",
   "ingredients": [
     {
       "item": "littleutilities:reeds_cyan"

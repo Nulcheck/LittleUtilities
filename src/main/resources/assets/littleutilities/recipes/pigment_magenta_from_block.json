@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_magenta_block"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_magenta",
+    "count": 9
+  }
+}

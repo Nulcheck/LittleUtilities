@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    "***",
+    "***"
+  ],
+  "key": {
+    "*": {
+      "item": "littleutilities:pigment_light_gray"
+    }
+  },
+  "result": {
+    "item": "littleutilities:pigment_light_gray_block"
+  }
+}

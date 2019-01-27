@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "brown_dye",
   "ingredients": [
     {
       "item": "littleutilities:reeds_brown"

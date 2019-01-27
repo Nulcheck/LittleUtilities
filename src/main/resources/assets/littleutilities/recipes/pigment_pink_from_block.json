@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_pink_block"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_pink",
+    "count": 9
+  }
+}

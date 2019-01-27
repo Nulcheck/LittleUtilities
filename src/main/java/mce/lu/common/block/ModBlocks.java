@@ -103,6 +103,34 @@ public class ModBlocks {
 	public static final Block DYE_MAGENTA_BLOCK = new BlockBase("dye_magenta_block", Material.CLAY).setHardness(0.3f);
 	public static final Block DYE_ORANGE_BLOCK = new BlockBase("dye_orange_block", Material.CLAY).setHardness(0.3f);
 
+	// PIGMENTS
+	public static final Block PIGMENT_BLACK_BLOCK = new BlockBase("pigment_black_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_RED_BLOCK = new BlockBase("pigment_red_block", Material.CLAY).setHardness(0.2f);
+	public static final Block PIGMENT_GREEN_BLOCK = new BlockBase("pigment_green_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_BROWN_BLOCK = new BlockBase("pigment_brown_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_BLUE_BLOCK = new BlockBase("pigment_blue_block", Material.CLAY).setHardness(0.2f);
+	public static final Block PIGMENT_PURPLE_BLOCK = new BlockBase("pigment_purple_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_CYAN_BLOCK = new BlockBase("pigment_cyan_block", Material.CLAY).setHardness(0.2f);
+	public static final Block PIGMENT_LIGHT_GRAY_BLOCK = new BlockBase("pigment_light_gray_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_GRAY_BLOCK = new BlockBase("pigment_gray_block", Material.CLAY).setHardness(0.2f);
+	public static final Block PIGMENT_PINK_BLOCK = new BlockBase("pigment_pink_block", Material.CLAY).setHardness(0.2f);
+	public static final Block PIGMENT_LIME_BLOCK = new BlockBase("pigment_lime_block", Material.CLAY).setHardness(0.2f);
+	public static final Block PIGMENT_YELLOW_BLOCK = new BlockBase("pigment_yellow_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_LIGHT_BLUE_BLOCK = new BlockBase("pigment_light_blue_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_MAGENTA_BLOCK = new BlockBase("pigment_magenta_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_ORANGE_BLOCK = new BlockBase("pigment_orange_block", Material.CLAY)
+			.setHardness(0.2f);
+	public static final Block PIGMENT_WHITE_BLOCK = new BlockBase("pigment_white_block", Material.CLAY)
+			.setHardness(0.2f);
+
 	// USEABLE BLOCKS
 	public static final Block ENDER_PEARL_BLOCK = new EnderPearlBlock("ender_pearl_block", Material.GLASS)
 			.setHardness(1f);

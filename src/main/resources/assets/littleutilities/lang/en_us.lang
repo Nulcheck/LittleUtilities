@@ -73,6 +73,24 @@ tile.dye_light_blue_block.name=Light Blue Dye Block
 tile.dye_magenta_block.name=Magenta Dye Block
 tile.dye_orange_block.name=Orange Dye Block
 
+// PIGMENTS
+tile.pigment_black_block.name=Black Pigment Block
+tile.pigment_red_block.name=Red Pigment Block
+tile.pigment_green_block.name=Green Pigment Block
+tile.pigment_brown_block.name=Brown Pigment Block
+tile.pigment_blue_block.name=Blue Pigment Block
+tile.pigment_purple_block.name=Purple Pigment Block
+tile.pigment_cyan_block.name=Cyan Pigment Block
+tile.pigment_light_gray_block.name=Light Gray Pigment Block
+tile.pigment_gray_block.name=Gray Pigment Block
+tile.pigment_pink_block.name=Pink Pigment Block
+tile.pigment_lime_block.name=Lime Pigment Block
+tile.pigment_yellow_block.name=Yellow Pigment Block
+tile.pigment_light_blue_block.name=Light Blue Pigment Block
+tile.pigment_magenta_block.name=Magenta Pigment Block
+tile.pigment_orange_block.name=Orange Pigment Block
+tile.pigment_white_block.name=White Pigment Block
+
 // USEABLE BLOCKS
 tile.ender_pearl_block.name=Ender Pearl Block
 

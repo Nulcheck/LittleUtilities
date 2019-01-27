@@ -1,0 +1,7 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"inventory": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/pigment_yellow_block"}},
+		"normal": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/pigment_yellow_block"}}
+	}
+}
