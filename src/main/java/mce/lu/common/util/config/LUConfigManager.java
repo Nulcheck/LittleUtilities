@@ -119,7 +119,7 @@ public class LUConfigManager {
 		@Comment("These are events that the mod adds such as mob drops, dungeon loot, etc.")
 		public Events modEvents = new Events();
 
-		@Name("Blocks/Items")
+		@Name("Blocks/Items Features")
 		@Comment("Block or item features.")
 		public Features features = new Features();
 
@@ -171,10 +171,10 @@ public class LUConfigManager {
 			public boolean generateDyeReeds = true;
 
 			@Name("Dye Reeds Per Chunk")
-			@Comment({ "How many dye reeds per chunk should generate?", "[Default: 32]" })
+			@Comment({ "How many dye reeds per chunk should generate?", "[Default: 23]" })
 			@RangeInt(min = 1, max = 50)
 			@RequiresMcRestart
-			public int dyeReedsPerChunk = 32;
+			public int dyeReedsPerChunk = 23;
 		}
 
 		public static class Loot {
