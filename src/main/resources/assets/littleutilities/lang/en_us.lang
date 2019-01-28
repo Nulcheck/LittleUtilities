@@ -5,12 +5,14 @@
 itemGroup.littleutilities=LittleUtilities
 
 container.lu_condenser=Condenser
+container.pigment_mixer=Pigment Mixer
 
 ////// BLOCKS
 tile.lu_condenser.name=Condenser
 tile.snow_melter.name=Snow Melter
 tile.aqua_reservoir.name=Aqua Reservoir
 tile.magma_reservoir.name=Magma Reservoir
+tile.pigment_mixer.name=Pigment Mixer
 tile.gold_bars.name=Gold Bars
 tile.diamond_bars.name=Diamond Bars
 tile.lapis_bars.name=Lapis Lazuli Bars
