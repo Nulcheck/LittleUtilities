@@ -3,10 +3,8 @@ package mce.lu.api.waila;
 import java.util.List;
 
 import mce.lu.common.block.ModBlocks;
-import mce.lu.common.entity.tile.TileEntityLightSensor;
 import mce.lu.common.entity.tile.TileEntitySnowMelter;
 import mce.lu.common.util.References;
-import mce.lu.common.util.config.LUConfigManager;
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
 import mcp.mobius.waila.api.IWailaDataProvider;
@@ -27,11 +25,7 @@ public class WailaDataProvider implements IWailaDataProvider {
 	public static void register(IWailaRegistrar reg) {
 		WailaDataProvider provider = new WailaDataProvider();
 
-		reg.registerHeadProvider(provider, TileEntitySnowMelter.class);
-		reg.registerHeadProvider(provider, TileEntityLightSensor.class);
-
 		reg.registerBodyProvider(provider, TileEntitySnowMelter.class);
-		reg.registerBodyProvider(provider, TileEntityLightSensor.class);
 	}
 
 	@Override
@@ -48,7 +42,8 @@ public class WailaDataProvider implements IWailaDataProvider {
 		Block block = accessor.getBlock();
 
 		if (block == ModBlocks.SNOW_MELTER) {
-			tip.add("Range: " + LUConfigManager.modConfig.features.snowMelterRange);
+			tip.add("Range: " + TileEntitySnowMelter.getRange());
+			tip.add("Redstone Mode: " + TileEntitySnowMelter.getRedstoneMode());
 		}
 
 		return tip;
