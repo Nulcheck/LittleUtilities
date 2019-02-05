@@ -2,7 +2,6 @@ package mce.lu.api.waila;
 
 import java.util.List;
 
-import mce.lu.common.block.ModBlocks;
 import mce.lu.common.entity.tile.TileEntitySnowMelter;
 import mce.lu.common.util.References;
 import mcp.mobius.waila.api.IWailaConfigHandler;
@@ -26,25 +25,28 @@ public class WailaDataProvider implements IWailaDataProvider {
 		WailaDataProvider provider = new WailaDataProvider();
 
 		reg.registerBodyProvider(provider, TileEntitySnowMelter.class);
+		reg.registerNBTProvider(provider, TileEntitySnowMelter.class);
 	}
 
 	@Override
 	@Method(modid = References.WAILA)
-	public List<String> getWailaHead(ItemStack stack, List<String> tip, IWailaDataAccessor acc,
+	public List<String> getWailaHead(ItemStack stack, List<String> tip, IWailaDataAccessor data,
 			IWailaConfigHandler config) {
 		return tip;
 	}
 
 	@Override
 	@Method(modid = References.WAILA)
-	public List<String> getWailaBody(ItemStack stack, List<String> tip, IWailaDataAccessor acc,
+	public List<String> getWailaBody(ItemStack stack, List<String> tip, IWailaDataAccessor data,
 			IWailaConfigHandler config) {
-		Block block = acc.getBlock();
-		NBTTagCompound tag = acc.getNBTData();
-		int snowMelterRange = tag.getInteger("Range");
-		boolean snowMelterRedstoneMode = tag.getBoolean("RedstoneMode");
+		Block block = data.getBlock();
+		TileEntity tile = data.getTileEntity();
+		NBTTagCompound tag = data.getNBTData();
 
-		if (block == ModBlocks.SNOW_MELTER) {
+		int snowMelterRange = data.getNBTInteger(data.getNBTData(), "SnowMelterRange");
+		boolean snowMelterRedstoneMode = tag.getBoolean("SnowMelterRedstoneMode");
+
+		if (tile instanceof TileEntitySnowMelter) {
 			tip.add("Range: " + snowMelterRange);
 			tip.add("Redstone Mode: " + snowMelterRedstoneMode);
 		}
@@ -54,7 +56,7 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 	@Override
 	@Method(modid = References.WAILA)
-	public List<String> getWailaTail(ItemStack stack, List<String> tip, IWailaDataAccessor acc,
+	public List<String> getWailaTail(ItemStack stack, List<String> tip, IWailaDataAccessor data,
 			IWailaConfigHandler config) {
 		return tip;
 	}
@@ -63,6 +65,21 @@ public class WailaDataProvider implements IWailaDataProvider {
 	@Method(modid = References.MOD_ID)
 	public NBTTagCompound getNBTData(EntityPlayerMP player, TileEntity te, NBTTagCompound tag, World world,
 			BlockPos pos) {
+		try {
+			Integer snowMelterRange = -1;
+			Boolean snowMelterRedstoneMode = false;
+
+			if (te instanceof TileEntitySnowMelter) {
+				snowMelterRange = (Integer) TileEntitySnowMelter.class.getMethod("getRange").invoke(te);
+				snowMelterRedstoneMode = (Boolean) TileEntitySnowMelter.class.getMethod("getRedstoneMode").invoke(te);
+			}
+
+			tag.setInteger("SnowMelterRange", snowMelterRange);
+			tag.setBoolean("SnowMelterRedstoneMode", snowMelterRedstoneMode);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
 		return tag;
 	}
 }
