@@ -30,20 +30,23 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 	@Override
 	@Method(modid = References.WAILA)
-	public List<String> getWailaHead(ItemStack stack, List<String> tip, IWailaDataAccessor accessor,
+	public List<String> getWailaHead(ItemStack stack, List<String> tip, IWailaDataAccessor acc,
 			IWailaConfigHandler config) {
 		return tip;
 	}
 
 	@Override
 	@Method(modid = References.WAILA)
-	public List<String> getWailaBody(ItemStack stack, List<String> tip, IWailaDataAccessor accessor,
+	public List<String> getWailaBody(ItemStack stack, List<String> tip, IWailaDataAccessor acc,
 			IWailaConfigHandler config) {
-		Block block = accessor.getBlock();
+		Block block = acc.getBlock();
+		NBTTagCompound tag = acc.getNBTData();
+		int snowMelterRange = tag.getInteger("Range");
+		boolean snowMelterRedstoneMode = tag.getBoolean("RedstoneMode");
 
 		if (block == ModBlocks.SNOW_MELTER) {
-			tip.add("Range: " + TileEntitySnowMelter.getRange());
-			tip.add("Redstone Mode: " + TileEntitySnowMelter.getRedstoneMode());
+			tip.add("Range: " + snowMelterRange);
+			tip.add("Redstone Mode: " + snowMelterRedstoneMode);
 		}
 
 		return tip;
@@ -51,7 +54,7 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 	@Override
 	@Method(modid = References.WAILA)
-	public List<String> getWailaTail(ItemStack stack, List<String> tip, IWailaDataAccessor accessor,
+	public List<String> getWailaTail(ItemStack stack, List<String> tip, IWailaDataAccessor acc,
 			IWailaConfigHandler config) {
 		return tip;
 	}

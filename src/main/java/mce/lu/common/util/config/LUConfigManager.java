@@ -157,14 +157,6 @@ public class LUConfigManager {
 		}
 
 		public static class Features {
-			@Name("Snow Melter Range")
-			@Comment({
-					"The range of the snow melter. Min 1, and a max of 7 blocks in each direction. The full 7 blocks in each direction (plus the position of the block itself) is almost a full chunks worth.",
-					"[Default: 3]" })
-			@RangeInt(min = 1, max = 7)
-			@RequiresMcRestart
-			public int snowMelterRange = 3;
-
 			@Name("Generate Dye Reeds")
 			@Comment("Should dye reeds generate?")
 			@RequiresMcRestart

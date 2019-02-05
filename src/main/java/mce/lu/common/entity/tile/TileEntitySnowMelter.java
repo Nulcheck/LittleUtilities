@@ -10,48 +10,60 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 
 public class TileEntitySnowMelter extends TileEntity implements ITickable {
-	private int tickCount;
-	public static int range;
+	private int tickCount, range;
 	private final int maxRange = 7;
 	private final int minRange = 1;
-	public static boolean redstoneMode;
+	private boolean redstoneMode;
+	private boolean isPowered;
+	SnowMelterBlock snowMelter;
 
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
 
-		redstoneMode = tag.getBoolean("RedstoneMode");
-		SnowMelterBlock.setIsPowered(tag.getBoolean("Powered"));
-		range = tag.getInteger("Range");
+		setRedstoneMode(tag.getBoolean("RedstoneMode"));
+		setIsPowered(tag.getBoolean("Powered"));
+		setRange(tag.getInteger("Range"));
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
 
-		tag.setBoolean("RedstoneMode", redstoneMode);
-		tag.setBoolean("Powered", SnowMelterBlock.getIsPowered());
-		tag.setInteger("Range", range);
+		tag.setBoolean("RedstoneMode", getRedstoneMode());
+		tag.setBoolean("Powered", getIsPowered());
+		tag.setInteger("Range", getRange());
 		return tag;
 	}
 
-	public static int getRange() {
+	public int getRange() {
 		return range;
 	}
 
-	public static int setRange(int rangeIn) {
+	public int setRange(int rangeIn) {
 		return range = rangeIn;
 	}
 
 	/**
 	 * Should it be toggled on/off by redstone? Otherwise it would stay on.
 	 */
-	public static boolean getRedstoneMode() {
+	public boolean getRedstoneMode() {
 		return redstoneMode;
 	}
 
-	public static boolean setRedstoneMode(boolean redstoneModeIn) {
+	public boolean setRedstoneMode(boolean redstoneModeIn) {
 		return redstoneMode = redstoneModeIn;
+	}
+
+	/**
+	 * Is is getting redstone power?
+	 */
+	public boolean getIsPowered() {
+		return isPowered;
+	}
+
+	public boolean setIsPowered(boolean isPoweredIn) {
+		return isPowered = isPoweredIn;
 	}
 
 	public void changeRange() {
@@ -63,8 +75,6 @@ public class TileEntitySnowMelter extends TileEntity implements ITickable {
 	}
 
 	public void meltSnow() {
-		// int range = LUConfigManager.modConfig.features.snowMelterRange;
-
 		for (BlockPos.MutableBlockPos mutablePos : BlockPos.getAllInBoxMutable(
 				this.getPos().add(-range, -range, -range), this.getPos().add(range, range, range))) {
 			Block block = this.getWorld().getBlockState(mutablePos).getBlock();
@@ -90,15 +100,15 @@ public class TileEntitySnowMelter extends TileEntity implements ITickable {
 			if (getRange() > maxRange)
 				setRange(maxRange);
 
-			if (getRedstoneMode() && SnowMelterBlock.getIsPowered()) {
-				tickCount++;
-				if (tickCount == 30) {
-					meltSnow();
-					tickCount = 0;
+			if (getRedstoneMode()) {
+				if (getIsPowered()) {
+					tickCount++;
+					if (tickCount == 30) {
+						meltSnow();
+						tickCount = 0;
+					}
 				}
-			}
-
-			else if (!getRedstoneMode()) {
+			} else {
 				tickCount++;
 				if (tickCount == 30) {
 					meltSnow();
