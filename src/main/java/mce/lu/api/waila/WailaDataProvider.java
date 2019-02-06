@@ -3,7 +3,9 @@ package mce.lu.api.waila;
 import java.util.List;
 import java.util.Random;
 
+import mce.lu.common.block.BlockBase;
 import mce.lu.common.block.EdibleBlock;
+import mce.lu.common.block.MetalBarsBlock;
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.block.UsableBlock;
 import mce.lu.common.entity.tile.TileEntitySnowMelter;
@@ -13,6 +15,7 @@ import mcp.mobius.waila.api.IWailaDataAccessor;
 import mcp.mobius.waila.api.IWailaDataProvider;
 import mcp.mobius.waila.api.IWailaRegistrar;
 import net.minecraft.block.Block;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -30,6 +33,8 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 		reg.registerBodyProvider(provider, TileEntitySnowMelter.class);
 		reg.registerNBTProvider(provider, TileEntitySnowMelter.class);
+		reg.registerBodyProvider(provider, BlockBase.class);
+		reg.registerBodyProvider(provider, MetalBarsBlock.class);
 	}
 
 	@Override
@@ -55,30 +60,30 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 		// Snow Melter
 		if (tile instanceof TileEntitySnowMelter) {
-			list.add("Range: " + snowMelterRange);
-			list.add("Redstone Mode: " + snowMelterRedstoneMode);
+			list.add(I18n.format("waila.lu.snowmelter.range") + ": " + snowMelterRange);
+			list.add(I18n.format("waila.lu.snowmelter.redstonemode") + ": " + snowMelterRedstoneMode);
 		}
 
 		// Normal Blocks
 		if (block == ModBlocks.BLAZE_ROD_BLOCK || block == ModBlocks.BLAZE_POWDER_BLOCK
 				|| block == ModBlocks.BLAZE_BARS)
-			list.add("Hot!");
+			list.add(I18n.format("waila.lu.condensed_block.hot") + "!");
 
 		if (block == ModBlocks.PUFFERFISH_BLOCK)
-			list.add("Poisonous!");
+			list.add(I18n.format("waila.lu.condensed_block.poisonous") + "!");
 
 		// Edible and Usable Blocks
 		if (block instanceof EdibleBlock) {
 			int meta = 9 - data.getMetadata();
 
 			if (meta > 1)
-				list.add(meta + " Bites Left");
+				list.add(meta + " " + I18n.format("waila.lu.edible_block.bites"));
 
 			else if (meta == 1) {
 				if (i == 23)
-					list.add(meta + " Byte Left");
+					list.add(meta + " " + I18n.format("waila.lu.edible_block.bites.last.ee"));
 				else
-					list.add(meta + " Bite Left");
+					list.add(meta + " " + I18n.format("waila.lu.edible_block.bites.last"));
 			}
 		}
 
@@ -86,10 +91,10 @@ public class WailaDataProvider implements IWailaDataProvider {
 			int meta = 9 - data.getMetadata();
 
 			if (meta > 1)
-				list.add(meta + " Uses Left");
+				list.add(meta + " " + I18n.format("waila.lu.usable_block.uses"));
 
 			else if (meta == 1)
-				list.add(meta + " Use Left");
+				list.add(meta + " " + I18n.format("waila.lu.usable_block.uses.last"));
 		}
 
 		return list;
