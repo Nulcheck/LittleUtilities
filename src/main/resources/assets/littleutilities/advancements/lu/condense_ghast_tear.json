@@ -1,4 +1,5 @@
 {
+	"parent": "littleutilities:lu/root",
 	"display":{
 		"icon": {
 			"item": "littleutilities:ghast_tear_block"
@@ -11,11 +12,10 @@
 		},
 		"frame": "challenge"
 	},
-	"parent": "littleutilities:lu/root",
 	"rewards": {
         "experience": 100
     },
-	"criteria": {
+	"criteria":{
 		"item": {
 			"trigger": "littleutilities:condense_ghast_tear",
 			"conditions": {

@@ -36,7 +36,6 @@ public class LittleUtilities {
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
 		proxy.preInit(e);
-
 		TileEntityRegistry.registerTileEntities();
 		NetworkRegistry.INSTANCE.registerGuiHandler(LittleUtilities.instance, new GuiHandler());
 	}
@@ -48,7 +47,7 @@ public class LittleUtilities {
 		RecipeHandler.registerMetaCrafting();
 		RecipeHandler.registerMetaSmelting();
 		OreDict.registerOreDict();
-		
+
 		FMLInterModComms.sendMessage(References.WAILA, "register", "mce.lu.api.waila.WailaDataProvider.register");
 	}
 

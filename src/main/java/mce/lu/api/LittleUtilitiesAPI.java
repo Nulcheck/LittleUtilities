@@ -11,9 +11,8 @@ public class LittleUtilitiesAPI {
 	 * 
 	 * @param stackIn
 	 * @param stackOut
-	 * @param XP
 	 */
-	public static void addCondenserRecipe(@Nonnull ItemStack stackIn, @Nonnull ItemStack stackOut, float XP) {
-		CondenserRecipes.instance().addRecipe(stackIn, stackOut, XP);
+	public static void addCondenserRecipe(@Nonnull ItemStack stackIn, @Nonnull ItemStack stackOut) {
+		CondenserRecipes.instance().addRecipe(stackIn, stackOut);
 	}
 }

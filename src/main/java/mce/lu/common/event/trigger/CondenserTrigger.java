@@ -82,11 +82,11 @@ public class CondenserTrigger implements ICriterionTrigger<CondenserTrigger.Inst
 		return new CondenserTrigger.Instance(getId());
 	}
 
-	public void trigger(EntityPlayerMP parPlayer) {
-		CondenserTrigger.Listeners myListener = this.listeners.get(parPlayer.getAdvancements());
+	public void trigger(EntityPlayerMP player) {
+		CondenserTrigger.Listeners myListener = this.listeners.get(player.getAdvancements());
 
 		if (myListener != null) {
-			myListener.trigger(parPlayer);
+			myListener.trigger(player);
 		}
 	}
 

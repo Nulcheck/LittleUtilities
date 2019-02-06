@@ -1,12 +1,9 @@
 package mce.lu.common.container.parts;
 
-import mce.lu.common.core.recipes.CondenserRecipes;
-import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class CondenserOutputSlot extends Slot {
@@ -50,35 +47,7 @@ public class CondenserOutputSlot extends Slot {
 	protected void onCrafting(ItemStack stack) {
 		stack.onCrafting(this.thePlayer.world, this.thePlayer, this.removeCount);
 
-		if (!this.thePlayer.world.isRemote) {
-			int i = this.removeCount;
-			float f = CondenserRecipes.instance().getRecipeExperience(stack);
-
-			if (f == 0.0F) {
-				i = 0;
-			} else if (f < 1.0F) {
-				int j = MathHelper.floor((float) i * f);
-
-				if (j < MathHelper.ceil((float) i * f) && (float) Math.random() < (float) i * f - (float) j) {
-					++j;
-				}
-
-				i = j;
-			}
-
-			while (i > 0) {
-				int k = EntityXPOrb.getXPSplit(i);
-				i -= k;
-				this.thePlayer.world.spawnEntity(new EntityXPOrb(this.thePlayer.world, this.thePlayer.posX,
-						this.thePlayer.posY + 0.5D, this.thePlayer.posZ + 0.5D, k));
-			}
-		}
-
 		this.removeCount = 0;
-
 		FMLCommonHandler.instance().firePlayerCraftingEvent(thePlayer, stack, thePlayer.inventory);
-
-		// Custom Achievements/Advancements below
-		// ModTriggers.CONDENSE_GHAST_TEAR.trigger((EntityPlayerMP) thePlayer); // Can't cast SPlayer to MPlayer 
 	}
 }
