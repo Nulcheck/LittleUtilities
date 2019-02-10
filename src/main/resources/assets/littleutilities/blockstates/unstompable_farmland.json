@@ -1,0 +1,16 @@
+{
+    "forge_marker": 1,
+    "variants": {
+        "inventory": [{"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_dry"}}],
+        "moisture": {
+            "0": {"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_dry"}},
+            "1": {"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_dry"}},
+            "2": {"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_dry"}},
+            "3": {"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_dry"}},
+            "4": {"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_dry"}},
+            "5": {"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_dry"}},
+            "6": {"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_dry"}},
+            "7": {"model": "farmland", "textures": {"dirt": "blocks/dirt", "top": "blocks/farmland_wet"}}
+        }
+    }
+}

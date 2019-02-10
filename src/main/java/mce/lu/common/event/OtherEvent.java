@@ -23,6 +23,7 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -62,6 +63,15 @@ public class OtherEvent {
 			e.setBurnTime(21600);
 		else
 			e.setBurnTime(-1);
+	}
+
+	@SubscribeEvent
+	public static void onTilled(UseHoeEvent e) {
+		if (e.getEntityPlayer().isSneaking() && (e.getWorld().getBlockState(e.getPos()).getBlock() == Blocks.DIRT
+				|| e.getWorld().getBlockState(e.getPos()).getBlock() == Blocks.GRASS)) {
+			e.getWorld().setBlockState(e.getPos(), ModBlocks.UNSTOMPABLE_FARMLAND.getDefaultState(), 2);
+			e.getCurrent().damageItem(1, e.getEntityPlayer());
+		}
 	}
 
 	@SubscribeEvent
