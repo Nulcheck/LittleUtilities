@@ -3,7 +3,6 @@ package mce.lu.common.block;
 import java.util.Random;
 
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
@@ -11,7 +10,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.FarmlandWaterManager;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
 
@@ -42,26 +40,17 @@ public class UnstompableFarmland extends BlockFarmlandBase {
 	@Override
 	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
 			IPlantable p) {
-		EnumPlantType plantType = p.getPlantType(world, pos.offset(EnumFacing.DOWN));
+		EnumPlantType plantType = p.getPlantType(world, pos.offset(EnumFacing.UP));
 
 		switch (plantType) {
 		case Crop:
-			return world.getBlockState(pos).getBlock() == this;
+			return true;
 		case Plains:
-			return world.getBlockState(pos).getBlock() == this;
+			return true;
 		default:
 			break;
 		}
 
 		return false;
-	}
-
-	private boolean hasWater(World world, BlockPos pos) {
-		for (BlockPos.MutableBlockPos mutablePos : BlockPos.getAllInBoxMutable(pos.add(-4, 0, -4), pos.add(4, 1, 4))) {
-			if (world.getBlockState(mutablePos).getMaterial() == Material.WATER)
-				return true;
-		}
-
-		return FarmlandWaterManager.hasBlockWaterTicket(world, pos);
 	}
 }

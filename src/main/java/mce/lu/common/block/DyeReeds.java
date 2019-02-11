@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -33,6 +34,7 @@ public class DyeReeds extends BlockBase implements IPlantable {
 		super(name, mat);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));
 		this.setTickRandomly(true);
+		this.setSoundType(SoundType.PLANT);
 	}
 
 	@Override

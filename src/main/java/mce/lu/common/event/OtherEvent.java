@@ -4,6 +4,7 @@ import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
 import mce.lu.common.util.References;
 import mce.lu.common.util.config.LUConfigManager;
+import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
@@ -67,11 +68,18 @@ public class OtherEvent {
 
 	@SubscribeEvent
 	public static void onTilled(UseHoeEvent e) {
-		if (e.getEntityPlayer().isSneaking() && (e.getWorld().getBlockState(e.getPos()).getBlock() == Blocks.DIRT
-				|| e.getWorld().getBlockState(e.getPos()).getBlock() == Blocks.GRASS)) {
+		Block block = e.getWorld().getBlockState(e.getPos()).getBlock();
+
+		if (e.getEntityPlayer().isSneaking() && (block == Blocks.DIRT || block == Blocks.GRASS)) {
 			e.getWorld().setBlockState(e.getPos(), ModBlocks.UNSTOMPABLE_FARMLAND.getDefaultState(), 2);
 			e.getCurrent().damageItem(1, e.getEntityPlayer());
 		}
+
+		if (block == ModBlocks.FERTILE_DIRT)
+			e.getWorld().setBlockState(e.getPos(), ModBlocks.FERTILE_FARMLAND.getDefaultState(), 2);
+
+		if (block == ModBlocks.ARABLE_DIRT)
+			e.getWorld().setBlockState(e.getPos(), ModBlocks.ARABLE_FARMLAND.getDefaultState(), 2);
 	}
 
 	@SubscribeEvent
