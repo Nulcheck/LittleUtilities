@@ -1,0 +1,16 @@
+{
+    "forge_marker": 1,
+    "variants": {
+        "inventory": [{"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}}],
+        "moisture": {
+            "0": {"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}},
+            "1": {"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}},
+            "2": {"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}},
+            "3": {"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}},
+            "4": {"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}},
+            "5": {"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}},
+            "6": {"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}},
+            "7": {"model": "farmland", "textures": {"dirt": "littleutilities:blocks/arable_dirt", "top": "littleutilities:blocks/arable_farmland"}}
+        }
+    }
+}

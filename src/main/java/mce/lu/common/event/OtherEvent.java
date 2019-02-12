@@ -115,11 +115,41 @@ public class OtherEvent {
 	@SubscribeEvent
 	public static void onInteractEvent(PlayerInteractEvent e) {
 		BlockPos pos = e.getPos();
+		ItemStack stack = e.getEntityPlayer().getHeldItemMainhand();
+
+		// Fertile and Arable Blocks
+		if (!stack.isEmpty() && stack.getItem() == ModItems.FERTILIZER && stack.getCount() >= 4) {
+			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.DIRT
+					|| e.getWorld().getBlockState(pos).getBlock() == Blocks.GRASS) {
+				e.getWorld().setBlockState(pos, ModBlocks.FERTILE_DIRT.getDefaultState(), 2);
+				if (!e.getEntityPlayer().capabilities.isCreativeMode)
+					e.getEntityPlayer().getHeldItemMainhand().shrink(4);
+			}
+
+			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.FARMLAND) {
+				e.getWorld().setBlockState(pos, ModBlocks.FERTILE_FARMLAND.getDefaultState(), 2);
+				if (!e.getEntityPlayer().capabilities.isCreativeMode)
+					e.getEntityPlayer().getHeldItemMainhand().shrink(4);
+			}
+		}
+
+		if (!stack.isEmpty() && stack.getItem() == Items.COAL && stack.getItemDamage() == 1 && stack.getCount() >= 2) {
+			if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.FERTILE_DIRT) {
+				e.getWorld().setBlockState(pos, ModBlocks.ARABLE_DIRT.getDefaultState(), 2);
+				if (!e.getEntityPlayer().capabilities.isCreativeMode)
+					e.getEntityPlayer().getHeldItemMainhand().shrink(2);
+			}
+
+			if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.FERTILE_FARMLAND) {
+				e.getWorld().setBlockState(pos, ModBlocks.ARABLE_FARMLAND.getDefaultState(), 2);
+				if (!e.getEntityPlayer().capabilities.isCreativeMode)
+					e.getEntityPlayer().getHeldItemMainhand().shrink(2);
+			}
+		}
 
 		if (e.getEntityPlayer().isSneaking()) {
 			// To lava blocks
-			if (e.getHand().equals(EnumHand.MAIN_HAND) && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-					&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.LAVA_BUCKET) {
+			if (e.getHand().equals(EnumHand.MAIN_HAND) && !stack.isEmpty() && stack.getItem() == Items.LAVA_BUCKET) {
 				if (e.getWorld().getBlockState(pos).getBlock() == Blocks.STONE) {
 					e.getWorld().setBlockState(pos, ModBlocks.LAVA_STONE.getDefaultState(), 2);
 					e.getEntityPlayer().getHeldItemMainhand().shrink(1);
@@ -140,8 +170,7 @@ public class OtherEvent {
 			}
 
 			// From lava blocks
-			else if (e.getHand().equals(EnumHand.MAIN_HAND) && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-					&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.BUCKET) {
+			else if (e.getHand().equals(EnumHand.MAIN_HAND) && !stack.isEmpty() && stack.getItem() == Items.BUCKET) {
 				if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.LAVA_STONE) {
 					e.getWorld().setBlockState(pos, Blocks.STONE.getDefaultState(), 2);
 					e.getEntityPlayer().getHeldItemMainhand().shrink(1);

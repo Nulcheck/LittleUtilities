@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:dirt",
+      "data": 32767
+    },
+    {
+      "item": "littleutilities:fertilizer"
+    },
+    {
+      "item": "littleutilities:fertilizer"
+    },
+    {
+      "item": "littleutilities:fertilizer"
+    },
+    {
+      "item": "littleutilities:fertilizer"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:fertile_dirt",
+    "count": 1
+  }
+}

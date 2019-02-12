@@ -20,11 +20,11 @@ public class ModBlocks {
 	public static final Block AQUA_RESERVOIR = new AquaReservoir("aqua_reservoir", Material.IRON).setHardness(1f);
 	public static final Block MAGMA_RESERVOIR = new MagmaReservoir("magma_reservoir", Material.IRON).setHardness(1f)
 			.setLightLevel(1f);
-	public static final Block FERTILE_DIRT = new FertileDirt("fertile_dirt", Material.GROUND);
-	public static final Block FERTILE_FARMLAND = new FertileFarmland("fertile_farmland");
-	public static final Block ARABLE_DIRT = new ArableDirt("arable_dirt", Material.GROUND);
-	public static final Block ARABLE_FARMLAND = new ArableFarmland("arable_farmland");
-	public static final Block UNSTOMPABLE_FARMLAND = new UnstompableFarmland("unstompable_farmland").setHardness(0.6f);
+	public static final Block FERTILE_DIRT = new FertileDirt("fertile_dirt", Material.GROUND).setHardness(0.5f);
+	public static final Block FERTILE_FARMLAND = new FertileFarmland("fertile_farmland").setHardness(0.5f);
+	public static final Block ARABLE_DIRT = new ArableDirt("arable_dirt", Material.GROUND).setHardness(0.5f);
+	public static final Block ARABLE_FARMLAND = new ArableFarmland("arable_farmland").setHardness(0.5f);
+	public static final Block UNSTOMPABLE_FARMLAND = new UnstompableFarmland("unstompable_farmland").setHardness(0.5f);
 
 	//// NORMAL
 	public static final Block GOLD_BARS = new MetalBarsBlock("gold_bars", Material.IRON, true);

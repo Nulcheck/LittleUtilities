@@ -35,6 +35,10 @@ tile.lava_stone.name=Lava Stone
 tile.lava_cobblestone.name=Lava Cobblestone
 tile.lava_obsidian.name=Lava Obsidian
 tile.pure_quartz_block.name=Pure Quartz Block
+tile.fertile_dirt.name=Fertile Dirt
+tile.fertile_farmland.name=Fertile Farmland
+tile.arable_dirt.name=Arable Dirt
+tile.arable_farmland.name=Arable Farmland
 tile.unstompable_farmland.name=Unstompable Farmland
 
 // Dye Reeds
@@ -161,6 +165,7 @@ item.leather_scraps.name=Leather Scraps
 item.zombie_curing_kit.name=Zombie Curing Kit
 item.heating_element.name=Heating Element
 item.obsidian_boat.name=Obsidian Boat
+item.fertilizer.name=Fertilizer
 
 // Pigment
 item.pigment_black.name=Black Pigment

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:tallgrass",
+      "data": 32767
+    }
+  ],
+  "result": {
+    "item": "littleutilities:fertilizer",
+    "count": 4
+  }
+}

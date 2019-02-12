@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:fertile_dirt"
+    },
+    {
+      "item": "minecraft:coal",
+      "data": 1
+    },
+    {
+      "item": "minecraft:coal",
+      "data": 1
+    }
+  ],
+  "result": {
+    "item": "littleutilities:arable_dirt",
+    "count": 1
+  }
+}
