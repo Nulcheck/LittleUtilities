@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "littleutilities:pigment_green_block"
+    },
+    {
+      "item": "littleutilities:pigment_white_block"
+    }
+  ],
+  "result": {
+    "item": "littleutilities:pigment_lime_block",
+    "count": 2
+  }
+}
