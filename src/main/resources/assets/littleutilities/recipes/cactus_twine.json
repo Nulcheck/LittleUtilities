@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "littleutilities:cactus_fiber"
+    }
+  },
+  "result": {
+    "item": "littleutilities:cactus_twine",
+    "count": 1
+  }
+}

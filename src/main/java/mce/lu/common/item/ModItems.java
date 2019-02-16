@@ -19,6 +19,8 @@ public class ModItems {
 	public static final Item ZOMBIE_CURING_KIT = new ItemBase("zombie_curing_kit");
 	public static final Item HEATING_ELEMENT = new ItemBase("heating_element");
 	public static final Item FERTILIZER = new Fertilizer("fertilizer");
+	public static final Item CACTUS_FIBER = new ItemBase("cactus_fiber");
+	public static final Item CACTUS_TWINE = new ItemBase("cactus_twine");
 
 	// public static final Item OBSIDIAN_BOAT = new
 	// ObsidianBoat("obsidian_boat");
@@ -40,7 +42,7 @@ public class ModItems {
 	public static final Item PIGMENT_MAGENTA = new ItemBase("pigment_magenta");
 	public static final Item PIGMENT_ORANGE = new ItemBase("pigment_orange");
 	public static final Item PIGMENT_WHITE = new ItemBase("pigment_white");
-	
+
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> e) {
 		e.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));

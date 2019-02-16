@@ -172,6 +172,11 @@ public class LUConfigManager {
 			@RangeInt(min = 1, max = 50)
 			@RequiresMcRestart
 			public int dyeReedsPerChunk = 23;
+			
+			@Name("Cactus Fiber Drops")
+			@Comment({"Should cactus drop cactus fiber?", "Can be used to make string."})
+			@RequiresMcRestart
+			public boolean cactusFiberDrops = true;
 		}
 
 		public static class Loot {

@@ -166,6 +166,8 @@ item.zombie_curing_kit.name=Zombie Curing Kit
 item.heating_element.name=Heating Element
 item.obsidian_boat.name=Obsidian Boat
 item.fertilizer.name=Fertilizer
+item.cactus_fiber.name=Cactus Fiber
+item.cactus_twine.name=Cactus Twine
 
 // Pigment
 item.pigment_black.name=Black Pigment

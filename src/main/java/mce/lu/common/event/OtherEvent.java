@@ -1,5 +1,7 @@
 package mce.lu.common.event;
 
+import java.util.Random;
+
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
 import mce.lu.common.util.References;
@@ -26,6 +28,7 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -110,6 +113,15 @@ public class OtherEvent {
 			if (LUConfigManager.modConfig.loot.pureQuartzLoot)
 				e.getTable().getPool("main").addEntry(pureQuartzEntry);
 		}
+	}
+
+	@SubscribeEvent
+	public static void onBlockDrops(BlockEvent.HarvestDropsEvent e) {
+		Random rand = new Random();
+
+		if (LUConfigManager.modConfig.features.cactusFiberDrops && e.getHarvester() != null
+				&& e.getState().getBlock() == Blocks.CACTUS)
+			e.getDrops().add(new ItemStack(ModItems.CACTUS_FIBER, rand.nextInt(2)));
 	}
 
 	@SubscribeEvent
