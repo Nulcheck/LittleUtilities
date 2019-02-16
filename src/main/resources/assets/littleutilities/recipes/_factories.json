@@ -18,6 +18,7 @@
 		"zombie_curing_kit_recipe": "mce.lu.common.util.config.conditions.ZombieCuringKitRecipe",
 		"prismarine_crystals_recipe": "mce.lu.common.util.config.conditions.PrismarineCrystalsRecipe",
 		"prismarine_shards_recipe": "mce.lu.common.util.config.conditions.PrismarineShardsRecipe",
-		"vines_recipe": "mce.lu.common.util.config.conditions.VinesRecipe"
+		"vines_recipe": "mce.lu.common.util.config.conditions.VinesRecipe",
+		"fertilizer_recipe": "mce.lu.common.util.config.conditions.FertilizerRecipe"
 	}
 }

@@ -2,6 +2,7 @@ package mce.lu.common.item;
 
 import javax.annotation.Nullable;
 
+import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.BlockBeetroot;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockSapling;
@@ -33,10 +34,12 @@ public class Fertilizer extends ItemBase {
 		if (!player.canPlayerEdit(pos.offset(facing), facing, stack))
 			return EnumActionResult.FAIL;
 		else {
-			if (applyFertilizer(stack, world, pos, player, hand)) {
-				if (!world.isRemote)
-					world.playEvent(2005, pos, 0);
-				return EnumActionResult.SUCCESS;
+			if (LUConfigManager.modConfig.modRecipes.fertilizer) {
+				if (applyFertilizer(stack, world, pos, player, hand)) {
+					if (!world.isRemote)
+						world.playEvent(2005, pos, 0);
+					return EnumActionResult.SUCCESS;
+				}
 			}
 
 			return EnumActionResult.PASS;
@@ -44,7 +47,7 @@ public class Fertilizer extends ItemBase {
 	}
 
 	public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos) {
-		if (world instanceof WorldServer)
+		if (world instanceof WorldServer && LUConfigManager.modConfig.modRecipes.fertilizer)
 			return applyFertilizer(stack, world, pos, FakePlayerFactory.getMinecraft((WorldServer) world), null);
 		return false;
 	}
@@ -69,7 +72,7 @@ public class Fertilizer extends ItemBase {
 							world.setBlockState(pos, state.withProperty(BlockCrops.AGE, 7), 2);
 						else if (state.getBlock() instanceof BlockSapling) {
 							world.setBlockState(pos, state.withProperty(BlockSapling.STAGE, 1), 2 & 4);
-							
+
 							BlockSapling sapling = (BlockSapling) state.getBlock();
 							sapling.generateTree(world, pos, state, world.rand);
 						} else

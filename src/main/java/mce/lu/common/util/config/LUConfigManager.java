@@ -142,6 +142,11 @@ public class LUConfigManager {
 			@Comment("Should you be able to craft the zombie curing kit?")
 			@RequiresMcRestart
 			public boolean zombieCuringKit = true;
+			
+			@Name("Fertilizer")
+			@Comment("Should you be able to craft AND use fertilizer?")
+			@RequiresMcRestart
+			public boolean fertilizer = true;
 		}
 
 		public static class Events {
