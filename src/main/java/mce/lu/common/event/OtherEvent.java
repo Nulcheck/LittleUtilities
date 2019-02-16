@@ -118,7 +118,8 @@ public class OtherEvent {
 		ItemStack stack = e.getEntityPlayer().getHeldItemMainhand();
 
 		// Fertile and Arable Blocks
-		if (!stack.isEmpty() && stack.getItem() == ModItems.FERTILIZER && stack.getCount() >= 4) {
+		if (e.getEntityPlayer().isSneaking() && !stack.isEmpty() && stack.getItem() == ModItems.FERTILIZER
+				&& stack.getCount() >= 4) {
 			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.DIRT
 					|| e.getWorld().getBlockState(pos).getBlock() == Blocks.GRASS) {
 				e.getWorld().setBlockState(pos, ModBlocks.FERTILE_DIRT.getDefaultState(), 2);
