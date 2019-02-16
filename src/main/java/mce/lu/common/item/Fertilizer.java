@@ -2,7 +2,7 @@ package mce.lu.common.item;
 
 import javax.annotation.Nullable;
 
-import mce.lu.common.util.Util;
+import net.minecraft.block.BlockBeetroot;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.IGrowable;
@@ -19,6 +19,8 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.event.ForgeEventFactory;
 
 public class Fertilizer extends ItemBase {
+	static BlockSapling sap;
+
 	public Fertilizer(String name) {
 		super(name);
 	}
@@ -61,11 +63,16 @@ public class Fertilizer extends ItemBase {
 			if (plant.canGrow(world, pos, state, world.isRemote)) {
 				if (!world.isRemote) {
 					if (plant.canUseBonemeal(world, world.rand, pos, state)) {
-						if (Util.doesMethodExist(BlockCrops.class, "func_185525_y"))
-							Util.setMethod(BlockCrops.class, "func_185525_y", true);
-						else if (state.getBlock() instanceof BlockSapling)
-							world.setBlockState(pos, state.withProperty(BlockSapling.STAGE, 1), 2);
-						else
+						if (state.getBlock() instanceof BlockBeetroot)
+							world.setBlockState(pos, state.withProperty(BlockBeetroot.BEETROOT_AGE, 3), 2);
+						else if (state.getBlock() instanceof BlockCrops)
+							world.setBlockState(pos, state.withProperty(BlockCrops.AGE, 7), 2);
+						else if (state.getBlock() instanceof BlockSapling) {
+							world.setBlockState(pos, state.withProperty(BlockSapling.STAGE, 1), 2 & 4);
+							
+							BlockSapling sapling = (BlockSapling) state.getBlock();
+							sapling.generateTree(world, pos, state, world.rand);
+						} else
 							plant.grow(world, world.rand, pos, state);
 					}
 					stack.shrink(1);
