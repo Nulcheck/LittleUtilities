@@ -7,6 +7,7 @@ import mce.lu.common.item.ItemBlockEdible;
 import mce.lu.common.item.ItemBlockUsable;
 import mce.lu.common.item.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -32,6 +33,11 @@ public class BlockBase extends Block implements IModelRegister {
 		else
 			ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
+	
+	public BlockBase(String name, Material mat, SoundType sound) {
+		this(name, mat);
+		this.blockSoundType = sound;
+	}
 
 	@SideOnly(Side.CLIENT)
 	public void registerItemModels() {
@@ -42,7 +48,7 @@ public class BlockBase extends Block implements IModelRegister {
 		else
 			ClientProxy.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
 	}
-	
+
 	public static void turnIntoWater(World world, BlockPos pos) {
 		if (world.provider.doesWaterVaporize())
 			world.setBlockToAir(pos);
