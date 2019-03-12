@@ -13,9 +13,12 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.storage.loot.LootEntry;
 import net.minecraft.world.storage.loot.LootEntryItem;
@@ -71,18 +74,27 @@ public class OtherEvent {
 
 	@SubscribeEvent
 	public static void onTilled(UseHoeEvent e) {
+		BlockPos pos = e.getPos();
 		Block block = e.getWorld().getBlockState(e.getPos()).getBlock();
 
 		if (e.getEntityPlayer().isSneaking() && (block == Blocks.DIRT || block == Blocks.GRASS)) {
-			e.getWorld().setBlockState(e.getPos(), ModBlocks.UNSTOMPABLE_FARMLAND.getDefaultState(), 2);
+			e.getWorld().setBlockState(pos, ModBlocks.UNSTOMPABLE_FARMLAND.getDefaultState(), 2);
 			e.getCurrent().damageItem(1, e.getEntityPlayer());
+			e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F,
+					1.0F);
 		}
 
-		if (block == ModBlocks.FERTILE_DIRT)
+		if (block == ModBlocks.FERTILE_DIRT) {
 			e.getWorld().setBlockState(e.getPos(), ModBlocks.FERTILE_FARMLAND.getDefaultState(), 2);
+			e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F,
+					1.0F);
+		}
 
-		if (block == ModBlocks.ARABLE_DIRT)
+		if (block == ModBlocks.ARABLE_DIRT) {
 			e.getWorld().setBlockState(e.getPos(), ModBlocks.ARABLE_FARMLAND.getDefaultState(), 2);
+			e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F,
+					1.0F);
+		}
 	}
 
 	@SubscribeEvent
@@ -128,6 +140,15 @@ public class OtherEvent {
 	public static void onInteractEvent(PlayerInteractEvent e) {
 		BlockPos pos = e.getPos();
 		ItemStack stack = e.getEntityPlayer().getHeldItemMainhand();
+
+		// Dirt into Path
+		if (!stack.isEmpty() && stack.getItem() instanceof ItemSpade) {
+			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.DIRT) {
+				e.getWorld().setBlockState(pos, Blocks.GRASS_PATH.getDefaultState(), 2);
+				e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS,
+						1.0F, 1.0F);
+			}
+		}
 
 		// Fertile and Arable Blocks
 		if (e.getEntityPlayer().isSneaking() && !stack.isEmpty() && stack.getItem() == ModItems.FERTILIZER
