@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "bbb"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:blaze_rod"
+    },
+    "b": {
+      "item": "minecraft:netherbrick"
+    }
+  },
+  "result": {
+    "item": "littleutilities:fire_spike_block",
+    "count": 3
+  }
+}

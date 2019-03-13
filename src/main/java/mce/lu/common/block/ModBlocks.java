@@ -26,6 +26,9 @@ public class ModBlocks {
 	public static final Block ARABLE_DIRT = new ArableDirt("arable_dirt", Material.GROUND).setHardness(0.5f);
 	public static final Block ARABLE_FARMLAND = new ArableFarmland("arable_farmland").setHardness(0.5f);
 	public static final Block UNSTOMPABLE_FARMLAND = new UnstompableFarmland("unstompable_farmland").setHardness(0.5f);
+	public static final Block SPIKES = new SpikeBlock("spike_block", Material.IRON);
+	public static final Block POISON_SPIKES = new SpikeBlock("poison_spike_block", Material.IRON);
+	public static final Block FIRE_SPIKES = new SpikeBlock("fire_spike_block", Material.IRON);
 
 	//// NORMAL
 	public static final Block GOLD_BARS = new MetalBarsBlock("gold_bars", Material.IRON, true);

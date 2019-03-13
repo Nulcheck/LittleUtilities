@@ -20,6 +20,10 @@ waila.lu.condensed_block.poisonous=Poisonous
 waila.lu.snowmelter.range=Range
 waila.lu.snowmelter.redstonemode=Redstone Mode
 
+// CHAT STUFF
+death.attack.spikes=%1$s was spiked to death
+death.attack.spikes.player=%1$s was spiked to death whilst fighting %2$s
+
 ////// BLOCKS
 tile.lu_condenser.name=Condenser
 tile.snow_melter.name=Snow Melter
@@ -40,6 +44,9 @@ tile.fertile_farmland.name=Fertile Farmland
 tile.arable_dirt.name=Arable Dirt
 tile.arable_farmland.name=Arable Farmland
 tile.unstompable_farmland.name=Unstompable Farmland
+tile.spike_block.name=Spikes
+tile.poison_spike_block.name=Poisoned Spikes
+tile.fire_spike_block.name=Fire Spikes
 
 // Dye Reeds
 tile.reeds_black.name=Black Reeds

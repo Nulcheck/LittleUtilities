@@ -1,0 +1,14 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"inventory": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/fire_spike_block"}},
+		"facing": {
+			"up": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/fire_spike_block"}},
+			"down": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/fire_spike_block"}, "x": 180},
+			"east": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/fire_spike_block"}, "x": 90, "y": 90},
+			"west": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/fire_spike_block"}, "x": 90, "y": 270},
+			"south": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/fire_spike_block"}, "x": 90, "y": 180},
+			"north": {"model": "littleutilities:crossed_block", "textures": {"all": "littleutilities:blocks/fire_spike_block"}, "x": 90}
+		}
+	}
+}
