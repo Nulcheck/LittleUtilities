@@ -1,8 +1,10 @@
 package mce.lu.common.event;
 
 import mce.lu.common.block.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -15,275 +17,235 @@ public class StackedBlockEvent {
 	public static void onInteractEvent(PlayerInteractEvent e) {
 		BlockPos pos = e.getPos();
 		IBlockState state = e.getWorld().getBlockState(pos);
+		ItemStack stack = e.getEntityPlayer().getHeldItemMainhand();
+		Block block = e.getWorld().getBlockState(pos).getBlock();
+
+		boolean sneak = e.getEntityPlayer().isSneaking();
+		boolean creative = e.getEntityPlayer().isCreative();
 
 		// Usable Blocks
-		if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.ENDER_PEARL
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.ENDER_PEARL_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		if (sneak && !stack.isEmpty() && stack.getItem() == Items.ENDER_PEARL && block == ModBlocks.ENDER_PEARL_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
 		// Edible Blocks
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.PORKCHOP
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.PORK_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.PORKCHOP && block == ModBlocks.PORK_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.COOKED_PORKCHOP
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.COOKED_PORK_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.COOKED_PORKCHOP
+				&& block == ModBlocks.COOKED_PORK_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.BEEF
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.BEEF_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.BEEF && block == ModBlocks.BEEF_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.COOKED_BEEF
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.COOKED_BEEF_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.COOKED_BEEF
+				&& block == ModBlocks.COOKED_BEEF_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.CHICKEN
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.CHICKEN_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.CHICKEN && block == ModBlocks.CHICKEN_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.COOKED_CHICKEN
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.COOKED_CHICKEN_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.COOKED_CHICKEN
+				&& block == ModBlocks.COOKED_CHICKEN_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.FISH
-				&& e.getEntityPlayer().getHeldItemMainhand().getItemDamage() == 0
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.COD_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.FISH && stack.getItemDamage() == 0
+				&& block == ModBlocks.COD_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.COOKED_FISH
-				&& e.getEntityPlayer().getHeldItemMainhand().getItemDamage() == 0
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.COOKED_COD_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.COOKED_FISH && stack.getItemDamage() == 0
+				&& block == ModBlocks.COOKED_COD_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.FISH
-				&& e.getEntityPlayer().getHeldItemMainhand().getItemDamage() == 1
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.SALMON_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.FISH && stack.getItemDamage() == 1
+				&& block == ModBlocks.SALMON_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.COOKED_FISH
-				&& e.getEntityPlayer().getHeldItemMainhand().getItemDamage() == 1
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.COOKED_SALMON_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.COOKED_FISH && stack.getItemDamage() == 1
+				&& block == ModBlocks.COOKED_SALMON_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.FISH
-				&& e.getEntityPlayer().getHeldItemMainhand().getItemDamage() == 2
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.TROPICAL_FISH_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.FISH && stack.getItemDamage() == 2
+				&& block == ModBlocks.TROPICAL_FISH_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.FISH
-				&& e.getEntityPlayer().getHeldItemMainhand().getItemDamage() == 3
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.PUFFERFISH_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.FISH && stack.getItemDamage() == 3
+				&& block == ModBlocks.PUFFERFISH_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.ROTTEN_FLESH
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.ROTTEN_FLESH_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.ROTTEN_FLESH
+				&& block == ModBlocks.ROTTEN_FLESH_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.APPLE
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.APPLE_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.APPLE && block == ModBlocks.APPLE_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.GOLDEN_APPLE
-				&& e.getEntityPlayer().getHeldItemMainhand().getItemDamage() == 0
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.GOLDEN_APPLE_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.GOLDEN_APPLE && stack.getItemDamage() == 0
+				&& block == ModBlocks.GOLDEN_APPLE_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.GOLDEN_APPLE
-				&& e.getEntityPlayer().getHeldItemMainhand().getItemDamage() == 1
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.NOTCH_APPLE_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.GOLDEN_APPLE && stack.getItemDamage() == 1
+				&& block == ModBlocks.NOTCH_APPLE_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.BREAD
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.BREAD_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.BREAD && block == ModBlocks.BREAD_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.COOKIE
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.COOKIE_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.COOKIE && block == ModBlocks.COOKIE_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.SPIDER_EYE
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.SPIDER_EYE_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.SPIDER_EYE && block == ModBlocks.SPIDER_EYE_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.CARROT
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.CARROT_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.CARROT && block == ModBlocks.CARROT_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.GOLDEN_CARROT
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.GOLDEN_CARROT_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.GOLDEN_CARROT
+				&& block == ModBlocks.GOLDEN_CARROT_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.POTATO
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.POTATO_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.POTATO && block == ModBlocks.POTATO_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.BAKED_POTATO
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.BAKED_POTATO_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.BAKED_POTATO
+				&& block == ModBlocks.BAKED_POTATO_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.POISONOUS_POTATO
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.POISONOUS_POTATO_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.POISONOUS_POTATO
+				&& block == ModBlocks.POISONOUS_POTATO_BLOCK && block.getMetaFromState(state) < 9
+				&& block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 
-		else if (e.getEntityPlayer().isSneaking() && !e.getEntityPlayer().getHeldItemMainhand().isEmpty()
-				&& e.getEntityPlayer().getHeldItemMainhand().getItem() == Items.BEETROOT
-				&& e.getWorld().getBlockState(pos).getBlock() == ModBlocks.BEETROOT_BLOCK
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) < 9
-				&& e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) > 0) {
-			e.getWorld().setBlockState(pos, e.getWorld().getBlockState(pos).getBlock()
-					.getStateFromMeta(e.getWorld().getBlockState(pos).getBlock().getMetaFromState(state) - 1));
-			e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+		else if (sneak && !stack.isEmpty() && stack.getItem() == Items.BEETROOT && block == ModBlocks.BEETROOT_BLOCK
+				&& block.getMetaFromState(state) < 9 && block.getMetaFromState(state) > 0) {
+			e.getWorld().setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) - 1));
+
+			if (!creative)
+				stack.shrink(1);
 		}
 	}
 }
