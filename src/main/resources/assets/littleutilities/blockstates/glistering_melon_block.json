@@ -1,7 +1,7 @@
 {
 	"forge_marker": 1,
 	"variants": {
-		"inventory": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/glistering_melon_block"}},
-		"normal": {"model": "littleutilities:normal_block", "textures": {"all": "littleutilities:blocks/glistering_melon_block"}}
+		"inventory": {"model": "cube_column", "textures": {"side": "littleutilities:blocks/glistering_melon_block_side", "end": "littleutilities:blocks/glistering_melon_block_top"}},
+		"normal": {"model": "cube_column", "textures": {"side": "littleutilities:blocks/glistering_melon_block_side", "end": "littleutilities:blocks/glistering_melon_block_top"}}
 	}
 }

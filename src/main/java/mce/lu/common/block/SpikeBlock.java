@@ -127,8 +127,8 @@ public class SpikeBlock extends BlockDirectionalBase {
 	}
 
 	/**
-	 * Similar to vanilla's function, but I want to place spikes on glass, and
-	 * glowstone, so I removed it from the list.
+	 * Similar to vanilla's function, but I want to place spikes on glass,
+	 * glowstone, etc, so I removed them from the list.
 	 * 
 	 * Glass, Stained Glass, Glowstone, Ice, Sea Lantern
 	 * 

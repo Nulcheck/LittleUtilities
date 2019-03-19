@@ -73,8 +73,8 @@ public class ModBlocks {
 			.setLightLevel(0.4f).setHardness(1f);
 	public static final Block BLAZE_ROD_BLOCK = new BlazeRodBlock("blaze_rod_block", Material.GLASS).setLightLevel(1f)
 			.setHardness(1f);
-	public static final Block BLAZE_POWDER_BLOCK = new BlazeRodBlock("blaze_powder_block", Material.CLAY)
-			.setLightLevel(8f);
+	public static final Block BLAZE_POWDER_BLOCK = new BlazeRodBlock("blaze_powder_block", Material.CLAY,
+			SoundType.GROUND).setLightLevel(8f);
 	public static final Block NETHER_STAR_BLOCK = new NetherStarBlock("nether_star_block", Material.GLASS)
 			.setHardness(2f);
 	public static final Block GUNPOWDER_BLOCK = new GunpowderBlock("gunpowder_block", Material.SAND, 0.0625d)
@@ -85,58 +85,76 @@ public class ModBlocks {
 	public static final Block MAGMA_CREAM_BLOCK = new BlockBase("magma_cream_block", Material.CLAY).setLightLevel(0.45f)
 			.setHardness(0.8f);
 	public static final Block FEATHER_BLOCK = new FeatherBlock("feather_block", Material.CLOTH).setHardness(0.5f);
-	public static final Block EGG_BLOCK = new EggBlock("egg_block", Material.GROUND).setHardness(0.5f);
+	public static final Block EGG_BLOCK = new BlockBase("egg_block", Material.GROUND, SoundType.WOOD).setHardness(0.5f);
 	public static final Block SUGAR_BLOCK = new BoundsBlock("sugar_block", Material.SAND, 0.0625d).setHardness(0.5f);
 	public static final Block FERMENTED_SPIDER_EYE_BLOCK = new BlockBase("fermented_spider_eye_block", Material.CLAY)
 			.setHardness(0.6f);
-	public static final Block GLISTERING_MELON = new BlockBase("glistering_melon_block", Material.CLAY)
+	public static final Block GLISTERING_MELON = new BlockBase("glistering_melon_block", Material.CLAY, SoundType.WOOD)
 			.setHardness(0.6f);
 	public static final Block BONE_BLOCK = new BoneBlock("bone_block", Material.ROCK).setHardness(1f);
 	public static final Block CHARCOAL_BLOCK = new BlockBase("charcoal_block", Material.ROCK);
 
 	// DYES
-	public static final Block DYE_BLACK_BLOCK = new BlockBase("dye_black_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_RED_BLOCK = new BlockBase("dye_red_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_GREEN_BLOCK = new BlockBase("dye_green_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_BROWN_BLOCK = new BlockBase("dye_brown_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_PURPLE_BLOCK = new BlockBase("dye_purple_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_CYAN_BLOCK = new BlockBase("dye_cyan_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_LIGHT_GRAY_BLOCK = new BlockBase("dye_light_gray_block", Material.CLAY, SoundType.GROUND)
+	public static final Block DYE_BLACK_BLOCK = new BlockBase("dye_black_block", Material.CLAY, SoundType.GROUND)
 			.setHardness(0.3f);
-	public static final Block DYE_GRAY_BLOCK = new BlockBase("dye_gray_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_PINK_BLOCK = new BlockBase("dye_pink_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_LIME_BLOCK = new BlockBase("dye_lime_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_YELLOW_BLOCK = new BlockBase("dye_yellow_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_LIGHT_BLUE_BLOCK = new BlockBase("dye_light_blue_block", Material.CLAY, SoundType.GROUND)
+	public static final Block DYE_RED_BLOCK = new BlockBase("dye_red_block", Material.CLAY, SoundType.GROUND)
 			.setHardness(0.3f);
-	public static final Block DYE_MAGENTA_BLOCK = new BlockBase("dye_magenta_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
-	public static final Block DYE_ORANGE_BLOCK = new BlockBase("dye_orange_block", Material.CLAY, SoundType.GROUND).setHardness(0.3f);
+	public static final Block DYE_GREEN_BLOCK = new BlockBase("dye_green_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_BROWN_BLOCK = new BlockBase("dye_brown_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_PURPLE_BLOCK = new BlockBase("dye_purple_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_CYAN_BLOCK = new BlockBase("dye_cyan_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_LIGHT_GRAY_BLOCK = new BlockBase("dye_light_gray_block", Material.CLAY,
+			SoundType.GROUND).setHardness(0.3f);
+	public static final Block DYE_GRAY_BLOCK = new BlockBase("dye_gray_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_PINK_BLOCK = new BlockBase("dye_pink_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_LIME_BLOCK = new BlockBase("dye_lime_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_YELLOW_BLOCK = new BlockBase("dye_yellow_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_LIGHT_BLUE_BLOCK = new BlockBase("dye_light_blue_block", Material.CLAY,
+			SoundType.GROUND).setHardness(0.3f);
+	public static final Block DYE_MAGENTA_BLOCK = new BlockBase("dye_magenta_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
+	public static final Block DYE_ORANGE_BLOCK = new BlockBase("dye_orange_block", Material.CLAY, SoundType.GROUND)
+			.setHardness(0.3f);
 
 	// PIGMENTS
 	public static final Block PIGMENT_BLACK_BLOCK = new BlockBase("pigment_black_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
-	public static final Block PIGMENT_RED_BLOCK = new BlockBase("pigment_red_block", Material.CLAY, SoundType.SAND).setHardness(0.2f);
+	public static final Block PIGMENT_RED_BLOCK = new BlockBase("pigment_red_block", Material.CLAY, SoundType.SAND)
+			.setHardness(0.2f);
 	public static final Block PIGMENT_GREEN_BLOCK = new BlockBase("pigment_green_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
 	public static final Block PIGMENT_BROWN_BLOCK = new BlockBase("pigment_brown_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
-	public static final Block PIGMENT_BLUE_BLOCK = new BlockBase("pigment_blue_block", Material.CLAY, SoundType.SAND).setHardness(0.2f);
-	public static final Block PIGMENT_PURPLE_BLOCK = new BlockBase("pigment_purple_block", Material.CLAY, SoundType.SAND)
+	public static final Block PIGMENT_BLUE_BLOCK = new BlockBase("pigment_blue_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
-	public static final Block PIGMENT_CYAN_BLOCK = new BlockBase("pigment_cyan_block", Material.CLAY, SoundType.SAND).setHardness(0.2f);
-	public static final Block PIGMENT_LIGHT_GRAY_BLOCK = new BlockBase("pigment_light_gray_block", Material.CLAY, SoundType.SAND)
+	public static final Block PIGMENT_PURPLE_BLOCK = new BlockBase("pigment_purple_block", Material.CLAY,
+			SoundType.SAND).setHardness(0.2f);
+	public static final Block PIGMENT_CYAN_BLOCK = new BlockBase("pigment_cyan_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
-	public static final Block PIGMENT_GRAY_BLOCK = new BlockBase("pigment_gray_block", Material.CLAY, SoundType.SAND).setHardness(0.2f);
-	public static final Block PIGMENT_PINK_BLOCK = new BlockBase("pigment_pink_block", Material.CLAY, SoundType.SAND).setHardness(0.2f);
-	public static final Block PIGMENT_LIME_BLOCK = new BlockBase("pigment_lime_block", Material.CLAY, SoundType.SAND).setHardness(0.2f);
-	public static final Block PIGMENT_YELLOW_BLOCK = new BlockBase("pigment_yellow_block", Material.CLAY, SoundType.SAND)
+	public static final Block PIGMENT_LIGHT_GRAY_BLOCK = new BlockBase("pigment_light_gray_block", Material.CLAY,
+			SoundType.SAND).setHardness(0.2f);
+	public static final Block PIGMENT_GRAY_BLOCK = new BlockBase("pigment_gray_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
-	public static final Block PIGMENT_LIGHT_BLUE_BLOCK = new BlockBase("pigment_light_blue_block", Material.CLAY, SoundType.SAND)
+	public static final Block PIGMENT_PINK_BLOCK = new BlockBase("pigment_pink_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
-	public static final Block PIGMENT_MAGENTA_BLOCK = new BlockBase("pigment_magenta_block", Material.CLAY, SoundType.SAND)
+	public static final Block PIGMENT_LIME_BLOCK = new BlockBase("pigment_lime_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
-	public static final Block PIGMENT_ORANGE_BLOCK = new BlockBase("pigment_orange_block", Material.CLAY, SoundType.SAND)
-			.setHardness(0.2f);
+	public static final Block PIGMENT_YELLOW_BLOCK = new BlockBase("pigment_yellow_block", Material.CLAY,
+			SoundType.SAND).setHardness(0.2f);
+	public static final Block PIGMENT_LIGHT_BLUE_BLOCK = new BlockBase("pigment_light_blue_block", Material.CLAY,
+			SoundType.SAND).setHardness(0.2f);
+	public static final Block PIGMENT_MAGENTA_BLOCK = new BlockBase("pigment_magenta_block", Material.CLAY,
+			SoundType.SAND).setHardness(0.2f);
+	public static final Block PIGMENT_ORANGE_BLOCK = new BlockBase("pigment_orange_block", Material.CLAY,
+			SoundType.SAND).setHardness(0.2f);
 	public static final Block PIGMENT_WHITE_BLOCK = new BlockBase("pigment_white_block", Material.CLAY, SoundType.SAND)
 			.setHardness(0.2f);
 

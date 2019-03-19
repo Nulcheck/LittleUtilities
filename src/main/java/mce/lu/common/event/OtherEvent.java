@@ -7,6 +7,7 @@ import mce.lu.common.item.ModItems;
 import mce.lu.common.util.References;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
@@ -136,10 +137,12 @@ public class OtherEvent {
 			e.getDrops().add(new ItemStack(ModItems.CACTUS_FIBER, rand.nextInt(2)));
 	}
 
+	@SuppressWarnings("deprecation")
 	@SubscribeEvent
 	public static void onInteractEvent(PlayerInteractEvent e) {
 		BlockPos pos = e.getPos();
 		ItemStack stack = e.getEntityPlayer().getHeldItemMainhand();
+		IBlockState state = e.getWorld().getBlockState(pos);
 
 		// Dirt into Path
 		if (!stack.isEmpty() && stack.getItem() instanceof ItemSpade) {
@@ -150,6 +153,29 @@ public class OtherEvent {
 			}
 		}
 
+		// Spikes
+		if (!stack.isEmpty() && stack.getItem() == Items.SPIDER_EYE) {
+			if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.SPIKES) {
+				e.getWorld().setBlockState(pos,
+						ModBlocks.POISON_SPIKES.getStateFromMeta(ModBlocks.POISON_SPIKES.getMetaFromState(state)), 2);
+
+				if (!e.getEntityPlayer().isCreative())
+					stack.shrink(1);
+			}
+		}
+
+		if (!stack.isEmpty() && (stack.getItem() == Items.WATER_BUCKET || stack.getItem() == ModItems.SPONGE)) {
+			if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.POISON_SPIKES) {
+				e.getWorld().setBlockState(pos,
+						ModBlocks.SPIKES.getStateFromMeta(ModBlocks.SPIKES.getMetaFromState(state)), 2);
+
+				if (!e.getEntityPlayer().isCreative() && stack.getItem() == Items.WATER_BUCKET) {
+					stack.shrink(1);
+					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
+				}
+			}
+		}
+
 		// Fertile and Arable Blocks
 		if (e.getEntityPlayer().isSneaking() && !stack.isEmpty() && stack.getItem() == ModItems.FERTILIZER
 				&& stack.getCount() >= 4) {
@@ -157,13 +183,13 @@ public class OtherEvent {
 					|| e.getWorld().getBlockState(pos).getBlock() == Blocks.GRASS) {
 				e.getWorld().setBlockState(pos, ModBlocks.FERTILE_DIRT.getDefaultState(), 2);
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
-					e.getEntityPlayer().getHeldItemMainhand().shrink(4);
+					stack.shrink(4);
 			}
 
 			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.FARMLAND) {
 				e.getWorld().setBlockState(pos, ModBlocks.FERTILE_FARMLAND.getDefaultState(), 2);
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
-					e.getEntityPlayer().getHeldItemMainhand().shrink(4);
+					stack.shrink(4);
 			}
 		}
 
@@ -171,13 +197,13 @@ public class OtherEvent {
 			if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.FERTILE_DIRT) {
 				e.getWorld().setBlockState(pos, ModBlocks.ARABLE_DIRT.getDefaultState(), 2);
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
-					e.getEntityPlayer().getHeldItemMainhand().shrink(2);
+					stack.shrink(2);
 			}
 
 			if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.FERTILE_FARMLAND) {
 				e.getWorld().setBlockState(pos, ModBlocks.ARABLE_FARMLAND.getDefaultState(), 2);
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
-					e.getEntityPlayer().getHeldItemMainhand().shrink(2);
+					stack.shrink(2);
 			}
 		}
 
@@ -186,19 +212,19 @@ public class OtherEvent {
 			if (e.getHand().equals(EnumHand.MAIN_HAND) && !stack.isEmpty() && stack.getItem() == Items.LAVA_BUCKET) {
 				if (e.getWorld().getBlockState(pos).getBlock() == Blocks.STONE) {
 					e.getWorld().setBlockState(pos, ModBlocks.LAVA_STONE.getDefaultState(), 2);
-					e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+					stack.shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
 				}
 
 				else if (e.getWorld().getBlockState(pos).getBlock() == Blocks.COBBLESTONE) {
 					e.getWorld().setBlockState(pos, ModBlocks.LAVA_COBBLESTONE.getDefaultState(), 2);
-					e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+					stack.shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
 				}
 
 				else if (e.getWorld().getBlockState(pos).getBlock() == Blocks.OBSIDIAN) {
 					e.getWorld().setBlockState(pos, ModBlocks.LAVA_OBSIDIAN.getDefaultState(), 2);
-					e.getEntityPlayer().getHeldItemMainhand().shrink(1);
+					stack.shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
 				}
 			}

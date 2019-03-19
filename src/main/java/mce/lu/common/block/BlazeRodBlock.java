@@ -3,6 +3,7 @@ package mce.lu.common.block;
 import java.util.Random;
 
 import mce.lu.client.core.handler.ParticleManager;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -13,6 +14,10 @@ import net.minecraft.world.World;
 public class BlazeRodBlock extends BlockBase {
 	public BlazeRodBlock(String name, Material mat) {
 		super(name, mat);
+	}
+	
+	public BlazeRodBlock(String name, Material mat, SoundType sound) {
+		super(name, mat, sound);
 	}
 
 	@Override

@@ -168,10 +168,10 @@ public class LUConfigManager {
 			public boolean generateDyeReeds = true;
 
 			@Name("Dye Reeds Per Chunk")
-			@Comment({ "How many dye reeds per chunk should generate?", "[Default: 23]" })
+			@Comment({ "How many dye reeds per chunk should generate?", "[Default: 11]" })
 			@RangeInt(min = 1, max = 50)
 			@RequiresMcRestart
-			public int dyeReedsPerChunk = 23;
+			public int dyeReedsPerChunk = 11;
 			
 			@Name("Cactus Fiber Drops")
 			@Comment({"Should cactus drop cactus fiber?", "Can be used to make string."})
