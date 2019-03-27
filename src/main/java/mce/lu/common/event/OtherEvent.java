@@ -29,7 +29,7 @@ import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -139,7 +139,7 @@ public class OtherEvent {
 
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
-	public static void onInteractEvent(PlayerInteractEvent e) {
+	public static void onInteractEvent(RightClickBlock e) {
 		BlockPos pos = e.getPos();
 		ItemStack stack = e.getEntityPlayer().getHeldItemMainhand();
 		IBlockState state = e.getWorld().getBlockState(pos);

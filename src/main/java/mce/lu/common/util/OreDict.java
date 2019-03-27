@@ -39,5 +39,24 @@ public class OreDict {
 		OreDictionary.registerOre("dyeMagenta", ModItems.PIGMENT_MAGENTA);
 		OreDictionary.registerOre("dyeOrange", ModItems.PIGMENT_ORANGE);
 		OreDictionary.registerOre("dyeWhite", ModItems.PIGMENT_WHITE);
+		
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_BLACK);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_RED);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_GREEN);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_BROWN);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_BLUE);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_PURPLE);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_CYAN);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_LIGHT_GRAY);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_GRAY);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_PINK);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_LIME);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_YELLOW);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_LIGHT_BLUE);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_MAGENTA);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_ORANGE);
+		OreDictionary.registerOre("dye", ModItems.PIGMENT_WHITE);
+		
+		OreDictionary.registerOre("gemQuartz", ModItems.PURE_QUARTZ);
 	}
 }
