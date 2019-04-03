@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.MobEffects;
 import net.minecraftforge.event.RegistryEvent;
@@ -14,28 +15,30 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @EventBusSubscriber
 public class ModBlocks {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
+	public static final Material UTIL_ROCK = new Material(MapColor.STONE);
+	public static final Material UTIL_METAL = new Material(MapColor.IRON);
 
 	//// UTILITY
-	public static final Block CONDENSER = new CondenserBlock("lu_condenser", Material.ROCK).setHardness(1.5f);
-	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", Material.IRON).setHardness(1.2f);
-	public static final Block AQUA_RESERVOIR = new AquaReservoir("aqua_reservoir", Material.IRON).setHardness(1f);
-	public static final Block MAGMA_RESERVOIR = new MagmaReservoir("magma_reservoir", Material.IRON).setHardness(1f)
+	public static final Block CONDENSER = new CondenserBlock("lu_condenser", UTIL_ROCK).setHardness(1.5f);
+	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", UTIL_METAL).setHardness(1.2f);
+	public static final Block AQUA_RESERVOIR = new AquaReservoir("aqua_reservoir", UTIL_METAL).setHardness(1f);
+	public static final Block MAGMA_RESERVOIR = new MagmaReservoir("magma_reservoir", UTIL_METAL).setHardness(1f)
 			.setLightLevel(1f);
 	public static final Block FERTILE_DIRT = new FertileDirt("fertile_dirt", Material.GROUND).setHardness(0.5f);
 	public static final Block FERTILE_FARMLAND = new FertileFarmland("fertile_farmland").setHardness(0.5f);
 	public static final Block ARABLE_DIRT = new ArableDirt("arable_dirt", Material.GROUND).setHardness(0.5f);
 	public static final Block ARABLE_FARMLAND = new ArableFarmland("arable_farmland").setHardness(0.5f);
 	public static final Block UNSTOMPABLE_FARMLAND = new UnstompableFarmland("unstompable_farmland").setHardness(0.5f);
-	public static final Block SPIKES = new SpikeBlock("spike_block", Material.IRON);
-	public static final Block POISON_SPIKES = new SpikeBlock("poison_spike_block", Material.IRON);
-	public static final Block FIRE_SPIKES = new SpikeBlock("fire_spike_block", Material.IRON);
+	public static final Block SPIKES = new SpikeBlock("spike_block", UTIL_METAL);
+	public static final Block POISON_SPIKES = new SpikeBlock("poison_spike_block", UTIL_METAL);
+	public static final Block FIRE_SPIKES = new SpikeBlock("fire_spike_block", UTIL_METAL);
 
 	//// NORMAL
-	public static final Block GOLD_BARS = new MetalBarsBlock("gold_bars", Material.IRON, true);
-	public static final Block DIAMOND_BARS = new MetalBarsBlock("diamond_bars", Material.IRON, true);
-	public static final Block LAPIS_BARS = new MetalBarsBlock("lapis_bars", Material.IRON, true);
-	public static final Block OBSIDIAN_BARS = new MetalBarsBlock("obsidian_bars", Material.IRON, true);
-	public static final Block BLAZE_BARS = new MetalBarsBlock("blaze_bars", Material.IRON, true);
+	public static final Block GOLD_BARS = new MetalBarsBlock("gold_bars", UTIL_METAL, true);
+	public static final Block DIAMOND_BARS = new MetalBarsBlock("diamond_bars", UTIL_METAL, true);
+	public static final Block LAPIS_BARS = new MetalBarsBlock("lapis_bars", UTIL_METAL, true);
+	public static final Block OBSIDIAN_BARS = new MetalBarsBlock("obsidian_bars", UTIL_METAL, true);
+	public static final Block BLAZE_BARS = new MetalBarsBlock("blaze_bars", UTIL_METAL, true);
 	public static final Block LAVA_STONE = new BlockBase("lava_stone", Material.ROCK).setHardness(1.5f)
 			.setLightLevel(1f);
 	public static final Block LAVA_COBBLESTONE = new BlockBase("lava_cobblestone", Material.ROCK).setHardness(2f)
@@ -91,7 +94,7 @@ public class ModBlocks {
 			.setHardness(0.6f);
 	public static final Block GLISTERING_MELON = new BlockBase("glistering_melon_block", Material.CLAY, SoundType.WOOD)
 			.setHardness(0.6f);
-	public static final Block BONE_BLOCK = new BoneBlock("bone_block", Material.ROCK).setHardness(1f);
+	public static final Block BONE_BLOCK = new BoneBlock("bone_block", UTIL_ROCK).setHardness(1f);
 	public static final Block CHARCOAL_BLOCK = new BlockBase("charcoal_block", Material.ROCK);
 
 	// DYES
