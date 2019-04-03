@@ -3,6 +3,7 @@ package mce.lu.common.block;
 import java.util.ArrayList;
 import java.util.List;
 
+import mce.lu.api.PamsBalanceHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -166,52 +167,65 @@ public class ModBlocks {
 			.setHardness(1f);
 
 	// EDIBLE BLOCKS
-	public static final Block PORK_BLOCK = new EdibleBlock("pork_block", Material.CLAY, 3, 0.3f).setHardness(0.8f);
+	public static final Block PORK_BLOCK = new EdibleBlock("pork_block", Material.CLAY, PamsBalanceHandler.porkAmount, PamsBalanceHandler.porkSat)
+			.setHardness(0.8f);
 	public static final Block COOKED_PORK_BLOCK = new EdibleBlock("cooked_pork_block", Material.CLAY, 8, 0.8f)
 			.setHardness(0.8f);
-	public static final Block BEEF_BLOCK = new EdibleBlock("beef_block", Material.CLAY, 3, 0.3f).setHardness(0.8f);
-	public static final Block COOKED_BEEF_BLOCK = new EdibleBlock("cooked_beef_block", Material.CLAY, 8, 0.8f)
+	public static final Block BEEF_BLOCK = new EdibleBlock("beef_block", Material.CLAY, PamsBalanceHandler.beefAmount, PamsBalanceHandler.beefSat)
 			.setHardness(0.8f);
-	public static final Block CHICKEN_BLOCK = ((EdibleBlock) new EdibleBlock("chicken_block", Material.CLAY, 2, 0.3f))
-			.setPotionEffect(MobEffects.HUNGER, 30, 0, 0.3f).setHardness(0.8f);
-	public static final Block COOKED_CHICKEN_BLOCK = new EdibleBlock("cooked_chicken_block", Material.CLAY, 6, 0.6f)
+	public static final Block COOKED_BEEF_BLOCK = new EdibleBlock("cooked_beef_block", Material.CLAY,
+			PamsBalanceHandler.cookedBeefAmount, PamsBalanceHandler.cookedBeefSat).setHardness(0.8f);
+	public static final Block CHICKEN_BLOCK = ((EdibleBlock) new EdibleBlock("chicken_block", Material.CLAY,
+			PamsBalanceHandler.chickenAmount, PamsBalanceHandler.chickenSat)).setPotionEffect(MobEffects.HUNGER, 30, 0, 0.3f).setHardness(0.8f);
+	public static final Block COOKED_CHICKEN_BLOCK = new EdibleBlock("cooked_chicken_block", Material.CLAY,
+			PamsBalanceHandler.cookedChickenAmount, PamsBalanceHandler.cookedChickenSat).setHardness(0.8f);
+	public static final Block RABBIT_BLOCK = new EdibleBlock("rabbit_block", Material.CLAY, PamsBalanceHandler.rabbitAmount,
+			PamsBalanceHandler.rabbitSat).setHardness(0.8f);
+	public static final Block COOKED_RABBIT_BLOCK = new EdibleBlock("cooked_rabbit_block", Material.CLAY,
+			PamsBalanceHandler.cookedRabbitAmount, PamsBalanceHandler.cookedRabbitSat).setHardness(0.8f);
+	public static final Block MUTTON_BLOCK = new EdibleBlock("mutton_block", Material.CLAY, PamsBalanceHandler.muttonAmount,
+			PamsBalanceHandler.muttonSat).setHardness(0.8f);
+	public static final Block COOKED_MUTTON_BLOCK = new EdibleBlock("cooked_mutton_block", Material.CLAY,
+			PamsBalanceHandler.cookedMuttonAmount, PamsBalanceHandler.cookedMuttonSat).setHardness(0.8f);
+	public static final Block COD_BLOCK = new EdibleBlock("cod_block", Material.CLAY, PamsBalanceHandler.codAmount, PamsBalanceHandler.codSat)
 			.setHardness(0.8f);
-	public static final Block RABBIT_BLOCK = new EdibleBlock("rabbit_block", Material.CLAY, 3, 0.3f).setHardness(0.8f);
-	public static final Block COOKED_RABBIT_BLOCK = new EdibleBlock("cooked_rabbit_block", Material.CLAY, 5, 0.6f)
-			.setHardness(0.8f);
-	public static final Block MUTTON_BLOCK = new EdibleBlock("mutton_block", Material.CLAY, 2, 0.3f).setHardness(0.8f);
-	public static final Block COOKED_MUTTON_BLOCK = new EdibleBlock("cooked_mutton_block", Material.CLAY, 6, 0.8f)
-			.setHardness(0.8f);
-	public static final Block COD_BLOCK = new EdibleBlock("cod_block", Material.CLAY, 2, 0.4f).setHardness(0.8f);
-	public static final Block COOKED_COD_BLOCK = new EdibleBlock("cooked_cod_block", Material.CLAY, 5, 0.6f)
-			.setHardness(0.8f);
-	public static final Block SALMON_BLOCK = new EdibleBlock("salmon_block", Material.CLAY, 2, 0.2f).setHardness(0.8f);
-	public static final Block COOKED_SALMON_BLOCK = new EdibleBlock("cooked_salmon_block", Material.CLAY, 6, 0.6f)
-			.setHardness(0.8f);
-	public static final Block TROPICAL_FISH_BLOCK = new EdibleBlock("tropical_fish_block", Material.CLAY, 1, 0.2f)
-			.setHardness(0.8f);
-	public static final Block PUFFERFISH_BLOCK = new PufferfishBlock("pufferfish_block", Material.CLAY, 1, 0.2f)
-			.setHardness(0.8f);
+	public static final Block COOKED_COD_BLOCK = new EdibleBlock("cooked_cod_block", Material.CLAY, PamsBalanceHandler.cookedCodAmount,
+			PamsBalanceHandler.cookedCodSat).setHardness(0.8f);
+	public static final Block SALMON_BLOCK = new EdibleBlock("salmon_block", Material.CLAY, PamsBalanceHandler.salmonAmount,
+			PamsBalanceHandler.salmonSat).setHardness(0.8f);
+	public static final Block COOKED_SALMON_BLOCK = new EdibleBlock("cooked_salmon_block", Material.CLAY,
+			PamsBalanceHandler.cookedSalmonAmount, PamsBalanceHandler.cookedSalmonSat).setHardness(0.8f);
+	public static final Block TROPICAL_FISH_BLOCK = new EdibleBlock("tropical_fish_block", Material.CLAY, 1,
+			PamsBalanceHandler.tropicalFishSat).setHardness(0.8f);
+	public static final Block PUFFERFISH_BLOCK = new PufferfishBlock("pufferfish_block", Material.CLAY, 1,
+			PamsBalanceHandler.pufferSat).setHardness(0.8f);
 	public static final Block ROTTEN_FLESH_BLOCK = ((EdibleBlock) new EdibleBlock("rotten_flesh_block", Material.CLAY,
-			4, 0.1f)).setPotionEffect(MobEffects.HUNGER, 30, 0, 0.8f).setHardness(0.8f);
-	public static final Block APPLE_BLOCK = new EdibleBlock("apple_block", Material.CLAY, 4, 0.3f).setHardness(0.9f);
+			PamsBalanceHandler.rottenFleshAmount, 0.1f)).setPotionEffect(MobEffects.HUNGER, 30, 0, 0.8f).setHardness(0.8f);
+	public static final Block APPLE_BLOCK = new EdibleBlock("apple_block", Material.CLAY, PamsBalanceHandler.appleAmount, PamsBalanceHandler.appleSat)
+			.setHardness(0.9f);
 	public static final Block GOLDEN_APPLE_BLOCK = new GoldenAppleBlock("golden_apple_block", Material.CLAY, 4, 1.2f)
 			.setHardness(0.9f);
 	public static final Block NOTCH_APPLE_BLOCK = new GoldenAppleBlock("notch_apple_block", Material.CLAY, 4, 1.2f)
 			.setHardness(0.9f);
-	public static final Block BREAD_BLOCK = new EdibleBlock("bread_block", Material.CLAY, 5, 0.6f).setHardness(0.6f);
-	public static final Block COOKIE_BLOCK = new EdibleBlock("cookie_block", Material.CLAY, 2, 0.1f).setHardness(0.5f);
-	public static final Block SPIDER_EYE_BLOCK = ((EdibleBlock) new EdibleBlock("spider_eye_block", Material.CLAY, 2,
-			0.8f)).setPotionEffect(MobEffects.POISON, 30, 0, 1f).setHardness(0.8f);
-	public static final Block CARROT_BLOCK = new EdibleBlock("carrot_block", Material.CLAY, 4, 0.6f).setHardness(0.8f);
-	public static final Block GOLDEN_CARROT_BLOCK = new EdibleBlock("golden_carrot_block", Material.CLAY, 6, 1.2f)
-			.setHardness(0.8f);
-	public static final Block POTATO_BLOCK = new EdibleBlock("potato_block", Material.CLAY, 1, 0.3f).setHardness(0.8f);
-	public static final Block BAKED_POTATO_BLOCK = new EdibleBlock("baked_potato_block", Material.CLAY, 5, 0.6f)
+	public static final Block BREAD_BLOCK = new EdibleBlock("bread_block", Material.CLAY, PamsBalanceHandler.breadAmount, PamsBalanceHandler.breadSat)
 			.setHardness(0.6f);
+	public static final Block COOKIE_BLOCK = new EdibleBlock("cookie_block", Material.CLAY, 2, PamsBalanceHandler.cookieSat)
+			.setHardness(0.5f);
+	public static final Block SPIDER_EYE_BLOCK = ((EdibleBlock) new EdibleBlock("spider_eye_block", Material.CLAY,
+			PamsBalanceHandler.spiderEyeAmount, PamsBalanceHandler.spiderEyeSat)).setPotionEffect(MobEffects.POISON, 30, 0, 1f).setHardness(0.8f);
+	public static final Block CARROT_BLOCK = new EdibleBlock("carrot_block", Material.CLAY, PamsBalanceHandler.carrotAmount,
+			PamsBalanceHandler.carrotSat).setHardness(0.8f);
+	public static final Block GOLDEN_CARROT_BLOCK = new EdibleBlock("golden_carrot_block", Material.CLAY,
+			PamsBalanceHandler.goldenCarrotAmount, PamsBalanceHandler.goldenCarrotSat).setHardness(0.8f);
+	public static final Block POTATO_BLOCK = new EdibleBlock("potato_block", Material.CLAY, PamsBalanceHandler.potatoAmount,
+			PamsBalanceHandler.potatoSat).setHardness(0.8f);
+	public static final Block BAKED_POTATO_BLOCK = new EdibleBlock("baked_potato_block", Material.CLAY,
+			PamsBalanceHandler.bakedPotatoAmount, PamsBalanceHandler.bakedPotatoSat).setHardness(0.6f);
 	public static final Block POISONOUS_POTATO_BLOCK = ((EdibleBlock) new EdibleBlock("poisonous_potato_block",
-			Material.CLAY, 2, 0.3f)).setPotionEffect(MobEffects.POISON, 100, 0, 0.6F).setHardness(0.8f);
-	public static final Block BEETROOT_BLOCK = new EdibleBlock("beetroot_block", Material.CLAY, 1, 0.6f);
+			Material.CLAY, PamsBalanceHandler.potatoAmount, PamsBalanceHandler.potatoSat)).setPotionEffect(MobEffects.POISON, 100, 0, 0.6F)
+					.setHardness(0.8f);
+	public static final Block BEETROOT_BLOCK = new EdibleBlock("beetroot_block", Material.CLAY, PamsBalanceHandler.beetrootAmount,
+			PamsBalanceHandler.beetrootSat);
 
 	//// COMPACT BLOCKS
 	public static final Block COMPACT_COBBLE = new BlockBase("compact_cobble", Material.ROCK).setHardness(2.2f);
