@@ -62,7 +62,7 @@ public class SnowMelterBlock extends BlockContainerBase {
 					player.sendMessage(new TextComponentString("Redstone Mode: " + tile.getRedstoneMode()));
 				} else {
 					player.sendMessage(new TextComponentString("Redstone Mode: " + tile.getRedstoneMode()));
-					player.sendMessage(new TextComponentString("Range: " + tile.getRange()));
+					player.sendMessage(new TextComponentString("Range: " + tile.getRange() + " / 7"));
 				}
 			}
 

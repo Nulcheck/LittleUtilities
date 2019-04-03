@@ -60,8 +60,8 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 		// Snow Melter
 		if (tile instanceof TileEntitySnowMelter) {
-			list.add(I18n.format("waila.lu.snowmelter.range") + ": " + snowMelterRange);
 			list.add(I18n.format("waila.lu.snowmelter.redstonemode") + ": " + snowMelterRedstoneMode);
+			list.add(I18n.format("waila.lu.snowmelter.range") + ": " + snowMelterRange + " / 7");
 		}
 
 		// Normal Blocks
