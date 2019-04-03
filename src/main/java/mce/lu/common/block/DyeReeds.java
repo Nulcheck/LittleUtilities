@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DyeReeds extends BlockBase implements IPlantable {
-	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 9); // Sugarcane is 15
+	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
 	protected static final AxisAlignedBB REED_AABB = new AxisAlignedBB(0.125d, 0d, 0.125d, 0.875d, 1d, 0.875d);
 
 	public DyeReeds(String name, Material mat) {
@@ -57,7 +57,7 @@ public class DyeReeds extends BlockBase implements IPlantable {
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public BlockRenderLayer getBlockLayer() {
@@ -79,13 +79,12 @@ public class DyeReeds extends BlockBase implements IPlantable {
 					int j = ((Integer) state.getValue(AGE)).intValue();
 
 					if (ForgeHooks.onCropsGrowPre(world, pos, state, true)) {
-						if (j == 9) { // Sugarcane is 15
+						if (j == 15) {
 							world.setBlockState(pos.up(), this.getDefaultState());
 							world.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(0)), 4);
 						} else {
 							world.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(j + 1)), 4);
 						}
-
 						ForgeHooks.onCropsGrowPost(world, pos, state, world.getBlockState(pos));
 					}
 				}
@@ -114,7 +113,8 @@ public class DyeReeds extends BlockBase implements IPlantable {
 			for (EnumFacing facing : EnumFacing.Plane.HORIZONTAL) {
 				IBlockState iState = world.getBlockState(blockPos.offset(facing));
 
-				if (iState.getMaterial() == Material.WATER || iState.getBlock() == Blocks.FROSTED_ICE)
+				if (iState.getMaterial() == Material.WATER || iState.getBlock() == Blocks.FROSTED_ICE
+						|| iState.getBlock() == Blocks.ICE || iState.getBlock() == Blocks.PACKED_ICE)
 					return true;
 			}
 
