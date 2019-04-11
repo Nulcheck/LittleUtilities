@@ -1,34 +1,72 @@
 package mce.lu.common.event;
 
 import mce.lu.common.item.ModItems;
+import mce.lu.common.util.Util;
+import mce.lu.common.util.Util.EnumDyeColorHelper;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
 @EventBusSubscriber
 public class DyeEvent {
+	@SubscribeEvent
+	public static void onEntityInteractEvent(EntityInteractSpecific e) {
+		if (!e.getWorld().isRemote && e.getHand().equals(EnumHand.MAIN_HAND)) {
+			ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
+
+			for (int i = 0; i < 16; ++i) {
+				for (ItemStack stack : OreDictionary.getOres("dye" + Util.dyes[i])) {
+					if (!heldItem.isEmpty() && heldItem.getItem() == stack.getItem()) {
+						EnumDyeColor color = EnumDyeColorHelper.byOreDictDyeName(heldItem);
+
+						// Doggo
+						if (e.getTarget() instanceof EntityWolf
+								&& color != ((EntityWolf) e.getTarget()).getCollarColor()) {
+							((EntityWolf) e.getTarget()).setCollarColor(color);
+
+							if (!e.getEntityPlayer().isCreative())
+								heldItem.shrink(1);
+						}
+
+						// Sheep
+						if (e.getTarget() instanceof EntitySheep
+								&& color != ((EntitySheep) e.getTarget()).getFleeceColor()
+								&& !((EntitySheep) e.getTarget()).getSheared()) {
+							((EntitySheep) e.getTarget()).setFleeceColor(color);
+
+							if (!e.getEntityPlayer().isCreative())
+								heldItem.shrink(1);
+						}
+					}
+				}
+			}
+		}
+	}
+
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
-	public static void onInteractEvent(PlayerInteractEvent e) {
+	public static void onInteractEvent(RightClickBlock e) {
 		BlockPos pos = e.getPos();
 		IBlockState state = e.getWorld().getBlockState(pos);
 		ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
 		Block block = e.getWorld().getBlockState(pos).getBlock();
 
-		String[] dyes = { "Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "LightGray", "Gray", "Pink",
-				"Lime", "Yellow", "LightBlue", "Magenta", "Orange", "White" };
-
 		// Dye a block in world.
 		if (LUConfigManager.modConfig.modEvents.dyeEvent) {
 			for (int i = 0; i < 16; ++i) {
-				for (ItemStack stack : OreDictionary.getOres("dye" + dyes[15 - i])) {
+				for (ItemStack stack : OreDictionary.getOres("dye" + Util.dyes[15 - i])) {
 					if (!heldItem.isEmpty() && heldItem.getItem() == stack.getItem() && block == Blocks.WOOL
 							&& block.getMetaFromState(state) != i) {
 						if (heldItem.getItem().getHasSubtypes()) {

@@ -6,7 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class StackedBlockEvent {
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
-	public static void onInteractEvent(PlayerInteractEvent e) {
+	public static void onInteractEvent(RightClickBlock e) {
 		BlockPos pos = e.getPos();
 		IBlockState state = e.getWorld().getBlockState(pos);
 		ItemStack stack = e.getEntityPlayer().getHeldItemMainhand();
