@@ -43,6 +43,24 @@ public class ModItems {
 	public static final Item PIGMENT_ORANGE = new ItemBase("pigment_orange");
 	public static final Item PIGMENT_WHITE = new ItemBase("pigment_white");
 
+	// Liquid Pigments
+	public static final Item BUCKET_PIGMENT_BLACK = new ItemBase("bucket_pigment_black");
+	public static final Item BUCKET_PIGMENT_RED = new ItemBase("bucket_pigment_red");
+	public static final Item BUCKET_PIGMENT_GREEN = new ItemBase("bucket_pigment_green");
+	public static final Item BUCKET_PIGMENT_BROWN = new ItemBase("bucket_pigment_brown");
+	public static final Item BUCKET_PIGMENT_BLUE = new ItemBase("bucket_pigment_blue");
+	public static final Item BUCKET_PIGMENT_PURPLE = new ItemBase("bucket_pigment_purple");
+	public static final Item BUCKET_PIGMENT_CYAN = new ItemBase("bucket_pigment_cyan");
+	public static final Item BUCKET_PIGMENT_LIGHT_GRAY = new ItemBase("bucket_pigment_light_gray");
+	public static final Item BUCKET_PIGMENT_GRAY = new ItemBase("bucket_pigment_gray");
+	public static final Item BUCKET_PIGMENT_PINK = new ItemBase("bucket_pigment_pink");
+	public static final Item BUCKET_PIGMENT_LIME = new ItemBase("bucket_pigment_lime");
+	public static final Item BUCKET_PIGMENT_YELLOW = new ItemBase("bucket_pigment_yellow");
+	public static final Item BUCKET_PIGMENT_LIGHT_BLUE = new ItemBase("bucket_pigment_light_blue");
+	public static final Item BUCKET_PIGMENT_MAGENTA = new ItemBase("bucket_pigment_magenta");
+	public static final Item BUCKET_PIGMENT_ORANGE = new ItemBase("bucket_pigment_orange");
+	public static final Item BUCKET_PIGMENT_WHITE = new ItemBase("bucket_pigment_white");
+
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> e) {
 		e.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));

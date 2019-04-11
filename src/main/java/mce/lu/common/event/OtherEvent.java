@@ -4,7 +4,6 @@ import java.util.Random;
 
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
-import mce.lu.common.util.References;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -21,12 +20,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.storage.loot.LootEntry;
-import net.minecraft.world.storage.loot.LootEntryItem;
-import net.minecraft.world.storage.loot.LootTableList;
-import net.minecraft.world.storage.loot.conditions.LootCondition;
-import net.minecraft.world.storage.loot.functions.LootFunction;
-import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
@@ -95,36 +88,6 @@ public class OtherEvent {
 			e.getWorld().setBlockState(e.getPos(), ModBlocks.ARABLE_FARMLAND.getDefaultState(), 2);
 			e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F,
 					1.0F);
-		}
-	}
-
-	@SubscribeEvent
-	public static void loadLoot(LootTableLoadEvent e) {
-		LootEntry skullEntry = new LootEntryItem(new ItemStack(Items.SKULL, 1, 0).getItem(), 45, 1, new LootFunction[0],
-				new LootCondition[0], References.MOD_ID + "skullEntry");
-
-		LootEntry curingKitEntry = new LootEntryItem(ModItems.ZOMBIE_CURING_KIT, 40, 1, new LootFunction[0],
-				new LootCondition[0], References.MOD_ID + "curingKitEntry");
-
-		LootEntry pureQuartzEntry = new LootEntryItem(ModItems.PURE_QUARTZ, 35, 3, new LootFunction[0],
-				new LootCondition[0], References.MOD_ID + "pureQuartzEntry");
-
-		if (e.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON)) {
-			e.getTable().getPool("main").addEntry(skullEntry);
-			e.getTable().getPool("main").addEntry(curingKitEntry);
-		}
-
-		if (e.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE)) {
-			e.getTable().getPool("main").addEntry(skullEntry);
-			e.getTable().getPool("main").addEntry(curingKitEntry);
-		}
-
-		if (e.getName().equals(LootTableList.CHESTS_ABANDONED_MINESHAFT)) {
-			e.getTable().getPool("main").addEntry(skullEntry);
-			e.getTable().getPool("main").addEntry(curingKitEntry);
-
-			if (LUConfigManager.modConfig.loot.pureQuartzLoot)
-				e.getTable().getPool("main").addEntry(pureQuartzEntry);
 		}
 	}
 

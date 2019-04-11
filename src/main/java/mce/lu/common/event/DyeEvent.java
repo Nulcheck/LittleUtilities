@@ -1,11 +1,16 @@
 package mce.lu.common.event;
 
+import mce.lu.common.entity.passive.EntityChromaCow;
 import mce.lu.common.item.ModItems;
 import mce.lu.common.util.Util;
 import mce.lu.common.util.Util.EnumDyeColorHelper;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
@@ -45,6 +50,36 @@ public class DyeEvent {
 								&& color != ((EntitySheep) e.getTarget()).getFleeceColor()
 								&& !((EntitySheep) e.getTarget()).getSheared()) {
 							((EntitySheep) e.getTarget()).setFleeceColor(color);
+
+							if (!e.getEntityPlayer().isCreative())
+								heldItem.shrink(1);
+						}
+
+						// Chroma Cow
+						if (e.getTarget() instanceof EntityCow) {
+							EntityChromaCow cow = new EntityChromaCow(e.getWorld());
+							e.getTarget().getEntityWorld().setEntityState(e.getTarget(), (byte) 16);
+
+							cow.copyLocationAndAnglesFrom(e.getTarget());
+							cow.onInitialSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(cow)),
+									(IEntityLivingData) null);
+							cow.setHideColor(color);
+
+							// Remove vanilla cow
+							e.getWorld().removeEntity(e.getTarget());
+							cow.setNoAI(((EntityLiving) e.getTarget()).isAIDisabled());
+
+							if (((EntityLivingBase) e.getTarget()).isChild())
+								cow.setGrowingAge(-24000);
+
+							// Set custom name if it had one
+							if (e.getTarget().hasCustomName()) {
+								cow.setCustomNameTag(e.getTarget().getCustomNameTag());
+								cow.setAlwaysRenderNameTag(e.getTarget().getAlwaysRenderNameTag());
+							}
+
+							// Spawn chroma cow
+							e.getWorld().spawnEntity(cow);
 
 							if (!e.getEntityPlayer().isCreative())
 								heldItem.shrink(1);

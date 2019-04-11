@@ -3,6 +3,7 @@ package mce.lu.common.core.proxy;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import mce.lu.common.entity.passive.EntityChromaCow;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.ICriterionInstance;
 import net.minecraft.advancements.ICriterionTrigger;
@@ -15,6 +16,7 @@ public class CommonProxy {
 	private static Method CriteriaRegister;
 
 	public void preInit(FMLPreInitializationEvent e) {
+		EntityChromaCow.initialize(0);
 	}
 
 	public void init(FMLInitializationEvent e) {

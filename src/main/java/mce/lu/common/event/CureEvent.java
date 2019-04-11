@@ -37,9 +37,8 @@ public class CureEvent {
 				e.getWorld().removeEntity(e.getTarget());
 				villager.setNoAI(((EntityLiving) e.getTarget()).isAIDisabled());
 
-				if (((EntityLivingBase) e.getTarget()).isChild()) {
+				if (((EntityLivingBase) e.getTarget()).isChild())
 					villager.setGrowingAge(-24000);
-				}
 
 				// Set custom name if it had one
 				if (e.getTarget().hasCustomName()) {

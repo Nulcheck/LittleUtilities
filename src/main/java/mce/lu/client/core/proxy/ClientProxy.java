@@ -2,9 +2,11 @@ package mce.lu.client.core.proxy;
 
 import com.google.common.collect.ImmutableList;
 
+import mce.lu.client.render.entity.RenderChromaCow;
 import mce.lu.client.render.entity.RenderObsidianBoat;
 import mce.lu.common.core.proxy.CommonProxy;
 import mce.lu.common.entity.EntityObsidianBoat;
+import mce.lu.common.entity.passive.EntityChromaCow;
 import mce.lu.common.event.trigger.CondenserTrigger;
 import mce.lu.common.event.trigger.ModTriggers;
 import mce.lu.common.util.References;
@@ -30,6 +32,7 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent e) {
 		super.preInit(e);
 		RenderingRegistry.registerEntityRenderingHandler(EntityObsidianBoat.class, RenderObsidianBoat::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityChromaCow.class, RenderChromaCow::new);
 
 		// Advancement Stuff
 		ModTriggers.CONDENSE_BLAZE_ROD = (CondenserTrigger) CommonProxy.registerAdvancementTrigger(
