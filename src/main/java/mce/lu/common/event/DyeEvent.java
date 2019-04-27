@@ -2,8 +2,6 @@ package mce.lu.common.event;
 
 import mce.lu.common.entity.passive.EntityChromaCow;
 import mce.lu.common.item.ModItems;
-import mce.lu.common.util.Util;
-import mce.lu.common.util.Util.EnumDyeColorHelper;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -23,66 +21,26 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBloc
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
+import net.xendric.xenlib.common.util.EnumDyeColorHelper;
+import net.xendric.xenlib.common.util.Util;
 
 @EventBusSubscriber
 public class DyeEvent {
 	@SubscribeEvent
 	public static void onEntityInteractEvent(EntityInteractSpecific e) {
-		if (!e.getWorld().isRemote && e.getHand().equals(EnumHand.MAIN_HAND)) {
-			ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
+		ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
 
-			for (int i = 0; i < 16; ++i) {
-				for (ItemStack stack : OreDictionary.getOres("dye" + Util.dyes[i])) {
-					if (!heldItem.isEmpty() && heldItem.getItem() == stack.getItem()) {
-						EnumDyeColor color = EnumDyeColorHelper.byOreDictDyeName(heldItem);
-
-						// Doggo
-						if (e.getTarget() instanceof EntityWolf
-								&& color != ((EntityWolf) e.getTarget()).getCollarColor()) {
-							((EntityWolf) e.getTarget()).setCollarColor(color);
-
-							if (!e.getEntityPlayer().isCreative())
-								heldItem.shrink(1);
-						}
-
-						// Sheep
-						if (e.getTarget() instanceof EntitySheep
-								&& color != ((EntitySheep) e.getTarget()).getFleeceColor()
-								&& !((EntitySheep) e.getTarget()).getSheared()) {
-							((EntitySheep) e.getTarget()).setFleeceColor(color);
-
-							if (!e.getEntityPlayer().isCreative())
-								heldItem.shrink(1);
-						}
-
-						// Chroma Cow
-						if (e.getTarget() instanceof EntityCow) {
-							EntityChromaCow cow = new EntityChromaCow(e.getWorld());
-							e.getTarget().getEntityWorld().setEntityState(e.getTarget(), (byte) 16);
-
-							cow.copyLocationAndAnglesFrom(e.getTarget());
-							cow.onInitialSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(cow)),
-									(IEntityLivingData) null);
-							cow.setHideColor(color);
-
-							// Remove vanilla cow
-							e.getWorld().removeEntity(e.getTarget());
-							cow.setNoAI(((EntityLiving) e.getTarget()).isAIDisabled());
-
-							if (((EntityLivingBase) e.getTarget()).isChild())
-								cow.setGrowingAge(-24000);
-
-							// Set custom name if it had one
-							if (e.getTarget().hasCustomName()) {
-								cow.setCustomNameTag(e.getTarget().getCustomNameTag());
-								cow.setAlwaysRenderNameTag(e.getTarget().getAlwaysRenderNameTag());
-							}
-
-							// Spawn chroma cow
-							e.getWorld().spawnEntity(cow);
-
-							if (!e.getEntityPlayer().isCreative())
-								heldItem.shrink(1);
+		if (!e.getWorld().isRemote) {
+			if (e.getHand().equals(EnumHand.MAIN_HAND) && !heldItem.isEmpty()) {
+				// Loop through dye colors
+				for (int i = 0; i < 16; ++i) {
+					for (ItemStack stack : OreDictionary.getOres("dye" + Util.dyes[15 - i])) {
+						if (heldItem.getItem() == stack.getItem()) {
+							if (heldItem.getItem().getHasSubtypes()) {
+								if (heldItem.getItemDamage() == 15 - i)
+									dyeEntities(e);
+							} else
+								dyeEntities(e);
 						}
 					}
 				}
@@ -90,9 +48,72 @@ public class DyeEvent {
 		}
 	}
 
+	public static void dyeEntities(EntityInteractSpecific e) {
+		if (!e.getWorld().isRemote) {
+			ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
+			EnumDyeColor color = EnumDyeColorHelper.byOreDictDyeName(heldItem);
+
+			// Doggo
+			if (e.getTarget() instanceof EntityWolf && color != ((EntityWolf) e.getTarget()).getCollarColor()) {
+				((EntityWolf) e.getTarget()).setCollarColor(color);
+
+				if (!e.getEntityPlayer().isCreative())
+					heldItem.shrink(1);
+			}
+
+			// Sheep
+			if (e.getTarget() instanceof EntitySheep && color != ((EntitySheep) e.getTarget()).getFleeceColor()
+					&& !((EntitySheep) e.getTarget()).getSheared()) {
+				((EntitySheep) e.getTarget()).setFleeceColor(color);
+
+				if (!e.getEntityPlayer().isCreative())
+					heldItem.shrink(1);
+			}
+
+			// Cow into Chroma Cow
+			if (e.getTarget() instanceof EntityCow && !(e.getTarget() instanceof EntityChromaCow)) {
+				EntityChromaCow cow = new EntityChromaCow(e.getWorld());
+				e.getTarget().getEntityWorld().setEntityState(e.getTarget(), (byte) 16);
+
+				cow.copyLocationAndAnglesFrom(e.getTarget());
+				cow.onInitialSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(cow)), (IEntityLivingData) null);
+				cow.setHealth(((EntityCow) e.getTarget()).getHealth());
+				cow.renderYawOffset = ((EntityCow) e.getTarget()).renderYawOffset;
+				cow.setHideColor(color);
+
+				// Remove vanilla cow
+				e.getWorld().removeEntity(e.getTarget());
+				cow.setNoAI(((EntityLiving) e.getTarget()).isAIDisabled());
+
+				if (((EntityLivingBase) e.getTarget()).isChild())
+					cow.setGrowingAge(-24000);
+
+				// Set custom name if it had one
+				if (e.getTarget().hasCustomName()) {
+					cow.setCustomNameTag(e.getTarget().getCustomNameTag());
+					cow.setAlwaysRenderNameTag(e.getTarget().getAlwaysRenderNameTag());
+				}
+
+				// Spawn chroma cow
+				e.getWorld().spawnEntity(cow);
+
+				if (!e.getEntityPlayer().isCreative())
+					heldItem.shrink(1);
+			}
+
+			// Chroma Cow
+			if (e.getTarget() instanceof EntityChromaCow && color != ((EntityChromaCow) e.getTarget()).getHideColor()) {
+				((EntityChromaCow) e.getTarget()).setHideColor(color);
+
+				if (!e.getEntityPlayer().isCreative())
+					heldItem.shrink(1);
+			}
+		}
+	}
+
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
-	public static void onInteractEvent(RightClickBlock e) {
+	public static void onBlockInteractEvent(RightClickBlock e) {
 		BlockPos pos = e.getPos();
 		IBlockState state = e.getWorld().getBlockState(pos);
 		ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
@@ -240,15 +261,12 @@ public class DyeEvent {
 
 					// Color Bed, but only does 1 part, not both..
 					/*
-					 * else if (e.getEntityPlayer().isSneaking() &&
-					 * !heldItem.isEmpty() && heldItem.getItem() == Items.DYE &&
-					 * heldItem.getItemDamage() == 15 - i &&
-					 * e.getWorld().getTileEntity(pos) instanceof TileEntityBed
-					 * && ((TileEntityBed) te).getColor().getMetadata() != i) {
-					 * if(((TileEntityBed)te).isHeadPiece()){ ((TileEntityBed)
-					 * te).setColor(EnumDyeColor.byMetadata(i)); } else {
-					 * ((TileEntityBed)
-					 * te).setColor(EnumDyeColor.byMetadata(i)); }
+					 * else if (e.getEntityPlayer().isSneaking() && !heldItem.isEmpty() &&
+					 * heldItem.getItem() == Items.DYE && heldItem.getItemDamage() == 15 - i &&
+					 * e.getWorld().getTileEntity(pos) instanceof TileEntityBed && ((TileEntityBed)
+					 * te).getColor().getMetadata() != i) { if(((TileEntityBed)te).isHeadPiece()){
+					 * ((TileEntityBed) te).setColor(EnumDyeColor.byMetadata(i)); } else {
+					 * ((TileEntityBed) te).setColor(EnumDyeColor.byMetadata(i)); }
 					 * heldItem.shrink(1); }
 					 */
 				}

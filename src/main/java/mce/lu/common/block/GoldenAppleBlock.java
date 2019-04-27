@@ -1,20 +1,25 @@
 package mce.lu.common.block;
 
+import java.util.List;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.xendric.xenlib.common.core.block.BlockEdible;
 
-public class GoldenAppleBlock extends EdibleBlock {
-	public GoldenAppleBlock(String name, Material mat, int lvl, float sat) {
-		super(name, mat, lvl, sat);
+public class GoldenAppleBlock extends BlockEdible {
+	public GoldenAppleBlock(String name, Material mat, List<Block> blockList, List<Item> itemList, int lvl, float sat) {
+		super(name, mat, blockList, itemList, lvl, sat);
 	}
 
 	@Override
@@ -24,9 +29,8 @@ public class GoldenAppleBlock extends EdibleBlock {
 			super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
 
 			/*
-			 * If you ate the block, then apply effects. Otherwise, it would
-			 * apply effects just by right clicking, and I wanted to apply
-			 * effects upon eating it.
+			 * If you ate the block, then apply effects. Otherwise, it would apply effects
+			 * just by right clicking, and I wanted to apply effects upon eating it.
 			 */
 			if (super.eatBlock(world, pos, state, player)) {
 				this.applyEffects(world, pos, (Entity) player);

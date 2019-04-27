@@ -1,24 +1,29 @@
 package mce.lu.common.block;
 
+import java.util.List;
+
 import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.common.LittleUtilities;
 import mce.lu.common.entity.tile.TileEntityCondenser;
 import mce.lu.common.util.ModStatsList;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.xendric.xenlib.common.core.block.BlockContainerBase;
 
 public class CondenserBlock extends BlockContainerBase {
-	public CondenserBlock(String name, Material mat) {
-		super(name, mat);
+	public CondenserBlock(String name, Material mat, List<Block> blockList, List<Item> itemList) {
+		super(name, mat, blockList, itemList);
 	}
 
 	@Override

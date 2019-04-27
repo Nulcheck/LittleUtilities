@@ -4,7 +4,7 @@
 
 itemGroup.littleutilities=LittleUtilities
 
-//// GUI
+////// GUI
 container.lu_condenser=Condenser
 container.pigment_mixer=Pigment Mixer
 
@@ -23,6 +23,25 @@ waila.lu.snowmelter.redstonemode=Redstone Mode
 // CHAT STUFF
 death.attack.spikes=%1$s was spiked to death
 death.attack.spikes.player=%1$s was spiked to death whilst fighting %2$s
+
+////// ENTITIES
+entity.chroma_cow.name=Chroma Cow
+
+////// ADVANCEMENTS
+adv.lu.root.title=Immense Pressure
+adv.lu.root.desc=Craft a Condenser
+
+adv.lu.ghast_tear_block.title=Cry Some More
+adv.lu.ghast_tear_block.desc=Make a Ghast Tear Block
+
+adv.lu.blaze_rod_block.title=Burn Baby, Burn!
+adv.lu.blaze_rod_block.desc=Make a Blaze Rod Block
+
+adv.lu.nether_star_block.title=Stars in the Night Sky
+adv.lu.nether_star_block.desc=Make a Nether Star Block
+
+adv.lu.ender_eye_block.title=Staring Contest
+adv.lu.ender_eye_block.desc=Make an Ender Eye Block
 
 ////// BLOCKS
 tile.lu_condenser.name=Condenser
@@ -165,7 +184,6 @@ tile.compact_obsidian.name=Compact Obsidian
 tile.compact_dragon_egg.name=Compact Dragon Egg
 
 ////// ITEMS
-item.lu_wrench.name=Wrench
 item.sponge.name=Sponge
 item.pure_quartz.name=Pure Quartz
 item.leather_scraps.name=Leather Scraps
@@ -193,19 +211,3 @@ item.pigment_light_blue.name=Light Blue Pigment
 item.pigment_magenta.name=Magenta Pigment
 item.pigment_orange.name=Orange Pigment
 item.pigment_white.name=White Pigment
-
-////// ADVANCEMENTS
-adv.lu.root.title=Immense Pressure
-adv.lu.root.desc=Craft a Condenser
-
-adv.lu.ghast_tear_block.title=Cry Some More
-adv.lu.ghast_tear_block.desc=Make a Ghast Tear Block
-
-adv.lu.blaze_rod_block.title=Burn Baby, Burn!
-adv.lu.blaze_rod_block.desc=Make a Blaze Rod Block
-
-adv.lu.nether_star_block.title=Stars in the Night Sky
-adv.lu.nether_star_block.desc=Make a Nether Star Block
-
-adv.lu.ender_eye_block.title=Staring Contest
-adv.lu.ender_eye_block.desc=Make an Ender Eye Block

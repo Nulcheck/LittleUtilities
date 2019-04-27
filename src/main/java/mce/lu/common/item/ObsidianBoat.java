@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
@@ -17,10 +18,11 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.xendric.xenlib.common.core.item.ItemBase;
 
 public class ObsidianBoat extends ItemBase {
-	public ObsidianBoat(String name) {
-		super(name);
+	public ObsidianBoat(String name, List<Item> list) {
+		super(name, list);
 		this.maxStackSize = 1;
 	}
 

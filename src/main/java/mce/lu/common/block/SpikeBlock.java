@@ -1,5 +1,7 @@
 package mce.lu.common.block;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
@@ -15,6 +17,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.DamageSource;
@@ -27,6 +30,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.xendric.xenlib.common.core.block.BlockDirectionalBase;
 
 public class SpikeBlock extends BlockDirectionalBase {
 	protected static final AxisAlignedBB SPIKES_DOWN = new AxisAlignedBB(0d, 0.5d, 0d, 1d, 1d, 1d);
@@ -37,8 +41,8 @@ public class SpikeBlock extends BlockDirectionalBase {
 	protected static final AxisAlignedBB SPIKES_WEST = new AxisAlignedBB(0.5d, 0d, 0d, 1d, 1d, 1d);
 	public final DamageSource SPIKES = new DamageSource("spikes");
 
-	public SpikeBlock(String name, Material mat) {
-		super(name, mat);
+	public SpikeBlock(String name, Material mat, List<Block> blockList, List<Item> itemList) {
+		super(name, mat, blockList, itemList);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
 	}
 
@@ -47,8 +51,8 @@ public class SpikeBlock extends BlockDirectionalBase {
 		if (entity instanceof EntityLivingBase) {
 			if (state.getBlock() == ModBlocks.POISON_SPIKES)
 				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 600, 3));
-			
-			if(state.getBlock() == ModBlocks.FIRE_SPIKES)
+
+			if (state.getBlock() == ModBlocks.FIRE_SPIKES)
 				entity.setFire(8);
 
 			entity.attackEntityFrom(SPIKES, 1.5f);
@@ -159,8 +163,8 @@ public class SpikeBlock extends BlockDirectionalBase {
 	}
 
 	/**
-	 * Returns the blockstate with the given rotation from the passed
-	 * blockstate. If inapplicable, returns the passed blockstate.
+	 * Returns the blockstate with the given rotation from the passed blockstate. If
+	 * inapplicable, returns the passed blockstate.
 	 */
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
@@ -238,15 +242,13 @@ public class SpikeBlock extends BlockDirectionalBase {
 	}
 
 	/**
-	 * Get the geometry of the queried face at the given position and state.
-	 * This is used to decide whether things like buttons are allowed to be
-	 * placed on the face, or how glass panes connect to the face, among other
-	 * things.
+	 * Get the geometry of the queried face at the given position and state. This is
+	 * used to decide whether things like buttons are allowed to be placed on the
+	 * face, or how glass panes connect to the face, among other things.
 	 * <p>
-	 * Common values are {@code SOLID}, which is the default, and
-	 * {@code UNDEFINED}, which represents something that does not fit the other
-	 * descriptions and will generally cause other things not to connect to the
-	 * face.
+	 * Common values are {@code SOLID}, which is the default, and {@code UNDEFINED},
+	 * which represents something that does not fit the other descriptions and will
+	 * generally cause other things not to connect to the face.
 	 * 
 	 * @return an approximation of the form of the given face
 	 */

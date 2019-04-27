@@ -1,5 +1,7 @@
 package mce.lu.common.item;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 import mce.lu.common.util.config.LUConfigManager;
@@ -9,6 +11,7 @@ import net.minecraft.block.BlockSapling;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -18,12 +21,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.xendric.xenlib.common.core.item.ItemBase;
 
 public class Fertilizer extends ItemBase {
 	static BlockSapling sap;
 
-	public Fertilizer(String name) {
-		super(name);
+	public Fertilizer(String name, List<Item> list) {
+		super(name, list);
 	}
 
 	@Override

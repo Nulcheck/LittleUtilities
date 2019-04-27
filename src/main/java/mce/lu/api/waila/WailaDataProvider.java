@@ -1,13 +1,8 @@
 package mce.lu.api.waila;
 
 import java.util.List;
-import java.util.Random;
 
-import mce.lu.common.block.BlockBase;
-import mce.lu.common.block.EdibleBlock;
-import mce.lu.common.block.MetalBarsBlock;
 import mce.lu.common.block.ModBlocks;
-import mce.lu.common.block.UsableBlock;
 import mce.lu.common.entity.tile.TileEntitySnowMelter;
 import mce.lu.common.util.References;
 import mcp.mobius.waila.api.IWailaConfigHandler;
@@ -33,8 +28,6 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 		reg.registerBodyProvider(provider, TileEntitySnowMelter.class);
 		reg.registerNBTProvider(provider, TileEntitySnowMelter.class);
-		reg.registerBodyProvider(provider, BlockBase.class);
-		reg.registerBodyProvider(provider, MetalBarsBlock.class);
 	}
 
 	@Override
@@ -48,9 +41,6 @@ public class WailaDataProvider implements IWailaDataProvider {
 	@Method(modid = References.WAILA)
 	public List<String> getWailaBody(ItemStack stack, List<String> list, IWailaDataAccessor data,
 			IWailaConfigHandler config) {
-		Random rand = new Random();
-		int i = rand.nextInt(150);
-
 		Block block = data.getBlock();
 		TileEntity tile = data.getTileEntity();
 		NBTTagCompound tag = data.getNBTData();
@@ -71,32 +61,6 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 		if (block == ModBlocks.PUFFERFISH_BLOCK)
 			list.add(I18n.format("waila.lu.condensed_block.poisonous") + "!");
-
-		// Edible and Usable Blocks
-		if (block instanceof EdibleBlock) {
-			int meta = 9 - data.getMetadata();
-
-			if (meta > 1)
-				list.add(meta + " " + I18n.format("waila.lu.edible_block.bites"));
-
-			else if (meta == 1) {
-				if (i == 23)
-					list.add(meta + " " + I18n.format("waila.lu.edible_block.bites.last.ee"));
-				else
-					list.add(meta + " " + I18n.format("waila.lu.edible_block.bites.last"));
-			}
-		}
-
-		if (block instanceof UsableBlock) {
-			int meta = 9 - data.getMetadata();
-
-			if (meta > 1)
-				list.add(meta + " " + I18n.format("waila.lu.usable_block.uses"));
-
-			else if (meta == 1)
-				list.add(meta + " " + I18n.format("waila.lu.usable_block.uses.last"));
-		}
-
 		return list;
 	}
 
@@ -125,7 +89,6 @@ public class WailaDataProvider implements IWailaDataProvider {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-
 		return tag;
 	}
 }

@@ -1,21 +1,25 @@
 package mce.lu.common.block;
 
+import java.util.List;
 import java.util.Random;
 
 import mce.lu.client.core.handler.ParticleManager;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+import net.xendric.xenlib.common.core.block.BlockUsable;
 
-public class EnderPearlBlock extends UsableBlock {
-	public EnderPearlBlock(String name, Material mat) {
-		super(name, mat);
+public class EnderPearlBlock extends BlockUsable {
+	public EnderPearlBlock(String name, Material mat, List<Block> blockList, List<Item> itemList) {
+		super(name, mat, blockList, itemList);
 	}
 
 	@Override

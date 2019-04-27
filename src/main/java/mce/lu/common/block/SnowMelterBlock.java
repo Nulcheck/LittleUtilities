@@ -1,11 +1,13 @@
 package mce.lu.common.block;
 
+import java.util.List;
+
 import mce.lu.common.entity.tile.TileEntitySnowMelter;
-import mce.lu.common.util.WrenchHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -13,10 +15,12 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import net.xendric.xenlib.common.core.block.BlockContainerBase;
+import net.xendric.xenlib.common.util.WrenchHandler;
 
 public class SnowMelterBlock extends BlockContainerBase {
-	public SnowMelterBlock(String name, Material mat) {
-		super(name, mat);
+	public SnowMelterBlock(String name, Material mat, List<Block> blockList, List<Item> itemList) {
+		super(name, mat, blockList, itemList);
 		this.setTickRandomly(true);
 	}
 

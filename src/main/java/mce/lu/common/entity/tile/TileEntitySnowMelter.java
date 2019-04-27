@@ -1,6 +1,5 @@
 package mce.lu.common.entity.tile;
 
-import mce.lu.common.block.BlockBase;
 import mce.lu.common.block.SnowMelterBlock;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -8,6 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
+import net.xendric.xenlib.common.core.block.BlockBase;
 
 public class TileEntitySnowMelter extends TileEntity implements ITickable {
 	private int tickCount, range;

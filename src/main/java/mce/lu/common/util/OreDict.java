@@ -1,7 +1,6 @@
 package mce.lu.common.util;
 
 import mce.lu.common.item.ModItems;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -60,8 +59,5 @@ public class OreDict {
 		OreDictionary.registerOre("dye", new ItemStack(ModItems.PIGMENT_WHITE));
 
 		OreDictionary.registerOre("gemQuartz", new ItemStack(ModItems.PURE_QUARTZ));
-
-		OreDictionary.registerOre("stone", new ItemStack(Blocks.STONE, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("stone", new ItemStack(Blocks.STONEBRICK, 1, OreDictionary.WILDCARD_VALUE));
 	}
 }

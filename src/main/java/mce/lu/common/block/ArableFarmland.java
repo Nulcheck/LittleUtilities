@@ -1,5 +1,6 @@
 package mce.lu.common.block;
 
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -7,6 +8,7 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -15,10 +17,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
+import net.xendric.xenlib.common.core.block.BlockFarmlandBase;
 
 public class ArableFarmland extends BlockFarmlandBase {
-	public ArableFarmland(String name) {
-		super(name);
+	public ArableFarmland(String name, List<Block> blockList, List<Item> itemList) {
+		super(name, blockList, itemList);
 		this.setSoundType(SoundType.GROUND);
 	}
 
@@ -50,8 +53,7 @@ public class ArableFarmland extends BlockFarmlandBase {
 		}
 	}
 
-	@Override
-	public boolean hasWater(World world, BlockPos pos) {
+	public static boolean hasWater(World world, BlockPos pos) {
 		return true;
 	}
 

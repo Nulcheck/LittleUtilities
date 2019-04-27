@@ -1,5 +1,6 @@
 package mce.lu.common.block;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -25,13 +26,14 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.xendric.xenlib.common.core.block.BlockBase;
 
 public class DyeReeds extends BlockBase implements IPlantable {
 	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
 	protected static final AxisAlignedBB REED_AABB = new AxisAlignedBB(0.125d, 0d, 0.125d, 0.875d, 1d, 0.875d);
 
-	public DyeReeds(String name, Material mat) {
-		super(name, mat);
+	public DyeReeds(String name, Material mat, List<Block> blockList, List<Item> itemList) {
+		super(name, mat, blockList, itemList);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));
 		this.setTickRandomly(true);
 		this.setSoundType(SoundType.PLANT);
@@ -172,15 +174,13 @@ public class DyeReeds extends BlockBase implements IPlantable {
 	}
 
 	/**
-	 * Get the geometry of the queried face at the given position and state.
-	 * This is used to decide whether things like buttons are allowed to be
-	 * placed on the face, or how glass panes connect to the face, among other
-	 * things.
+	 * Get the geometry of the queried face at the given position and state. This is
+	 * used to decide whether things like buttons are allowed to be placed on the
+	 * face, or how glass panes connect to the face, among other things.
 	 * <p>
-	 * Common values are {@code SOLID}, which is the default, and
-	 * {@code UNDEFINED}, which represents something that does not fit the other
-	 * descriptions and will generally cause other things not to connect to the
-	 * face.
+	 * Common values are {@code SOLID}, which is the default, and {@code UNDEFINED},
+	 * which represents something that does not fit the other descriptions and will
+	 * generally cause other things not to connect to the face.
 	 * 
 	 * @return an approximation of the form of the given face
 	 */

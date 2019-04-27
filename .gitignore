@@ -21,7 +21,5 @@ build
 eclipse
 run
 mods/*
-gradle/wrapper/gradle-wrapper.properties
-gradle/wrapper/gradle-wrapper.jar
-gradle.properties
+libs
 *.txt

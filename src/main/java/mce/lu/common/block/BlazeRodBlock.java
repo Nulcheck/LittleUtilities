@@ -1,23 +1,27 @@
 package mce.lu.common.block;
 
+import java.util.List;
 import java.util.Random;
 
 import mce.lu.client.core.handler.ParticleManager;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.xendric.xenlib.common.core.block.BlockBase;
 
 public class BlazeRodBlock extends BlockBase {
-	public BlazeRodBlock(String name, Material mat) {
-		super(name, mat);
+	public BlazeRodBlock(String name, Material mat, List<Block> blockList, List<Item> itemList) {
+		super(name, mat, blockList, itemList);
 	}
-	
-	public BlazeRodBlock(String name, Material mat, SoundType sound) {
-		super(name, mat, sound);
+
+	public BlazeRodBlock(String name, Material mat, List<Block> blockList, List<Item> itemList, SoundType sound) {
+		super(name, mat, blockList, itemList, sound);
 	}
 
 	@Override

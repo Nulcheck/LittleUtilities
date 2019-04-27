@@ -10,5 +10,5 @@
   "credits": "",
   "logoFile": "logo.png",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["xenlib"]
 }]

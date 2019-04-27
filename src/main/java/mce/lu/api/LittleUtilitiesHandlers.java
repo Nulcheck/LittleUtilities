@@ -5,8 +5,8 @@ import java.util.Map.Entry;
 
 import com.google.common.collect.Maps;
 
-import mce.lu.common.util.Util;
 import net.minecraft.item.ItemStack;
+import net.xendric.xenlib.common.util.Util;
 
 public class LittleUtilitiesHandlers {
 	private static final Map<ItemStack, IReservoirHandler> reservoirHandlers = Maps.newHashMap();
