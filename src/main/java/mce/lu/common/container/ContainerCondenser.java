@@ -1,8 +1,6 @@
 package mce.lu.common.container;
 
 import mce.lu.common.container.parts.CondenserOutputSlot;
-import mce.lu.common.container.parts.ISlotValidator;
-import mce.lu.common.container.parts.SlotValid;
 import mce.lu.common.core.recipes.CondenserRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -13,6 +11,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.xendric.xenlib.common.container.parts.ISlotValidator;
+import net.xendric.xenlib.common.container.parts.SlotValid;
 
 public class ContainerCondenser extends Container implements ISlotValidator {
 	private final IInventory tileCondenser;
