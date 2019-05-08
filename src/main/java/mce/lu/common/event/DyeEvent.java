@@ -30,84 +30,80 @@ public class DyeEvent {
 	public static void onEntityInteractEvent(EntityInteractSpecific e) {
 		ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
 
-		if (!e.getWorld().isRemote) {
-			if (e.getHand().equals(EnumHand.MAIN_HAND) && !heldItem.isEmpty()) {
-				// Loop through dye colors
-				for (int i = 0; i < 16; ++i) {
-					for (ItemStack stack : OreDictionary.getOres("dye" + Util.dyes[15 - i])) {
-						if (heldItem.getItem() == stack.getItem()) {
-							if (heldItem.getItem().getHasSubtypes()) {
-								if (heldItem.getItemDamage() == 15 - i)
-									dyeEntities(e);
-							} else
-								dyeEntities(e);
-						}
+		if (!e.getWorld().isRemote && !heldItem.isEmpty() && e.getHand().equals(EnumHand.MAIN_HAND)) {
+			// Loop through dye colors
+			for (int i = 0; i < 16; ++i) {
+				for (ItemStack stack : OreDictionary.getOres("dye" + Util.dyes[i])) {
+					if (heldItem.getItem() == stack.getItem()) {
+						if (heldItem.getItem().getHasSubtypes()) {
+							if (heldItem.getItemDamage() == 15 - i)
+								dyeEntities(e, heldItem);
+						} else
+							dyeEntities(e, heldItem);
 					}
 				}
 			}
 		}
 	}
 
-	public static void dyeEntities(EntityInteractSpecific e) {
-		if (!e.getWorld().isRemote) {
-			ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
-			EnumDyeColor color = EnumDyeColorHelper.byOreDictDyeName(heldItem);
+	public static void dyeEntities(EntityInteractSpecific e, ItemStack heldItem) {
+		EnumDyeColor color = EnumDyeColorHelper.byOreDictDyeName(heldItem);
 
-			// Doggo
-			if (e.getTarget() instanceof EntityWolf && color != ((EntityWolf) e.getTarget()).getCollarColor()) {
-				((EntityWolf) e.getTarget()).setCollarColor(color);
+		// Doggo
+		if (e.getTarget() instanceof EntityWolf && color != ((EntityWolf) e.getTarget()).getCollarColor()
+				&& ((EntityWolf) e.getTarget()).isTamed()) {
+			((EntityWolf) e.getTarget()).setCollarColor(color);
 
-				if (!e.getEntityPlayer().isCreative())
-					heldItem.shrink(1);
+			if (!e.getEntityPlayer().isCreative())
+				heldItem.shrink(1);
+		}
+
+		// Sheep
+		if (e.getTarget() instanceof EntitySheep && color != ((EntitySheep) e.getTarget()).getFleeceColor()
+				&& !((EntitySheep) e.getTarget()).getSheared()) {
+			((EntitySheep) e.getTarget()).setFleeceColor(color);
+
+			if (!e.getEntityPlayer().isCreative())
+				heldItem.shrink(1);
+		}
+
+		// Cow into Chroma Cow
+		if (e.getTarget() instanceof EntityCow && !(e.getTarget() instanceof EntityChromaCow)) {
+			EntityChromaCow cow = new EntityChromaCow(e.getWorld());
+			e.getTarget().getEntityWorld().setEntityState(e.getTarget(), (byte) 16);
+
+			cow.copyLocationAndAnglesFrom(e.getTarget());
+			cow.onInitialSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(cow)), (IEntityLivingData) null);
+			cow.setHealth(((EntityCow) e.getTarget()).getHealth());
+			cow.renderYawOffset = ((EntityCow) e.getTarget()).renderYawOffset;
+			cow.setHideColor(color);
+
+			// Remove vanilla cow
+			e.getWorld().removeEntity(e.getTarget());
+			cow.setNoAI(((EntityLiving) e.getTarget()).isAIDisabled());
+
+			if (((EntityLivingBase) e.getTarget()).isChild())
+				cow.setGrowingAge(-24000);
+
+			// Set custom name if it had one
+			if (e.getTarget().hasCustomName()) {
+				cow.setCustomNameTag(e.getTarget().getCustomNameTag());
+				cow.setAlwaysRenderNameTag(e.getTarget().getAlwaysRenderNameTag());
 			}
 
-			// Sheep
-			if (e.getTarget() instanceof EntitySheep && color != ((EntitySheep) e.getTarget()).getFleeceColor()
-					&& !((EntitySheep) e.getTarget()).getSheared()) {
-				((EntitySheep) e.getTarget()).setFleeceColor(color);
+			// Spawn chroma cow
+			e.getWorld().spawnEntity(cow);
 
-				if (!e.getEntityPlayer().isCreative())
-					heldItem.shrink(1);
-			}
+			if (!e.getEntityPlayer().isCreative())
+				heldItem.shrink(1);
+		}
 
-			// Cow into Chroma Cow
-			if (e.getTarget() instanceof EntityCow && !(e.getTarget() instanceof EntityChromaCow)) {
-				EntityChromaCow cow = new EntityChromaCow(e.getWorld());
-				e.getTarget().getEntityWorld().setEntityState(e.getTarget(), (byte) 16);
+		// Chroma Cow
+		if (e.getTarget() instanceof EntityChromaCow && color != ((EntityChromaCow) e.getTarget()).getHideColor()) {
+			((EntityChromaCow) e.getTarget()).setHideColor(color);
 
-				cow.copyLocationAndAnglesFrom(e.getTarget());
-				cow.onInitialSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(cow)), (IEntityLivingData) null);
-				cow.setHealth(((EntityCow) e.getTarget()).getHealth());
-				cow.renderYawOffset = ((EntityCow) e.getTarget()).renderYawOffset;
-				cow.setHideColor(color);
-
-				// Remove vanilla cow
-				e.getWorld().removeEntity(e.getTarget());
-				cow.setNoAI(((EntityLiving) e.getTarget()).isAIDisabled());
-
-				if (((EntityLivingBase) e.getTarget()).isChild())
-					cow.setGrowingAge(-24000);
-
-				// Set custom name if it had one
-				if (e.getTarget().hasCustomName()) {
-					cow.setCustomNameTag(e.getTarget().getCustomNameTag());
-					cow.setAlwaysRenderNameTag(e.getTarget().getAlwaysRenderNameTag());
-				}
-
-				// Spawn chroma cow
-				e.getWorld().spawnEntity(cow);
-
-				if (!e.getEntityPlayer().isCreative())
-					heldItem.shrink(1);
-			}
-
-			// Chroma Cow
-			if (e.getTarget() instanceof EntityChromaCow && color != ((EntityChromaCow) e.getTarget()).getHideColor()) {
-				((EntityChromaCow) e.getTarget()).setHideColor(color);
-
-				if (!e.getEntityPlayer().isCreative())
-					heldItem.shrink(1);
-			}
+			if (!e.getEntityPlayer().isCreative())
+				heldItem.shrink(1);
 		}
 	}
 
