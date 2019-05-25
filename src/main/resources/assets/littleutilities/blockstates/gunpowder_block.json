@@ -1,7 +1,7 @@
 {
 	"forge_marker": 1,
 	"variants": {
-		"inventory": {"model": "littleutilities:bounds_block0", "textures": {"all": "littleutilities:blocks/gunpowder_block"}},
-		"normal": {"model": "littleutilities:bounds_block0", "textures": {"all": "littleutilities:blocks/gunpowder_block"}}
+		"inventory": {"model": "xenlib:bounds_block_0", "textures": {"all": "littleutilities:blocks/gunpowder_block"}},
+		"normal": {"model": "xenlib:bounds_block_0", "textures": {"all": "littleutilities:blocks/gunpowder_block"}}
 	}
 }

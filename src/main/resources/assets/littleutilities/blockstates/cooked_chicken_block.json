@@ -3,15 +3,15 @@
 	"variants": {
 		"inventory": [{}],
 		"amount": {
-			"0": {"model": "littleutilities:usable_block0", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
-			"1": {"model": "littleutilities:usable_block1", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
-			"2": {"model": "littleutilities:usable_block2", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
-			"3": {"model": "littleutilities:usable_block3", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
-			"4": {"model": "littleutilities:usable_block4", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
-			"5": {"model": "littleutilities:usable_block5", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
-			"6": {"model": "littleutilities:usable_block6", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
-			"7": {"model": "littleutilities:usable_block7", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
-			"8": {"model": "littleutilities:usable_block8", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}}
+			"0": {"model": "xenlib:usable_block_0", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
+			"1": {"model": "xenlib:usable_block_1", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
+			"2": {"model": "xenlib:usable_block_2", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
+			"3": {"model": "xenlib:usable_block_3", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
+			"4": {"model": "xenlib:usable_block_4", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
+			"5": {"model": "xenlib:usable_block_5", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
+			"6": {"model": "xenlib:usable_block_6", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
+			"7": {"model": "xenlib:usable_block_7", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}},
+			"8": {"model": "xenlib:usable_block_8", "textures": { "all": "littleutilities:blocks/cooked_chicken_block"}}
 		}
 	}
 }

@@ -3,15 +3,15 @@
 	"variants": {
 		"inventory": [{}],
 		"amount": {
-			"0": {"model": "littleutilities:pufferfish_block0"},
-			"1": {"model": "littleutilities:pufferfish_block1"},
-			"2": {"model": "littleutilities:pufferfish_block2"},
-			"3": {"model": "littleutilities:pufferfish_block3"},
-			"4": {"model": "littleutilities:pufferfish_block4"},
-			"5": {"model": "littleutilities:pufferfish_block5"},
-			"6": {"model": "littleutilities:pufferfish_block6"},
-			"7": {"model": "littleutilities:pufferfish_block7"},
-			"8": {"model": "littleutilities:pufferfish_block8"}
+			"0": {"model": "littleutilities:pufferfish_block_0"},
+			"1": {"model": "littleutilities:pufferfish_block_1"},
+			"2": {"model": "littleutilities:pufferfish_block_2"},
+			"3": {"model": "littleutilities:pufferfish_block_3"},
+			"4": {"model": "littleutilities:pufferfish_block_4"},
+			"5": {"model": "littleutilities:pufferfish_block_5"},
+			"6": {"model": "littleutilities:pufferfish_block_6"},
+			"7": {"model": "littleutilities:pufferfish_block_7"},
+			"8": {"model": "littleutilities:pufferfish_block_8"}
 		}
 	}
 }

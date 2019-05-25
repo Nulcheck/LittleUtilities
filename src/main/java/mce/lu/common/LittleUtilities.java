@@ -52,8 +52,10 @@ public class LittleUtilities {
 	public static void preInit(FMLPreInitializationEvent e) {
 		proxy.preInit(e);
 		Util.setDependants(References.MOD_ID);
+		
 		ForgeRegistries.BLOCKS.registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
 		ForgeRegistries.ITEMS.registerAll(ModItems.ITEMS.toArray(new Item[0]));
+		
 		TileEntityRegistry.registerTileEntities();
 		OreDict.registerOreDict();
 		NetworkRegistry.INSTANCE.registerGuiHandler(LittleUtilities.instance, new GuiHandler());
