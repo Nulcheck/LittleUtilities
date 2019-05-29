@@ -22,4 +22,5 @@ eclipse
 run
 mods/*
 libs
+libsrc
 *.txt
