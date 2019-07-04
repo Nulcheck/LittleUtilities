@@ -30,16 +30,18 @@ public class DyeEvent {
 	public static void onEntityInteractEvent(EntityInteractSpecific e) {
 		ItemStack heldItem = e.getEntityPlayer().getHeldItemMainhand();
 
-		if (!e.getWorld().isRemote && !heldItem.isEmpty() && e.getHand().equals(EnumHand.MAIN_HAND)) {
-			// Loop through dye colors
-			for (int i = 0; i < 16; ++i) {
-				for (ItemStack stack : OreDictionary.getOres("dye" + Util.dyes[i])) {
-					if (heldItem.getItem() == stack.getItem()) {
-						if (heldItem.getItem().getHasSubtypes()) {
-							if (heldItem.getItemDamage() == 15 - i)
+		if (!e.getWorld().isRemote) {
+			if (!heldItem.isEmpty() && e.getHand().equals(EnumHand.MAIN_HAND)) {
+				// Loop through dye colors
+				for (int i = 0; i < 16; ++i) {
+					for (ItemStack stack : OreDictionary.getOres("dye" + Util.dyes[i])) {
+						if (heldItem.getItem() == stack.getItem()) {
+							if (heldItem.getItem().getHasSubtypes()) {
+								if (heldItem.getMetadata() == i)
+									dyeEntities(e, heldItem);
+							} else
 								dyeEntities(e, heldItem);
-						} else
-							dyeEntities(e, heldItem);
+						}
 					}
 				}
 			}
@@ -122,7 +124,7 @@ public class DyeEvent {
 					if (!heldItem.isEmpty() && heldItem.getItem() == stack.getItem() && block == Blocks.WOOL
 							&& block.getMetaFromState(state) != i) {
 						if (heldItem.getItem().getHasSubtypes()) {
-							if (heldItem.getItemDamage() == 15 - i) {
+							if (heldItem.getMetadata() == 15 - i) {
 								e.getWorld().setBlockState(pos,
 										Blocks.WOOL.getBlockState().getBlock().getStateFromMeta(i));
 								if (!e.getEntityPlayer().isCreative())
@@ -139,7 +141,7 @@ public class DyeEvent {
 							&& (block == Blocks.GLASS || block == Blocks.STAINED_GLASS)
 							&& block.getMetaFromState(state) != i) {
 						if (heldItem.getItem().getHasSubtypes()) {
-							if (heldItem.getItemDamage() == 15 - i) {
+							if (heldItem.getMetadata() == 15 - i) {
 								e.getWorld().setBlockState(pos,
 										Blocks.STAINED_GLASS.getBlockState().getBlock().getStateFromMeta(i));
 								if (!e.getEntityPlayer().isCreative())
@@ -162,7 +164,7 @@ public class DyeEvent {
 							&& (block == Blocks.GLASS_PANE || block == Blocks.STAINED_GLASS_PANE)
 							&& block.getMetaFromState(state) != i) {
 						if (heldItem.getItem().getHasSubtypes()) {
-							if (heldItem.getItemDamage() == 15 - i) {
+							if (heldItem.getMetadata() == 15 - i) {
 								e.getWorld().setBlockState(pos,
 										Blocks.STAINED_GLASS_PANE.getBlockState().getBlock().getStateFromMeta(i));
 								if (!e.getEntityPlayer().isCreative())
@@ -185,7 +187,7 @@ public class DyeEvent {
 							&& (block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY)
 							&& block.getMetaFromState(state) != i) {
 						if (heldItem.getItem().getHasSubtypes()) {
-							if (heldItem.getItemDamage() == 15 - i) {
+							if (heldItem.getMetadata() == 15 - i) {
 								e.getWorld().setBlockState(pos,
 										Blocks.STAINED_HARDENED_CLAY.getBlockState().getBlock().getStateFromMeta(i));
 								if (!e.getEntityPlayer().isCreative())
@@ -207,7 +209,7 @@ public class DyeEvent {
 					else if (!heldItem.isEmpty() && heldItem.getItem() == stack.getItem() && block == Blocks.CARPET
 							&& block.getMetaFromState(state) != i) {
 						if (heldItem.getItem().getHasSubtypes()) {
-							if (heldItem.getItemDamage() == 15 - i) {
+							if (heldItem.getMetadata() == 15 - i) {
 								e.getWorld().setBlockState(pos,
 										Blocks.CARPET.getBlockState().getBlock().getStateFromMeta(i));
 								if (!e.getEntityPlayer().isCreative())
@@ -224,7 +226,7 @@ public class DyeEvent {
 					else if (!heldItem.isEmpty() && heldItem.getItem() == stack.getItem() && block == Blocks.CONCRETE
 							&& block.getMetaFromState(state) != i) {
 						if (heldItem.getItem().getHasSubtypes()) {
-							if (heldItem.getItemDamage() == 15 - i) {
+							if (heldItem.getMetadata() == 15 - i) {
 								e.getWorld().setBlockState(pos,
 										Blocks.CONCRETE.getBlockState().getBlock().getStateFromMeta(i));
 								if (!e.getEntityPlayer().isCreative())
@@ -241,7 +243,7 @@ public class DyeEvent {
 					else if (!heldItem.isEmpty() && heldItem.getItem() == stack.getItem()
 							&& block == Blocks.CONCRETE_POWDER && block.getMetaFromState(state) != i) {
 						if (heldItem.getItem().getHasSubtypes()) {
-							if (heldItem.getItemDamage() == 15 - i) {
+							if (heldItem.getMetadata() == 15 - i) {
 								e.getWorld().setBlockState(pos,
 										Blocks.CONCRETE_POWDER.getBlockState().getBlock().getStateFromMeta(i));
 								if (!e.getEntityPlayer().isCreative())
@@ -258,7 +260,7 @@ public class DyeEvent {
 					// Color Bed, but only does 1 part, not both..
 					/*
 					 * else if (e.getEntityPlayer().isSneaking() && !heldItem.isEmpty() &&
-					 * heldItem.getItem() == Items.DYE && heldItem.getItemDamage() == 15 - i &&
+					 * heldItem.getItem() == Items.DYE && heldItem.getMetadata() == 15 - i &&
 					 * e.getWorld().getTileEntity(pos) instanceof TileEntityBed && ((TileEntityBed)
 					 * te).getColor().getMetadata() != i) { if(((TileEntityBed)te).isHeadPiece()){
 					 * ((TileEntityBed) te).setColor(EnumDyeColor.byMetadata(i)); } else {
