@@ -156,9 +156,14 @@ public class LUConfigManager {
 			public boolean blazeRodEvent = true;
 
 			@Name("Dye Block by Right Clicking")
-			@Comment("Should you be able to dye a block (Glass, Wool, Terracotta, etc) just by holding a dye and right clicking the block?")
+			@Comment({"Should you be able to dye a block (Glass, Wool, Terracotta, etc) just by holding a dye and right clicking the block?", "Does not effect Chroma Cows"})
 			@RequiresMcRestart
 			public boolean dyeEvent = true;
+			
+			@Name("Chroma Cows")
+			@Comment("Should you be able to dye a cow? (Turns into a Chroma Cow)")
+			@RequiresMcRestart
+			public boolean chromaCowEvent = true;
 		}
 
 		public static class Features {

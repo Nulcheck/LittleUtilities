@@ -4,7 +4,7 @@ import java.util.List;
 
 import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.common.LittleUtilities;
-import mce.lu.common.entity.tile.TileEntityCondenser;
+import mce.lu.common.entity.tile.TileEntityDehydrator;
 import mce.lu.common.util.ModStatsList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,8 +21,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.xendric.xenlib.common.core.block.BlockContainerBase;
 
-public class CondenserBlock extends BlockContainerBase {
-	public CondenserBlock(String name, Material mat, List<Block> blockList, List<Item> itemList) {
+public class DehydratorBlock extends BlockContainerBase {
+	public DehydratorBlock(String name, Material mat, List<Block> blockList, List<Item> itemList) {
 		super(name, mat, blockList, itemList);
 	}
 
@@ -35,8 +35,8 @@ public class CondenserBlock extends BlockContainerBase {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!player.isSneaking()) {
-			player.openGui(LittleUtilities.instance, GuiHandler.CONDENSER, world, pos.getX(), pos.getY(), pos.getZ());
-			player.addStat(ModStatsList.CONDENSER_INTERACTION);
+			player.openGui(LittleUtilities.instance, GuiHandler.DEHYDRATOR, world, pos.getX(), pos.getY(), pos.getZ());
+			player.addStat(ModStatsList.DEHYDRATOR_INTERACTION);
 			return true;
 		} else
 			return false;
@@ -46,8 +46,8 @@ public class CondenserBlock extends BlockContainerBase {
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		TileEntity tile = world.getTileEntity(pos);
 
-		if (tile instanceof TileEntityCondenser) {
-			InventoryHelper.dropInventoryItems(world, pos, (TileEntityCondenser) tile);
+		if (tile instanceof TileEntityDehydrator) {
+			InventoryHelper.dropInventoryItems(world, pos, (TileEntityDehydrator) tile);
 			world.updateComparatorOutputLevel(pos, this);
 		}
 
@@ -56,7 +56,7 @@ public class CondenserBlock extends BlockContainerBase {
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		return new TileEntityCondenser();
+		return new TileEntityDehydrator();
 	}
 
 	@Override

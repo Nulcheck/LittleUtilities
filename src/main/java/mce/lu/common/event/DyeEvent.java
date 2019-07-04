@@ -70,42 +70,44 @@ public class DyeEvent {
 		}
 
 		// Cow into Chroma Cow
-		if (e.getTarget() instanceof EntityCow && !(e.getTarget() instanceof EntityChromaCow)) {
-			EntityChromaCow cow = new EntityChromaCow(e.getWorld());
-			e.getTarget().getEntityWorld().setEntityState(e.getTarget(), (byte) 16);
+		if (LUConfigManager.modConfig.modEvents.chromaCowEvent) {
+			if (e.getTarget() instanceof EntityCow && !(e.getTarget() instanceof EntityChromaCow)) {
+				EntityChromaCow cow = new EntityChromaCow(e.getWorld());
+				e.getTarget().getEntityWorld().setEntityState(e.getTarget(), (byte) 16);
 
-			cow.copyLocationAndAnglesFrom(e.getTarget());
-			cow.onInitialSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(cow)), (IEntityLivingData) null);
-			cow.setHealth(((EntityCow) e.getTarget()).getHealth());
-			cow.renderYawOffset = ((EntityCow) e.getTarget()).renderYawOffset;
-			cow.setHideColor(color);
+				cow.copyLocationAndAnglesFrom(e.getTarget());
+				cow.onInitialSpawn(e.getWorld().getDifficultyForLocation(new BlockPos(cow)), (IEntityLivingData) null);
+				cow.setHealth(((EntityCow) e.getTarget()).getHealth());
+				cow.renderYawOffset = ((EntityCow) e.getTarget()).renderYawOffset;
+				cow.setHideColor(color);
 
-			// Remove vanilla cow
-			e.getWorld().removeEntity(e.getTarget());
-			cow.setNoAI(((EntityLiving) e.getTarget()).isAIDisabled());
+				// Remove vanilla cow
+				e.getWorld().removeEntity(e.getTarget());
+				cow.setNoAI(((EntityLiving) e.getTarget()).isAIDisabled());
 
-			if (((EntityLivingBase) e.getTarget()).isChild())
-				cow.setGrowingAge(-24000);
+				if (((EntityLivingBase) e.getTarget()).isChild())
+					cow.setGrowingAge(-24000);
 
-			// Set custom name if it had one
-			if (e.getTarget().hasCustomName()) {
-				cow.setCustomNameTag(e.getTarget().getCustomNameTag());
-				cow.setAlwaysRenderNameTag(e.getTarget().getAlwaysRenderNameTag());
+				// Set custom name if it had one
+				if (e.getTarget().hasCustomName()) {
+					cow.setCustomNameTag(e.getTarget().getCustomNameTag());
+					cow.setAlwaysRenderNameTag(e.getTarget().getAlwaysRenderNameTag());
+				}
+
+				// Spawn chroma cow
+				e.getWorld().spawnEntity(cow);
+
+				if (!e.getEntityPlayer().isCreative())
+					heldItem.shrink(1);
 			}
 
-			// Spawn chroma cow
-			e.getWorld().spawnEntity(cow);
+			// Chroma Cow
+			if (e.getTarget() instanceof EntityChromaCow && color != ((EntityChromaCow) e.getTarget()).getHideColor()) {
+				((EntityChromaCow) e.getTarget()).setHideColor(color);
 
-			if (!e.getEntityPlayer().isCreative())
-				heldItem.shrink(1);
-		}
-
-		// Chroma Cow
-		if (e.getTarget() instanceof EntityChromaCow && color != ((EntityChromaCow) e.getTarget()).getHideColor()) {
-			((EntityChromaCow) e.getTarget()).setHideColor(color);
-
-			if (!e.getEntityPlayer().isCreative())
-				heldItem.shrink(1);
+				if (!e.getEntityPlayer().isCreative())
+					heldItem.shrink(1);
+			}
 		}
 	}
 

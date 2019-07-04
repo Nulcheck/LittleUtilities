@@ -2,6 +2,7 @@ package mce.lu.common.core.handler;
 
 import mce.lu.common.entity.tile.TileEntityAquaReservoir;
 import mce.lu.common.entity.tile.TileEntityCondenser;
+import mce.lu.common.entity.tile.TileEntityDehydrator;
 import mce.lu.common.entity.tile.TileEntityMagmaReservoir;
 import mce.lu.common.entity.tile.TileEntitySnowMelter;
 import mce.lu.common.util.References;
@@ -14,5 +15,6 @@ public class TileEntityRegistry {
 		GameRegistry.registerTileEntity(TileEntitySnowMelter.class, References.MOD_ID + ":snowmelter");
 		GameRegistry.registerTileEntity(TileEntityAquaReservoir.class, References.MOD_ID + ":aquaresrevoir");
 		GameRegistry.registerTileEntity(TileEntityMagmaReservoir.class, References.MOD_ID + ":magmaresrevoir");
+		GameRegistry.registerTileEntity(TileEntityDehydrator.class, References.MOD_ID + ":dehydrator");
 	}
 }

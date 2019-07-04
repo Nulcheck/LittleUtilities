@@ -2,8 +2,8 @@ package mce.lu.common.entity.tile;
 
 import javax.annotation.Nullable;
 
-import mce.lu.common.container.ContainerCondenser;
-import mce.lu.common.core.recipes.CondenserRecipes;
+import mce.lu.common.container.ContainerDehydrator;
+import mce.lu.common.core.recipes.DehydratorRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -16,15 +16,26 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
+import net.xendric.xenlib.common.util.DoubleInputHandler;
 
-public class TileEntityCondenser extends TileEntityLockable implements ITickable, ISidedInventory {
+public class TileEntityDehydrator extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOT_INPUT = new int[] { 0 };
 	private static final int[] SLOT_OUTPUT = new int[] { 1 };
-	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY);
+	private FluidTank fluidTank = new FluidTank(16000);
+	public NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY);
 	private String customName;
+
+	public ItemStack inputStack = this.stacks.get(0);
+	public FluidTank inputFluidStack = this.fluidTank;
+	public ItemStack recipeResultStack = DehydratorRecipes.instance()
+			.getRecipeResult(new DoubleInputHandler(inputFluidStack.getFluid(), inputStack));
+	public ItemStack outputStack = this.stacks.get(1);
 
 	private int speed;
 	private int time;
@@ -34,6 +45,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 		super.readFromNBT(tag);
 		this.stacks = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
 		ItemStackHelper.loadAllItems(tag, this.stacks);
+
 		this.time = tag.getInteger("Time");
 		this.speed = tag.getInteger("Speed");
 
@@ -58,13 +70,21 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 	public void update() {
 		boolean flag1 = false;
 
-		if (!this.world.isRemote && this.canCondense()) {
+		if (!this.world.isRemote && this.canDry()) {
+			setDryingTime();
 			++this.time;
 
 			if (this.time >= this.speed) {
 				this.time = 0;
-				this.speed = this.getCondencingTime(this.stacks.get(0));
-				this.condenseItem();
+
+				if (!this.stacks.get(0).isEmpty())
+					this.speed = this.getDryingTime(this.stacks.get(0));
+				else if (this.fluidTank.getFluidAmount() > 0)
+					this.speed = this.getDryingTime(this.fluidTank.getFluid());
+				else
+					this.speed = 0;
+
+				this.dryStack();
 				flag1 = true;
 			}
 		} else
@@ -74,40 +94,53 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 			this.markDirty();
 	}
 
-	public int getCondencingTime(ItemStack stack) {
-		return 0;
+	public void setDryingTime() {
+		/*
+		 * ItemStack inputStack = this.stacks.get(0); FluidTank inputFluidStack =
+		 * this.fluidTank; ItemStack recipeResultStack = DehydratorRecipes.instance()
+		 * .getRecipeResult(new DoubleInputHandler(inputFluidStack.getFluid(),
+		 * inputStack));
+		 */
+		this.speed = DehydratorRecipes.getTime();
 	}
 
-	public boolean canCondense() {
-		if (((ItemStack) this.stacks.get(0)).isEmpty()) {
+	public int getDryingTime(ItemStack stack) {
+		return this.speed;
+	}
+
+	public int getDryingTime(FluidStack stack) {
+		return this.speed;
+	}
+
+	public boolean canDry() {
+		if (((ItemStack) inputStack).isEmpty() && inputFluidStack.getFluidAmount() <= 0
+				|| (((ItemStack) inputStack).isEmpty() || inputFluidStack.getFluidAmount() <= 0)) {
 			return false;
 		} else {
-			// ItemStack stack;
-			ItemStack inputStack = this.stacks.get(0);
-			ItemStack recipeResultStack = CondenserRecipes.instance().getRecipeResult(inputStack);
-
-			// You can't condense if input slot is empty. Duh..
 			if (recipeResultStack.isEmpty())
 				return false;
 			else {
-				ItemStack outputStack = this.stacks.get(1);
-
-				// If input slot has less than recipe amount calls for, you can't condense
-				if (inputStack.getCount() < 9)
+				// If input slot OR fluid slot has less than recipe amount calls for, you can't
+				// dry
+				if (inputStack.getCount() < DehydratorRecipes.getInputs(recipeResultStack).getItemInput1().getCount())
 					return false;
 
-				// If output slot is empty, you can condense
+				if (inputFluidStack
+						.getFluidAmount() < DehydratorRecipes.getInputs(recipeResultStack).getFluidInput1().amount)
+					return false;
+
+				// If output slot is empty, you can dry
 				if (outputStack.isEmpty())
 					return true;
 
 				/*
 				 * If output item is NOT equal to the same item as the output in the recipe
-				 * list, you CAN'T condense
+				 * list, you CAN'T dry
 				 */
 				if (!outputStack.isItemEqual(recipeResultStack))
 					return false;
 
-				// If stack size in output is less than 64, you can condense
+				// If stack size in output is less than 64, you can dry
 				if (outputStack.getCount() + recipeResultStack.getCount() <= this.getInventoryStackLimit()
 						&& outputStack.getCount() + recipeResultStack.getCount() <= outputStack.getMaxStackSize())
 					return true;
@@ -117,53 +150,24 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 		}
 	}
 
-	public void condenseItem() {
-		if (this.canCondense()) {
-			ItemStack inputStack = this.stacks.get(0);
-			ItemStack recipeResultStack = CondenserRecipes.instance().getRecipeResult(inputStack);
-			ItemStack outputStack = this.stacks.get(1);
-
+	public void dryStack() {
+		if (this.canDry()) {
 			if (outputStack.isEmpty())
-				this.stacks.set(1, recipeResultStack.copy());
+				this.stacks.set(1, recipeResultStack).copy();
 			else if (outputStack.getItem() == recipeResultStack.getItem())
 				outputStack.grow(recipeResultStack.getCount());
 
-			inputStack.shrink(9);
+			if (DehydratorRecipes.getInputs(recipeResultStack).getItemInput1() != null)
+				inputStack.shrink(DehydratorRecipes.getInputs(recipeResultStack).getItemInput1().getCount());
+
+			if (DehydratorRecipes.getInputs(recipeResultStack).getFluidInput1() != null)
+				inputFluidStack.drain(DehydratorRecipes.getInputs(recipeResultStack).getFluidInput1().amount, true);
 
 			if (inputStack.getCount() <= 0)
 				inputStack.isEmpty();
 		}
 	}
 
-	public String getGuiID() {
-		return "littleutilities:condenser";
-	}
-
-	public Container createContainer(InventoryPlayer playerInv, EntityPlayer player) {
-		return new ContainerCondenser(playerInv, this);
-	}
-
-	public int getInventoryStackLimit() {
-		return 64;
-	}
-
-	@Override
-	public String getName() {
-		return this.hasCustomName() ? this.customName : "container.lu_condenser";
-	}
-
-	@Override
-	public boolean hasCustomName() {
-		return this.customName != null && !this.customName.isEmpty();
-	}
-
-	public void setCustomInventoryName(String name) {
-		this.customName = name;
-	}
-
-	/**
-	 * Return number of slots in inventory.
-	 */
 	@Override
 	public int getSizeInventory() {
 		return this.stacks.size();
@@ -171,11 +175,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 
 	@Override
 	public boolean isEmpty() {
-		for (ItemStack stack : this.stacks) {
-			if (!stack.isEmpty())
-				return false;
-		}
-		return true;
+		return false;
 	}
 
 	@Override
@@ -203,10 +203,15 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 			stack.setCount(this.getInventoryStackLimit());
 
 		if (index == 0 && !flag) {
-			this.speed = this.getCondencingTime(stack);
+			this.speed = this.getDryingTime(stack);
 			this.time = 0;
 			this.markDirty();
 		}
+	}
+
+	@Override
+	public int getInventoryStackLimit() {
+		return 64;
 	}
 
 	@Override
@@ -229,21 +234,6 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 	@Override
 	public boolean isItemValidForSlot(int index, ItemStack stack) {
 		return index == 1 ? false : true;
-	}
-
-	public int[] getSlotsForFace(EnumFacing side) {
-		if (side == EnumFacing.DOWN)
-			return SLOT_OUTPUT;
-		else
-			return SLOT_INPUT;
-	}
-
-	public boolean canInsertItem(int index, ItemStack stack, EnumFacing dir) {
-		return this.isItemValidForSlot(index, stack);
-	}
-
-	public boolean canExtractItem(int index, ItemStack stack, EnumFacing dir) {
-		return true;
 	}
 
 	@Override
@@ -279,21 +269,64 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 		this.stacks.clear();
 	}
 
+	@Override
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.dehydrator";
+	}
+
+	@Override
+	public boolean hasCustomName() {
+		return this.customName != null && !this.customName.isEmpty();
+	}
+
+	public void setCustomInventoryName(String name) {
+		this.customName = name;
+	}
+
+	@Override
+	public Container createContainer(InventoryPlayer playerInv, EntityPlayer playerIn) {
+		return new ContainerDehydrator(playerInv, this);
+	}
+
+	@Override
+	public String getGuiID() {
+		return "littleutilities:dehydrator";
+	}
+
+	@Override
+	public int[] getSlotsForFace(EnumFacing side) {
+		if (side == EnumFacing.DOWN)
+			return SLOT_OUTPUT;
+		else
+			return SLOT_INPUT;
+	}
+
+	@Override
+	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+		return this.isItemValidForSlot(index, itemStackIn);
+	}
+
+	@Override
+	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+		return true;
+	}
+
 	IItemHandler handlerTop = new SidedInvWrapper(this, EnumFacing.UP);
 	IItemHandler handlerBottom = new SidedInvWrapper(this, EnumFacing.DOWN);
 	IItemHandler handlerSide = new SidedInvWrapper(this, EnumFacing.WEST);
 
 	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+	public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
+		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY
+				|| capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
 			return true;
 		return super.hasCapability(capability, facing);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	@Nullable
 	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
+		if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
+			return (T) fluidTank;
 		if (facing != null && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 			if (facing == EnumFacing.DOWN)
 				return (T) handlerBottom;
@@ -302,5 +335,13 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 			else
 				return (T) handlerSide;
 		return super.getCapability(capability, facing);
+	}
+
+	public int getFluidAmount() {
+		return fluidTank.getFluidAmount();
+	}
+
+	public int getFluidCapacity() {
+		return fluidTank.getCapacity();
 	}
 }

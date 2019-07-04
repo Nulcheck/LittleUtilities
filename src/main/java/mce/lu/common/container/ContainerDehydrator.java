@@ -1,7 +1,9 @@
 package mce.lu.common.container;
 
-import mce.lu.common.container.parts.CondenserOutputSlot;
+import mce.lu.common.container.parts.DehydratorOutputSlot;
 import mce.lu.common.core.recipes.CondenserRecipes;
+import mce.lu.common.core.recipes.DehydratorRecipes;
+import mce.lu.common.entity.tile.TileEntityDehydrator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -16,15 +18,16 @@ import net.xendric.xenlib.common.container.parts.ISlotValidator;
 import net.xendric.xenlib.common.container.parts.SlotValid;
 import net.xendric.xenlib.common.util.DoubleInputHandler;
 
-public class ContainerCondenser extends Container implements ISlotValidator {
-	private final IInventory tileCondenser;
+public class ContainerDehydrator extends Container implements ISlotValidator {
+	private final IInventory tileDehydrator;
+	private TileEntityDehydrator tile;
 	public int lastTime, lastSpeed;
 
-	public ContainerCondenser(InventoryPlayer playerInv, IInventory tileInv) {
-		this.tileCondenser = tileInv;
+	public ContainerDehydrator(InventoryPlayer playerInv, IInventory tileInv) {
+		this.tileDehydrator = tileInv;
 
-		this.addSlotToContainer(new SlotValid(this, this.tileCondenser, 0, 56, 35)); // Input;
-		this.addSlotToContainer(new CondenserOutputSlot(playerInv.player, this.tileCondenser, 1, 116, 35)); // Output
+		this.addSlotToContainer(new SlotValid(this, this.tileDehydrator, 0, 56, 35)); // Input
+		this.addSlotToContainer(new DehydratorOutputSlot(playerInv.player, this.tileDehydrator, 1, 116, 35)); // Output
 
 		// Player Inventory
 		for (int i = 0; i < 3; i++) {
@@ -38,26 +41,26 @@ public class ContainerCondenser extends Container implements ISlotValidator {
 			this.addSlotToContainer(new Slot(playerInv, i, 8 + i * 18, 142));
 		}
 	}
-	
+
 	@Override
 	public boolean isItemValid(ItemStack stack) {
-		return CondenserRecipes.isRecipe(stack);
+		return DehydratorRecipes.getInputs(tile.recipeResultStack).getItemInput1() != null;
 	}
 
 	@Override
 	public boolean isItemValid(DoubleInputHandler inputs) {
-		return false;
+		return DehydratorRecipes.isRecipe(inputs);
 	}
 
 	@Override
 	public boolean isFluidValid(FluidStack stack) {
-		return false;
+		return DehydratorRecipes.getInputs(tile.recipeResultStack).getFluidInput1() != null;
 	}
 
 	@Override
 	public void addListener(IContainerListener listener) {
 		super.addListener(listener);
-		listener.sendAllWindowProperties(this, this.tileCondenser);
+		listener.sendAllWindowProperties(this, this.tileDehydrator);
 	}
 
 	@Override
@@ -67,25 +70,25 @@ public class ContainerCondenser extends Container implements ISlotValidator {
 		for (int i = 0; i < this.listeners.size(); ++i) {
 			IContainerListener listener = this.listeners.get(i);
 
-			if (this.lastTime != this.tileCondenser.getField(0))
-				listener.sendWindowProperty(this, 0, this.tileCondenser.getField(0));
-			if (this.lastSpeed != this.tileCondenser.getField(1))
-				listener.sendWindowProperty(this, 1, this.tileCondenser.getField(1));
+			if (this.lastTime != this.tileDehydrator.getField(0))
+				listener.sendWindowProperty(this, 0, this.tileDehydrator.getField(0));
+			if (this.lastSpeed != this.tileDehydrator.getField(1))
+				listener.sendWindowProperty(this, 1, this.tileDehydrator.getField(1));
 		}
 
-		this.lastTime = this.tileCondenser.getField(0);
-		this.lastSpeed = this.tileCondenser.getField(1);
+		this.lastTime = this.tileDehydrator.getField(0);
+		this.lastSpeed = this.tileDehydrator.getField(1);
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void updateProgressBar(int id, int value) {
-		this.tileCondenser.setField(id, value);
+		this.tileDehydrator.setField(id, value);
 	}
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return this.tileCondenser.isUsableByPlayer(player);
+		return this.tileDehydrator.isUsableByPlayer(player);
 	}
 
 	/**
@@ -140,6 +143,4 @@ public class ContainerCondenser extends Container implements ISlotValidator {
 
 		return stack;
 	}
-
-	
 }

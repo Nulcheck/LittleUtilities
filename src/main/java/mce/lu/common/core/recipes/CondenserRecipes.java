@@ -177,13 +177,13 @@ public class CondenserRecipes {
 	/**
 	 * Compares two itemstacks to ensure they are the same. Both item and meta.
 	 * 
-	 * @param stack1
-	 * @param stack2
+	 * @param entryStack
+	 * @param keyStack
 	 * @return boolean
 	 */
-	private boolean compareStacks(ItemStack stack1, ItemStack stack2) {
-		return stack2.getItem() == stack1.getItem()
-				&& (stack2.getMetadata() == 32767 || stack2.getMetadata() == stack1.getMetadata());
+	private boolean compareStacks(ItemStack entryStack, ItemStack keyStack) {
+		return keyStack.getItem() == entryStack.getItem()
+				&& (keyStack.getMetadata() == 32767 || keyStack.getMetadata() == entryStack.getMetadata());
 	}
 
 	public Map<ItemStack, ItemStack> getRecipeList() {
