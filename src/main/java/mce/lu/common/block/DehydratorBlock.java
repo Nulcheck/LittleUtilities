@@ -50,7 +50,6 @@ public class DehydratorBlock extends BlockContainerBase {
 			InventoryHelper.dropInventoryItems(world, pos, (TileEntityDehydrator) tile);
 			world.updateComparatorOutputLevel(pos, this);
 		}
-
 		super.breakBlock(world, pos, state);
 	}
 

@@ -4,9 +4,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import gnu.trove.map.hash.THashMap;
-import mce.lu.common.block.ModBlocks;
+import mce.lu.common.block.ModFluids;
 import mce.lu.common.item.ModItems;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.xendric.xenlib.common.util.DoubleInputHandler;
 
@@ -20,27 +21,29 @@ public class DehydratorRecipes {
 	}
 
 	public DehydratorRecipes() {
-		this.addRecipe(new FluidStack(ModBlocks.PIGMENT_BLACK_FLUID, 1000), new ItemStack(ModItems.PIGMENT_BLACK, 1), 50);
-		this.addRecipe(new ItemStack(ModItems.PIGMENT_BLACK, 2), new ItemStack(ModItems.PIGMENT_BLACK, 1), 50);
+		this.addRecipe(new FluidStack(ModFluids.PIGMENT_BLACK_FLUID, Fluid.BUCKET_VOLUME), new ItemStack(ModItems.PIGMENT_BLACK), 50);
 	}
 
-	public DoubleInputHandler addRecipe(ItemStack itemInput, ItemStack output, int time) {
-		return addRecipe(null, itemInput, output, time);
+	public void addRecipe(ItemStack itemInput, ItemStack output, int time) {
+		this.addRecipe(FluidStackEmpty.EMPTY, itemInput, output, time);
 	}
 
-	public DoubleInputHandler addRecipe(FluidStack fluidInput, ItemStack output, int time) {
-		return addRecipe(fluidInput, ItemStack.EMPTY, output, time);
+	public void addRecipe(FluidStack fluidInput, ItemStack output, int time) {
+		this.addRecipe(fluidInput, ItemStack.EMPTY, output, time);
 	}
 
-	public DoubleInputHandler addRecipe(FluidStack fluidInput, ItemStack itemInput, ItemStack output, int time) {
-		DoubleInputHandler recipe = new DoubleInputHandler(fluidInput, itemInput);
-		recipeMap.put(recipe, output);
-		DehydratorRecipes.time = time;
-		return recipe;
+	public void addRecipe(FluidStack fluidInput, ItemStack itemInput, ItemStack output, int timeIn) {
+		DoubleInputHandler inputs = new DoubleInputHandler(fluidInput, itemInput);
+		recipeMap.put(inputs, output);
+		setTime(timeIn);
 	}
 
 	public static int getTime() {
 		return time;
+	}
+
+	private int setTime(int timeIn) {
+		return time = timeIn;
 	}
 
 	public ItemStack getRecipeResult(DoubleInputHandler inputs) {
@@ -58,7 +61,7 @@ public class DehydratorRecipes {
 		}
 		return null;
 	}
-	
+
 	private boolean compareKeyStacks(DoubleInputHandler inputs, DoubleInputHandler keyStack) {
 		return (keyStack.getItemInput1().getItem() == inputs.getItemInput1().getItem()
 				&& (keyStack.getItemInput1().getMetadata() == 32767
@@ -73,5 +76,13 @@ public class DehydratorRecipes {
 
 	public static boolean isRecipe(DoubleInputHandler inputs) {
 		return instance().getRecipeResult(inputs) != null;
+	}
+
+	public static class FluidStackEmpty extends FluidStack {
+		public static final FluidStack EMPTY = new FluidStack((Fluid) null, 0);
+
+		public FluidStackEmpty(Fluid fluid, int amount) {
+			super(fluid, amount);
+		}
 	}
 }

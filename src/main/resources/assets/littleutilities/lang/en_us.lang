@@ -66,6 +66,7 @@ tile.unstompable_farmland.name=Unstompable Farmland
 tile.spike_block.name=Spikes
 tile.poison_spike_block.name=Poisoned Spikes
 tile.fire_spike_block.name=Fire Spikes
+tile.dehydrator.name=Dehydrator
 
 // Dye Reeds
 tile.reeds_black.name=Black Reeds

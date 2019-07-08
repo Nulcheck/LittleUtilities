@@ -44,7 +44,7 @@ public class ContainerDehydrator extends Container implements ISlotValidator {
 
 	@Override
 	public boolean isItemValid(ItemStack stack) {
-		return DehydratorRecipes.getInputs(tile.recipeResultStack).getItemInput1() != null;
+		return tile.canDry();
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class ContainerDehydrator extends Container implements ISlotValidator {
 
 	@Override
 	public boolean isFluidValid(FluidStack stack) {
-		return DehydratorRecipes.getInputs(tile.recipeResultStack).getFluidInput1() != null;
+		return tile.canDry();
 	}
 
 	@Override

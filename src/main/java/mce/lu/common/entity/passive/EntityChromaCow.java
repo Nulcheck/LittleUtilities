@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Maps;
 
 import mce.lu.common.LittleUtilities;
+import mce.lu.common.block.ModFluids;
 import mce.lu.common.item.ModItems;
 import mce.lu.common.util.References;
 import net.minecraft.entity.EntityAgeable;
@@ -32,6 +33,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,12 +49,17 @@ public class EntityChromaCow extends EntityCow {
 			CHROMA_COW_PINK, CHROMA_COW_LIME, CHROMA_COW_YELLOW, CHROMA_COW_LIGHT_BLUE, CHROMA_COW_MAGENTA,
 			CHROMA_COW_ORANGE, CHROMA_COW_WHITE;
 
-	public static Item[] PIGMENT_BUCKETS = { ModItems.BUCKET_PIGMENT_BLACK, ModItems.BUCKET_PIGMENT_RED,
-			ModItems.BUCKET_PIGMENT_GREEN, ModItems.BUCKET_PIGMENT_BROWN, ModItems.BUCKET_PIGMENT_BLUE,
-			ModItems.BUCKET_PIGMENT_PURPLE, ModItems.BUCKET_PIGMENT_CYAN, ModItems.BUCKET_PIGMENT_LIGHT_GRAY,
-			ModItems.BUCKET_PIGMENT_GRAY, ModItems.BUCKET_PIGMENT_PINK, ModItems.BUCKET_PIGMENT_LIME,
-			ModItems.BUCKET_PIGMENT_YELLOW, ModItems.BUCKET_PIGMENT_LIGHT_BLUE, ModItems.BUCKET_PIGMENT_MAGENTA,
-			ModItems.BUCKET_PIGMENT_ORANGE, ModItems.BUCKET_PIGMENT_WHITE };
+	/*
+	 * public static Item[] PIGMENT_BUCKETS = { ModItems.BUCKET_PIGMENT_BLACK,
+	 * ModItems.BUCKET_PIGMENT_RED, ModItems.BUCKET_PIGMENT_GREEN,
+	 * ModItems.BUCKET_PIGMENT_BROWN, ModItems.BUCKET_PIGMENT_BLUE,
+	 * ModItems.BUCKET_PIGMENT_PURPLE, ModItems.BUCKET_PIGMENT_CYAN,
+	 * ModItems.BUCKET_PIGMENT_LIGHT_GRAY, ModItems.BUCKET_PIGMENT_GRAY,
+	 * ModItems.BUCKET_PIGMENT_PINK, ModItems.BUCKET_PIGMENT_LIME,
+	 * ModItems.BUCKET_PIGMENT_YELLOW, ModItems.BUCKET_PIGMENT_LIGHT_BLUE,
+	 * ModItems.BUCKET_PIGMENT_MAGENTA, ModItems.BUCKET_PIGMENT_ORANGE,
+	 * ModItems.BUCKET_PIGMENT_WHITE };
+	 */
 
 	public static Item[] PIGMENTS = { ModItems.PIGMENT_BLACK, ModItems.PIGMENT_RED, ModItems.PIGMENT_GREEN,
 			ModItems.PIGMENT_BROWN, ModItems.PIGMENT_BLUE, ModItems.PIGMENT_PURPLE, ModItems.PIGMENT_CYAN,
@@ -142,14 +151,16 @@ public class EntityChromaCow extends EntityCow {
 
 		if (!this.world.isRemote && stack.getItem() == Items.BUCKET && !this.isChild() && !player.isCreative()) {
 			stack.shrink(1);
-
+			
 			for (int i = 0; i < 16; ++i) {
 				if (i == getHideColorInt()) {
-					if (stack.isEmpty())
-						player.setHeldItem(hand, new ItemStack(PIGMENT_BUCKETS[i]));
+					ItemStack PIGMENT_BUCKETS = ForgeModContainer.getInstance().universalBucket.getFilledBucket(null, ModFluids.PIGMENT_FLUIDS[i]);
 
-					else if (!player.inventory.addItemStackToInventory(new ItemStack(PIGMENT_BUCKETS[i])))
-						player.dropItem(new ItemStack(PIGMENT_BUCKETS[i]), false);
+					if (stack.isEmpty())
+						player.setHeldItem(hand, PIGMENT_BUCKETS);
+
+					else if (!player.inventory.addItemStackToInventory(PIGMENT_BUCKETS))
+						player.dropItem(PIGMENT_BUCKETS, false);
 				}
 			}
 			return true;

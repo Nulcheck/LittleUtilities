@@ -31,12 +31,6 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 	public NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY);
 	private String customName;
 
-	public ItemStack inputStack = this.stacks.get(0);
-	public FluidTank inputFluidStack = this.fluidTank;
-	public ItemStack recipeResultStack = DehydratorRecipes.instance()
-			.getRecipeResult(new DoubleInputHandler(inputFluidStack.getFluid(), inputStack));
-	public ItemStack outputStack = this.stacks.get(1);
-
 	private int speed;
 	private int time;
 
@@ -113,8 +107,13 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 	}
 
 	public boolean canDry() {
-		if (((ItemStack) inputStack).isEmpty() && inputFluidStack.getFluidAmount() <= 0
-				|| (((ItemStack) inputStack).isEmpty() || inputFluidStack.getFluidAmount() <= 0)) {
+		ItemStack inputStack = this.stacks.get(0);
+		FluidTank inputFluidStack = this.fluidTank;
+		ItemStack recipeResultStack = DehydratorRecipes.instance()
+				.getRecipeResult(new DoubleInputHandler(inputFluidStack.getFluid(), inputStack));
+		ItemStack outputStack = this.stacks.get(1);
+
+		if (((ItemStack) inputStack).isEmpty() && inputFluidStack.getFluidAmount() <= 0) {
 			return false;
 		} else {
 			if (recipeResultStack.isEmpty())
@@ -151,6 +150,12 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 	}
 
 	public void dryStack() {
+		ItemStack inputStack = this.stacks.get(0);
+		FluidTank inputFluidStack = this.fluidTank;
+		ItemStack recipeResultStack = DehydratorRecipes.instance()
+				.getRecipeResult(new DoubleInputHandler(inputFluidStack.getFluid(), inputStack));
+		ItemStack outputStack = this.stacks.get(1);
+
 		if (this.canDry()) {
 			if (outputStack.isEmpty())
 				this.stacks.set(1, recipeResultStack).copy();

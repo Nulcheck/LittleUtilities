@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.block.ModBlocks;
+import mce.lu.common.block.ModFluids;
 import mce.lu.common.core.handler.TileEntityRegistry;
 import mce.lu.common.core.proxy.CommonProxy;
 import mce.lu.common.item.ModItems;
@@ -16,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -54,9 +54,7 @@ public class LittleUtilities {
 		proxy.preInit(e);
 		Util.setDependants(References.MOD_ID);
 
-		FluidRegistry.registerFluid(ModBlocks.PIGMENT_BLACK_FLUID);
-		FluidRegistry.addBucketForFluid(ModBlocks.PIGMENT_BLACK_FLUID);
-
+		ModFluids.registerFluids();
 		ForgeRegistries.BLOCKS.registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
 		ForgeRegistries.ITEMS.registerAll(ModItems.ITEMS.toArray(new Item[0]));
 
