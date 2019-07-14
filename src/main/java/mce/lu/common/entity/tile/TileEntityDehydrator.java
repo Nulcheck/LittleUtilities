@@ -1,5 +1,7 @@
 package mce.lu.common.entity.tile;
 
+import java.util.Arrays;
+
 import javax.annotation.Nullable;
 
 import mce.lu.common.container.ContainerDehydrator;
@@ -22,12 +24,11 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
-import net.xendric.xenlib.common.util.DoubleInputHandler;
 
 public class TileEntityDehydrator extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOT_INPUT = new int[] { 0 };
 	private static final int[] SLOT_OUTPUT = new int[] { 1 };
-	private FluidTank fluidTank = new FluidTank(16000);
+	public FluidTank fluidTank = new FluidTank(16000);
 	public NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY);
 	private String customName;
 
@@ -65,18 +66,10 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 		boolean flag1 = false;
 
 		if (!this.world.isRemote && this.canDry()) {
-			setDryingTime();
 			++this.time;
 
 			if (this.time >= this.speed) {
 				this.time = 0;
-
-				if (!this.stacks.get(0).isEmpty())
-					this.speed = this.getDryingTime(this.stacks.get(0));
-				else if (this.fluidTank.getFluidAmount() > 0)
-					this.speed = this.getDryingTime(this.fluidTank.getFluid());
-				else
-					this.speed = 0;
 
 				this.dryStack();
 				flag1 = true;
@@ -89,28 +82,18 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 	}
 
 	public void setDryingTime() {
-		/*
-		 * ItemStack inputStack = this.stacks.get(0); FluidTank inputFluidStack =
-		 * this.fluidTank; ItemStack recipeResultStack = DehydratorRecipes.instance()
-		 * .getRecipeResult(new DoubleInputHandler(inputFluidStack.getFluid(),
-		 * inputStack));
-		 */
-		this.speed = DehydratorRecipes.getTime();
+		this.speed = DehydratorRecipes.instance().getTime(Arrays.asList(this.fluidTank.getFluid(), this.stacks.get(0)));
 	}
 
-	public int getDryingTime(ItemStack stack) {
-		return this.speed;
-	}
-
-	public int getDryingTime(FluidStack stack) {
-		return this.speed;
+	public int getDryingTime() {
+		return speed;
 	}
 
 	public boolean canDry() {
 		ItemStack inputStack = this.stacks.get(0);
 		FluidTank inputFluidStack = this.fluidTank;
 		ItemStack recipeResultStack = DehydratorRecipes.instance()
-				.getRecipeResult(new DoubleInputHandler(inputFluidStack.getFluid(), inputStack));
+				.getRecipeResult(Arrays.asList(inputFluidStack.getFluid(), inputStack));
 		ItemStack outputStack = this.stacks.get(1);
 
 		if (((ItemStack) inputStack).isEmpty() && inputFluidStack.getFluidAmount() <= 0) {
@@ -119,13 +102,14 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 			if (recipeResultStack.isEmpty())
 				return false;
 			else {
-				// If input slot OR fluid slot has less than recipe amount calls for, you can't
-				// dry
-				if (inputStack.getCount() < DehydratorRecipes.getInputs(recipeResultStack).getItemInput1().getCount())
+				// If input slot OR fluid slot is less than recipe calls for, you can't dry
+				if (inputStack
+						.getCount() < ((ItemStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(1))
+								.getCount())
 					return false;
 
-				if (inputFluidStack
-						.getFluidAmount() < DehydratorRecipes.getInputs(recipeResultStack).getFluidInput1().amount)
+				if (inputFluidStack.getFluidAmount() < ((FluidStack) DehydratorRecipes.instance()
+						.getInputs(recipeResultStack).get(0)).amount)
 					return false;
 
 				// If output slot is empty, you can dry
@@ -141,10 +125,13 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 
 				// If stack size in output is less than 64, you can dry
 				if (outputStack.getCount() + recipeResultStack.getCount() <= this.getInventoryStackLimit()
-						&& outputStack.getCount() + recipeResultStack.getCount() <= outputStack.getMaxStackSize())
+						&& outputStack.getCount() + recipeResultStack.getCount() <= outputStack.getMaxStackSize()) {
+					setDryingTime();
 					return true;
-				else
+				} else {
+					setDryingTime();
 					return outputStack.getCount() + recipeResultStack.getCount() <= recipeResultStack.getMaxStackSize();
+				}
 			}
 		}
 	}
@@ -153,7 +140,7 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 		ItemStack inputStack = this.stacks.get(0);
 		FluidTank inputFluidStack = this.fluidTank;
 		ItemStack recipeResultStack = DehydratorRecipes.instance()
-				.getRecipeResult(new DoubleInputHandler(inputFluidStack.getFluid(), inputStack));
+				.getRecipeResult(Arrays.asList(inputFluidStack.getFluid(), inputStack));
 		ItemStack outputStack = this.stacks.get(1);
 
 		if (this.canDry()) {
@@ -162,11 +149,13 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 			else if (outputStack.getItem() == recipeResultStack.getItem())
 				outputStack.grow(recipeResultStack.getCount());
 
-			if (DehydratorRecipes.getInputs(recipeResultStack).getItemInput1() != null)
-				inputStack.shrink(DehydratorRecipes.getInputs(recipeResultStack).getItemInput1().getCount());
+			if (((ItemStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(1)) != null)
+				inputStack.shrink(
+						((ItemStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(1)).getCount());
 
-			if (DehydratorRecipes.getInputs(recipeResultStack).getFluidInput1() != null)
-				inputFluidStack.drain(DehydratorRecipes.getInputs(recipeResultStack).getFluidInput1().amount, true);
+			if (((FluidStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(0)) != null)
+				inputFluidStack.drain(
+						((FluidStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(0)).amount, true);
 
 			if (inputStack.getCount() <= 0)
 				inputStack.isEmpty();
@@ -208,7 +197,7 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 			stack.setCount(this.getInventoryStackLimit());
 
 		if (index == 0 && !flag) {
-			this.speed = this.getDryingTime(stack);
+			this.speed = this.getDryingTime();
 			this.time = 0;
 			this.markDirty();
 		}
@@ -328,7 +317,9 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 		return super.hasCapability(capability, facing);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
+	@Nullable
 	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
 		if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
 			return (T) fluidTank;

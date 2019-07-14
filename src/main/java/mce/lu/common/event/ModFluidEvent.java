@@ -2,7 +2,6 @@ package mce.lu.common.event;
 
 import java.awt.Color;
 
-import mce.lu.common.LittleUtilities;
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.block.ModFluids;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +11,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import net.xendric.xenlib.common.XenLib;
 
 @EventBusSubscriber
 public class ModFluidEvent {
@@ -19,7 +19,7 @@ public class ModFluidEvent {
 	public void onPlayerTick(PlayerTickEvent e) {
 		if (e.phase == TickEvent.Phase.START && e.player.world.isRemote) {
 			EntityPlayer player = e.player;
-			LittleUtilities.proxy.handleMaterialAcceleration(player,
+			XenLib.proxy.handleMaterialAcceleration(player,
 					ModBlocks.PIGMENT_BLACK_FLUID_BLOCK.getDefaultState().getMaterial());
 		}
 	}

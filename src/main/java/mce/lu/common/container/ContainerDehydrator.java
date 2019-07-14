@@ -11,16 +11,14 @@ import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.common.container.parts.ISlotValidator;
 import net.xendric.xenlib.common.container.parts.SlotValid;
-import net.xendric.xenlib.common.util.DoubleInputHandler;
 
 public class ContainerDehydrator extends Container implements ISlotValidator {
 	private final IInventory tileDehydrator;
-	private TileEntityDehydrator tile;
+	public TileEntityDehydrator tile;
 	public int lastTime, lastSpeed;
 
 	public ContainerDehydrator(InventoryPlayer playerInv, IInventory tileInv) {
@@ -44,17 +42,7 @@ public class ContainerDehydrator extends Container implements ISlotValidator {
 
 	@Override
 	public boolean isItemValid(ItemStack stack) {
-		return tile.canDry();
-	}
-
-	@Override
-	public boolean isItemValid(DoubleInputHandler inputs) {
-		return DehydratorRecipes.isRecipe(inputs);
-	}
-
-	@Override
-	public boolean isFluidValid(FluidStack stack) {
-		return tile.canDry();
+		return DehydratorRecipes.isRecipe(stack);
 	}
 
 	@Override

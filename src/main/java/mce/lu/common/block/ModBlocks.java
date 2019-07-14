@@ -10,11 +10,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.init.MobEffects;
 import net.xendric.xenlib.common.core.block.BlockBase;
 import net.xendric.xenlib.common.core.block.BlockBoundsBase;
 import net.xendric.xenlib.common.core.block.BlockEdible;
+import net.xendric.xenlib.common.core.block.BlockFluidBase;
 import net.xendric.xenlib.common.core.block.BlockPaneBase;
 
 public class ModBlocks {

@@ -170,7 +170,6 @@ public class CondenserRecipes {
 			if (compareStacks(stack, entry.getKey()))
 				return entry.getValue();
 		}
-
 		return ItemStack.EMPTY;
 	}
 

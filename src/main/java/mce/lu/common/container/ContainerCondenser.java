@@ -9,12 +9,10 @@ import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.common.container.parts.ISlotValidator;
 import net.xendric.xenlib.common.container.parts.SlotValid;
-import net.xendric.xenlib.common.util.DoubleInputHandler;
 
 public class ContainerCondenser extends Container implements ISlotValidator {
 	private final IInventory tileCondenser;
@@ -38,20 +36,10 @@ public class ContainerCondenser extends Container implements ISlotValidator {
 			this.addSlotToContainer(new Slot(playerInv, i, 8 + i * 18, 142));
 		}
 	}
-	
+
 	@Override
 	public boolean isItemValid(ItemStack stack) {
 		return CondenserRecipes.isRecipe(stack);
-	}
-
-	@Override
-	public boolean isItemValid(DoubleInputHandler inputs) {
-		return false;
-	}
-
-	@Override
-	public boolean isFluidValid(FluidStack stack) {
-		return false;
 	}
 
 	@Override
@@ -141,5 +129,4 @@ public class ContainerCondenser extends Container implements ISlotValidator {
 		return stack;
 	}
 
-	
 }

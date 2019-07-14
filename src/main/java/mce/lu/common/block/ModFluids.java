@@ -7,6 +7,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.xendric.xenlib.common.core.block.FluidBase;
 
 public class ModFluids {
 	public static final Material LIQUID_PIGMENT = new MaterialLiquid(MapColor.WATER);
