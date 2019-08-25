@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    "***",
+    "***"
+  ],
+  "key": {
+    "*": {
+      "item": "littleutilities:reinforced_netherbrick"
+    }
+  },
+  "result": {
+    "item": "littleutilities:reinforced_netherbrick_block"
+  }
+}

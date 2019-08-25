@@ -67,6 +67,7 @@ tile.spike_block.name=Spikes
 tile.poison_spike_block.name=Poisoned Spikes
 tile.fire_spike_block.name=Fire Spikes
 tile.dehydrator.name=Dehydrator
+tile.reinforced_netherbrick_block.name=Reinforced Nether Brick
 
 // Dye Reeds
 tile.reeds_black.name=Black Reeds
@@ -103,6 +104,7 @@ tile.fermented_spider_eye_block.name=Fermented Spider Eye Block
 tile.glistering_melon_block.name=Glistering Melon Block
 tile.bone_block.name=Bone Block
 tile.charcoal_block.name=Charcoal Block
+tile.prismarine_crystal_block.name=Prismarine Crystal Block
 
 // DYES
 tile.dye_black_block.name=Ink Sac Block
@@ -194,6 +196,8 @@ item.obsidian_boat.name=Obsidian Boat
 item.fertilizer.name=Fertilizer
 item.cactus_fiber.name=Cactus Fiber
 item.cactus_twine.name=Cactus Twine
+item.reinforced_netherbrick.name=Reinforced Nether Brick
+item.reinforced_netherbrick_plate.name=Reinforced Nether Brick Plate
 
 // Pigment
 item.pigment_black.name=Black Pigment
@@ -212,3 +216,38 @@ item.pigment_light_blue.name=Light Blue Pigment
 item.pigment_magenta.name=Magenta Pigment
 item.pigment_orange.name=Orange Pigment
 item.pigment_white.name=White Pigment
+
+////// FLUID
+fluid.pigment_black_fluid=Black Liquid Pigment
+fluid.pigment_red_fluid=Red Liquid Pigment
+fluid.pigment_green_fluid=Green Liquid Pigment
+fluid.pigment_brown_fluid=Brown Liquid Pigment
+fluid.pigment_blue_fluid=Blue Liquid Pigment
+fluid.pigment_purple_fluid=Purple Liquid Pigment
+fluid.pigment_cyan_fluid=Cyan Liquid Pigment
+fluid.pigment_light_gray_fluid=Light Gray Liquid Pigment
+fluid.pigment_gray_fluid=Gray Liquid Pigment
+fluid.pigment_pink_fluid=Pink Liquid Pigment
+fluid.pigment_lime_fluid=Lime Liquid Pigment
+fluid.pigment_yellow_fluid=Yellow Liquid Pigment
+fluid.pigment_light_blue_fluid=Light Blue Liquid Pigment
+fluid.pigment_magenta_fluid=Magenta Liquid Pigment
+fluid.pigment_orange_fluid=Orange Liquid Pigment
+fluid.pigment_white_fluid=White Liquid Pigment
+
+tile.pigment_black_fluid_block.name=Black Liquid Pigment
+tile.pigment_red_fluid_block.name=Red Liquid Pigment
+tile.pigment_green_fluid_block.name=Green Liquid Pigment
+tile.pigment_brown_fluid_block.name=Brown Liquid Pigment
+tile.pigment_blue_fluid_block.name=Blue Liquid Pigment
+tile.pigment_purple_fluid_block.name=Purple Liquid Pigment
+tile.pigment_cyan_fluid_block.name=Cyan Liquid Pigment
+tile.pigment_light_gray_fluid_block.name=Light Gray Liquid Pigment
+tile.pigment_gray_fluid_block.name=Gray Liquid Pigment
+tile.pigment_pink_fluid_block.name=Pink Liquid Pigment
+tile.pigment_lime_fluid_block.name=Lime Liquid Pigment
+tile.pigment_yellow_fluid_block.name=Yellow Liquid Pigment
+tile.pigment_light_blue_fluid_block.name=Light Blue Liquid Pigment
+tile.pigment_magenta_fluid_block.name=Magenta Liquid Pigment
+tile.pigment_orange_fluid_block.name=Orange Liquid Pigment
+tile.pigment_white_fluid_block.name=White Liquid Pigment

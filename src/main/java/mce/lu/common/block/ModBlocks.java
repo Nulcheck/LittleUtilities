@@ -69,11 +69,13 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu).setHardness(50f).setLightLevel(1f);
 	public static final Block PURE_QUARTZ_BLOCK = new BlockBase("pure_quartz_block", Material.ROCK, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1.2f);
+	public static final Block REINFORCED_NETHERBRICK_BLOCK = new BlockBase("reinforced_netherbrick_block",
+			Material.ROCK, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(3f);
 
 	// Liquid Pigments
 	public static final BlockFluidBase PIGMENT_BLACK_FLUID_BLOCK = (BlockFluidBase) new BlockFluidBase(
-			"pigment_black_fluid_block", ModFluids.PIGMENT_BLACK_FLUID, ModFluids.LIQUID_PIGMENT, MapColor.BLACK, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu);
+			"pigment_black_fluid_block", ModFluids.PIGMENT_BLACK_FLUID, ModFluids.LIQUID_PIGMENT, MapColor.BLACK,
+			BLOCKS, ModItems.ITEMS);
 
 	// Dye Reeds
 	public static final DyeReeds REEDS_BLACK = (DyeReeds) new DyeReeds("reeds_black", Material.PLANTS, BLOCKS,

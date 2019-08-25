@@ -61,7 +61,7 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.SUGAR, 9), new ItemStack(ModBlocks.SUGAR_BLOCK));
 		this.addRecipe(new ItemStack(Items.BONE, 9), new ItemStack(ModBlocks.BONE_BLOCK));
 		this.addRecipe(new ItemStack(ModItems.SPONGE, 9), new ItemStack(Blocks.SPONGE));
-		this.addRecipe(new ItemStack(ModItems.PURE_QUARTZ, 9), new ItemStack(ModBlocks.PURE_QUARTZ_BLOCK));
+		this.addRecipe(new ItemStack(ModItems.PURE_QUARTZ, 4), new ItemStack(ModBlocks.PURE_QUARTZ_BLOCK));
 		this.addRecipe(new ItemStack(Items.DYE, 9, 0), new ItemStack(ModBlocks.DYE_BLACK_BLOCK));
 		this.addRecipe(new ItemStack(Items.DYE, 9, 1), new ItemStack(ModBlocks.DYE_RED_BLOCK));
 		this.addRecipe(new ItemStack(Items.DYE, 9, 2), new ItemStack(ModBlocks.DYE_GREEN_BLOCK));
@@ -102,11 +102,12 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.BLAZE_POWDER), new ItemStack(ModBlocks.BLAZE_POWDER_BLOCK));
 		this.addRecipe(new ItemStack(Items.POISONOUS_POTATO, 9), new ItemStack(ModBlocks.POISONOUS_POTATO_BLOCK));
 		this.addRecipe(new ItemStack(Items.BEETROOT, 9), new ItemStack(ModBlocks.BEETROOT_BLOCK));
-		
-		this.addRecipe(new ItemStack(ModItems.CACTUS_FIBER, 9), new ItemStack(ModItems.CACTUS_TWINE));
-		this.addRecipe(new ItemStack(ModItems.CACTUS_TWINE, 9), new ItemStack(Items.STRING));
+		this.addRecipe(new ItemStack(ModItems.REINFORCED_NETHERBRICK, 9), new ItemStack(ModBlocks.REINFORCED_NETHERBRICK_BLOCK));
 
-		// Vanilla Stuff (Idk why you'd use this.)
+		this.addRecipe(new ItemStack(ModItems.CACTUS_FIBER, 9), new ItemStack(ModItems.CACTUS_TWINE));
+		this.addRecipe(new ItemStack(ModItems.CACTUS_TWINE, 3), new ItemStack(Items.STRING));
+
+		// Vanilla Stuff
 		this.addRecipe(new ItemStack(Items.COAL, 9, 0), new ItemStack(Blocks.COAL_BLOCK));
 		this.addRecipe(new ItemStack(Items.IRON_INGOT, 9), new ItemStack(Blocks.IRON_BLOCK));
 		this.addRecipe(new ItemStack(Items.GOLD_INGOT, 9), new ItemStack(Blocks.GOLD_BLOCK));
@@ -114,21 +115,21 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.DIAMOND, 9), new ItemStack(Blocks.DIAMOND_BLOCK));
 		this.addRecipe(new ItemStack(Items.EMERALD, 9), new ItemStack(Blocks.EMERALD_BLOCK));
 		this.addRecipe(new ItemStack(Items.REDSTONE, 9), new ItemStack(Blocks.REDSTONE_BLOCK));
-		this.addRecipe(new ItemStack(Items.SNOWBALL, 9), new ItemStack(Blocks.SNOW));
+		this.addRecipe(new ItemStack(Items.SNOWBALL, 4), new ItemStack(Blocks.SNOW));
 		this.addRecipe(new ItemStack(Items.SLIME_BALL, 9), new ItemStack(Blocks.SLIME_BLOCK));
 		this.addRecipe(new ItemStack(Items.DYE, 9, 15), new ItemStack(Blocks.BONE_BLOCK));
-		this.addRecipe(new ItemStack(Items.STRING, 9), new ItemStack(Blocks.WOOL, 1, 0));
+		this.addRecipe(new ItemStack(Items.STRING, 4), new ItemStack(Blocks.WOOL, 1, 0));
 		this.addRecipe(new ItemStack(Items.WHEAT, 9), new ItemStack(Blocks.HAY_BLOCK));
 		this.addRecipe(new ItemStack(Items.MELON, 9), new ItemStack(Blocks.MELON_BLOCK));
-		this.addRecipe(new ItemStack(Items.NETHERBRICK, 9), new ItemStack(Blocks.NETHER_BRICK));
+		this.addRecipe(new ItemStack(Items.NETHERBRICK, 4), new ItemStack(Blocks.NETHER_BRICK));
 		this.addRecipe(new ItemStack(Items.NETHER_WART, 9), new ItemStack(Blocks.NETHER_WART_BLOCK));
-		this.addRecipe(new ItemStack(Items.QUARTZ, 9), new ItemStack(Blocks.QUARTZ_BLOCK));
-		this.addRecipe(new ItemStack(Items.GLOWSTONE_DUST, 9), new ItemStack(Blocks.GLOWSTONE));
-		this.addRecipe(new ItemStack(Items.PRISMARINE_CRYSTALS, 9), new ItemStack(Blocks.SEA_LANTERN));
+		this.addRecipe(new ItemStack(Items.QUARTZ, 4), new ItemStack(Blocks.QUARTZ_BLOCK));
+		this.addRecipe(new ItemStack(Items.GLOWSTONE_DUST, 4), new ItemStack(Blocks.GLOWSTONE));
+		this.addRecipe(new ItemStack(Items.PRISMARINE_CRYSTALS, 9), new ItemStack(ModBlocks.PRISMARINE_CRYSTAL_BLOCK));
 		this.addRecipe(new ItemStack(Items.PRISMARINE_SHARD, 9), new ItemStack(Blocks.PRISMARINE, 1, 0));
 		this.addRecipe(new ItemStack(Blocks.ICE, 9), new ItemStack(Blocks.PACKED_ICE));
-		this.addRecipe(new ItemStack(Blocks.SAND, 9, 0), new ItemStack(Blocks.SANDSTONE, 1, 0));
-		this.addRecipe(new ItemStack(Blocks.SAND, 9, 1), new ItemStack(Blocks.SANDSTONE, 1, 1));
+		this.addRecipe(new ItemStack(Blocks.SAND, 4, 0), new ItemStack(Blocks.SANDSTONE, 1, 0));
+		this.addRecipe(new ItemStack(Blocks.SAND, 4, 1), new ItemStack(Blocks.SANDSTONE, 1, 1));
 		this.addRecipe(new ItemStack(Blocks.BROWN_MUSHROOM, 9, 0), new ItemStack(Blocks.BROWN_MUSHROOM_BLOCK));
 		this.addRecipe(new ItemStack(Blocks.RED_MUSHROOM, 9, 0), new ItemStack(Blocks.RED_MUSHROOM_BLOCK));
 
@@ -174,15 +175,30 @@ public class CondenserRecipes {
 	}
 
 	/**
+	 * Returns the input item from the recipe result.
+	 * 
+	 * @param outputStack
+	 * @return
+	 */
+	public ItemStack getInputs(ItemStack outputStack) {
+		for (Entry<ItemStack, ItemStack> entry : instance().recipeMap.entrySet()) {
+			if (compareStacks(outputStack, entry.getValue()))
+				return entry.getKey();
+		}
+
+		return null;
+	}
+
+	/**
 	 * Compares two itemstacks to ensure they are the same. Both item and meta.
 	 * 
+	 * @param inputs
 	 * @param entryStack
-	 * @param keyStack
 	 * @return boolean
 	 */
-	private boolean compareStacks(ItemStack entryStack, ItemStack keyStack) {
-		return keyStack.getItem() == entryStack.getItem()
-				&& (keyStack.getMetadata() == 32767 || keyStack.getMetadata() == entryStack.getMetadata());
+	private boolean compareStacks(ItemStack inputs, ItemStack entryStack) {
+		return entryStack.getItem() == inputs.getItem()
+				&& (entryStack.getMetadata() == 32767 || entryStack.getMetadata() == inputs.getMetadata());
 	}
 
 	public Map<ItemStack, ItemStack> getRecipeList() {

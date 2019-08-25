@@ -85,15 +85,14 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 			// ItemStack stack;
 			ItemStack inputStack = this.stacks.get(0);
 			ItemStack recipeResultStack = CondenserRecipes.instance().getRecipeResult(inputStack);
+			ItemStack outputStack = this.stacks.get(1);
 
 			// You can't condense if input slot is empty. Duh..
 			if (recipeResultStack.isEmpty())
 				return false;
 			else {
-				ItemStack outputStack = this.stacks.get(1);
-
 				// If input slot has less than recipe amount calls for, you can't condense
-				if (inputStack.getCount() < 9)
+				if (inputStack.getCount() < CondenserRecipes.instance().getInputs(recipeResultStack).getCount())
 					return false;
 
 				// If output slot is empty, you can condense
@@ -128,7 +127,7 @@ public class TileEntityCondenser extends TileEntityLockable implements ITickable
 			else if (outputStack.getItem() == recipeResultStack.getItem())
 				outputStack.grow(recipeResultStack.getCount());
 
-			inputStack.shrink(9);
+			inputStack.shrink(CondenserRecipes.instance().getInputs(recipeResultStack).getCount());
 
 			if (inputStack.getCount() <= 0)
 				inputStack.isEmpty();

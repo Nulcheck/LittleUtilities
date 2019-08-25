@@ -20,6 +20,10 @@ public class ModItems {
 	public static final Item FERTILIZER = new Fertilizer("fertilizer", ITEMS).setCreativeTab(LittleUtilities.lu);
 	public static final Item CACTUS_FIBER = new ItemBase("cactus_fiber", ITEMS).setCreativeTab(LittleUtilities.lu);
 	public static final Item CACTUS_TWINE = new ItemBase("cactus_twine", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item REINFORCED_NETHERBRICK = new ItemBase("reinforced_netherbrick", ITEMS)
+			.setCreativeTab(LittleUtilities.lu);
+	public static final Item REINFORCED_NETHERBRICK_PLATE = new ItemBase("reinforced_netherbrick_plate", ITEMS)
+			.setCreativeTab(LittleUtilities.lu);
 
 	// public static final Item OBSIDIAN_BOAT = new
 	// ObsidianBoat("obsidian_boat");

@@ -1,6 +1,8 @@
 package mce.lu.common.util;
 
+import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -25,8 +27,8 @@ public class OreDict {
 		OreDictionary.registerOre("pigmentWhite", new ItemStack(ModItems.PIGMENT_WHITE));
 
 		OreDictionary.registerOre("dyeBlack", new ItemStack(ModItems.PIGMENT_BLACK));
-		OreDictionary.registerOre("dyeRed",new ItemStack( ModItems.PIGMENT_RED));
-		OreDictionary.registerOre("dyeGreen",new ItemStack( ModItems.PIGMENT_GREEN));
+		OreDictionary.registerOre("dyeRed", new ItemStack(ModItems.PIGMENT_RED));
+		OreDictionary.registerOre("dyeGreen", new ItemStack(ModItems.PIGMENT_GREEN));
 		OreDictionary.registerOre("dyeBrown", new ItemStack(ModItems.PIGMENT_BROWN));
 		OreDictionary.registerOre("dyeBlue", new ItemStack(ModItems.PIGMENT_BLUE));
 		OreDictionary.registerOre("dyePurple", new ItemStack(ModItems.PIGMENT_PURPLE));
@@ -34,7 +36,7 @@ public class OreDict {
 		OreDictionary.registerOre("dyeLightGray", new ItemStack(ModItems.PIGMENT_LIGHT_GRAY));
 		OreDictionary.registerOre("dyeGray", new ItemStack(ModItems.PIGMENT_GRAY));
 		OreDictionary.registerOre("dyePink", new ItemStack(ModItems.PIGMENT_PINK));
-		OreDictionary.registerOre("dyeLime",new ItemStack( ModItems.PIGMENT_LIME));
+		OreDictionary.registerOre("dyeLime", new ItemStack(ModItems.PIGMENT_LIME));
 		OreDictionary.registerOre("dyeYellow", new ItemStack(ModItems.PIGMENT_YELLOW));
 		OreDictionary.registerOre("dyeLightBlue", new ItemStack(ModItems.PIGMENT_LIGHT_BLUE));
 		OreDictionary.registerOre("dyeMagenta", new ItemStack(ModItems.PIGMENT_MAGENTA));
@@ -59,5 +61,8 @@ public class OreDict {
 		OreDictionary.registerOre("dye", new ItemStack(ModItems.PIGMENT_WHITE));
 
 		OreDictionary.registerOre("gemQuartz", new ItemStack(ModItems.PURE_QUARTZ));
+		
+		OreDictionary.registerOre("gemQuartzBlock", new ItemStack(ModBlocks.PURE_QUARTZ_BLOCK));
+		OreDictionary.registerOre("gemQuartzBlock", new ItemStack(Blocks.QUARTZ_BLOCK, 1, OreDictionary.WILDCARD_VALUE));
 	}
 }

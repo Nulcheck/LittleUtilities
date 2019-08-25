@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "e",
+    "x",
+    "w"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "w": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    },
+    "e": {
+      "item": "minecraft:spider_eye"
+    }
+  },
+  "result": {
+    "item": "littleutilities:poison_spike_block",
+    "count": 1
+  }
+}

@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "r r",
-    "nbn",
-    "rnr"
+    "p p",
+    "pbp",
+    "rpr"
   ],
   "key": {
     "r": {
@@ -12,8 +12,8 @@
     "b": {
     	"item": "minecraft:lava_bucket"
     },
-    "n": {
-      "item": "minecraft:netherbrick"
+    "p": {
+      "item": "littleutilities:reinforced_netherbrick_plate"
     }
   },
   "result": {
