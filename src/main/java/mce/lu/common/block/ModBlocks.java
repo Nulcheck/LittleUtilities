@@ -73,9 +73,8 @@ public class ModBlocks {
 			Material.ROCK, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(3f);
 
 	// Liquid Pigments
-	public static final BlockFluidBase PIGMENT_BLACK_FLUID_BLOCK = (BlockFluidBase) new BlockFluidBase(
-			"pigment_black_fluid_block", ModFluids.PIGMENT_BLACK_FLUID, ModFluids.LIQUID_PIGMENT, MapColor.BLACK,
-			BLOCKS, ModItems.ITEMS);
+	public static final BlockFluidBase PIGMENT_BLACK_FLUID_BLOCK = new BlockFluidBase("pigment_black_fluid",
+			ModFluids.PIGMENT_BLACK_FLUID, ModFluids.LIQUID_PIGMENT, MapColor.BLACK, BLOCKS, ModItems.ITEMS);
 
 	// Dye Reeds
 	public static final DyeReeds REEDS_BLACK = (DyeReeds) new DyeReeds("reeds_black", Material.PLANTS, BLOCKS,

@@ -4,12 +4,10 @@
 		"model": "forge:fluid"
 	},
 	"variants": {
-		"normal": [
-			{
-				"custom": {
-					"fluid": "minecraft:blocks/water_still"
-				}
+		"fluid": [{
+			"custom": {
+				"fluid": "pigment_black_fluid"
 			}
-		]
+		}]
 	}
 }

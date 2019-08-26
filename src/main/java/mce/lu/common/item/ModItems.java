@@ -48,41 +48,4 @@ public class ModItems {
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Item PIGMENT_ORANGE = new ItemBase("pigment_orange", ITEMS).setCreativeTab(LittleUtilities.lu);
 	public static final Item PIGMENT_WHITE = new ItemBase("pigment_white", ITEMS).setCreativeTab(LittleUtilities.lu);
-
-	// Liquid Pigments
-	/*
-	 * public static final Item BUCKET_PIGMENT_BLACK = new
-	 * ItemBase("bucket_pigment_black", ITEMS) .setCreativeTab(LittleUtilities.lu);
-	 * public static final Item BUCKET_PIGMENT_RED = new
-	 * ItemBase("bucket_pigment_red", ITEMS) .setCreativeTab(LittleUtilities.lu);
-	 * public static final Item BUCKET_PIGMENT_GREEN = new
-	 * ItemBase("bucket_pigment_green", ITEMS) .setCreativeTab(LittleUtilities.lu);
-	 * public static final Item BUCKET_PIGMENT_BROWN = new
-	 * ItemBase("bucket_pigment_brown", ITEMS) .setCreativeTab(LittleUtilities.lu);
-	 * public static final Item BUCKET_PIGMENT_BLUE = new
-	 * ItemBase("bucket_pigment_blue", ITEMS) .setCreativeTab(LittleUtilities.lu);
-	 * public static final Item BUCKET_PIGMENT_PURPLE = new
-	 * ItemBase("bucket_pigment_purple", ITEMS) .setCreativeTab(LittleUtilities.lu);
-	 * public static final Item BUCKET_PIGMENT_CYAN = new
-	 * ItemBase("bucket_pigment_cyan", ITEMS) .setCreativeTab(LittleUtilities.lu);
-	 * public static final Item BUCKET_PIGMENT_LIGHT_GRAY = new
-	 * ItemBase("bucket_pigment_light_gray", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu); public static final Item
-	 * BUCKET_PIGMENT_GRAY = new ItemBase("bucket_pigment_gray", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu); public static final Item
-	 * BUCKET_PIGMENT_PINK = new ItemBase("bucket_pigment_pink", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu); public static final Item
-	 * BUCKET_PIGMENT_LIME = new ItemBase("bucket_pigment_lime", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu); public static final Item
-	 * BUCKET_PIGMENT_YELLOW = new ItemBase("bucket_pigment_yellow", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu); public static final Item
-	 * BUCKET_PIGMENT_LIGHT_BLUE = new ItemBase("bucket_pigment_light_blue", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu); public static final Item
-	 * BUCKET_PIGMENT_MAGENTA = new ItemBase("bucket_pigment_magenta", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu); public static final Item
-	 * BUCKET_PIGMENT_ORANGE = new ItemBase("bucket_pigment_orange", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu); public static final Item
-	 * BUCKET_PIGMENT_WHITE = new ItemBase("bucket_pigment_white", ITEMS)
-	 * .setCreativeTab(LittleUtilities.lu);
-	 */
 }
