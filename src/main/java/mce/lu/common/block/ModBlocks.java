@@ -71,6 +71,8 @@ public class ModBlocks {
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1.2f);
 	public static final Block REINFORCED_NETHERBRICK_BLOCK = new BlockBase("reinforced_netherbrick_block",
 			Material.ROCK, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(3f);
+	public static final Block LAVA_LILY = new LavaLily("lava_lily", Material.PLANTS, BLOCKS, ModItems.ITEMS)
+			.setCreativeTab(LittleUtilities.lu);
 
 	// Liquid Pigments
 	public static final BlockFluidBase PIGMENT_BLACK_FLUID_BLOCK = new BlockFluidBase("pigment_black_fluid",

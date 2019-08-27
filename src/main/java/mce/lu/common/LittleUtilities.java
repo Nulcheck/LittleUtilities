@@ -11,6 +11,7 @@ import mce.lu.common.core.proxy.CommonProxy;
 import mce.lu.common.item.ModItems;
 import mce.lu.common.util.OreDict;
 import mce.lu.common.util.References;
+import mce.lu.common.world.gen.feature.WorldGenLavaLily;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -27,6 +28,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.common.util.CreativeTabsHelper;
@@ -59,6 +61,7 @@ public class LittleUtilities {
 		ForgeRegistries.ITEMS.registerAll(ModItems.ITEMS.toArray(new Item[0]));
 
 		TileEntityRegistry.registerTileEntities();
+		GameRegistry.registerWorldGenerator(new WorldGenLavaLily(), 0);
 		OreDict.registerOreDict();
 		NetworkRegistry.INSTANCE.registerGuiHandler(LittleUtilities.instance, new GuiHandler());
 	}

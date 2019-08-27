@@ -68,6 +68,7 @@ tile.poison_spike_block.name=Poisoned Spikes
 tile.fire_spike_block.name=Fire Spikes
 tile.dehydrator.name=Dehydrator
 tile.reinforced_netherbrick_block.name=Reinforced Nether Brick
+tile.lava_lily.name=Lava Lily
 
 // Dye Reeds
 tile.reeds_black.name=Black Reeds

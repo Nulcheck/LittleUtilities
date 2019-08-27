@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "littleutilities:lava_lily" },
+            { "model": "littleutilities:lava_lily", "y": 90 },
+            { "model": "littleutilities:lava_lily", "y": 180 },
+            { "model": "littleutilities:lava_lily", "y": 270 }
+        ]
+    }
+}

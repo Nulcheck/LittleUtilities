@@ -12,9 +12,7 @@ public class DecorateEvent {
 	public static void decorate(DecorateBiomeEvent e) {
 		BiomeDecoratorHandler decor = new BiomeDecoratorHandler();
 
-		if (TerrainGen.decorate(e.getWorld(), e.getRand(), e.getChunkPos(),
-				DecorateBiomeEvent.Decorate.EventType.REED)) {
+		if (TerrainGen.decorate(e.getWorld(), e.getRand(), e.getChunkPos(), DecorateBiomeEvent.Decorate.EventType.REED))
 			decor.decorate(e.getWorld(), e.getRand(), e.getWorld().getBiome(e.getPos()), e.getPos());
-		}
 	}
 }
