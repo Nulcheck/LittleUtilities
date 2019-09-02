@@ -74,8 +74,8 @@ public class DehydratorRecipes {
 				&& (valueStack.getMetadata() == 32767 || valueStack.getMetadata() == outputStack.getMetadata()));
 	}
 
-	public static boolean isRecipe(ItemStack stack) {
-		return instance().getRecipeResult(Arrays.asList(null, stack)) != null;
+	public static boolean isRecipe(FluidStack fluid, ItemStack stack) {
+		return instance().getRecipeResult(Arrays.asList(fluid, stack)) != null;
 	}
 
 	public Map<List<Object>, ItemStack> getRecipeMap() {

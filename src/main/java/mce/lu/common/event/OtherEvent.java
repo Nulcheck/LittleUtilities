@@ -13,10 +13,12 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -104,8 +106,19 @@ public class OtherEvent {
 	@SubscribeEvent
 	public static void onInteractEvent(RightClickBlock e) {
 		BlockPos pos = e.getPos();
-		ItemStack stack = e.getEntityPlayer().getHeldItemMainhand();
+		ItemStack stack = e.getItemStack();
 		IBlockState state = e.getWorld().getBlockState(pos);
+
+		// Lava Bottle
+		if (!stack.isEmpty() && stack.getItem() == Items.GLASS_BOTTLE) {
+			ItemStack lavaBottle = new ItemStack(ModItems.LAVA_BOTTLE);
+			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.LAVA) {
+				e.getEntityPlayer().inventory.addItemStackToInventory(lavaBottle);
+				e.getWorld().playSound(e.getEntityPlayer(), e.getEntityPlayer().posX, e.getEntityPlayer().posY,
+						e.getEntityPlayer().posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1f, 1f);
+				stack.shrink(1);
+			}
+		}
 
 		// Dirt into Path
 		if (!stack.isEmpty() && stack.getItem() instanceof ItemSpade) {
@@ -127,14 +140,23 @@ public class OtherEvent {
 			}
 		}
 
-		if (!stack.isEmpty() && (stack.getItem() == Items.WATER_BUCKET || stack.getItem() == ModItems.SPONGE)) {
+		ItemStack waterBottle = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
+		if (!stack.isEmpty() && (stack.getItem() == Items.WATER_BUCKET || stack.getItem() == ModItems.SPONGE
+				|| stack.getItem() == waterBottle.getItem())) {
 			if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.POISON_SPIKES) {
 				e.getWorld().setBlockState(pos,
 						ModBlocks.SPIKES.getStateFromMeta(ModBlocks.SPIKES.getMetaFromState(state)), 2);
 
-				if (!e.getEntityPlayer().isCreative() && stack.getItem() == Items.WATER_BUCKET) {
-					stack.shrink(1);
-					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
+				if (!e.getEntityPlayer().isCreative()) {
+					if (stack.getItem() == Items.WATER_BUCKET) {
+						stack.shrink(1);
+						e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
+					}
+
+					if (stack.getItem() == waterBottle.getItem()) {
+						stack.shrink(1);
+						e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE, 1));
+					}
 				}
 			}
 		}

@@ -1,6 +1,8 @@
 package mce.lu.common.container;
 
 import mce.lu.common.container.parts.DehydratorOutputSlot;
+import mce.lu.common.container.parts.ISlotFluidItemValidator;
+import mce.lu.common.container.parts.SlotFluidItemValid;
 import mce.lu.common.core.recipes.CondenserRecipes;
 import mce.lu.common.core.recipes.DehydratorRecipes;
 import mce.lu.common.entity.tile.TileEntityDehydrator;
@@ -11,12 +13,11 @@ import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.xendric.xenlib.common.container.parts.ISlotValidator;
-import net.xendric.xenlib.common.container.parts.SlotValid;
 
-public class ContainerDehydrator extends Container implements ISlotValidator {
+public class ContainerDehydrator extends Container implements ISlotFluidItemValidator {
 	private final IInventory tileDehydrator;
 	public TileEntityDehydrator tile;
 	public int lastTime, lastSpeed;
@@ -24,7 +25,7 @@ public class ContainerDehydrator extends Container implements ISlotValidator {
 	public ContainerDehydrator(InventoryPlayer playerInv, IInventory tileInv) {
 		this.tileDehydrator = tileInv;
 
-		this.addSlotToContainer(new SlotValid(this, this.tileDehydrator, 0, 56, 35)); // Input
+		this.addSlotToContainer(new SlotFluidItemValid(this, this.tileDehydrator, 0, 56, 35)); // Input
 		this.addSlotToContainer(new DehydratorOutputSlot(playerInv.player, this.tileDehydrator, 1, 116, 35)); // Output
 
 		// Player Inventory
@@ -41,8 +42,8 @@ public class ContainerDehydrator extends Container implements ISlotValidator {
 	}
 
 	@Override
-	public boolean isItemValid(ItemStack stack) {
-		return DehydratorRecipes.isRecipe(stack);
+	public boolean isItemFluidValid(FluidStack fluid, ItemStack stack) {
+		return DehydratorRecipes.isRecipe(fluid, stack);
 	}
 
 	@Override

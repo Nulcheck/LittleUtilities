@@ -24,6 +24,7 @@ public class ModItems {
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Item REINFORCED_NETHERBRICK_PLATE = new ItemBase("reinforced_netherbrick_plate", ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
+	public static final Item LAVA_BOTTLE = new LavaBottle("lava_bottle", ITEMS).setCreativeTab(LittleUtilities.lu);
 
 	// public static final Item OBSIDIAN_BOAT = new
 	// ObsidianBoat("obsidian_boat");
