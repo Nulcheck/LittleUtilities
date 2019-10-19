@@ -29,6 +29,7 @@ import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber
@@ -75,21 +76,23 @@ public class OtherEvent {
 
 		if (e.getEntityPlayer().isSneaking() && (block == Blocks.DIRT || block == Blocks.GRASS)) {
 			e.getWorld().setBlockState(pos, ModBlocks.UNSTOMPABLE_FARMLAND.getDefaultState(), 2);
-			e.getCurrent().damageItem(1, e.getEntityPlayer());
 			e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F,
 					1.0F);
+			e.setResult(Result.ALLOW);
 		}
 
 		if (block == ModBlocks.FERTILE_DIRT) {
 			e.getWorld().setBlockState(e.getPos(), ModBlocks.FERTILE_FARMLAND.getDefaultState(), 2);
 			e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F,
 					1.0F);
+			e.setResult(Result.ALLOW);
 		}
 
 		if (block == ModBlocks.ARABLE_DIRT) {
 			e.getWorld().setBlockState(e.getPos(), ModBlocks.ARABLE_FARMLAND.getDefaultState(), 2);
 			e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F,
 					1.0F);
+			e.setResult(Result.ALLOW);
 		}
 	}
 
@@ -117,6 +120,7 @@ public class OtherEvent {
 				e.getWorld().playSound(e.getEntityPlayer(), e.getEntityPlayer().posX, e.getEntityPlayer().posY,
 						e.getEntityPlayer().posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1f, 1f);
 				stack.shrink(1);
+				e.setUseItem(Result.ALLOW);
 			}
 		}
 
@@ -126,6 +130,7 @@ public class OtherEvent {
 				e.getWorld().setBlockState(pos, Blocks.GRASS_PATH.getDefaultState(), 2);
 				e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS,
 						1.0F, 1.0F);
+				e.setResult(e.getUseItem());
 			}
 		}
 
@@ -137,6 +142,7 @@ public class OtherEvent {
 
 				if (!e.getEntityPlayer().isCreative())
 					stack.shrink(1);
+				e.setResult(Result.ALLOW);
 			}
 		}
 
@@ -151,11 +157,13 @@ public class OtherEvent {
 					if (stack.getItem() == Items.WATER_BUCKET) {
 						stack.shrink(1);
 						e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
+						e.setResult(Result.ALLOW);
 					}
 
 					if (stack.getItem() == waterBottle.getItem()) {
 						stack.shrink(1);
 						e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE, 1));
+						e.setResult(Result.ALLOW);
 					}
 				}
 			}
@@ -169,12 +177,14 @@ public class OtherEvent {
 				e.getWorld().setBlockState(pos, ModBlocks.FERTILE_DIRT.getDefaultState(), 2);
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
 					stack.shrink(4);
+				e.setResult(Result.ALLOW);
 			}
 
 			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.FARMLAND) {
 				e.getWorld().setBlockState(pos, ModBlocks.FERTILE_FARMLAND.getDefaultState(), 2);
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
 					stack.shrink(4);
+				e.setResult(Result.ALLOW);
 			}
 		}
 
@@ -183,12 +193,14 @@ public class OtherEvent {
 				e.getWorld().setBlockState(pos, ModBlocks.ARABLE_DIRT.getDefaultState(), 2);
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
 					stack.shrink(2);
+				e.setResult(Result.ALLOW);
 			}
 
 			if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.FERTILE_FARMLAND) {
 				e.getWorld().setBlockState(pos, ModBlocks.ARABLE_FARMLAND.getDefaultState(), 2);
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
 					stack.shrink(2);
+				e.setResult(Result.ALLOW);
 			}
 		}
 
@@ -199,18 +211,21 @@ public class OtherEvent {
 					e.getWorld().setBlockState(pos, ModBlocks.LAVA_STONE.getDefaultState(), 2);
 					stack.shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
+					e.setResult(Result.ALLOW);
 				}
 
 				else if (e.getWorld().getBlockState(pos).getBlock() == Blocks.COBBLESTONE) {
 					e.getWorld().setBlockState(pos, ModBlocks.LAVA_COBBLESTONE.getDefaultState(), 2);
 					stack.shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
+					e.setResult(Result.ALLOW);
 				}
 
 				else if (e.getWorld().getBlockState(pos).getBlock() == Blocks.OBSIDIAN) {
 					e.getWorld().setBlockState(pos, ModBlocks.LAVA_OBSIDIAN.getDefaultState(), 2);
 					stack.shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.BUCKET, 1));
+					e.setResult(Result.ALLOW);
 				}
 			}
 
@@ -220,18 +235,21 @@ public class OtherEvent {
 					e.getWorld().setBlockState(pos, Blocks.STONE.getDefaultState(), 2);
 					e.getEntityPlayer().getHeldItemMainhand().shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.LAVA_BUCKET, 1));
+					e.setResult(Result.ALLOW);
 				}
 
 				else if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.LAVA_COBBLESTONE) {
 					e.getWorld().setBlockState(pos, Blocks.COBBLESTONE.getDefaultState(), 2);
 					e.getEntityPlayer().getHeldItemMainhand().shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.LAVA_BUCKET, 1));
+					e.setResult(Result.ALLOW);
 				}
 
 				else if (e.getWorld().getBlockState(pos).getBlock() == ModBlocks.LAVA_OBSIDIAN) {
 					e.getWorld().setBlockState(pos, Blocks.OBSIDIAN.getBlockState().getBaseState(), 2);
 					e.getEntityPlayer().getHeldItemMainhand().shrink(1);
 					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(Items.LAVA_BUCKET, 1));
+					e.setResult(Result.ALLOW);
 				}
 			}
 		}
