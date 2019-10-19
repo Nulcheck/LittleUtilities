@@ -80,7 +80,7 @@ public class ModFluids {
 			new ResourceLocation("minecraft", "blocks/water_flow"), null, EnumDyeColor.LIGHT_BLUE.getColorValue())
 					.setMaterial(LIQUID_PIGMENT);
 
-	public static final FluidBase PIGMENT_MAGNETA_FLUID = new FluidBase("pigment_magenta_fluid",
+	public static final FluidBase PIGMENT_MAGENTA_FLUID = new FluidBase("pigment_magenta_fluid",
 			new ResourceLocation("minecraft", "blocks/water_still"),
 			new ResourceLocation("minecraft", "blocks/water_flow"), null, EnumDyeColor.MAGENTA.getColorValue())
 					.setMaterial(LIQUID_PIGMENT);
@@ -98,7 +98,7 @@ public class ModFluids {
 	public static final Fluid[] PIGMENT_FLUIDS = { PIGMENT_BLACK_FLUID, PIGMENT_RED_FLUID, PIGMENT_GREEN_FLUID,
 			PIGMENT_BROWN_FLUID, PIGMENT_BLUE_FLUID, PIGMENT_PURPLE_FLUID, PIGMENT_CYAN_FLUID, PIGMENT_LIGHT_GRAY_FLUID,
 			PIGMENT_GRAY_FLUID, PIGMENT_PINK_FLUID, PIGMENT_LIME_FLUID, PIGMENT_YELLOW_FLUID, PIGMENT_LIGHT_BLUE_FLUID,
-			PIGMENT_MAGNETA_FLUID, PIGMENT_ORANGE_FLUID, PIGMENT_WHITE_FLUID };
+			PIGMENT_MAGENTA_FLUID, PIGMENT_ORANGE_FLUID, PIGMENT_WHITE_FLUID };
 
 	public static void registerFluids() {
 		for (int i = 0; i < 16; i++) {

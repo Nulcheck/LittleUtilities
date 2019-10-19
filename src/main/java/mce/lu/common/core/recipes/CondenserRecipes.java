@@ -185,7 +185,6 @@ public class CondenserRecipes {
 			if (compareStacks(outputStack, entry.getValue()))
 				return entry.getKey();
 		}
-
 		return null;
 	}
 

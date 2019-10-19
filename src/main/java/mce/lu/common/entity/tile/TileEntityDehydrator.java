@@ -68,7 +68,7 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 		if (!this.world.isRemote && this.canDry()) {
 			++this.time;
 
-			if (this.time >= this.speed) {
+			if (this.time >= this.getDryingTime()) {
 				this.time = 0;
 
 				this.dryStack();
@@ -103,14 +103,16 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 				return false;
 			else {
 				// If input slot OR fluid slot is less than recipe calls for, you can't dry
-				if (inputStack
-						.getCount() < ((ItemStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(1))
-								.getCount())
-					return false;
+				if (DehydratorRecipes.isItemInRecipe(inputStack))
+					if (inputStack
+							.getCount() < ((ItemStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(1))
+									.getCount())
+						return false;
 
-				if (inputFluidStack.getFluidAmount() < ((FluidStack) DehydratorRecipes.instance()
-						.getInputs(recipeResultStack).get(0)).amount)
-					return false;
+				if (DehydratorRecipes.isFluidInRecipe(inputFluidStack.getFluid()))
+					if (inputFluidStack.getFluidAmount() < ((FluidStack) DehydratorRecipes.instance()
+							.getInputs(recipeResultStack).get(0)).amount)
+						return false;
 
 				// If output slot is empty, you can dry
 				if (outputStack.isEmpty())
@@ -149,11 +151,11 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 			else if (outputStack.getItem() == recipeResultStack.getItem())
 				outputStack.grow(recipeResultStack.getCount());
 
-			if (((ItemStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(1)) != null)
+			if (DehydratorRecipes.isItemInRecipe(inputStack))
 				inputStack.shrink(
 						((ItemStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(1)).getCount());
 
-			if (((FluidStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(0)) != null)
+			if (DehydratorRecipes.isFluidInRecipe(inputFluidStack.getFluid()))
 				inputFluidStack.drain(
 						((FluidStack) DehydratorRecipes.instance().getInputs(recipeResultStack).get(0)).amount, true);
 
