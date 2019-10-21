@@ -71,14 +71,16 @@ public class ModBlocks {
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1.2f);
 	public static final Block REINFORCED_NETHERBRICK_BLOCK = new BlockBase("reinforced_netherbrick_block",
 			Material.ROCK, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(3f);
-	public static final Block LAVA_LILY = new LavaLily("lava_lily", Material.PLANTS, BLOCKS, ModItems.ITEMS)
-			.setCreativeTab(LittleUtilities.lu);
+	public static final Block CEMENT = new BlockBase("cement", Material.GROUND, BLOCKS, ModItems.ITEMS).setHardness(2f)
+			.setResistance(30f).setCreativeTab(LittleUtilities.lu);
+	public static final Block CEMENT_BRICKS = new BlockBase("cement_bricks", Material.GROUND, BLOCKS, ModItems.ITEMS).setHardness(2.5f)
+			.setResistance(30.5f).setCreativeTab(LittleUtilities.lu);
 
 	// Liquid Pigments
 	public static final BlockFluidBase PIGMENT_BLACK_FLUID_BLOCK = new BlockFluidBase("pigment_black_fluid",
 			ModFluids.PIGMENT_BLACK_FLUID, ModFluids.LIQUID_PIGMENT, MapColor.BLACK, BLOCKS, ModItems.ITEMS);
 
-	// Dye Reeds
+	// Dye Reeds / Plants
 	public static final DyeReeds REEDS_BLACK = (DyeReeds) new DyeReeds("reeds_black", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
 	public static final DyeReeds REEDS_RED = (DyeReeds) new DyeReeds("reeds_red", Material.PLANTS, BLOCKS,
@@ -111,6 +113,9 @@ public class ModBlocks {
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
 	public static final DyeReeds REEDS_WHITE = (DyeReeds) new DyeReeds("reeds_white", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	
+	public static final Block LAVA_LILY = new LavaLily("lava_lily", Material.PLANTS, BLOCKS, ModItems.ITEMS)
+			.setCreativeTab(LittleUtilities.lu);
 
 	//// CONDENSED ITEM BLOCKS
 	public static final Block GHAST_TEAR_BLOCK = new GhastTearBlock("ghast_tear_block", Material.GLASS, BLOCKS,

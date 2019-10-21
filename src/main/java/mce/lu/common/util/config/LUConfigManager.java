@@ -147,6 +147,11 @@ public class LUConfigManager {
 			@Comment("Should you be able to craft AND use fertilizer?")
 			@RequiresMcRestart
 			public boolean fertilizer = true;
+			
+			@Name("Cement")
+			@Comment("Should you be able to smelt gravel into cement?")
+			@RequiresMcRestart
+			public boolean cement = true;
 		}
 
 		public static class Events {

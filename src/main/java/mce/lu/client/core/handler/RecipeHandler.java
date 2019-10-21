@@ -36,6 +36,9 @@ public class RecipeHandler {
 
 		if (LUConfigManager.modConfig.modRecipes.leatherScraps)
 			GameRegistry.addSmelting(Items.ROTTEN_FLESH, new ItemStack(ModItems.LEATHER_SCRAPS), 0);
+		
+		if(LUConfigManager.modConfig.modRecipes.cement)
+			GameRegistry.addSmelting(Blocks.GRAVEL, new ItemStack(ModBlocks.CEMENT), 0);
 	}
 
 	public static void registerMetaCrafting() {

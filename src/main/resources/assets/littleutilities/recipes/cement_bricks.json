@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xx",
+    "xx"
+  ],
+  "key": {
+    "x": {
+      "item": "littleutilities:cement"
+    }
+  },
+  "result": {
+    "item": "littleutilities:cement_bricks",
+    "count": 1
+  }
+}
