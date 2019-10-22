@@ -34,11 +34,11 @@ public class ModBlocks {
 	public static final Block FERTILE_DIRT = new FertileDirt("fertile_dirt", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
 	public static final Block FERTILE_FARMLAND = new FertileFarmland("fertile_farmland", BLOCKS, ModItems.ITEMS)
-			.setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
+			.setHardness(0.5f);
 	public static final Block ARABLE_DIRT = new ArableDirt("arable_dirt", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
 	public static final Block ARABLE_FARMLAND = new ArableFarmland("arable_farmland", BLOCKS, ModItems.ITEMS)
-			.setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
+			.setHardness(0.5f);
 	public static final Block UNSTOMPABLE_FARMLAND = new UnstompableFarmland("unstompable_farmland", BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
 	public static final Block SPIKES = new SpikeBlock("spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
@@ -73,8 +73,8 @@ public class ModBlocks {
 			Material.ROCK, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(3f);
 	public static final Block CEMENT = new BlockBase("cement", Material.GROUND, BLOCKS, ModItems.ITEMS).setHardness(2f)
 			.setResistance(30f).setCreativeTab(LittleUtilities.lu);
-	public static final Block CEMENT_BRICKS = new BlockBase("cement_bricks", Material.GROUND, BLOCKS, ModItems.ITEMS).setHardness(2.5f)
-			.setResistance(30.5f).setCreativeTab(LittleUtilities.lu);
+	public static final Block CEMENT_BRICKS = new BlockBase("cement_bricks", Material.GROUND, BLOCKS, ModItems.ITEMS)
+			.setHardness(2.5f).setResistance(30.5f).setCreativeTab(LittleUtilities.lu);
 
 	// Liquid Pigments
 	public static final BlockFluidBase PIGMENT_BLACK_FLUID_BLOCK = new BlockFluidBase("pigment_black_fluid",
@@ -113,7 +113,7 @@ public class ModBlocks {
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
 	public static final DyeReeds REEDS_WHITE = (DyeReeds) new DyeReeds("reeds_white", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	
+
 	public static final Block LAVA_LILY = new LavaLily("lava_lily", Material.PLANTS, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
 

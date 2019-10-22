@@ -6,7 +6,6 @@ import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSponge;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.entity.passive.EntityPig;
@@ -29,7 +28,6 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBloc
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.event.world.BlockEvent.EntityPlaceEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

@@ -28,10 +28,8 @@ public class ArableDirt extends BlockBase {
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-		super.updateTick(world, pos, state, rand);
-		Block block = world.getBlockState(pos.up()).getBlock();
-
-		if (block instanceof BlockReed || block instanceof BlockCactus || block instanceof DyeReeds) {
+		Block crop = world.getBlockState(pos.up()).getBlock();
+		if (crop instanceof BlockReed || crop instanceof BlockCactus || crop instanceof DyeReeds) {
 			boolean sameBlock = true;
 			int height = 1;
 
@@ -39,7 +37,7 @@ public class ArableDirt extends BlockBase {
 				if (world.getBlockState(pos.up(height)).getBlock() != null) {
 					Block blockAbove = world.getBlockState(pos.up(height)).getBlock();
 
-					if (blockAbove.getClass() == block.getClass()) {
+					if (blockAbove.getClass() == crop.getClass()) {
 						for (int i = 0; i < 10; i++)
 							blockAbove.updateTick(world, pos.up(height), world.getBlockState(pos.up(height)), rand);
 						height++;
@@ -48,9 +46,8 @@ public class ArableDirt extends BlockBase {
 				} else
 					sameBlock = false;
 			}
-		} else if (block instanceof IPlantable || block instanceof IGrowable) {
-			block.updateTick(world, pos.up(), world.getBlockState(pos.up()), rand);
-		}
+		} else if (crop instanceof IPlantable || crop instanceof IGrowable)
+			crop.updateTick(world, pos.up(), world.getBlockState(pos.up()), rand);
 	}
 
 	public boolean hasWater(World world, BlockPos pos) {
@@ -79,7 +76,6 @@ public class ArableDirt extends BlockBase {
 		default:
 			break;
 		}
-
 		return false;
 	}
 }

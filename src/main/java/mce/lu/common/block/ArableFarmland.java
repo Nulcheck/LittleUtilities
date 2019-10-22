@@ -15,11 +15,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
-import net.xendric.xenlib.common.core.block.BlockFarmlandBase;
 
-public class ArableFarmland extends BlockFarmlandBase {
+public class ArableFarmland extends BlockNoWaterFarmlandBase {
 	public ArableFarmland(String name, List<Block> blockList, List<Item> itemList) {
 		super(name, blockList, itemList);
 		this.setSoundType(SoundType.GROUND);
@@ -27,25 +25,22 @@ public class ArableFarmland extends BlockFarmlandBase {
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-		super.updateTick(world, pos, state, rand);
-		Block block = world.getBlockState(pos.up()).getBlock();
+		Block crop = world.getBlockState(pos.up()).getBlock();
 
-		if (block instanceof IPlantable || block instanceof IGrowable) {
+		if (crop instanceof IPlantable || crop instanceof IGrowable)
 			for (int i = 0; i < 10; i++)
-				block.updateTick(world, pos.up(), world.getBlockState(pos.up()), rand);
-		}
+				crop.updateTick(world, pos.up(), world.getBlockState(pos.up()), rand);
 	}
 
 	@Override
 	public void onFallenUpon(World world, BlockPos pos, Entity entity, float fallDistance) {
-		if (ForgeHooks.onFarmlandTrample(world, pos, ModBlocks.ARABLE_DIRT.getDefaultState(), fallDistance, entity)) {
-			turnToDirt(world, pos);
-		}
+		if (entity.canTrample(world, this, pos, fallDistance))
+			turnIntoDirt(world, pos);
 	}
 
-	protected static void turnToDirt(World world, BlockPos pos) {
+	protected static void turnIntoDirt(World world, BlockPos pos) {
 		world.setBlockState(pos, ModBlocks.ARABLE_DIRT.getDefaultState());
-		AxisAlignedBB aabb = field_194405_c.offset(pos);
+		AxisAlignedBB aabb = FARMLAND_AABB2.offset(pos);
 
 		for (Entity entity : world.getEntitiesWithinAABBExcludingEntity((Entity) null, aabb)) {
 			double d0 = Math.min(aabb.maxY - aabb.minY, aabb.maxY - entity.getEntityBoundingBox().minY);
@@ -59,18 +54,19 @@ public class ArableFarmland extends BlockFarmlandBase {
 
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
-		if (world.getBlockState(pos.up()).getMaterial().isSolid()) {
-			turnToDirt(world, pos);
-		}
-		super.neighborChanged(state, world, pos, block, fromPos);
+		if (world.getBlockState(pos.up()).getMaterial().isSolid())
+			turnIntoDirt(world, pos);
 	}
 
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
-		if (world.getBlockState(pos.up()).getMaterial().isSolid()) {
-			turnToDirt(world, pos);
-		}
-		super.onBlockAdded(world, pos, state);
+		if (world.getBlockState(pos.up()).getMaterial().isSolid())
+			turnIntoDirt(world, pos);
+	}
+
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		return ModBlocks.ARABLE_DIRT.getItemDropped(getDefaultState(), rand, fortune);
 	}
 
 	@Override
@@ -89,7 +85,6 @@ public class ArableFarmland extends BlockFarmlandBase {
 		default:
 			break;
 		}
-
 		return false;
 	}
 }
