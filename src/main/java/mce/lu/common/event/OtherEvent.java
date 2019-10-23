@@ -4,8 +4,10 @@ import java.util.Random;
 
 import mce.lu.common.block.ModBlocks;
 import mce.lu.common.item.ModItems;
+import mce.lu.common.util.RayTraceHelper;
 import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.entity.passive.EntityPig;
@@ -19,9 +21,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
@@ -111,26 +115,37 @@ public class OtherEvent {
 		BlockPos pos = e.getPos();
 		ItemStack stack = e.getItemStack();
 		IBlockState state = e.getWorld().getBlockState(pos);
+		RayTraceHelper rayHelper = new RayTraceHelper();
 
 		// Lava Bottle
 		if (!stack.isEmpty() && stack.getItem() == Items.GLASS_BOTTLE) {
-			ItemStack lavaBottle = new ItemStack(ModItems.LAVA_BOTTLE);
-			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.LAVA) {
-				e.getEntityPlayer().inventory.addItemStackToInventory(lavaBottle);
-				e.getWorld().playSound(e.getEntityPlayer(), e.getEntityPlayer().posX, e.getEntityPlayer().posY,
-						e.getEntityPlayer().posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1f, 1f);
-				stack.shrink(1);
-				e.setUseItem(Result.ALLOW);
+			// For clicking liquids
+			RayTraceResult trace = rayHelper.rayTrace(e.getWorld(), e.getEntityPlayer(), true);
+
+			if(trace == null) {
+				e.setResult(Result.DEFAULT);
+			} else {
+				BlockPos tracePos = trace.getBlockPos();
+				if (e.getWorld().getBlockState(tracePos).getMaterial() == Material.LAVA) {
+					e.getWorld().playSound(e.getEntityPlayer(), e.getEntityPlayer().posX, e.getEntityPlayer().posY,
+							e.getEntityPlayer().posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1f, 1f);
+					stack.shrink(1);
+
+					e.getEntityPlayer().addStat(StatList.getObjectUseStats(Items.GLASS_BOTTLE));
+					e.getEntityPlayer().inventory.addItemStackToInventory(new ItemStack(ModItems.LAVA_BOTTLE));
+					e.setUseItem(Result.ALLOW);
+				}
 			}
 		}
 
 		// Dirt into Path
 		if (!stack.isEmpty() && stack.getItem() instanceof ItemSpade) {
-			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.DIRT) {
-				e.getWorld().setBlockState(pos, Blocks.GRASS_PATH.getDefaultState(), 2);
+			if (state.getBlock() == Blocks.DIRT && e.getWorld().getBlockState(pos.up()).getMaterial() == Material.AIR) {
+				e.getWorld().setBlockState(pos, Blocks.GRASS_PATH.getDefaultState(), 11);
 				e.getWorld().playSound(e.getEntityPlayer(), pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS,
 						1.0F, 1.0F);
-				e.setResult(e.getUseItem());
+				e.getItemStack().damageItem(1, e.getEntityPlayer());
+				e.setUseItem(Result.ALLOW);
 			}
 		}
 
