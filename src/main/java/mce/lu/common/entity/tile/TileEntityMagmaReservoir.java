@@ -2,6 +2,7 @@ package mce.lu.common.entity.tile;
 
 import javax.annotation.Nullable;
 
+import mce.lu.common.util.config.LUConfigManager;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
@@ -13,6 +14,7 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 public class TileEntityMagmaReservoir extends TileEntity {
 	static int INT_MAX = Integer.MAX_VALUE;
 	public FluidTank fluidTank = new Tank(16000);
+	boolean canDrain;
 
 	@Override
 	public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
@@ -34,13 +36,17 @@ public class TileEntityMagmaReservoir extends TileEntity {
 		return fluidTank.getCapacity();
 	}
 
+	public boolean canDrain(boolean canDrain) {
+		return this.canDrain;
+	}
+	
 	private static class Tank extends FluidTank {
 		private static final FluidStack MAX_LAVA = new FluidStack(FluidRegistry.LAVA, INT_MAX);
 
 		public Tank(int capacity) {
 			super(capacity);
 		}
-
+		
 		@Override
 		public FluidStack getFluid() {
 			return MAX_LAVA;

@@ -20,6 +20,46 @@ waila.lu.condensed_block.poisonous=Poisonous
 waila.lu.snowmelter.range=Range
 waila.lu.snowmelter.redstonemode=Redstone Mode
 
+// JEI Description Stuff
+tile.lu_condenser.guide=Putting 9 items in will condense it down into a block. Most vanilla items will work, and putting the block in a crafting table will give you the items back.
+
+tile.snow_melter.guide=The snow melter melts snow and ice in a certain raduis. It's like glowstone, but without the light. Use a wrench to change the radius size and to change whether it needs a redstone signal to melt. If active, it will melt snow every few ticks or upon right clicking it.\nThe max range is 7, which means it will clear snow 7 blocks away from the center block. This also includes the y axis.\n\nSneak right click with a wrench to change the redstone mode, and right click with a wrench to change the range.
+
+tile.aqua_reservoir.guide=The aqua reservoir is like a sink. Infinite buckets of water, and you can even pump water out of it. You can also get rid of water buckets by right clicking the block.\nIt was added because Pam's Harvestcraft took their sink out and I was sad.
+
+tile.magma_reservoir.guide=The magma reservoir, like the aqua reservoir, is like a sink. But for lava. Infinite buckets of lava, and you can even pump lava out of it. You can also get rid of buckets of lava by right clicking the block.
+
+tile.fertile_dirt.guide=Acts likes dirt! But makes things grow faster. You don't need water near by to make things grow.\n\nYou can craft it or right click dirt with 4 fertilizer. (From LittleUtilities)\nUse a hoe to make farmland.
+
+tile.fertile_farmland.guide=Similar to farmland, but makes things grow faster. You don't need water near by to make things grow.\n\nYou can get it by right clicking farmland with 4 fertilizer (From LittleUtilities) or by hoeing fertile dirt.
+
+tile.arable_dirt.guide=Like fertile dirt, but grows things even faster than that! You don't need water near by to make things grow.\n\nYou can craft it or right click fertile dirt with 2 charcoal.\nUse a hoe to make farmland.
+
+tile.arable_farmland.guide=Like fertile farmland, but grows things even faster than that! You don't need water near by to make things grow.\n\nYou can get it by right clicking fertile farmland with 2 charcoal or by hoeing arable dirt.
+
+tile.unstompable_farmland.guide=Shift right click dirt with a hoe to make it into this block. Acts like normal farmland, but you cannot trample it into dirt. Does not make things grow faster like some other farmlands in this mod.
+
+tile.spike_block.guide=Directional sharp block that damages entities who dare collides with it.\n\nKeep those pesky spiders from climbing over your walls!
+
+tile.poison_spike_block.guide=Directional sharp block that damages entities who dare collides with it. Now inflicts poison!\n\nYou can craft it or right click a spider eye on a normal spike block. Right click with a water bottle, water bucket or the sponge item to remove the poison.
+
+tile.fire_spike_block.guide=Directional sharp block that damages entities who dare collides with it. Now sets them on fire!\n\nKeep those pesky spiders from climbing over your walls by incinerating them!
+
+tile.blaze_bars.guide=Decorative bars right? Well they set entities on fire. So don't walk on them.
+tile.blaze_rod_block.guide=Will set you on fire!
+tile.blaze_powder_block.guide=Will set you on fire!
+tile.gunpowder_block.guide=Do NOT let it near fire. It is quite flammable and you will have lost a lot of gunpowder.
+tile.paper_block.guide=Do NOT let it near fire. It is quite flammable and you will have lost a lot of paper.
+tile.feather_block.guide=Will break your fall. No fall damage!
+tile.ender_pearl_block.guide=Will teleport you randomly within a 20 block raduis. (Unless if you sneaking) Don't know why you would want to do this.
+tile.compact_dragon_egg.guide=What did the dragon ever do to you? You killed her at least nine times. There's nothing special this block does, it's just a normal block.
+
+item.sponge.guide=Can remove color from colorable blocks. Like glass, terracotta, etc. Can also remove poison from posion spikes.
+item.zombie_curing_kit.guide=The whole zombie curing process, in one item! Still need the same resources, but this item cures the zombie villager instantly. Still grants you the advancement.
+
+item.fertilizer.guide=Use it to fully grow stuff, like bonemeal in the good 'ol days. Also can make fertile dirt / farmland by right clicking 4 of them on normal dirt or farmland.
+item.lava_bottle.guide=Other mods could probably use this?
+
 // CHAT STUFF
 death.attack.spikes=%1$s was spiked to death
 death.attack.spikes.player=%1$s was spiked to death whilst fighting %2$s

@@ -142,12 +142,12 @@ public class LUConfigManager {
 			@Comment("Should you be able to craft the zombie curing kit?")
 			@RequiresMcRestart
 			public boolean zombieCuringKit = true;
-			
+
 			@Name("Fertilizer")
 			@Comment("Should you be able to craft AND use fertilizer?")
 			@RequiresMcRestart
 			public boolean fertilizer = true;
-			
+
 			@Name("Cement")
 			@Comment("Should you be able to smelt gravel into cement?")
 			@RequiresMcRestart
@@ -161,10 +161,12 @@ public class LUConfigManager {
 			public boolean blazeRodEvent = true;
 
 			@Name("Dye Block by Right Clicking")
-			@Comment({"Should you be able to dye a block (Glass, Wool, Terracotta, etc) just by holding a dye and right clicking the block?", "Does not effect Chroma Cows"})
+			@Comment({
+					"Should you be able to dye a block (Glass, Wool, Terracotta, etc) just by holding a dye and right clicking the block?",
+					"Does not effect Chroma Cows" })
 			@RequiresMcRestart
 			public boolean dyeEvent = true;
-			
+
 			@Name("Chroma Cows")
 			@Comment("Should you be able to dye a cow? (Turns into a Chroma Cow)")
 			@RequiresMcRestart
@@ -182,9 +184,9 @@ public class LUConfigManager {
 			@RangeInt(min = 1, max = 50)
 			@RequiresMcRestart
 			public int dyeReedsPerChunk = 11;
-			
+
 			@Name("Cactus Fiber Drops")
-			@Comment({"Should cactus drop cactus fiber?", "Can be used to make string."})
+			@Comment({ "Should cactus drop cactus fiber?", "Can be used to make string." })
 			@RequiresMcRestart
 			public boolean cactusFiberDrops = true;
 		}
