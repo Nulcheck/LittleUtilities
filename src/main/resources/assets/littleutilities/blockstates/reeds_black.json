@@ -11,7 +11,13 @@
 			"6": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
 			"7": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
 			"8": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
-			"9": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}}
+			"9": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"10": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"11": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"12": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"13": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"14": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}},
+			"15": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_black"}}
 		}
 	}
 }

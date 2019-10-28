@@ -12,7 +12,7 @@ public class WorldGenDyeReed extends WorldGenerator {
 	public BlockPos chunkPos;
 
 	public boolean generate(World world, Random rand, BlockPos pos) {
-		int l = rand.nextInt(15);
+		int l = rand.nextInt(16);
 		for (int i = 0; i < 20; ++i) {
 			BlockPos blockPos = pos.add(rand.nextInt(4) - rand.nextInt(4), 0, rand.nextInt(4) - rand.nextInt(4));
 

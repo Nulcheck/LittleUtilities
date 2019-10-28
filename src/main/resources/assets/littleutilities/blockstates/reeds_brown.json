@@ -11,7 +11,13 @@
 			"6": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
 			"7": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
 			"8": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
-			"9": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}}
+			"9": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
+			"10": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
+			"11": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
+			"12": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
+			"13": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
+			"14": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}},
+			"15": {"model": "xenlib:crossed_block", "textures": {"all": "littleutilities:blocks/reeds_brown"}}
 		}
 	}
 }
