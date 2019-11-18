@@ -77,8 +77,53 @@ public class ModBlocks {
 			.setHardness(2.5f).setResistance(30.5f).setCreativeTab(LittleUtilities.lu);
 
 	// Liquid Pigments
-	public static final BlockFluidBase PIGMENT_BLACK_FLUID_BLOCK = new BlockFluidBase("pigment_black_fluid",
-			ModFluids.PIGMENT_BLACK_FLUID, ModFluids.LIQUID_PIGMENT, MapColor.BLACK, BLOCKS, ModItems.ITEMS);
+	public static final Block PIGMENT_BLACK_FLUID_BLOCK = new BlockFluidBase("pigment_black_fluid",
+			ModFluids.PIGMENT_BLACK_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_RED_FLUID_BLOCK = new BlockFluidBase("pigment_red_fluid",
+			ModFluids.PIGMENT_RED_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_GREEN_FLUID_BLOCK = new BlockFluidBase("pigment_green_fluid",
+			ModFluids.PIGMENT_GREEN_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_BROWN_FLUID_BLOCK = new BlockFluidBase("pigment_brown_fluid",
+			ModFluids.PIGMENT_BROWN_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_BLUE_FLUID_BLOCK = new BlockFluidBase("pigment_blue_fluid",
+			ModFluids.PIGMENT_BLUE_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_PURPLE_FLUID_BLOCK = new BlockFluidBase("pigment_purple_fluid",
+			ModFluids.PIGMENT_PURPLE_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_CYAN_FLUID_BLOCK = new BlockFluidBase("pigment_cyan_fluid",
+			ModFluids.PIGMENT_CYAN_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_LIGHT_GRAY_FLUID_BLOCK = new BlockFluidBase("pigment_light_gray_fluid",
+			ModFluids.PIGMENT_LIGHT_GRAY_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_GRAY_FLUID_BLOCK = new BlockFluidBase("pigment_gray_fluid",
+			ModFluids.PIGMENT_GRAY_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_PINK_FLUID_BLOCK = new BlockFluidBase("pigment_pink_fluid",
+			ModFluids.PIGMENT_PINK_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_LIME_FLUID_BLOCK = new BlockFluidBase("pigment_lime_fluid",
+			ModFluids.PIGMENT_LIME_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_YELLOW_FLUID_BLOCK = new BlockFluidBase("pigment_yellow_fluid",
+			ModFluids.PIGMENT_YELLOW_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_LIGHT_BLUE_FLUID_BLOCK = new BlockFluidBase("pigment_light_blue_fluid",
+			ModFluids.PIGMENT_LIGHT_BLUE_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_MAGENTA_FLUID_BLOCK = new BlockFluidBase("pigment_magenta_fluid",
+			ModFluids.PIGMENT_MAGENTA_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_ORANGE_FLUID_BLOCK = new BlockFluidBase("pigment_orange_fluid",
+			ModFluids.PIGMENT_ORANGE_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
+
+	public static final Block PIGMENT_WHITE_FLUID_BLOCK = new BlockFluidBase("pigment_white_fluid",
+			ModFluids.PIGMENT_WHITE_FLUID, ModFluids.LIQUID_PIGMENT, BLOCKS, ModItems.ITEMS);
 
 	// Dye Reeds / Plants
 	public static final DyeReeds REEDS_BLACK = (DyeReeds) new DyeReeds("reeds_black", Material.PLANTS, BLOCKS,

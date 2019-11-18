@@ -2,6 +2,7 @@ package mce.lu.common;
 
 import java.util.logging.Logger;
 
+import mce.lu.client.core.handler.FluidRenderHandler;
 import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.block.ModBlocks;
@@ -18,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -38,10 +40,11 @@ import net.xendric.xenlib.common.util.Util;
 public class LittleUtilities {
 	@Instance(References.MOD_ID)
 	public static LittleUtilities instance;
-
+	
 	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 
+	static { FluidRegistry.enableUniversalBucket(); }
 	public static Logger logger = Logger.getLogger("Minecraft");
 	public static CreativeTabs lu = new CreativeTabsHelper("littleutilities", false) {
 		@Override
@@ -57,6 +60,7 @@ public class LittleUtilities {
 		Util.setDependants(References.MOD_ID);
 
 		ModFluids.registerFluids();
+		FluidRenderHandler.renderFluids();
 		ForgeRegistries.BLOCKS.registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
 		ForgeRegistries.ITEMS.registerAll(ModItems.ITEMS.toArray(new Item[0]));
 

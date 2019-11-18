@@ -16,6 +16,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+import net.xendric.xenlib.common.core.block.BlockNoWaterFarmlandBase;
 
 public class ArableFarmland extends BlockNoWaterFarmlandBase {
 	public ArableFarmland(String name, List<Block> blockList, List<Item> itemList) {

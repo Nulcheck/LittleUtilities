@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "littleutilities:blocks/pigment_white_fluid_still"
+	}
+}
