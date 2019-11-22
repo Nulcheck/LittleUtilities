@@ -37,6 +37,14 @@
       },
       {
         "item": "minecraft:cooked_mutton"
+      },
+      {
+        "type": "forge:ore",
+        "ore": "listAllmeatraw"
+      },
+      {
+        "type": "forge:ore",
+        "ore": "listAllmeatcooked"
       }
     ]
   },

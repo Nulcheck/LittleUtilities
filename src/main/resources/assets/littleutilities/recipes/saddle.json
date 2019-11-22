@@ -7,7 +7,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "lll",
-    "lil",
+    "sis",
     "i i"
   ],
   "key": {
@@ -16,6 +16,9 @@
     },
     "i": {
       "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "littleutilities:leather_scraps"
     }
   },
   "result": {

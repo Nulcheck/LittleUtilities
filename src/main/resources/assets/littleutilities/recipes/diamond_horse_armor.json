@@ -6,13 +6,19 @@
   ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  i",
-    "iii",
+    "  d",
+    "dld",
     "i i"
   ],
   "key": {
-    "i": {
+    "d": {
       "item": "minecraft:diamond"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "l": {
+      "item": "littleutilities:leather_scraps"
     }
   },
   "result": {

@@ -6,13 +6,19 @@
   ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  i",
-    "iii",
+    "  g",
+    "glg",
     "i i"
   ],
   "key": {
-    "i": {
+    "g": {
       "item": "minecraft:gold_ingot"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "l": {
+      "item": "littleutilities:leather_scraps"
     }
   },
   "result": {
