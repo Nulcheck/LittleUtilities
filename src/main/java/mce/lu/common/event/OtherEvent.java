@@ -104,7 +104,6 @@ public class OtherEvent {
 	@SubscribeEvent
 	public static void onBlockDrops(BlockEvent.HarvestDropsEvent e) {
 		Random rand = new Random();
-
 		if (LUConfigManager.modConfig.features.cactusFiberDrops && e.getHarvester() != null
 				&& e.getState().getBlock() == Blocks.CACTUS)
 			e.getDrops().add(new ItemStack(ModItems.CACTUS_FIBER, rand.nextInt(2)));
@@ -209,7 +208,8 @@ public class OtherEvent {
 				e.setResult(Result.ALLOW);
 			}
 
-			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.FARMLAND) {
+			if (e.getWorld().getBlockState(pos).getBlock() == Blocks.FARMLAND
+					|| e.getWorld().getBlockState(pos).getBlock() == ModBlocks.UNSTOMPABLE_FARMLAND) {
 				e.getWorld().setBlockState(pos, ModBlocks.FERTILE_FARMLAND.getDefaultState());
 				if (!e.getEntityPlayer().capabilities.isCreativeMode)
 					stack.shrink(4);

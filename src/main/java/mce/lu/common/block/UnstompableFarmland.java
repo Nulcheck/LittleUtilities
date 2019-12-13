@@ -37,8 +37,7 @@ public class UnstompableFarmland extends BlockFarmlandBase {
 
 	@Override
 	public void onFallenUpon(World world, BlockPos pos, Entity entity, float fallDistance) {
-		if (entity.canTrample(world, this, pos, fallDistance))
-			return;
+		return;
 	}
 
 	@Override
