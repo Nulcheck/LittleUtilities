@@ -1,0 +1,88 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "forge:fluid"
+	},
+	"variants": {
+		"pigment_black": [{
+			"custom": {
+				"fluid": "pigment_black"
+			}
+		}],
+		"pigment_red": [{
+			"custom": {
+				"fluid": "pigment_red"
+			}
+		}],
+		"pigment_green": [{
+			"custom": {
+				"fluid": "pigment_green"
+			}
+		}],
+		"pigment_brown": [{
+			"custom": {
+				"fluid": "pigment_brown"
+			}
+		}],
+		"pigment_blue": [{
+			"custom": {
+				"fluid": "pigment_blue"
+			}
+		}],
+		"pigment_purple": [{
+			"custom": {
+				"fluid": "pigment_purple"
+			}
+		}],
+		"pigment_cyan": [{
+			"custom": {
+				"fluid": "pigment_cyan"
+			}
+		}],
+		"pigment_light_gray": [{
+			"custom": {
+				"fluid": "pigment_light_gray"
+			}
+		}],
+		"pigment_gray": [{
+			"custom": {
+				"fluid": "pigment_gray"
+			}
+		}],
+		"pigment_pink": [{
+			"custom": {
+				"fluid": "pigment_pink"
+			}
+		}],
+		"pigment_lime": [{
+			"custom": {
+				"fluid": "pigment_lime"
+			}
+		}],
+		"pigment_yellow": [{
+			"custom": {
+				"fluid": "pigment_yellow"
+			}
+		}],
+		"pigment_light_blue": [{
+			"custom": {
+				"fluid": "pigment_light_blue"
+			}
+		}],
+		"pigment_magenta": [{
+			"custom": {
+				"fluid": "pigment_magenta"
+			}
+		}],
+		"pigment_orange": [{
+			"custom": {
+				"fluid": "pigment_orange"
+			}
+		}],
+		"pigment_white": [{
+			"custom": {
+				"fluid": "pigment_white"
+			}
+		}]
+	}
+}

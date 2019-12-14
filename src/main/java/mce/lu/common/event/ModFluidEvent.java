@@ -2,8 +2,8 @@ package mce.lu.common.event;
 
 import java.awt.Color;
 
-import mce.lu.common.block.ModBlocks;
 import mce.lu.common.block.ModFluids;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.EntityViewRenderEvent.FogColors;
 import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
@@ -20,7 +20,7 @@ public class ModFluidEvent {
 		if (e.phase == TickEvent.Phase.START && e.player.world.isRemote) {
 			EntityPlayer player = e.player;
 			XenLib.proxy.handleMaterialAcceleration(player,
-					ModBlocks.PIGMENT_BLACK_FLUID_BLOCK.getDefaultState().getMaterial());
+					((Block) ModFluids.FLUID_BLOCKS).getDefaultState().getMaterial());
 		}
 	}
 

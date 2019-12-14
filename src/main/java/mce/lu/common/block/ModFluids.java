@@ -1,105 +1,124 @@
 package mce.lu.common.block;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.Function;
+
+import com.google.common.base.Preconditions;
+
 import mce.lu.common.util.References;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.xendric.xenlib.common.core.block.FluidBase;
+import net.minecraftforge.fluids.IFluidBlock;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.xendric.xenlib.client.core.proxy.ClientProxy;
 
 public class ModFluids {
 	public static final Material LIQUID_PIGMENT = new MaterialLiquid(MapColor.WATER);
+	public static final Set<Fluid> FLUIDS = new HashSet<>();
+	public static final Set<IFluidBlock> FLUID_BLOCKS = new HashSet<>();
 
-	public static final Fluid PIGMENT_BLACK_FLUID = new FluidBase("pigment_black_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_black_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_black_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_BLACK_FLUID = createFluid("pigment_black",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_RED_FLUID = new FluidBase("pigment_red_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_red_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_red_fluid_flow"), null).setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_RED_FLUID = createFluid("pigment_red",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_GREEN_FLUID = new FluidBase("pigment_green_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_green_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_green_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_GREEN_FLUID = createFluid("pigment_green",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_BROWN_FLUID = new FluidBase("pigment_brown_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_brown_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_brown_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_BROWN_FLUID = createFluid("pigment_brown",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_BLUE_FLUID = new FluidBase("pigment_blue_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_blue_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_blue_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_BLUE_FLUID = createFluid("pigment_blue",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_PURPLE_FLUID = new FluidBase("pigment_purple_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_purple_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_purple_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_PURPLE_FLUID = createFluid("pigment_purple",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_CYAN_FLUID = new FluidBase("pigment_cyan_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_cyan_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_cyan_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_CYAN_FLUID = createFluid("pigment_cyan",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_LIGHT_GRAY_FLUID = new FluidBase("pigment_light_gray_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_light_gray_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_light_gray_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_LIGHT_GRAY_FLUID = createFluid("pigment_light_gray",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_GRAY_FLUID = new FluidBase("pigment_gray_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_gray_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_gray_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_GRAY_FLUID = createFluid("pigment_gray",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_PINK_FLUID = new FluidBase("pigment_pink_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_pink_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_pink_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_PINK_FLUID = createFluid("pigment_pink",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_LIME_FLUID = new FluidBase("pigment_lime_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_lime_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_lime_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_LIME_FLUID = createFluid("pigment_lime",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_YELLOW_FLUID = new FluidBase("pigment_yellow_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_yellow_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_yellow_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_YELLOW_FLUID = createFluid("pigment_yellow",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_LIGHT_BLUE_FLUID = new FluidBase("pigment_light_blue_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_light_blue_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_light_blue_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_LIGHT_BLUE_FLUID = createFluid("pigment_light_blue",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_MAGENTA_FLUID = new FluidBase("pigment_magenta_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_magenta_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_magenta_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_MAGENTA_FLUID = createFluid("pigment_magenta",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_ORANGE_FLUID = new FluidBase("pigment_orange_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_orange_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_orange_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_ORANGE_FLUID = createFluid("pigment_orange",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid PIGMENT_WHITE_FLUID = new FluidBase("pigment_white_fluid",
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_white_fluid_still"),
-			new ResourceLocation(References.MOD_ID, "blocks/pigment_white_fluid_flow"), null)
-					.setMaterial(LIQUID_PIGMENT);
+	public static final Fluid PIGMENT_WHITE_FLUID = createFluid("pigment_white",
+			fluid -> new BlockFluidClassic(fluid, LIQUID_PIGMENT));
 
-	public static final Fluid[] PIGMENT_FLUIDS = { PIGMENT_BLACK_FLUID, PIGMENT_RED_FLUID, PIGMENT_GREEN_FLUID,
-			PIGMENT_BROWN_FLUID, PIGMENT_BLUE_FLUID, PIGMENT_PURPLE_FLUID, PIGMENT_CYAN_FLUID, PIGMENT_LIGHT_GRAY_FLUID,
-			PIGMENT_GRAY_FLUID, PIGMENT_PINK_FLUID, PIGMENT_LIME_FLUID, PIGMENT_YELLOW_FLUID, PIGMENT_LIGHT_BLUE_FLUID,
-			PIGMENT_MAGENTA_FLUID, PIGMENT_ORANGE_FLUID, PIGMENT_WHITE_FLUID };
+	// Fluid creation and registry stuff
+	public static <T extends Block & IFluidBlock> Fluid createFluid(String name, Function<Fluid, T> blockFactory) {
+		final ResourceLocation still = new ResourceLocation(References.MOD_ID, "blocks/fluid_" + name + "_still");
+		final ResourceLocation flow = new ResourceLocation(References.MOD_ID, "blocks/fluid_" + name + "_flow");
 
-	public static void registerFluids() {
-		for (int i = 0; i < 16; ++i) {
-			FluidRegistry.registerFluid(PIGMENT_FLUIDS[i]);
-			FluidRegistry.addBucketForFluid(PIGMENT_FLUIDS[i]);
+		Fluid fluid = new Fluid(name, still, flow);
+		FluidRegistry.registerFluid(fluid);
+		FLUID_BLOCKS.add(blockFactory.apply(fluid));
+		FLUIDS.add(fluid);
+
+		return fluid;
+	}
+
+	@EventBusSubscriber
+	public static class FluidRegistryHandler {
+		@SubscribeEvent
+		public static void registerFluidBlocks(RegistryEvent.Register<Block> e) {
+			IForgeRegistry<Block> registry = e.getRegistry();
+
+			for (IFluidBlock fluidBlock : FLUID_BLOCKS) {
+				Block block = (Block) fluidBlock;
+				block.setRegistryName(References.MOD_ID, "fluid." + fluidBlock.getFluid().getName());
+				registry.register(block);
+			}
+		}
+	}
+
+	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public static void registerItems(final RegistryEvent.Register<Item> e) {
+		IForgeRegistry<Item> registry = e.getRegistry();
+
+		for (IFluidBlock fluidBlock : FLUID_BLOCKS) {
+			Block block = (Block) fluidBlock;
+			ItemBlock itemBlock = new ItemBlock(block);
+			ResourceLocation name = Preconditions.checkNotNull(block.getRegistryName());
+			itemBlock.setRegistryName(name);
+			registry.register(itemBlock);
+		}
+
+		for (Fluid fluid : FLUIDS) {
+			FluidRegistry.addBucketForFluid(fluid);
 		}
 	}
 }

@@ -6,7 +6,6 @@ import mce.lu.client.core.handler.FluidRenderHandler;
 import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.block.ModBlocks;
-import mce.lu.common.block.ModFluids;
 import mce.lu.common.core.handler.TileEntityRegistry;
 import mce.lu.common.core.proxy.CommonProxy;
 import mce.lu.common.item.ModItems;
@@ -44,7 +43,6 @@ public class LittleUtilities {
 	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 
-	static { FluidRegistry.enableUniversalBucket(); }
 	public static Logger logger = Logger.getLogger("Minecraft");
 	public static CreativeTabs lu = new CreativeTabsHelper("littleutilities", false) {
 		@Override
@@ -53,16 +51,16 @@ public class LittleUtilities {
 			return new ItemStack(ModBlocks.CONDENSER);
 		}
 	}.setLabelColor(5635925);
-
+	static { FluidRegistry.enableUniversalBucket(); }
+	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
 		proxy.preInit(e);
 		Util.setDependants(References.MOD_ID);
 
-		ModFluids.registerFluids();
-		FluidRenderHandler.renderFluids();
 		ForgeRegistries.BLOCKS.registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
 		ForgeRegistries.ITEMS.registerAll(ModItems.ITEMS.toArray(new Item[0]));
+		FluidRenderHandler.renderFluids();
 
 		TileEntityRegistry.registerTileEntities();
 		GameRegistry.registerWorldGenerator(new WorldGenLavaLily(), 0);
