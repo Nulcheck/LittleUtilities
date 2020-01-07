@@ -2,7 +2,6 @@ package mce.lu.common;
 
 import java.util.logging.Logger;
 
-import mce.lu.client.core.handler.FluidRenderHandler;
 import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.block.ModBlocks;
@@ -60,7 +59,6 @@ public class LittleUtilities {
 
 		ForgeRegistries.BLOCKS.registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
 		ForgeRegistries.ITEMS.registerAll(ModItems.ITEMS.toArray(new Item[0]));
-		FluidRenderHandler.renderFluids();
 
 		TileEntityRegistry.registerTileEntities();
 		GameRegistry.registerWorldGenerator(new WorldGenLavaLily(), 0);

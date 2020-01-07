@@ -243,22 +243,22 @@ item.reinforced_netherbrick.name=Reinforced Nether Brick
 item.reinforced_netherbrick_plate.name=Reinforced Nether Brick Plate
 
 // Pigment
-item.pigment_black.name=Black Pigment
-item.pigment_red.name=Red Pigment
-item.pigment_green.name=Green Pigment
-item.pigment_brown.name=Brown Pigment
-item.pigment_blue.name=Blue Pigment
-item.pigment_purple.name=Purple Pigment
-item.pigment_cyan.name=Cyan Pigment
-item.pigment_light_gray.name=Light Gray Pigment
-item.pigment_gray.name=Gray Pigment
-item.pigment_pink.name=Pink Pigment
-item.pigment_lime.name=Lime Pigment
-item.pigment_yellow.name=Yellow Pigment
-item.pigment_light_blue.name=Light Blue Pigment
-item.pigment_magenta.name=Magenta Pigment
-item.pigment_orange.name=Orange Pigment
-item.pigment_white.name=White Pigment
+item.pigment_black_item.name=Black Pigment
+item.pigment_red_item.name=Red Pigment
+item.pigment_green_item.name=Green Pigment
+item.pigment_brown_item.name=Brown Pigment
+item.pigment_blue_item.name=Blue Pigment
+item.pigment_purple_item.name=Purple Pigment
+item.pigment_cyan_item.name=Cyan Pigment
+item.pigment_light_gray_item.name=Light Gray Pigment
+item.pigment_gray_item.name=Gray Pigment
+item.pigment_pink_item.name=Pink Pigment
+item.pigment_lime_item.name=Lime Pigment
+item.pigment_yellow_item.name=Yellow Pigment
+item.pigment_light_blue_item.name=Light Blue Pigment
+item.pigment_magenta_item.name=Magenta Pigment
+item.pigment_orange_item.name=Orange Pigment
+item.pigment_white_item.name=White Pigment
 
 ////// FLUID
 fluid.pigment_black=Black Liquid Pigment

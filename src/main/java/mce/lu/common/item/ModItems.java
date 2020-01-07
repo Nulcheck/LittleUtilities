@@ -30,23 +30,23 @@ public class ModItems {
 	// ObsidianBoat("obsidian_boat");
 
 	// Pigments
-	public static final Item PIGMENT_BLACK = new ItemBase("pigment_black", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_RED = new ItemBase("pigment_red", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_GREEN = new ItemBase("pigment_green", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_BROWN = new ItemBase("pigment_brown", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_BLUE = new ItemBase("pigment_blue", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_PURPLE = new ItemBase("pigment_purple", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_CYAN = new ItemBase("pigment_cyan", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_LIGHT_GRAY = new ItemBase("pigment_light_gray", ITEMS)
+	public static final Item PIGMENT_BLACK = new ItemBase("pigment_black_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_RED = new ItemBase("pigment_red_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_GREEN = new ItemBase("pigment_green_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_BROWN = new ItemBase("pigment_brown_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_BLUE = new ItemBase("pigment_blue_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_PURPLE = new ItemBase("pigment_purple_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_CYAN = new ItemBase("pigment_cyan_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_LIGHT_GRAY = new ItemBase("pigment_light_gray_item", ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_GRAY = new ItemBase("pigment_gray", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_PINK = new ItemBase("pigment_pink", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_LIME = new ItemBase("pigment_lime", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_YELLOW = new ItemBase("pigment_yellow", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_LIGHT_BLUE = new ItemBase("pigment_light_blue", ITEMS)
+	public static final Item PIGMENT_GRAY = new ItemBase("pigment_gray_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_PINK = new ItemBase("pigment_pink_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_LIME = new ItemBase("pigment_lime_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_YELLOW = new ItemBase("pigment_yellow_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_LIGHT_BLUE = new ItemBase("pigment_light_blue_item", ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_MAGENTA = new ItemBase("pigment_magenta", ITEMS)
+	public static final Item PIGMENT_MAGENTA = new ItemBase("pigment_magenta_item", ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_ORANGE = new ItemBase("pigment_orange", ITEMS).setCreativeTab(LittleUtilities.lu);
-	public static final Item PIGMENT_WHITE = new ItemBase("pigment_white", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_ORANGE = new ItemBase("pigment_orange_item", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item PIGMENT_WHITE = new ItemBase("pigment_white_item", ITEMS).setCreativeTab(LittleUtilities.lu);
 }
