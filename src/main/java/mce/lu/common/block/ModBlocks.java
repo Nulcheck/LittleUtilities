@@ -26,6 +26,8 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu).setHardness(1.5f);
 	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(1.2f);
+	public static final Block DEHYDRATOR = new DehydratorBlock("dehydrator", UTIL_METAL, BLOCKS, ModItems.ITEMS)
+			.setCreativeTab(LittleUtilities.lu);
 	public static final Block AQUA_RESERVOIR = new AquaReservoir("aqua_reservoir", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(1f);
 	public static final Block MAGMA_RESERVOIR = new MagmaReservoir("magma_reservoir", UTIL_METAL, BLOCKS,
@@ -45,8 +47,6 @@ public class ModBlocks {
 	public static final Block POISON_SPIKES = new SpikeBlock("poison_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Block FIRE_SPIKES = new SpikeBlock("fire_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
-			.setCreativeTab(LittleUtilities.lu);
-	public static final Block DEHYDRATOR = new DehydratorBlock("dehydrator", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
 
 	//// NORMAL

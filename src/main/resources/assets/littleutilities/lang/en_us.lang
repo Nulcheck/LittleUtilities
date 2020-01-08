@@ -6,7 +6,7 @@ itemGroup.littleutilities=LittleUtilities
 
 ////// GUI
 container.lu_condenser=Condenser
-container.pigment_mixer=Pigment Mixer
+container.dehydrator=Dehydrator
 
 // WAILA STUFF
 waila.lu.edible_block.bites=Bites Left
@@ -241,6 +241,8 @@ item.cactus_fiber.name=Cactus Fiber
 item.cactus_twine.name=Cactus Twine
 item.reinforced_netherbrick.name=Reinforced Nether Brick
 item.reinforced_netherbrick_plate.name=Reinforced Nether Brick Plate
+item.lava_bottle.name=Lava Bottle
+item.powder_milk.name=Powdered Milk
 
 // Pigment
 item.pigment_black_item.name=Black Pigment

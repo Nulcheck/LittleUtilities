@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Maps;
 
 import mce.lu.common.LittleUtilities;
+import mce.lu.common.block.ModFluids;
 import mce.lu.common.item.ModItems;
 import mce.lu.common.util.References;
 import net.minecraft.entity.EntityAgeable;
@@ -32,10 +33,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
-import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.xendric.xenlib.common.util.Util;
 
 public class EntityChromaCow extends EntityCow {
 	private static final DataParameter<Byte> DYE_COLOR = EntityDataManager.<Byte>createKey(EntityChromaCow.class,
@@ -51,7 +55,6 @@ public class EntityChromaCow extends EntityCow {
 			ModItems.PIGMENT_LIGHT_GRAY, ModItems.PIGMENT_GRAY, ModItems.PIGMENT_PINK, ModItems.PIGMENT_LIME,
 			ModItems.PIGMENT_YELLOW, ModItems.PIGMENT_LIGHT_BLUE, ModItems.PIGMENT_MAGENTA, ModItems.PIGMENT_ORANGE,
 			ModItems.PIGMENT_WHITE };
-	// public static Fluid[] PIGMENT_FLUIDS = (Fluid[]) ModFluids.FLUIDS.toArray();
 
 	/**
 	 * Internal inventory to check result of mixing dyes corresponding to the hide
@@ -138,15 +141,24 @@ public class EntityChromaCow extends EntityCow {
 		if (!this.world.isRemote && stack.getItem() == Items.BUCKET && !this.isChild() && !player.isCreative()) {
 			stack.shrink(1);
 
-			for (int i = 0; i < 16; ++i) {
-				if (i == getHideColorInt()) {
-					ItemStack PIGMENT_BUCKETS = ForgeModContainer.getInstance().universalBucket.getFilledBucket(null, null);
+			for (Fluid fluid : ModFluids.FLUIDS) {
+				if (fluid.getName().contains("pigment")) {
+					for (int i = 0; i < 16; ++i) {
+						if (i == this.getHideColorInt()) {
+							if (fluid.getName().contains(Util.dyes[i].toLowerCase())) {
+								Fluid finalFluid = fluid;
+								
+								ItemStack PIGMENT_BUCKET = FluidUtil
+										.getFilledBucket(new FluidStack(finalFluid, Fluid.BUCKET_VOLUME));
 
-					if (stack.isEmpty())
-						player.setHeldItem(hand, PIGMENT_BUCKETS);
+								if (stack.isEmpty())
+									player.setHeldItem(hand, PIGMENT_BUCKET);
 
-					else if (!player.inventory.addItemStackToInventory(PIGMENT_BUCKETS))
-						player.dropItem(PIGMENT_BUCKETS, false);
+								else if (!player.inventory.addItemStackToInventory(PIGMENT_BUCKET))
+									player.dropItem(PIGMENT_BUCKET, false);
+							}
+						}
+					}
 				}
 			}
 			return true;
@@ -156,6 +168,7 @@ public class EntityChromaCow extends EntityCow {
 			EntityCow cow = new EntityCow(this.world);
 			cow.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
 			cow.setHealth(this.getHealth());
+			cow.setGrowingAge(this.getGrowingAge());
 			cow.renderYawOffset = this.renderYawOffset;
 
 			if (this.hasCustomName())

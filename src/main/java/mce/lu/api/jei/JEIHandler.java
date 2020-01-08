@@ -6,9 +6,9 @@ import mezz.jei.api.BlankModPlugin;
 import mezz.jei.api.IModRegistry;
 import net.minecraft.item.ItemStack;
 
+@SuppressWarnings("deprecation")
 @mezz.jei.api.JEIPlugin
 public class JEIHandler extends BlankModPlugin {
-	@SuppressWarnings("deprecation")
 	@Override
 	public void register(IModRegistry reg) {
 		reg.addDescription(new ItemStack(ModBlocks.CONDENSER), ModBlocks.CONDENSER.getUnlocalizedName() + ".guide");

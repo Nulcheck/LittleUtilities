@@ -116,13 +116,9 @@ public class ModFluids {
 				registry.register(itemBlock);
 			}
 
-			registerBuckets();
-		}
-	}
-
-	public static void registerBuckets() {
-		for (Fluid fluid : FLUIDS) {
-			FluidRegistry.addBucketForFluid(fluid);
+			for (Fluid fluid : FLUIDS) {
+				FluidRegistry.addBucketForFluid(fluid);
+			}
 		}
 	}
 }
