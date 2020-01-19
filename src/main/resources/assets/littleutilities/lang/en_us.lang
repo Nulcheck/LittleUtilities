@@ -52,7 +52,7 @@ tile.gunpowder_block.guide=Do NOT let it near fire. It is quite flammable and yo
 tile.paper_block.guide=Do NOT let it near fire. It is quite flammable and you will have lost a lot of paper.
 tile.feather_block.guide=Will break your fall. No fall damage!
 tile.ender_pearl_block.guide=Will teleport you randomly within a 20 block raduis. (Unless if you sneaking) Don't know why you would want to do this.
-tile.compact_dragon_egg.guide=What did the dragon ever do to you? You killed her at least nine times. This block doesn't do anything special, it's just a normal block.
+tile.compact_dragon_egg.guide=What did the dragon ever do to you? You killed her at least nine times for this. This block doesn't do anything special, it's just a normal block.
 
 item.sponge.guide=Can remove color from colorable blocks. Like glass, terracotta, etc. Can also remove poison from posion spikes.
 item.zombie_curing_kit.guide=The whole zombie curing process, in one item! Still need the same resources, but this item cures the zombie villager instantly. Still grants you the advancement.
@@ -111,6 +111,11 @@ tile.reinforced_netherbrick_block.name=Reinforced Nether Brick
 tile.lava_lily.name=Lava Lily
 tile.cement.name=Cement
 tile.cement_bricks.name=Cement Bricks
+tile.cement_stairs.name=Cement Stairs
+tile.cement_bricks_stairs.name=Cement Brick Stairs
+tile.cement_slab.name=Cement Slab
+tile.cement_bricks_slab.name=Cement Brick Slab
+tile.jump_pad.name=Rubber Pad
 
 // Dye Reeds
 tile.reeds_black.name=Black Reeds

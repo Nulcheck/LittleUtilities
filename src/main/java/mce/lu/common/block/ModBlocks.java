@@ -48,6 +48,8 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Block FIRE_SPIKES = new SpikeBlock("fire_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
+	public static final Block JUMP_PAD = new BlockJumpPad("jump_pad", UTIL_METAL, BLOCKS, ModItems.ITEMS)
+			.setCreativeTab(LittleUtilities.lu);
 
 	//// NORMAL
 	public static final Block GOLD_BARS = new BlockPaneBase("gold_bars", UTIL_METAL, BLOCKS, ModItems.ITEMS, true)
@@ -74,6 +76,14 @@ public class ModBlocks {
 			.setResistance(30f).setCreativeTab(LittleUtilities.lu);
 	public static final Block CEMENT_BRICKS = new BlockBase("cement_bricks", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setHardness(2.5f).setResistance(30.5f).setCreativeTab(LittleUtilities.lu);
+	public static final Block CEMENT_STAIRS = new BlockBase("cement_stairs", Material.GROUND, BLOCKS, ModItems.ITEMS)
+			.setHardness(2f);
+	public static final Block CEMENT_BRICKS_STAIRS = new BlockBase("cement_bricks_stairs", Material.GROUND, BLOCKS,
+			ModItems.ITEMS).setHardness(2f);
+	public static final Block CEMENT_SLAB = new BlockBase("cement_slab", Material.GROUND, BLOCKS, ModItems.ITEMS)
+			.setHardness(2f);
+	public static final Block CEMENT_BRICKS_SLAB = new BlockBase("cement_bricks_slab", Material.GROUND, BLOCKS,
+			ModItems.ITEMS).setHardness(2f);
 
 	// Dye Reeds / Plants
 	public static final DyeReeds REEDS_BLACK = (DyeReeds) new DyeReeds("reeds_black", Material.PLANTS, BLOCKS,

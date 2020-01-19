@@ -1,6 +1,7 @@
 package mce.lu.client.gui;
 
 import mce.lu.common.container.ContainerCondenser;
+import mce.lu.common.entity.tile.TileEntityCondenser;
 import mce.lu.common.util.References;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,8 +10,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiCondenser extends GuiContainer {
-	public final ResourceLocation texture = new ResourceLocation(References.MOD_ID, "textures/gui/condenser.png");
-	private IInventory condenser;
+	public final ResourceLocation GUI_TEXTURE = new ResourceLocation(References.MOD_ID, "textures/gui/base.png");
+	private IInventory tile;
 	private InventoryPlayer playerInv;
 
 	public GuiCondenser(InventoryPlayer playerInv, IInventory tileInv) {
@@ -19,13 +20,13 @@ public class GuiCondenser extends GuiContainer {
 		this.xSize = 176;
 		this.ySize = 166;
 
-		this.condenser = tileInv;
+		this.tile = (TileEntityCondenser) tileInv;
 		this.playerInv = playerInv;
 	}
 
 	/**
-	 * Draws screen and all components in it. (Also makes the background, behind
-	 * GUI image, darker)
+	 * Draws screen and all components in it. (Also makes the background, behind GUI
+	 * image, darker)
 	 */
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float ticks) {
@@ -40,7 +41,7 @@ public class GuiCondenser extends GuiContainer {
 	 */
 	@Override
 	public void drawGuiContainerForegroundLayer(int x, int y) {
-		String name = this.condenser.getDisplayName().getUnformattedText();
+		String name = this.tile.getDisplayName().getUnformattedText();
 		String invName = this.playerInv.getDisplayName().getUnformattedText();
 
 		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
@@ -53,7 +54,7 @@ public class GuiCondenser extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1f, 1f, 1f);
-		this.mc.getTextureManager().bindTexture(texture);
+		this.mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 	}
 }

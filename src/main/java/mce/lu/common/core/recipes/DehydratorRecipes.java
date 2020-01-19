@@ -13,6 +13,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class DehydratorRecipes {
 	public static final DehydratorRecipes base = new DehydratorRecipes();
@@ -26,6 +27,7 @@ public class DehydratorRecipes {
 	public DehydratorRecipes() {
 		// Items Only
 		this.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 50);
+		this.addRecipe(new ItemStack(Blocks.SAPLING, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Blocks.DEADBUSH), 100);
 
 		// Fluid Only
 		this.addRecipe(new FluidStack(ModFluids.PIGMENT_BLACK_FLUID, Fluid.BUCKET_VOLUME),
@@ -107,11 +109,11 @@ public class DehydratorRecipes {
 	}
 
 	public static boolean isItemInRecipe(ItemStack stack) {
-		return (instance().getRecipeResult(Arrays.asList(null, stack)).isEmpty()) ? false : true;
+		return (instance().getRecipeResult(Arrays.asList(null, stack)).isEmpty()) ? true : false;
 	}
 
 	public static boolean isFluidInRecipe(FluidStack stack) {
-		return (instance().getRecipeResult(Arrays.asList(stack, ItemStack.EMPTY)).isEmpty()) ? false : true;
+		return (instance().getRecipeResult(Arrays.asList(stack, ItemStack.EMPTY)).isEmpty()) ? true : false;
 	}
 
 	public Map<List<Object>, ItemStack> getRecipeMap() {

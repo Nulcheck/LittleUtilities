@@ -1,0 +1,25 @@
+{
+  "conditions":[
+    {
+      "type": "littleutilities:vines_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "g g",
+    "gwg",
+    "g g"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:water_bucket"
+    },
+    "g": {
+      "item": "minecraft:tallgrass",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "minecraft:vine"
+  }
+}

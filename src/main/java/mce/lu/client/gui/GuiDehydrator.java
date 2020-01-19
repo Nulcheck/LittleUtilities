@@ -1,6 +1,7 @@
 package mce.lu.client.gui;
 
 import mce.lu.common.container.ContainerDehydrator;
+import mce.lu.common.entity.tile.TileEntityDehydrator;
 import mce.lu.common.util.References;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,8 +10,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiDehydrator extends GuiContainer {
-	public final ResourceLocation texture = new ResourceLocation(References.MOD_ID, "textures/gui/dehydrator.png");
-	private IInventory dehydrator;
+	public final ResourceLocation GUI_TEXTURE = new ResourceLocation(References.MOD_ID, "textures/gui/dehydrator.png");
+	private IInventory tile;
 	private InventoryPlayer playerInv;
 
 	public GuiDehydrator(InventoryPlayer playerInv, IInventory tileInv) {
@@ -19,7 +20,7 @@ public class GuiDehydrator extends GuiContainer {
 		this.xSize = 176;
 		this.ySize = 166;
 
-		this.dehydrator = tileInv;
+		this.tile = (TileEntityDehydrator) tileInv;
 		this.playerInv = playerInv;
 	}
 
@@ -40,7 +41,7 @@ public class GuiDehydrator extends GuiContainer {
 	 */
 	@Override
 	public void drawGuiContainerForegroundLayer(int x, int y) {
-		String name = this.dehydrator.getDisplayName().getUnformattedText();
+		String name = this.tile.getDisplayName().getUnformattedText();
 		String invName = this.playerInv.getDisplayName().getUnformattedText();
 
 		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
@@ -53,7 +54,7 @@ public class GuiDehydrator extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1f, 1f, 1f);
-		this.mc.getTextureManager().bindTexture(texture);
+		this.mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 	}
 }
