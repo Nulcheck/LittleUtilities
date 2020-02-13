@@ -29,7 +29,7 @@ public class BlockBushBase extends BlockBush implements IModelRegister {
 		setRegistryName(name);
 
 		blockList.add(this);
-		if (this instanceof LavaLily)
+		if (this instanceof BlockLavaLily)
 			itemList.add(new ItemLavaLily(this).setRegistryName(this.getRegistryName()));
 		else
 			itemList.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

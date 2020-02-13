@@ -115,7 +115,6 @@ tile.cement_stairs.name=Cement Stairs
 tile.cement_bricks_stairs.name=Cement Brick Stairs
 tile.cement_slab.name=Cement Slab
 tile.cement_bricks_slab.name=Cement Brick Slab
-tile.jump_pad.name=Rubber Pad
 
 // Dye Reeds
 tile.reeds_black.name=Black Reeds

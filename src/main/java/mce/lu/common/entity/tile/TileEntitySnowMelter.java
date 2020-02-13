@@ -1,6 +1,6 @@
 package mce.lu.common.entity.tile;
 
-import mce.lu.common.block.SnowMelterBlock;
+import mce.lu.common.block.utility.BlockSnowMelter;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,7 +15,7 @@ public class TileEntitySnowMelter extends TileEntity implements ITickable {
 	private final int minRange = 1;
 	private boolean redstoneMode;
 	private boolean isPowered;
-	SnowMelterBlock snowMelter;
+	BlockSnowMelter snowMelter;
 
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {

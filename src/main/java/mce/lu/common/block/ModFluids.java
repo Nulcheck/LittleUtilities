@@ -31,52 +31,52 @@ public class ModFluids {
 
 	// Liquid Pigment
 	public static final Fluid PIGMENT_BLACK_FLUID = createFluid("pigment_black",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.BLACK));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.BLACK));
 
 	public static final Fluid PIGMENT_RED_FLUID = createFluid("pigment_red",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.RED));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.RED));
 
 	public static final Fluid PIGMENT_GREEN_FLUID = createFluid("pigment_green",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.GREEN));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.GREEN));
 
 	public static final Fluid PIGMENT_BROWN_FLUID = createFluid("pigment_brown",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.BROWN));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.BROWN));
 
 	public static final Fluid PIGMENT_BLUE_FLUID = createFluid("pigment_blue",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.BLUE));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.BLUE));
 
 	public static final Fluid PIGMENT_PURPLE_FLUID = createFluid("pigment_purple",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.PURPLE));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.PURPLE));
 
 	public static final Fluid PIGMENT_CYAN_FLUID = createFluid("pigment_cyan",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.CYAN));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.CYAN));
 
 	public static final Fluid PIGMENT_LIGHT_GRAY_FLUID = createFluid("pigment_light_gray",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.SILVER));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.SILVER));
 
 	public static final Fluid PIGMENT_GRAY_FLUID = createFluid("pigment_gray",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.GRAY));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.GRAY));
 
 	public static final Fluid PIGMENT_PINK_FLUID = createFluid("pigment_pink",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.PINK));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.PINK));
 
 	public static final Fluid PIGMENT_LIME_FLUID = createFluid("pigment_lime",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.LIME));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.LIME));
 
 	public static final Fluid PIGMENT_YELLOW_FLUID = createFluid("pigment_yellow",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.YELLOW));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.YELLOW));
 
 	public static final Fluid PIGMENT_LIGHT_BLUE_FLUID = createFluid("pigment_light_blue",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.LIGHT_BLUE));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.LIGHT_BLUE));
 
 	public static final Fluid PIGMENT_MAGENTA_FLUID = createFluid("pigment_magenta",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.MAGENTA));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.MAGENTA));
 
 	public static final Fluid PIGMENT_ORANGE_FLUID = createFluid("pigment_orange",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.ORANGE));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.ORANGE));
 
 	public static final Fluid PIGMENT_WHITE_FLUID = createFluid("pigment_white",
-			fluid -> new LiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.WHITE));
+			fluid -> new BlockLiquidPigment(fluid, LIQUID_PIGMENT).setColor(EnumDyeColor.WHITE));
 
 	// Fluid creation and registry stuff
 	public static <T extends Block & IFluidBlock> Fluid createFluid(String name, Function<Fluid, T> blockFactory) {

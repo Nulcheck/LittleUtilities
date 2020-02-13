@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.ForgeEventFactory;
 
-public class ItemLavaLily extends ItemColoredBase {
+public class ItemLavaLily extends ColoredItemBase {
 	public ItemLavaLily(Block block) {
 		super(block, false);
 	}

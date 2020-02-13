@@ -17,14 +17,14 @@ public class ModItems {
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Item HEATING_ELEMENT = new ItemBase("heating_element", ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Item FERTILIZER = new Fertilizer("fertilizer", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item FERTILIZER = new ItemFertilizer("fertilizer", ITEMS).setCreativeTab(LittleUtilities.lu);
 	public static final Item CACTUS_FIBER = new ItemBase("cactus_fiber", ITEMS).setCreativeTab(LittleUtilities.lu);
 	public static final Item CACTUS_TWINE = new ItemBase("cactus_twine", ITEMS).setCreativeTab(LittleUtilities.lu);
 	public static final Item REINFORCED_NETHERBRICK = new ItemBase("reinforced_netherbrick", ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Item REINFORCED_NETHERBRICK_PLATE = new ItemBase("reinforced_netherbrick_plate", ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Item LAVA_BOTTLE = new LavaBottle("lava_bottle", ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Item LAVA_BOTTLE = new ItemLavaBottle("lava_bottle", ITEMS).setCreativeTab(LittleUtilities.lu);
 	// public static final Item POWDER_MILK = new ItemBase("powder_milk", ITEMS).setCreativeTab(LittleUtilities.lu);
 
 	// public static final Item OBSIDIAN_BOAT = new

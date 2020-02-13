@@ -5,6 +5,11 @@ import java.util.List;
 
 import mce.lu.api.PamsBalanceHandler;
 import mce.lu.common.LittleUtilities;
+import mce.lu.common.block.utility.BlockAquaReservoir;
+import mce.lu.common.block.utility.BlockCondenser;
+import mce.lu.common.block.utility.BlockDehydrator;
+import mce.lu.common.block.utility.BlockMagmaReservoir;
+import mce.lu.common.block.utility.BlockSnowMelter;
 import mce.lu.common.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -22,34 +27,34 @@ public class ModBlocks {
 	public static final Material UTIL_METAL = new Material(MapColor.IRON);
 
 	//// UTILITY
-	public static final Block CONDENSER = new CondenserBlock("lu_condenser", UTIL_ROCK, BLOCKS, ModItems.ITEMS)
+	public static final Block CONDENSER = new BlockCondenser("lu_condenser", UTIL_ROCK, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(1.5f);
-	public static final Block SNOW_MELTER = new SnowMelterBlock("snow_melter", UTIL_METAL, BLOCKS, ModItems.ITEMS)
+	public static final Block SNOW_MELTER = new BlockSnowMelter("snow_melter", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(1.2f);
-	public static final Block DEHYDRATOR = new DehydratorBlock("dehydrator", UTIL_METAL, BLOCKS, ModItems.ITEMS)
+	public static final Block DEHYDRATOR = new BlockDehydrator("dehydrator", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Block AQUA_RESERVOIR = new AquaReservoir("aqua_reservoir", UTIL_METAL, BLOCKS, ModItems.ITEMS)
+	public static final Block AQUA_RESERVOIR = new BlockAquaReservoir("aqua_reservoir", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(1f);
-	public static final Block MAGMA_RESERVOIR = new MagmaReservoir("magma_reservoir", UTIL_METAL, BLOCKS,
+	public static final Block MAGMA_RESERVOIR = new BlockMagmaReservoir("magma_reservoir", UTIL_METAL, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1f).setLightLevel(1f);
-	public static final Block FERTILE_DIRT = new FertileDirt("fertile_dirt", Material.GROUND, BLOCKS, ModItems.ITEMS)
+	public static final Block FERTILE_DIRT = new BlockFertileDirt("fertile_dirt", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
-	public static final Block FERTILE_FARMLAND = new FertileFarmland("fertile_farmland", BLOCKS, ModItems.ITEMS)
+	public static final Block FERTILE_FARMLAND = new BlockFertileFarmland("fertile_farmland", BLOCKS, ModItems.ITEMS)
 			.setHardness(0.5f);
-	public static final Block ARABLE_DIRT = new ArableDirt("arable_dirt", Material.GROUND, BLOCKS, ModItems.ITEMS)
+	public static final Block ARABLE_DIRT = new BlockArableDirt("arable_dirt", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
-	public static final Block ARABLE_FARMLAND = new ArableFarmland("arable_farmland", BLOCKS, ModItems.ITEMS)
+	public static final Block ARABLE_FARMLAND = new BlockArableFarmland("arable_farmland", BLOCKS, ModItems.ITEMS)
 			.setHardness(0.5f);
-	public static final Block UNSTOMPABLE_FARMLAND = new UnstompableFarmland("unstompable_farmland", BLOCKS,
+	public static final Block UNSTOMPABLE_FARMLAND = new BlockUnstompableFarmland("unstompable_farmland", BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
-	public static final Block SPIKES = new SpikeBlock("spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
+	public static final Block SPIKES = new BlockSpike("spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Block POISON_SPIKES = new SpikeBlock("poison_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
+	public static final Block POISON_SPIKES = new BlockSpike("poison_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Block FIRE_SPIKES = new SpikeBlock("fire_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
+	public static final Block FIRE_SPIKES = new BlockSpike("fire_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Block JUMP_PAD = new BlockJumpPad("jump_pad", UTIL_METAL, BLOCKS, ModItems.ITEMS)
-			.setCreativeTab(LittleUtilities.lu);
+	public static final Block WORLD_TICK_ACCELERATOR = new BlockWorldTicker("world_ticker", UTIL_METAL, BLOCKS,
+			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu);
 
 	//// NORMAL
 	public static final Block GOLD_BARS = new BlockPaneBase("gold_bars", UTIL_METAL, BLOCKS, ModItems.ITEMS, true)
@@ -86,62 +91,62 @@ public class ModBlocks {
 			ModItems.ITEMS).setHardness(2f);
 
 	// Dye Reeds / Plants
-	public static final DyeReeds REEDS_BLACK = (DyeReeds) new DyeReeds("reeds_black", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_BLACK = (BlockDyeReeds) new BlockDyeReeds("reeds_black", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_RED = (DyeReeds) new DyeReeds("reeds_red", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_RED = (BlockDyeReeds) new BlockDyeReeds("reeds_red", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_GREEN = (DyeReeds) new DyeReeds("reeds_green", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_GREEN = (BlockDyeReeds) new BlockDyeReeds("reeds_green", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_BROWN = (DyeReeds) new DyeReeds("reeds_brown", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_BROWN = (BlockDyeReeds) new BlockDyeReeds("reeds_brown", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_BLUE = (DyeReeds) new DyeReeds("reeds_blue", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_BLUE = (BlockDyeReeds) new BlockDyeReeds("reeds_blue", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_PURPLE = (DyeReeds) new DyeReeds("reeds_purple", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_PURPLE = (BlockDyeReeds) new BlockDyeReeds("reeds_purple", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_CYAN = (DyeReeds) new DyeReeds("reeds_cyan", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_CYAN = (BlockDyeReeds) new BlockDyeReeds("reeds_cyan", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_LIGHT_GRAY = (DyeReeds) new DyeReeds("reeds_light_gray", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_LIGHT_GRAY = (BlockDyeReeds) new BlockDyeReeds("reeds_light_gray", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_GRAY = (DyeReeds) new DyeReeds("reeds_gray", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_GRAY = (BlockDyeReeds) new BlockDyeReeds("reeds_gray", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_PINK = (DyeReeds) new DyeReeds("reeds_pink", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_PINK = (BlockDyeReeds) new BlockDyeReeds("reeds_pink", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_LIME = (DyeReeds) new DyeReeds("reeds_lime", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_LIME = (BlockDyeReeds) new BlockDyeReeds("reeds_lime", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_YELLOW = (DyeReeds) new DyeReeds("reeds_yellow", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_YELLOW = (BlockDyeReeds) new BlockDyeReeds("reeds_yellow", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_LIGHT_BLUE = (DyeReeds) new DyeReeds("reeds_light_blue", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_LIGHT_BLUE = (BlockDyeReeds) new BlockDyeReeds("reeds_light_blue", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_MAGENTA = (DyeReeds) new DyeReeds("reeds_magenta", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_MAGENTA = (BlockDyeReeds) new BlockDyeReeds("reeds_magenta", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_ORANGE = (DyeReeds) new DyeReeds("reeds_orange", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_ORANGE = (BlockDyeReeds) new BlockDyeReeds("reeds_orange", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final DyeReeds REEDS_WHITE = (DyeReeds) new DyeReeds("reeds_white", Material.PLANTS, BLOCKS,
+	public static final BlockDyeReeds REEDS_WHITE = (BlockDyeReeds) new BlockDyeReeds("reeds_white", Material.PLANTS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
 
-	public static final Block LAVA_LILY = new LavaLily("lava_lily", Material.PLANTS, BLOCKS, ModItems.ITEMS)
+	public static final Block LAVA_LILY = new BlockLavaLily("lava_lily", Material.PLANTS, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
 
 	//// CONDENSED ITEM BLOCKS
-	public static final Block GHAST_TEAR_BLOCK = new GhastTearBlock("ghast_tear_block", Material.GLASS, BLOCKS,
+	public static final Block GHAST_TEAR_BLOCK = new BlockGhastTear("ghast_tear_block", Material.GLASS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setLightLevel(0.4f).setHardness(1f);
-	public static final Block BLAZE_ROD_BLOCK = new BlazeRodBlock("blaze_rod_block", Material.GLASS, BLOCKS,
+	public static final Block BLAZE_ROD_BLOCK = new BlockBlazeRod("blaze_rod_block", Material.GLASS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setLightLevel(1f).setHardness(1f);
-	public static final Block BLAZE_POWDER_BLOCK = new BlazeRodBlock("blaze_powder_block", Material.CLAY, BLOCKS,
+	public static final Block BLAZE_POWDER_BLOCK = new BlockBlazeRod("blaze_powder_block", Material.CLAY, BLOCKS,
 			ModItems.ITEMS, SoundType.GROUND).setCreativeTab(LittleUtilities.lu).setLightLevel(8f);
-	public static final Block NETHER_STAR_BLOCK = new NetherStarBlock("nether_star_block", Material.GLASS, BLOCKS,
+	public static final Block NETHER_STAR_BLOCK = new BlockNetherStar("nether_star_block", Material.GLASS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(2f);
-	public static final Block GUNPOWDER_BLOCK = new GunpowderBlock("gunpowder_block", Material.SAND, BLOCKS,
+	public static final Block GUNPOWDER_BLOCK = new BlockGunpowder("gunpowder_block", Material.SAND, BLOCKS,
 			ModItems.ITEMS, 0d, 0d, 0d, 0d, 0.0625d, 0d).setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
 	public static final Block FLINT_BLOCK = new BlockBase("flint_block", Material.CLAY, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(0.7f);
-	public static final Block PAPER_BLOCK = new PaperBlock("paper_block", Material.GROUND, BLOCKS, ModItems.ITEMS)
+	public static final Block PAPER_BLOCK = new BlockPaper("paper_block", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(0.6f);
-	public static final Block ENDER_EYE_BLOCK = new EnderEyeBlock("ender_eye_block", Material.ROCK, BLOCKS,
+	public static final Block ENDER_EYE_BLOCK = new BlockEnderEye("ender_eye_block", Material.ROCK, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1f);
 	public static final Block MAGMA_CREAM_BLOCK = new BlockBase("magma_cream_block", Material.CLAY, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setLightLevel(0.45f).setHardness(0.8f);
-	public static final Block FEATHER_BLOCK = new FeatherBlock("feather_block", Material.CLOTH, BLOCKS, ModItems.ITEMS)
+	public static final Block FEATHER_BLOCK = new BlockFeather("feather_block", Material.CLOTH, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
 	public static final Block EGG_BLOCK = new BlockBase("egg_block", Material.GROUND, BLOCKS, ModItems.ITEMS,
 			SoundType.WOOD).setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
@@ -151,7 +156,7 @@ public class ModBlocks {
 			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0.6f);
 	public static final Block GLISTERING_MELON = new BlockBase("glistering_melon_block", Material.CLAY, BLOCKS,
 			ModItems.ITEMS, SoundType.WOOD).setCreativeTab(LittleUtilities.lu).setHardness(0.6f);
-	public static final Block BONE_BLOCK = new BoneBlock("bone_block", UTIL_ROCK, BLOCKS, ModItems.ITEMS)
+	public static final Block BONE_BLOCK = new BlockBone("bone_block", UTIL_ROCK, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(1f);
 	public static final Block CHARCOAL_BLOCK = new BlockBase("charcoal_block", Material.ROCK, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
@@ -223,7 +228,7 @@ public class ModBlocks {
 			ModItems.ITEMS, SoundType.SAND).setCreativeTab(LittleUtilities.lu).setHardness(0.2f);
 
 	// USEABLE BLOCKS
-	public static final Block ENDER_PEARL_BLOCK = new EnderPearlBlock("ender_pearl_block", Material.GLASS, BLOCKS,
+	public static final Block ENDER_PEARL_BLOCK = new BlockEnderPearl("ender_pearl_block", Material.GLASS, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1f);
 
 	// EDIBLE BLOCKS
@@ -271,7 +276,7 @@ public class ModBlocks {
 					.setCreativeTab(LittleUtilities.lu).setHardness(0.8f);
 	public static final Block TROPICAL_FISH_BLOCK = new BlockEdible("tropical_fish_block", Material.CLAY, BLOCKS,
 			ModItems.ITEMS, 1, PamsBalanceHandler.tropicalFishSat).setCreativeTab(LittleUtilities.lu).setHardness(0.8f);
-	public static final Block PUFFERFISH_BLOCK = new PufferfishBlock("pufferfish_block", Material.CLAY, BLOCKS,
+	public static final Block PUFFERFISH_BLOCK = new BlockPufferfish("pufferfish_block", Material.CLAY, BLOCKS,
 			ModItems.ITEMS, 1, PamsBalanceHandler.pufferSat).setCreativeTab(LittleUtilities.lu).setHardness(0.8f);
 	public static final Block ROTTEN_FLESH_BLOCK = ((BlockEdible) new BlockEdible("rotten_flesh_block", Material.CLAY,
 			BLOCKS, ModItems.ITEMS, PamsBalanceHandler.rottenFleshAmount, 0.1f))
@@ -280,9 +285,9 @@ public class ModBlocks {
 	public static final Block APPLE_BLOCK = new BlockEdible("apple_block", Material.CLAY, BLOCKS, ModItems.ITEMS,
 			PamsBalanceHandler.appleAmount, PamsBalanceHandler.appleSat).setCreativeTab(LittleUtilities.lu)
 					.setHardness(0.9f);
-	public static final Block GOLDEN_APPLE_BLOCK = new GoldenAppleBlock("golden_apple_block", Material.CLAY, BLOCKS,
+	public static final Block GOLDEN_APPLE_BLOCK = new BlockGoldenApple("golden_apple_block", Material.CLAY, BLOCKS,
 			ModItems.ITEMS, 4, 1.2f).setCreativeTab(LittleUtilities.lu).setHardness(0.9f);
-	public static final Block NOTCH_APPLE_BLOCK = new GoldenAppleBlock("notch_apple_block", Material.CLAY, BLOCKS,
+	public static final Block NOTCH_APPLE_BLOCK = new BlockGoldenApple("notch_apple_block", Material.CLAY, BLOCKS,
 			ModItems.ITEMS, 4, 1.2f).setCreativeTab(LittleUtilities.lu).setHardness(0.9f);
 	public static final Block BREAD_BLOCK = new BlockEdible("bread_block", Material.CLAY, BLOCKS, ModItems.ITEMS,
 			PamsBalanceHandler.breadAmount, PamsBalanceHandler.breadSat).setCreativeTab(LittleUtilities.lu)
@@ -319,7 +324,7 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu).setHardness(1f);
 	public static final Block COMPACT_GRAVEL = new BlockBase("compact_gravel", Material.CLAY, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(0.9f);
-	public static final Block COMPACT_NETHERRACK = new CompactNetherrackBlock("compact_netherrack", Material.ROCK,
+	public static final Block COMPACT_NETHERRACK = new BlockCompactNetherrack("compact_netherrack", Material.ROCK,
 			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0.8f);
 	public static final Block COMPACT_GRANITE = new BlockBase("compact_granite", Material.ROCK, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(2.2f);
@@ -327,7 +332,7 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu).setHardness(2.2f);
 	public static final Block COMPACT_ANDESITE = new BlockBase("compact_andesite", Material.ROCK, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(2.2f);
-	public static final Block COMPACT_SOUL_SAND = new CompactSoulSand("compact_soul_sand", Material.SAND, BLOCKS,
+	public static final Block COMPACT_SOUL_SAND = new BlockCompactSoulSand("compact_soul_sand", Material.SAND, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1f);
 	public static final Block COMPACT_OBSIDIAN = new BlockBase("compact_obsidian", Material.ROCK, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(50f).setResistance(2000f);

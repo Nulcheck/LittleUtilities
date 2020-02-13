@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import javax.annotation.Nullable;
 
-import mce.lu.common.block.DehydratorBlock;
+import mce.lu.common.block.utility.BlockDehydrator;
 import mce.lu.common.container.ContainerDehydrator;
 import mce.lu.common.core.recipes.DehydratorRecipes;
 import net.minecraft.block.Block;
@@ -209,7 +209,7 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 
 			if (flag != this.isBurning()) {
 				flag1 = true;
-				DehydratorBlock.setState(this.isBurning(), this.world, this.pos);
+				BlockDehydrator.setState(this.isBurning(), this.world, this.pos);
 			}
 		}
 
