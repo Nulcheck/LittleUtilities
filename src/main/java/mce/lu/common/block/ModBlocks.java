@@ -10,6 +10,7 @@ import mce.lu.common.block.utility.BlockCondenser;
 import mce.lu.common.block.utility.BlockDehydrator;
 import mce.lu.common.block.utility.BlockMagmaReservoir;
 import mce.lu.common.block.utility.BlockSnowMelter;
+import mce.lu.common.block.utility.BlockWorldTicker;
 import mce.lu.common.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -33,6 +34,8 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu).setHardness(1.2f);
 	public static final Block DEHYDRATOR = new BlockDehydrator("dehydrator", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
+	public static final Block WORLD_TICK_ACCELERATOR = new BlockWorldTicker("world_ticker", UTIL_METAL, BLOCKS,
+			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu); // 
 	public static final Block AQUA_RESERVOIR = new BlockAquaReservoir("aqua_reservoir", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu).setHardness(1f);
 	public static final Block MAGMA_RESERVOIR = new BlockMagmaReservoir("magma_reservoir", UTIL_METAL, BLOCKS,
@@ -53,8 +56,6 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Block FIRE_SPIKES = new BlockSpike("fire_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Block WORLD_TICK_ACCELERATOR = new BlockWorldTicker("world_ticker", UTIL_METAL, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu);
 
 	//// NORMAL
 	public static final Block GOLD_BARS = new BlockPaneBase("gold_bars", UTIL_METAL, BLOCKS, ModItems.ITEMS, true)
