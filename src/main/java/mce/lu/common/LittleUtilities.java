@@ -49,7 +49,7 @@ public class LittleUtilities {
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ModBlocks.CONDENSER);
 		}
-	}.setLabelColor(5635925);
+	};
 	static { FluidRegistry.enableUniversalBucket(); }
 	
 	@EventHandler

@@ -35,6 +35,7 @@ public class BiomeDecoratorHandler extends BiomeDecorator {
 	@Override
 	protected void genDecorations(Biome biome, World world, Random rand) {
 		generateDyeReeds(world, biome, rand, new ChunkPos(chunkPos), chunkPos);
+		generateLavaLily(world, biome, rand, new ChunkPos(chunkPos), chunkPos);
 	}
 
 	public void generateDyeReeds(World world, Biome biome, Random rand, ChunkPos chunkPos, BlockPos blockPos) {
@@ -52,6 +53,26 @@ public class BiomeDecoratorHandler extends BiomeDecorator {
 
 					if (LUConfigManager.modConfig.features.generateDyeReeds)
 						dyeReedGen.generate(world, rand, reedPos);
+				}
+			}
+		}
+	}
+
+	public void generateLavaLily(World world, Biome biome, Random rand, ChunkPos chunkPos, BlockPos blockPos) {
+		if (TerrainGen.decorate(world, rand, chunkPos, DecorateBiomeEvent.Decorate.EventType.LAKE_LAVA)) {
+			for (int reedGen = 0; reedGen < LUConfigManager.modConfig.features.dyeReedsPerChunk; ++reedGen) {
+				int xCoord = rand.nextInt(16) + 8;
+				int zCoord = rand.nextInt(16) + 8;
+				int yRange = world.getHeight(blockPos.add(xCoord, 0, zCoord)).getY() + 32;
+
+				lavaLilyGen = new WorldGenLavaLily();
+
+				if (yRange > 0) {
+					int yCoord = rand.nextInt(yRange);
+					BlockPos reedPos = blockPos.add(xCoord, yCoord, zCoord);
+
+					if (LUConfigManager.modConfig.features.generateDyeReeds)
+						lavaLilyGen.generate(world, rand, reedPos);
 				}
 			}
 		}

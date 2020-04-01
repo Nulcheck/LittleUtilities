@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import mce.lu.client.fx.particles.ParticleSmokeFX;
+import mce.lu.common.LittleUtilities;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -74,11 +75,12 @@ public class BlockBlazeRod extends BlockBase {
 
 			if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
 					|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ() || d3 > (double) (pos.getZ() + 1)) {
-				ParticleManager
-						.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(),
-								new ParticleSmokeFX(world, pos.getX() + rand.nextDouble(),
-										pos.getY() + rand.nextDouble(), pos.getZ() + rand.nextDouble(), 0d, 0d, 0d),
-								0.9f, 0.6f, 0.3f, 0.3f, 8, false);
+				/*
+				 * LittleUtilities.proxy .spawnParticle(world, pos.getX(), pos.getY(),
+				 * pos.getZ(), new ParticleSmokeFX(world, pos.getX() + rand.nextDouble(),
+				 * pos.getY() + rand.nextDouble(), pos.getZ() + rand.nextDouble(), 0d, 0d, 0d),
+				 * 0.9f, 0.6f, 0.3f, 0.3f, 8, false);
+				 */
 			}
 		}
 	}

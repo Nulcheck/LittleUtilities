@@ -189,6 +189,11 @@ public class LUConfigManager {
 			@Comment({ "Should cactus drop cactus fiber?", "Can be used to make string." })
 			@RequiresMcRestart
 			public boolean cactusFiberDrops = true;
+			
+			@Name("World Tick Accelerator Amount")
+			@Comment({"Normal tick amount: 3", "Default accelerator tick amount: 85"})
+			@RequiresMcRestart
+			public int worldTickerAmount = 85;
 		}
 
 		public static class Loot {

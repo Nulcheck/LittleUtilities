@@ -6,8 +6,8 @@
   ],
   "key": {
     "x": {
-      "type": "forge:ore",
-      "ore": "woodLog"
+      "type": "forge:ore_dict",
+      "ore": "logWood"
     }
   },
   "result": {

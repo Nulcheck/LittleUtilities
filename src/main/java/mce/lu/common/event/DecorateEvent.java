@@ -14,5 +14,8 @@ public class DecorateEvent {
 
 		if (TerrainGen.decorate(e.getWorld(), e.getRand(), e.getChunkPos(), DecorateBiomeEvent.Decorate.EventType.REED))
 			decor.decorate(e.getWorld(), e.getRand(), e.getWorld().getBiome(e.getPos()), e.getPos());
+		
+		if(TerrainGen.decorate(e.getWorld(), e.getRand(), e.getChunkPos(), DecorateBiomeEvent.Decorate.EventType.LAKE_LAVA))
+			decor.decorate(e.getWorld(), e.getRand(), e.getWorld().getBiome(e.getPos()), e.getPos());
 	}
 }

@@ -21,10 +21,12 @@ public class BlockLiquidPigment extends BlockFluidClassic {
 		super(fluid, mat);
 	}
 
-	public BlockLiquidPigment setColor(EnumDyeColor c) {
-		return setColor(((c.getColorValue() >> 16) & 255) / 255f, ((c.getColorValue() >> 8) & 255) / 255f,
-				(c.getColorValue() & 255) / 255f);
-	}
+	/*
+	 * public BlockLiquidPigment setColor(EnumDyeColor c) { return
+	 * setColor(((Integer.valueOf(c.getColorValue()) >> 16) & 255) / 255f,
+	 * ((Integer.valueOf(c.getColorValue()) >> 8) & 255) / 255f,
+	 * (Integer.valueOf(c.getColorValue()) & 255) / 255f); }
+	 */
 
 	public BlockLiquidPigment setColor(int c) {
 		return setColor(((c >> 16) & 255) / 255f, ((c >> 8) & 255) / 255f, (c & 255) / 255f);

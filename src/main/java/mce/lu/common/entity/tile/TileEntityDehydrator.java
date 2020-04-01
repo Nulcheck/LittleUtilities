@@ -173,7 +173,7 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 		if (!this.world.isRemote) {
 			ItemStack fuelStack = this.slots.get(2);
 
-			if (this.isBurning() || !fuelStack.isEmpty() && !((ItemStack) this.slots.get(0)).isEmpty()) {
+			if (this.isBurning() || !fuelStack.isEmpty() && (!((ItemStack) this.slots.get(0)).isEmpty() || fluidTank.getFluidAmount() <= 0)) {
 				if (!this.isBurning() && this.canDry()) {
 					this.tileBurnTime = getItemBurnTime(fuelStack);
 					this.itemBurnTime = this.tileBurnTime;
@@ -340,7 +340,8 @@ public class TileEntityDehydrator extends TileEntityLockable implements ITickabl
 		if (this.canDry()) {
 			if (outputStack.isEmpty())
 				this.slots.set(1, recipeResultStack).copy();
-			else if (outputStack.getItem() == recipeResultStack.getItem())
+			
+			if (outputStack.getItem() == recipeResultStack.getItem())
 				outputStack.grow(recipeResultStack.getCount());
 
 			if (DehydratorRecipes.isItemInRecipe(inputStack))

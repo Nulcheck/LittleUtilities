@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import mce.lu.common.item.ItemLavaLily;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -16,6 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.xendric.xenlib.common.core.block.BlockBushBase;
 
 public class BlockLavaLily extends BlockBushBase {
 	protected static final AxisAlignedBB LILY_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.09375D,
@@ -23,6 +25,7 @@ public class BlockLavaLily extends BlockBushBase {
 
 	public BlockLavaLily(String name, Material mat, List<Block> blockList, List<Item> itemList) {
 		super(name, mat, blockList, itemList);
+		itemList.add(new ItemLavaLily(this).setRegistryName(this.getRegistryName()));
 	}
 
 	@Override

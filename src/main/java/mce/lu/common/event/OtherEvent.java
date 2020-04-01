@@ -130,6 +130,12 @@ public class OtherEvent {
 		IBlockState state = e.getWorld().getBlockState(pos);
 		RayTraceHelper rayHelper = new RayTraceHelper();
 
+		if (!stack.isEmpty() && stack.getItem() == Items.MAGMA_CREAM) {
+			if (e.getWorld().getBlockState(pos).getBlock().isTopSolid(state))
+				e.getWorld().setBlockState(pos.up(), ModBlocks.MAGMA_SLIME_LAYER.getDefaultState());
+			e.setResult(Result.ALLOW);
+		}
+
 		// Lava Bottle
 		if (!stack.isEmpty() && stack.getItem() == Items.GLASS_BOTTLE) {
 			// For clicking liquids

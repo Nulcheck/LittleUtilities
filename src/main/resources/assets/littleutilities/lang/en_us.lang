@@ -84,20 +84,11 @@ adv.lu.ender_eye_block.title=Staring Contest
 adv.lu.ender_eye_block.desc=Make an Ender Eye Block
 
 ////// BLOCKS
+// UTILITY
 tile.lu_condenser.name=Condenser
 tile.snow_melter.name=Snow Melter
 tile.aqua_reservoir.name=Aqua Reservoir
 tile.magma_reservoir.name=Magma Reservoir
-tile.pigment_mixer.name=Pigment Mixer
-tile.gold_bars.name=Gold Bars
-tile.diamond_bars.name=Diamond Bars
-tile.lapis_bars.name=Lapis Lazuli Bars
-tile.obsidian_bars.name=Obsidian Bars
-tile.blaze_bars.name=Blaze Rod Bars
-tile.lava_stone.name=Lava Stone
-tile.lava_cobblestone.name=Lava Cobblestone
-tile.lava_obsidian.name=Lava Obsidian
-tile.pure_quartz_block.name=Pure Quartz Block
 tile.fertile_dirt.name=Fertile Dirt
 tile.fertile_farmland.name=Fertile Farmland
 tile.arable_dirt.name=Arable Dirt
@@ -107,6 +98,19 @@ tile.spike_block.name=Spikes
 tile.poison_spike_block.name=Poisoned Spikes
 tile.fire_spike_block.name=Fire Spikes
 tile.dehydrator.name=Dehydrator
+tile.world_ticker.name=World Tick Accelerator
+tile.magma_slime_layer.name=Magma Slime
+
+// NORMAL
+tile.gold_bars.name=Gold Bars
+tile.diamond_bars.name=Diamond Bars
+tile.lapis_bars.name=Lapis Lazuli Bars
+tile.obsidian_bars.name=Obsidian Bars
+tile.blaze_bars.name=Blaze Rod Bars
+tile.lava_stone.name=Lava Stone
+tile.lava_cobblestone.name=Lava Cobblestone
+tile.lava_obsidian.name=Lava Obsidian
+tile.pure_quartz_block.name=Pure Quartz Block
 tile.reinforced_netherbrick_block.name=Reinforced Nether Brick
 tile.lava_lily.name=Lava Lily
 tile.cement.name=Cement

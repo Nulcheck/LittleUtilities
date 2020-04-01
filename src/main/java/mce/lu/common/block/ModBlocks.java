@@ -35,13 +35,13 @@ public class ModBlocks {
 	public static final Block DEHYDRATOR = new BlockDehydrator("dehydrator", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Block WORLD_TICK_ACCELERATOR = new BlockWorldTicker("world_ticker", UTIL_METAL, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu); // 
-	public static final Block AQUA_RESERVOIR = new BlockAquaReservoir("aqua_reservoir", UTIL_METAL, BLOCKS, ModItems.ITEMS)
-			.setCreativeTab(LittleUtilities.lu).setHardness(1f);
+			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu);
+	public static final Block AQUA_RESERVOIR = new BlockAquaReservoir("aqua_reservoir", UTIL_METAL, BLOCKS,
+			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1f);
 	public static final Block MAGMA_RESERVOIR = new BlockMagmaReservoir("magma_reservoir", UTIL_METAL, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1f).setLightLevel(1f);
-	public static final Block FERTILE_DIRT = new BlockFertileDirt("fertile_dirt", Material.GROUND, BLOCKS, ModItems.ITEMS)
-			.setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
+	public static final Block FERTILE_DIRT = new BlockFertileDirt("fertile_dirt", Material.GROUND, BLOCKS,
+			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0.5f);
 	public static final Block FERTILE_FARMLAND = new BlockFertileFarmland("fertile_farmland", BLOCKS, ModItems.ITEMS)
 			.setHardness(0.5f);
 	public static final Block ARABLE_DIRT = new BlockArableDirt("arable_dirt", Material.GROUND, BLOCKS, ModItems.ITEMS)
@@ -56,6 +56,8 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Block FIRE_SPIKES = new BlockSpike("fire_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
+	public static final Block MAGMA_SLIME_LAYER = new BlockMagmaSlimeLayer("magma_slime_layer", Material.CLAY, BLOCKS,
+			ModItems.ITEMS, SoundType.SLIME);
 
 	//// NORMAL
 	public static final Block GOLD_BARS = new BlockPaneBase("gold_bars", UTIL_METAL, BLOCKS, ModItems.ITEMS, true)
@@ -92,38 +94,38 @@ public class ModBlocks {
 			ModItems.ITEMS).setHardness(2f);
 
 	// Dye Reeds / Plants
-	public static final BlockDyeReeds REEDS_BLACK = (BlockDyeReeds) new BlockDyeReeds("reeds_black", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_RED = (BlockDyeReeds) new BlockDyeReeds("reeds_red", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_GREEN = (BlockDyeReeds) new BlockDyeReeds("reeds_green", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_BROWN = (BlockDyeReeds) new BlockDyeReeds("reeds_brown", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_BLUE = (BlockDyeReeds) new BlockDyeReeds("reeds_blue", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_PURPLE = (BlockDyeReeds) new BlockDyeReeds("reeds_purple", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_CYAN = (BlockDyeReeds) new BlockDyeReeds("reeds_cyan", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_LIGHT_GRAY = (BlockDyeReeds) new BlockDyeReeds("reeds_light_gray", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_GRAY = (BlockDyeReeds) new BlockDyeReeds("reeds_gray", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_PINK = (BlockDyeReeds) new BlockDyeReeds("reeds_pink", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_LIME = (BlockDyeReeds) new BlockDyeReeds("reeds_lime", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_YELLOW = (BlockDyeReeds) new BlockDyeReeds("reeds_yellow", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_LIGHT_BLUE = (BlockDyeReeds) new BlockDyeReeds("reeds_light_blue", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_MAGENTA = (BlockDyeReeds) new BlockDyeReeds("reeds_magenta", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_ORANGE = (BlockDyeReeds) new BlockDyeReeds("reeds_orange", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
-	public static final BlockDyeReeds REEDS_WHITE = (BlockDyeReeds) new BlockDyeReeds("reeds_white", Material.PLANTS, BLOCKS,
-			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_BLACK = (BlockDyeReeds) new BlockDyeReeds("reeds_black", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_RED = (BlockDyeReeds) new BlockDyeReeds("reeds_red", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_GREEN = (BlockDyeReeds) new BlockDyeReeds("reeds_green", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_BROWN = (BlockDyeReeds) new BlockDyeReeds("reeds_brown", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_BLUE = (BlockDyeReeds) new BlockDyeReeds("reeds_blue", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_PURPLE = (BlockDyeReeds) new BlockDyeReeds("reeds_purple", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_CYAN = (BlockDyeReeds) new BlockDyeReeds("reeds_cyan", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_LIGHT_GRAY = (BlockDyeReeds) new BlockDyeReeds("reeds_light_gray",
+			Material.PLANTS, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_GRAY = (BlockDyeReeds) new BlockDyeReeds("reeds_gray", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_PINK = (BlockDyeReeds) new BlockDyeReeds("reeds_pink", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_LIME = (BlockDyeReeds) new BlockDyeReeds("reeds_lime", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_YELLOW = (BlockDyeReeds) new BlockDyeReeds("reeds_yellow", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_LIGHT_BLUE = (BlockDyeReeds) new BlockDyeReeds("reeds_light_blue",
+			Material.PLANTS, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_MAGENTA = (BlockDyeReeds) new BlockDyeReeds("reeds_magenta",
+			Material.PLANTS, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_ORANGE = (BlockDyeReeds) new BlockDyeReeds("reeds_orange", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
+	public static final BlockDyeReeds REEDS_WHITE = (BlockDyeReeds) new BlockDyeReeds("reeds_white", Material.PLANTS,
+			BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(0f);
 
 	public static final Block LAVA_LILY = new BlockLavaLily("lava_lily", Material.PLANTS, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
