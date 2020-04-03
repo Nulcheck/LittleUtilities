@@ -102,7 +102,7 @@ public class CondenserRecipes {
 		this.addRecipe(new ItemStack(Items.BLAZE_POWDER), new ItemStack(ModBlocks.BLAZE_POWDER_BLOCK));
 		this.addRecipe(new ItemStack(Items.POISONOUS_POTATO, 9), new ItemStack(ModBlocks.POISONOUS_POTATO_BLOCK));
 		this.addRecipe(new ItemStack(Items.BEETROOT, 9), new ItemStack(ModBlocks.BEETROOT_BLOCK));
-		this.addRecipe(new ItemStack(ModItems.REINFORCED_NETHERBRICK, 9), new ItemStack(ModBlocks.REINFORCED_NETHERBRICK_BLOCK));
+		this.addRecipe(new ItemStack(ModItems.REINFORCED_NETHERBRICK, 9), new ItemStack(ModBlocks.REINFORCED_NETHER_BRICK_BLOCK));
 
 		this.addRecipe(new ItemStack(ModItems.CACTUS_FIBER, 9), new ItemStack(ModItems.CACTUS_TWINE));
 		this.addRecipe(new ItemStack(ModItems.CACTUS_TWINE, 3), new ItemStack(Items.STRING));

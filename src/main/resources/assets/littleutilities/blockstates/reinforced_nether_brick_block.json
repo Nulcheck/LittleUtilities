@@ -1,0 +1,7 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"inventory": {"model": "xenlib:normal_block", "textures": {"all": "littleutilities:blocks/reinforced_nether_brick_block"}},
+		"normal": {"model": "xenlib:normal_block", "textures": {"all": "littleutilities:blocks/reinforced_nether_brick_block"}}
+	}
+}

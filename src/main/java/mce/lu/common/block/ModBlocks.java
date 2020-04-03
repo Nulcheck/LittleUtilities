@@ -78,20 +78,20 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu).setHardness(50f).setLightLevel(1f);
 	public static final Block PURE_QUARTZ_BLOCK = new BlockBase("pure_quartz_block", Material.ROCK, BLOCKS,
 			ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(1.2f);
-	public static final Block REINFORCED_NETHERBRICK_BLOCK = new BlockBase("reinforced_netherbrick_block",
+	public static final Block REINFORCED_NETHER_BRICK_BLOCK = new BlockBase("reinforced_nether_brick_block",
 			Material.ROCK, BLOCKS, ModItems.ITEMS).setCreativeTab(LittleUtilities.lu).setHardness(3f);
 	public static final Block CEMENT = new BlockBase("cement", Material.GROUND, BLOCKS, ModItems.ITEMS).setHardness(2f)
 			.setResistance(30f).setCreativeTab(LittleUtilities.lu);
 	public static final Block CEMENT_BRICKS = new BlockBase("cement_bricks", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setHardness(2.5f).setResistance(30.5f).setCreativeTab(LittleUtilities.lu);
 	public static final Block CEMENT_STAIRS = new BlockBase("cement_stairs", Material.GROUND, BLOCKS, ModItems.ITEMS)
-			.setHardness(2f);
+			.setHardness(2f).setCreativeTab(LittleUtilities.lu);
 	public static final Block CEMENT_BRICKS_STAIRS = new BlockBase("cement_bricks_stairs", Material.GROUND, BLOCKS,
-			ModItems.ITEMS).setHardness(2f);
+			ModItems.ITEMS).setHardness(2f).setCreativeTab(LittleUtilities.lu);
 	public static final Block CEMENT_SLAB = new BlockBase("cement_slab", Material.GROUND, BLOCKS, ModItems.ITEMS)
-			.setHardness(2f);
+			.setHardness(2f).setCreativeTab(LittleUtilities.lu);
 	public static final Block CEMENT_BRICKS_SLAB = new BlockBase("cement_bricks_slab", Material.GROUND, BLOCKS,
-			ModItems.ITEMS).setHardness(2f);
+			ModItems.ITEMS).setHardness(2f).setCreativeTab(LittleUtilities.lu);
 
 	// Dye Reeds / Plants
 	public static final BlockDyeReeds REEDS_BLACK = (BlockDyeReeds) new BlockDyeReeds("reeds_black", Material.PLANTS,

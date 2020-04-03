@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import mce.lu.client.fx.particles.ParticleEnderFX;
-import mce.lu.common.LittleUtilities;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -16,6 +15,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.client.util.ParticleManager;
 import net.xendric.xenlib.common.core.block.BlockUsable;
 
@@ -25,6 +26,7 @@ public class BlockEnderPearl extends BlockUsable {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
 		double d0 = 0.0625d;
 
@@ -59,12 +61,11 @@ public class BlockEnderPearl extends BlockUsable {
 
 			if (d1 < (double) pos.getX() || d1 > (double) (pos.getX() + 1) || d2 < 0.0D
 					|| d2 > (double) (pos.getY() + 1) || d3 < (double) pos.getZ() || d3 > (double) (pos.getZ() + 1)) {
-				/*
-				 * LittleUtilities.proxy .spawnParticle(world, pos.getX(), pos.getY(),
-				 * pos.getZ(), new ParticleEnderFX(world, pos.getX() + rand.nextDouble(),
-				 * pos.getY() + rand.nextDouble(), pos.getZ() + rand.nextDouble(), 0d, 0d, 0d),
-				 * 1f, 0.3f, 0.9f, 0f, 10, false);
-				 */
+				ParticleManager
+						.spawnParticle(world, pos.getX(), pos.getY(), pos.getZ(),
+								new ParticleEnderFX(world, pos.getX() + rand.nextDouble(),
+										pos.getY() + rand.nextDouble(), pos.getZ() + rand.nextDouble(), 0d, 0d, 0d),
+								1f, 0.3f, 0.9f, 0f, 10, false);
 			}
 		}
 	}
