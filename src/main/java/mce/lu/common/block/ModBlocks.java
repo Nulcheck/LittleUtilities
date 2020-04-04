@@ -5,6 +5,8 @@ import java.util.List;
 
 import mce.lu.api.PamsBalanceHandler;
 import mce.lu.common.LittleUtilities;
+import mce.lu.common.block.BlockCementBricksSlab.BlockCementBricksSlabDouble;
+import mce.lu.common.block.BlockCementSlab.BlockCementSlabDouble;
 import mce.lu.common.block.utility.BlockAquaReservoir;
 import mce.lu.common.block.utility.BlockCondenser;
 import mce.lu.common.block.utility.BlockDehydrator;
@@ -84,14 +86,22 @@ public class ModBlocks {
 			.setResistance(30f).setCreativeTab(LittleUtilities.lu);
 	public static final Block CEMENT_BRICKS = new BlockBase("cement_bricks", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setHardness(2.5f).setResistance(30.5f).setCreativeTab(LittleUtilities.lu);
-	public static final Block CEMENT_STAIRS = new BlockBase("cement_stairs", Material.GROUND, BLOCKS, ModItems.ITEMS)
+
+	// Stairs
+	public static final Block CEMENT_STAIRS = new BlockStairsBase("cement_stairs", Material.GROUND, BLOCKS,
+			ModItems.ITEMS, CEMENT.getDefaultState()).setHardness(2f).setCreativeTab(LittleUtilities.lu);
+	public static final Block CEMENT_BRICKS_STAIRS = new BlockStairsBase("cement_bricks_stairs", Material.GROUND,
+			BLOCKS, ModItems.ITEMS, CEMENT_BRICKS.getDefaultState()).setHardness(2f).setCreativeTab(LittleUtilities.lu);
+
+	// Slabs
+	public static final Block CEMENT_SLAB = new BlockCementSlab("cement_slab", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setHardness(2f).setCreativeTab(LittleUtilities.lu);
-	public static final Block CEMENT_BRICKS_STAIRS = new BlockBase("cement_bricks_stairs", Material.GROUND, BLOCKS,
-			ModItems.ITEMS).setHardness(2f).setCreativeTab(LittleUtilities.lu);
-	public static final Block CEMENT_SLAB = new BlockBase("cement_slab", Material.GROUND, BLOCKS, ModItems.ITEMS)
-			.setHardness(2f).setCreativeTab(LittleUtilities.lu);
-	public static final Block CEMENT_BRICKS_SLAB = new BlockBase("cement_bricks_slab", Material.GROUND, BLOCKS,
-			ModItems.ITEMS).setHardness(2f).setCreativeTab(LittleUtilities.lu);
+	public static final Block CEMENT_SLAB_DOUBLE = new BlockCementSlabDouble("cement_slab_double", Material.GROUND, BLOCKS,
+			ModItems.ITEMS).setHardness(2f);
+	public static final Block CEMENT_BRICKS_SLAB = new BlockCementBricksSlab("cement_bricks_slab", Material.GROUND,
+			BLOCKS, ModItems.ITEMS).setHardness(2f).setCreativeTab(LittleUtilities.lu);
+	public static final Block CEMENT_BRICKS_SLAB_DOUBLE = new BlockCementBricksSlabDouble("cement_bricks_slab_double",
+			Material.GROUND, BLOCKS, ModItems.ITEMS).setHardness(2f).setCreativeTab(LittleUtilities.lu);
 
 	// Dye Reeds / Plants
 	public static final BlockDyeReeds REEDS_BLACK = (BlockDyeReeds) new BlockDyeReeds("reeds_black", Material.PLANTS,
