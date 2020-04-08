@@ -17,16 +17,16 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @EventBusSubscriber
 public class LoadLootTableEvent {
 	static LootEntry skullEntry = new LootEntryItem(new ItemStack(Items.SKULL, 1, 0).getItem(), 45, 2,
-			new LootFunction[0], new LootCondition[0], References.MOD_ID + "skullEntry");
+			new LootFunction[0], new LootCondition[0], References.MOD_ID + ":" + "skullEntry");
 
 	static LootEntry curingKitEntry = new LootEntryItem(ModItems.ZOMBIE_CURING_KIT, 18, 1, new LootFunction[0],
-			new LootCondition[0], References.MOD_ID + "curingKitEntry");
+			new LootCondition[0], References.MOD_ID + ":" + "curingKitEntry");
 
 	static LootEntry pureQuartzEntry = new LootEntryItem(ModItems.PURE_QUARTZ, 35, 3, new LootFunction[0],
-			new LootCondition[0], References.MOD_ID + "pureQuartzEntry");
+			new LootCondition[0], References.MOD_ID + ":" + "pureQuartzEntry");
 
 	static LootEntry cactusTwineEntry = new LootEntryItem(ModItems.CACTUS_TWINE, 40, 4, new LootFunction[0],
-			new LootCondition[0], References.MOD_ID + "pureQuartzEntry");
+			new LootCondition[0], References.MOD_ID + ":" + "cactusTwineEntry");
 
 	@SubscribeEvent
 	public static void loadLoot(LootTableLoadEvent e) {

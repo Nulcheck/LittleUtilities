@@ -9,6 +9,7 @@ import com.google.common.collect.Maps;
 import mce.lu.common.LittleUtilities;
 import mce.lu.common.block.ModFluids;
 import mce.lu.common.item.ModItems;
+import mce.lu.common.util.LU_Util;
 import mce.lu.common.util.References;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
@@ -171,7 +172,7 @@ public class EntityChromaCow extends EntityCow {
 			for (int i = 0; i < 16; ++i)
 				if (i == getHideColorInt())
 					this.world.spawnEntity(new EntityItem(this.world, this.posX, this.posY + (double) this.height,
-							this.posZ, new ItemStack(ModItems.PIGMENTS[i])));
+							this.posZ, new ItemStack(LU_Util.PIGMENTS[i])));
 
 			this.playSound(SoundEvents.ENTITY_MOOSHROOM_SHEAR, 1f, 1f);
 			return true;

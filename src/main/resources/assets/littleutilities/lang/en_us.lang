@@ -21,11 +21,11 @@ waila.lu.snowmelter.range=Range
 waila.lu.snowmelter.redstonemode=Redstone Mode
 
 // JEI Description Stuff
-tile.lu_condenser.guide=Putting 9 items in will condense it down into a block. Most vanilla items will work, and putting the block in a crafting table will give you the items back.
+tile.lu_condenser.guide=Putting items in (Usually 9) will condense it down into a block. Most vanilla items will work, and putting the block in a crafting table will give you the items back.
 
-tile.snow_melter.guide=The snow melter melts snow and ice in a certain raduis. It's like glowstone, but without the light. Use a wrench to change the radius size and to change whether it needs a redstone signal to melt. If active, it will melt snow every few ticks or upon right clicking it.\nThe max range is 7, which means it will clear snow 7 blocks away from the center block. This also includes the y axis.\n\nSneak right click with a wrench to change the redstone mode, and right click with a wrench to change the range.
+tile.snow_melter.guide=The snow melter melts snow and ice in a certain radius. It's like glowstone, but without the light. Use a wrench to change the radius size and to change whether it needs a redstone signal to melt. If active, it will melt snow every few ticks or upon right clicking it.\nThe max range is 7, which means it will clear snow 7 blocks away from the center block. This also includes the y axis.\n\nSneak right click with a wrench to change the redstone mode, and right click with a wrench to change the range.
 
-tile.aqua_reservoir.guide=The aqua reservoir is like a sink. Infinite buckets of water, and you can even pump water out of it. You can also get rid of water buckets by right clicking the block.\nIt was added because Pam's Harvestcraft took their sink out and I was sad.
+tile.aqua_reservoir.guide=The aqua reservoir is like a sink. Infinite buckets of water, and you can even pump water out of it. You can also get rid of water buckets by right clicking the block.\nIt was added because Pam's Harvestcraft removed their sink and I was sad.
 
 tile.magma_reservoir.guide=The magma reservoir, like the aqua reservoir, is like a sink. But for lava. Infinite buckets of lava, and you can even pump lava out of it. You can also get rid of buckets of lava by right clicking the block.
 
@@ -51,15 +51,20 @@ tile.blaze_powder_block.guide=Will set you on fire!
 tile.gunpowder_block.guide=Do NOT let it near fire. It is quite flammable and you will have lost a lot of gunpowder.
 tile.paper_block.guide=Do NOT let it near fire. It is quite flammable and you will have lost a lot of paper.
 tile.feather_block.guide=Will break your fall. No fall damage!
-tile.ender_pearl_block.guide=Will teleport you randomly within a 20 block raduis. (Unless if you sneaking) Don't know why you would want to do this.
+tile.ender_pearl_block.guide=Will teleport you randomly within a 20 block radius (Unless if you're sneaking). Don't know why you would want to do this.
 tile.compact_dragon_egg.guide=What did the dragon ever do to you? You killed her at least nine times for this. This block doesn't do anything special, it's just a normal block.
+tile.ender_eye_block.guide=Is it.. is it watching me?
+tile.ghast_tear_block.guide=Making them ghasts cry, huh?
+tile.nether_star_block.guide=Are you automating wither killing? Well anyway, this gives off some cool particles.
 
-item.sponge.guide=Can remove color from colorable blocks. Like glass, terracotta, etc. Can also remove poison from posion spikes.
+item.sponge.guide=Can remove color from colorable blocks. Like glass, terracotta, etc. Can also remove poison from poison spikes.
 item.zombie_curing_kit.guide=The whole zombie curing process, in one item! Still need the same resources, but this item cures the zombie villager instantly. Still grants you the advancement.
 
 item.fertilizer.guide=Use it to fully grow stuff, like bonemeal in the good 'ol days. Also can make fertile dirt / farmland by right clicking 4 of them on normal dirt or farmland.
 item.lava_bottle.guide=Right click lava with an empty glass bottle! Other mods could probably use this too?
-pigments.guide=Use them like dyes! You can grow them from colored reeds. I wonder if I can feed it to a cow..
+pigments.guide=Use them like dyes! You can grow them from colored reeds. I wonder if I can feed dyes to a cow..
+reeds.guide=They can be used to grow pigments and can be found by water. They're like sugar canes!
+foodblocks.guide=EAT THEM.\n\nYou can also shift right click the block with the same type of item to add it to the block, 9 max.
 
 // CHAT STUFF
 death.attack.spikes=%1$s was spiked to death
