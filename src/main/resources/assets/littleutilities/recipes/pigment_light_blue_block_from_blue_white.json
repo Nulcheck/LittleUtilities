@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "littleutilities:pigment_blue_block"
+      "item": "littleutilities:pigment_blue_block_item"
     },
     {
-      "item": "littleutilities:pigment_white_block"
+      "item": "littleutilities:pigment_white_block_item"
     }
   ],
   "result": {

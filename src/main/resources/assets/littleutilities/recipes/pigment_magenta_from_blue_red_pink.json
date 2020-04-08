@@ -2,17 +2,17 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "littleutilities:pigment_blue"
+      "item": "littleutilities:pigment_blue_item"
     },
     {
-      "item": "littleutilities:pigment_red"
+      "item": "littleutilities:pigment_red_item"
     },
     {
-      "item": "littleutilities:pigment_pink"
+      "item": "littleutilities:pigment_pink_item"
     }
   ],
   "result": {
-    "item": "littleutilities:pigment_magenta",
+    "item": "littleutilities:pigment_magenta_item",
     "count": 3
   }
 }
