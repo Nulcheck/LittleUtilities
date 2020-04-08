@@ -59,7 +59,7 @@ item.zombie_curing_kit.guide=The whole zombie curing process, in one item! Still
 
 item.fertilizer.guide=Use it to fully grow stuff, like bonemeal in the good 'ol days. Also can make fertile dirt / farmland by right clicking 4 of them on normal dirt or farmland.
 item.lava_bottle.guide=Right click lava with an empty glass bottle! Other mods could probably use this too?
-item.pigments.guide=Use them like dyes! You can grow them from colored reeds. I wonder if I can feed it to a cow..
+pigments.guide=Use them like dyes! You can grow them from colored reeds. I wonder if I can feed it to a cow..
 
 // CHAT STUFF
 death.attack.spikes=%1$s was spiked to death
@@ -100,7 +100,7 @@ tile.poison_spike_block.name=Poisoned Spikes
 tile.fire_spike_block.name=Fire Spikes
 tile.dehydrator.name=Dehydrator
 tile.world_ticker.name=World Tick Accelerator
-tile.magma_slime_layer.name=Magma Slime
+tile.magma_slime_block.name=Magma Slime Block
 
 // NORMAL
 tile.gold_bars.name=Gold Bars

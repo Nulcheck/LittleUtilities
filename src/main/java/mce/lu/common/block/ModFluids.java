@@ -98,7 +98,7 @@ public class ModFluids {
 
 			for (IFluidBlock fluidBlock : FLUID_BLOCKS) {
 				Block block = (Block) fluidBlock;
-				block.setRegistryName(References.MOD_ID, fluidBlock.getFluid().getName());
+				block.setRegistryName(References.MOD_ID, fluidBlock.getFluid().getUnlocalizedName());
 				registry.register(block);
 			}
 		}
