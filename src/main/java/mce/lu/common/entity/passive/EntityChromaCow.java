@@ -21,7 +21,6 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.nbt.NBTTagCompound;
@@ -49,12 +48,6 @@ public class EntityChromaCow extends EntityCow {
 			CHROMA_COW_BLUE, CHROMA_COW_PURPLE, CHROMA_COW_CYAN, CHROMA_COW_LIGHT_GRAY, CHROMA_COW_GRAY,
 			CHROMA_COW_PINK, CHROMA_COW_LIME, CHROMA_COW_YELLOW, CHROMA_COW_LIGHT_BLUE, CHROMA_COW_MAGENTA,
 			CHROMA_COW_ORANGE, CHROMA_COW_WHITE;
-
-	public static Item[] PIGMENTS = { ModItems.PIGMENT_BLACK, ModItems.PIGMENT_RED, ModItems.PIGMENT_GREEN,
-			ModItems.PIGMENT_BROWN, ModItems.PIGMENT_BLUE, ModItems.PIGMENT_PURPLE, ModItems.PIGMENT_CYAN,
-			ModItems.PIGMENT_LIGHT_GRAY, ModItems.PIGMENT_GRAY, ModItems.PIGMENT_PINK, ModItems.PIGMENT_LIME,
-			ModItems.PIGMENT_YELLOW, ModItems.PIGMENT_LIGHT_BLUE, ModItems.PIGMENT_MAGENTA, ModItems.PIGMENT_ORANGE,
-			ModItems.PIGMENT_WHITE };
 
 	/**
 	 * Internal inventory to check result of mixing dyes corresponding to the hide
@@ -178,7 +171,7 @@ public class EntityChromaCow extends EntityCow {
 			for (int i = 0; i < 16; ++i)
 				if (i == getHideColorInt())
 					this.world.spawnEntity(new EntityItem(this.world, this.posX, this.posY + (double) this.height,
-							this.posZ, new ItemStack(PIGMENTS[i])));
+							this.posZ, new ItemStack(ModItems.PIGMENTS[i])));
 
 			this.playSound(SoundEvents.ENTITY_MOOSHROOM_SHEAR, 1f, 1f);
 			return true;

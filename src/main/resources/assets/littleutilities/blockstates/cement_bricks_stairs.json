@@ -1,7 +1,7 @@
 {
 	"forge_marker": 1,
 	"variants": {
-		"inventory": [{"model": "xenlib:stairs", "textures": {"all": "littleutilities:blocks/cement_bricks_bricks"}}],
+		"inventory": {"model": "xenlib:stairs", "textures": {"all": "littleutilities:blocks/cement_bricks"} },
 		"facing=east,half=bottom,shape=straight":  { "model": "xenlib:stairs", "textures": {"all": "littleutilities:blocks/cement_bricks"} },
         "facing=west,half=bottom,shape=straight":  { "model": "xenlib:stairs", "y": 180, "uvlock": true, "textures": {"all": "littleutilities:blocks/cement_bricks"} },
         "facing=south,half=bottom,shape=straight": { "model": "xenlib:stairs", "y": 90, "uvlock": true, "textures": {"all": "littleutilities:blocks/cement_bricks"} },

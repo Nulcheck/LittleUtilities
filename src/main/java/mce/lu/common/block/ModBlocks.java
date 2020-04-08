@@ -58,8 +58,8 @@ public class ModBlocks {
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Block FIRE_SPIKES = new BlockSpike("fire_spike_block", UTIL_METAL, BLOCKS, ModItems.ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
-	public static final Block MAGMA_SLIME_LAYER = new BlockMagmaSlimeLayer("magma_slime_layer", Material.CLAY, BLOCKS,
-			ModItems.ITEMS, SoundType.SLIME);
+	public static final Block MAGMA_SLIME_BLOCK = new BlockMagmaSlime("magma_slime_block", Material.CLAY, BLOCKS,
+			ModItems.ITEMS, SoundType.SLIME).setCreativeTab(LittleUtilities.lu);
 
 	//// NORMAL
 	public static final Block GOLD_BARS = new BlockPaneBase("gold_bars", UTIL_METAL, BLOCKS, ModItems.ITEMS, true)
@@ -96,12 +96,12 @@ public class ModBlocks {
 	// Slabs
 	public static final Block CEMENT_SLAB = new BlockCementSlab("cement_slab", Material.GROUND, BLOCKS, ModItems.ITEMS)
 			.setHardness(2f).setCreativeTab(LittleUtilities.lu);
-	public static final Block CEMENT_SLAB_DOUBLE = new BlockCementSlabDouble("cement_slab_double", Material.GROUND, BLOCKS,
-			ModItems.ITEMS).setHardness(2f);
+	public static final Block CEMENT_SLAB_DOUBLE = new BlockCementSlabDouble("cement_slab_double", Material.GROUND,
+			BLOCKS, ModItems.ITEMS).setHardness(2f);
 	public static final Block CEMENT_BRICKS_SLAB = new BlockCementBricksSlab("cement_bricks_slab", Material.GROUND,
 			BLOCKS, ModItems.ITEMS).setHardness(2f).setCreativeTab(LittleUtilities.lu);
 	public static final Block CEMENT_BRICKS_SLAB_DOUBLE = new BlockCementBricksSlabDouble("cement_bricks_slab_double",
-			Material.GROUND, BLOCKS, ModItems.ITEMS).setHardness(2f).setCreativeTab(LittleUtilities.lu);
+			Material.GROUND, BLOCKS, ModItems.ITEMS).setHardness(2f);
 
 	// Dye Reeds / Plants
 	public static final BlockDyeReeds REEDS_BLACK = (BlockDyeReeds) new BlockDyeReeds("reeds_black", Material.PLANTS,

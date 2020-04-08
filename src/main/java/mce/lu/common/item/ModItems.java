@@ -8,7 +8,12 @@ import net.minecraft.item.Item;
 import net.xendric.xenlib.common.core.item.ItemBase;
 
 public class ModItems {
-	public static final List<Item> ITEMS = new ArrayList<Item>();
+	public static final List<Item> ITEMS = new ArrayList<>();
+	public static Item[] PIGMENTS = { ModItems.PIGMENT_BLACK, ModItems.PIGMENT_RED, ModItems.PIGMENT_GREEN,
+			ModItems.PIGMENT_BROWN, ModItems.PIGMENT_BLUE, ModItems.PIGMENT_PURPLE, ModItems.PIGMENT_CYAN,
+			ModItems.PIGMENT_LIGHT_GRAY, ModItems.PIGMENT_GRAY, ModItems.PIGMENT_PINK, ModItems.PIGMENT_LIME,
+			ModItems.PIGMENT_YELLOW, ModItems.PIGMENT_LIGHT_BLUE, ModItems.PIGMENT_MAGENTA, ModItems.PIGMENT_ORANGE,
+			ModItems.PIGMENT_WHITE };
 
 	public static final Item SPONGE = new ItemBase("sponge", ITEMS).setCreativeTab(LittleUtilities.lu);
 	public static final Item PURE_QUARTZ = new ItemBase("pure_quartz", ITEMS).setCreativeTab(LittleUtilities.lu);
@@ -25,7 +30,8 @@ public class ModItems {
 	public static final Item REINFORCED_NETHERBRICK_PLATE = new ItemBase("reinforced_netherbrick_plate", ITEMS)
 			.setCreativeTab(LittleUtilities.lu);
 	public static final Item LAVA_BOTTLE = new ItemLavaBottle("lava_bottle", ITEMS).setCreativeTab(LittleUtilities.lu);
-	// public static final Item POWDER_MILK = new ItemBase("powder_milk", ITEMS).setCreativeTab(LittleUtilities.lu);
+	// public static final Item POWDER_MILK = new ItemBase("powder_milk",
+	// ITEMS).setCreativeTab(LittleUtilities.lu);
 
 	// public static final Item OBSIDIAN_BOAT = new
 	// ObsidianBoat("obsidian_boat");

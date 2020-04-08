@@ -58,7 +58,8 @@ item.sponge.guide=Can remove color from colorable blocks. Like glass, terracotta
 item.zombie_curing_kit.guide=The whole zombie curing process, in one item! Still need the same resources, but this item cures the zombie villager instantly. Still grants you the advancement.
 
 item.fertilizer.guide=Use it to fully grow stuff, like bonemeal in the good 'ol days. Also can make fertile dirt / farmland by right clicking 4 of them on normal dirt or farmland.
-item.lava_bottle.guide=Other mods could probably use this?
+item.lava_bottle.guide=Right click lava with an empty glass bottle! Other mods could probably use this too?
+item.pigments.guide=Use them like dyes! You can grow them from colored reeds. I wonder if I can feed it to a cow..
 
 // CHAT STUFF
 death.attack.spikes=%1$s was spiked to death
