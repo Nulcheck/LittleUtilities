@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import mce.lu.client.core.handler.GuiHandler;
 import mce.lu.client.core.handler.RecipeHandler;
 import mce.lu.common.block.ModBlocks;
+import mce.lu.common.core.handler.ModEntityRegistry;
 import mce.lu.common.core.handler.TileEntityRegistry;
 import mce.lu.common.core.proxy.CommonProxy;
 import mce.lu.common.item.ModItems;
@@ -38,7 +39,7 @@ import net.xendric.xenlib.common.util.Util;
 public class LittleUtilities {
 	@Instance(References.MOD_ID)
 	public static LittleUtilities instance;
-	
+
 	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 
@@ -50,8 +51,10 @@ public class LittleUtilities {
 			return new ItemStack(ModBlocks.CONDENSER);
 		}
 	};
-	static { FluidRegistry.enableUniversalBucket(); }
-	
+	static {
+		FluidRegistry.enableUniversalBucket();
+	}
+
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent e) {
 		proxy.preInit(e);
@@ -60,6 +63,7 @@ public class LittleUtilities {
 		ForgeRegistries.BLOCKS.registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
 		ForgeRegistries.ITEMS.registerAll(ModItems.ITEMS.toArray(new Item[0]));
 
+		ModEntityRegistry.registerEntities();
 		TileEntityRegistry.registerTileEntities();
 		GameRegistry.registerWorldGenerator(new WorldGenLavaLily(), 0);
 		OreDict.registerOreDict();

@@ -1,11 +1,15 @@
 package mce.lu.common.item;
 
+import javax.annotation.Nullable;
+
 import mce.lu.common.block.ModBlocks;
+import mce.lu.common.entity.EntityFireproofItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
@@ -25,6 +29,17 @@ import net.minecraftforge.event.ForgeEventFactory;
 public class ItemLavaLily extends ColoredItemBase {
 	public ItemLavaLily(Block block) {
 		super(block, false);
+	}
+
+	@Override
+	public boolean hasCustomEntity(ItemStack stack) {
+		return true;
+	}
+
+	@Nullable
+	@Override
+	public Entity createEntity(World world, Entity entity, ItemStack stack) {
+		return new EntityFireproofItem(world);
 	}
 
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
