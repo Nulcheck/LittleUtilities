@@ -20,7 +20,9 @@ public class EntityFireproofItem extends EntityItem {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if (source.isFireDamage())
+		if (this.world.isRemote || this.isDead)
+			return false;
+		if (!this.getItem().isEmpty() && source.isFireDamage())
 			return false;
 		else
 			return super.attackEntityFrom(source, amount);

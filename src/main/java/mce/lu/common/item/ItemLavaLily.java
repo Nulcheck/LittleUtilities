@@ -31,15 +31,15 @@ public class ItemLavaLily extends ColoredItemBase {
 		super(block, false);
 	}
 
-	@Override
-	public boolean hasCustomEntity(ItemStack stack) {
-		return true;
-	}
-
 	@Nullable
 	@Override
 	public Entity createEntity(World world, Entity entity, ItemStack stack) {
 		return new EntityFireproofItem(world);
+	}
+
+	@Override
+	public boolean hasCustomEntity(ItemStack stack) {
+		return true;
 	}
 
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
